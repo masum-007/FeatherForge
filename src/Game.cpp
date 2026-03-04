@@ -9,18 +9,18 @@ Game::Game()
       birdsRemaining(3) 
 {
     window.setFramerateLimit(60);
+    
+    worldView.setSize(1280, 720);
+    worldView.setCenter(640, 360);
+    uiView = window.getDefaultView(); 
 
-    // MUST CALL THIS FIRST!
     LoadAssets();
 
-    // Pass the memory addresses (&) of the textures to the entities
+    // Ground is still hardcoded as the foundation
     ground = std::make_unique<Entity>(*physics.GetWorld(), 640, 700, 1280, 40, EntityType::GROUND, &groundTex);
 
-    blocks.push_back(std::make_unique<Entity>(*physics.GetWorld(), 900, 650, 50, 50, EntityType::WOOD, &woodTex));
-    blocks.push_back(std::make_unique<Entity>(*physics.GetWorld(), 900, 600, 50, 50, EntityType::WOOD, &woodTex));
-    blocks.push_back(std::make_unique<Entity>(*physics.GetWorld(), 900, 550, 50, 50, EntityType::WOOD, &woodTex));
-    blocks.push_back(std::make_unique<Entity>(*physics.GetWorld(), 850, 650, 50, 50, EntityType::WOOD, &woodTex));
-    blocks.push_back(std::make_unique<Entity>(*physics.GetWorld(), 950, 650, 50, 50, EntityType::WOOD, &woodTex));
+    // --- LOAD THE JSON LEVEL INSTEAD OF HARDCODING BLOCKS ---
+    LoadLevel("assets/level1.json");
 
     SpawnBird();
 }
@@ -124,6 +124,19 @@ void Game::CheckBirdState() {
 void Game::Update() {
     physics.Update(1.0f / 60.0f);
     CheckBirdState();
+    // --- NEW CAMERA TRACKING LOGIC ---
+    if (bird && birdIsActive) {
+        float birdX = bird->GetBody()->GetPosition().x * SCALE;
+        
+        // Clamp the camera so it doesn't show the void behind the slingshot.
+        // It will only pan right if the bird passes the center of the screen (640).
+        float cameraX = std::max(640.0f, birdX);
+        
+        worldView.setCenter(cameraX, 360); // Keep Y locked to 360 for horizontal panning
+    } else {
+        // Reset camera back to the slingshot when the bird resets
+        worldView.setCenter(640, 360);
+    }
 }
 
 void Game::DrawEnvironment() {
@@ -167,9 +180,9 @@ void Game::DrawEnvironment() {
 }
 
 void Game::DrawSlingshot() {
-    // Draw the wooden base
-    sf::RectangleShape post(sf::Vector2f(15, 100));
-    post.setFillColor(sf::Color(101, 67, 33)); // Dark Brown
+    // FIX: Changed height from 100 to 120 so it touches the Y=680 ground line
+    sf::RectangleShape post(sf::Vector2f(15, 120)); 
+    post.setFillColor(sf::Color(101, 67, 33)); 
     post.setOrigin(7.5f, 0);
     post.setPosition(slingshotPos.x, slingshotPos.y + 10);
     window.draw(post);
@@ -229,26 +242,60 @@ void Game::LoadAssets() {
     birdTex.loadFromFile("assets/bird.png");
     woodTex.loadFromFile("assets/wood.png");
     groundTex.loadFromFile("assets/ground.png");
+    enemyTex.loadFromFile("assets/enemy.png");//added enemy
+}
+
+
+void Game::LoadLevel(const std::string& filepath) {
+    std::ifstream file(filepath);
+    if (!file.is_open()) {
+        printf("Failed to open level file: %s\n", filepath.c_str());
+        return;
+    }
+
+    nlohmann::json levelData;
+    file >> levelData;
+
+    // Loop through the "entities" array in the JSON
+    for (const auto& item : levelData["entities"]) {
+        std::string typeStr = item["type"];
+        float x = item["x"];
+        float y = item["y"];
+        float w = item["width"];
+        float h = item["height"];
+
+        if (typeStr == "wood") {
+            blocks.push_back(std::make_unique<Entity>(*physics.GetWorld(), x, y, w, h, EntityType::WOOD, &woodTex));
+        } 
+        else if (typeStr == "enemy") {
+            blocks.push_back(std::make_unique<Entity>(*physics.GetWorld(), x, y, w, h, EntityType::ENEMY, &enemyTex));
+        }
+    }
 }
 
 void Game::Render() {
+    // 1. APPLY THE GAME CAMERA
+    window.setView(worldView);
+
     DrawEnvironment();
     DrawSlingshot();
 
     ground->Render(window);
     
-    // Render Blocks
     for (auto& block : blocks) {
         block->Render(window);
     }
-    // --- ADD THIS TRAJECTORY CHECK ---
+    
     if (isDragging) {
         DrawTrajectory();
     }
-    // Render Bird
+    
     if (bird) {
         bird->Render(window);
     }
+
+    // 2. SWITCH TO UI CAMERA (so the UI doesn't fly away with the bird)
+    window.setView(uiView);
 
     // UI: Draw Remaining Birds counter
     for (int i = 0; i < birdsRemaining; i++) {

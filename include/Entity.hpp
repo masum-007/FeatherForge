@@ -4,7 +4,7 @@
 
 const float SCALE = 30.0f; // 30 pixels per meter
 
-enum class EntityType { BIRD, WOOD, GROUND };
+enum class EntityType { BIRD, WOOD, GROUND, ENEMY }; // Added ENEMY
 
 class Entity {
 public:

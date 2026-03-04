@@ -1,0 +1,9 @@
+{
+    "level_id": 1,
+    "entities": [
+        {"type": "wood", "x": 900, "y": 650, "width": 50, "height": 50},
+        {"type": "wood", "x": 1000, "y": 650, "width": 50, "height": 50},
+        {"type": "wood", "x": 950, "y": 550, "width": 150, "height": 20},
+        {"type": "enemy", "x": 950, "y": 650, "width": 40, "height": 40}
+    ]
+}

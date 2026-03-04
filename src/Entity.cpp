@@ -16,18 +16,38 @@ Entity::Entity(b2World& world, float x, float y, float w, float h, EntityType ty
     body = world.CreateBody(&bodyDef);
 
     // 2. Define Shape & Fixture
-    b2PolygonShape boxShape;
-    boxShape.SetAsBox((w / 2.0f) / SCALE, (h / 2.0f) / SCALE);
-
     b2FixtureDef fixtureDef;
-    fixtureDef.shape = &boxShape;
     fixtureDef.density = 1.0f;
     fixtureDef.friction = 0.3f;
 
-    if (type == EntityType::BIRD) fixtureDef.restitution = 0.5f; 
-    if (type == EntityType::WOOD) fixtureDef.density = 0.8f;     
+    b2PolygonShape boxShape;
+    b2CircleShape circleShape; // Box2D circle math
+
+    if (type == EntityType::ENEMY || type == EntityType::BIRD) {
+        circleShape.m_radius = (w / 2.0f) / SCALE;
+        fixtureDef.shape = &circleShape;
+        fixtureDef.restitution = 0.4f; // slightly bouncy
+    } else {
+        boxShape.SetAsBox((w / 2.0f) / SCALE, (h / 2.0f) / SCALE);
+        fixtureDef.shape = &boxShape;
+        if (type == EntityType::WOOD) fixtureDef.density = 0.8f;
+    }
 
     body->CreateFixture(&fixtureDef);
+
+    // 3. Setup SFML Graphics
+    shape.setSize(sf::Vector2f(w, h));
+    shape.setOrigin(w / 2.0f, h / 2.0f);
+    
+    // FIX: Check if texture exists AND actually loaded an image (size > 0)
+    if (texture && texture->getSize().x > 0) {
+        shape.setTexture(texture); 
+    } else {
+        if (type == EntityType::BIRD) shape.setFillColor(sf::Color::Red);
+        else if (type == EntityType::WOOD) shape.setFillColor(sf::Color(139, 69, 19)); 
+        else if (type == EntityType::ENEMY) shape.setFillColor(sf::Color::Red); // Now it will be red!
+        else shape.setFillColor(sf::Color(34, 139, 34)); // Ground
+    }
 
     // 3. Setup SFML Graphics
     shape.setSize(sf::Vector2f(w, h));
