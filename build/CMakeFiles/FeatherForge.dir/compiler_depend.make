@@ -475,7 +475,6 @@ CMakeFiles/FeatherForge.dir/src/Game.cpp.obj: C:/Users/masum/Desktop/FeatherForg
   C:/msys64/mingw64/include/c++/15.2.0/bits/hash_bytes.h \
   C:/msys64/mingw64/include/c++/15.2.0/bits/invoke.h \
   C:/msys64/mingw64/include/c++/15.2.0/bits/ios_base.h \
-  C:/msys64/mingw64/include/c++/15.2.0/bits/istream.tcc \
   C:/msys64/mingw64/include/c++/15.2.0/bits/locale_classes.h \
   C:/msys64/mingw64/include/c++/15.2.0/bits/locale_classes.tcc \
   C:/msys64/mingw64/include/c++/15.2.0/bits/locale_conv.h \
@@ -557,8 +556,6 @@ CMakeFiles/FeatherForge.dir/src/Game.cpp.obj: C:/Users/masum/Desktop/FeatherForg
   C:/msys64/mingw64/include/c++/15.2.0/initializer_list \
   C:/msys64/mingw64/include/c++/15.2.0/ios \
   C:/msys64/mingw64/include/c++/15.2.0/iosfwd \
-  C:/msys64/mingw64/include/c++/15.2.0/iostream \
-  C:/msys64/mingw64/include/c++/15.2.0/istream \
   C:/msys64/mingw64/include/c++/15.2.0/iterator \
   C:/msys64/mingw64/include/c++/15.2.0/limits \
   C:/msys64/mingw64/include/c++/15.2.0/locale \
@@ -1108,8 +1105,6 @@ C:/Users/masum/Desktop/FeatherForge/src/PhysicsWorld.cpp:
 
 C:/msys64/mingw64/include/c++/15.2.0/pstl/glue_memory_defs.h:
 
-C:/msys64/mingw64/include/c++/15.2.0/istream:
-
 C:/msys64/mingw64/include/c++/15.2.0/ext/concurrence.h:
 
 C:/msys64/mingw64/include/c++/15.2.0/bits/shared_ptr.h:
@@ -1125,8 +1120,6 @@ C:/Users/masum/Desktop/FeatherForge/include/PhysicsWorld.hpp:
 C:/Users/masum/Desktop/FeatherForge/src/Game.cpp:
 
 C:/msys64/mingw64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/stdarg.h:
-
-C:/msys64/mingw64/include/c++/15.2.0/bits/istream.tcc:
 
 C:/msys64/mingw64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/mm_malloc.h:
 
@@ -1705,8 +1698,6 @@ C:/msys64/mingw64/include/c++/15.2.0/ctime:
 _deps/box2d-src/include/box2d/b2_api.h:
 
 C:/msys64/mingw64/include/c++/15.2.0/cwchar:
-
-C:/msys64/mingw64/include/c++/15.2.0/iostream:
 
 C:/msys64/mingw64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/stddef.h:
 

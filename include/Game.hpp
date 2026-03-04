@@ -14,8 +14,13 @@ private:
     void ProcessEvents();
     void Update();
     void Render();
-    void HandleSlingshotInput();
-
+    
+    // New Features
+    void SpawnBird();
+    void CheckBirdState();
+    void DrawEnvironment();
+    void DrawSlingshot();
+    void DrawTrajectory(); // <--- ADD THIS LINE
     sf::RenderWindow window;
     PhysicsWorld physics;
     
@@ -25,6 +30,8 @@ private:
     std::unique_ptr<Entity> ground;
 
     // Slingshot State
+    sf::Vector2f slingshotPos;
     bool isDragging;
-    sf::Vector2f dragStartPos;
+    bool birdIsActive;
+    int birdsRemaining;
 };
