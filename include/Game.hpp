@@ -21,6 +21,15 @@ private:
     void DrawEnvironment();
     void DrawSlingshot();
     void DrawTrajectory(); // <--- ADD THIS LINE
+
+    void LoadAssets(); // The new asset loader
+       
+    // Textures stored in memory
+    sf::Texture birdTex;
+    sf::Texture woodTex;
+    sf::Texture groundTex;
+
+
     sf::RenderWindow window;
     PhysicsWorld physics;
     

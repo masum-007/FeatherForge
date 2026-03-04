@@ -3,32 +3,33 @@
 
 Game::Game() 
     : window(sf::VideoMode(1280, 720), "FeatherForge Engine"), 
-      slingshotPos(200, 550), // Set the anchor point for the slingshot
+      slingshotPos(200, 550), 
       isDragging(false),
       birdIsActive(false),
-      birdsRemaining(3) // 3 birds per level as per Minimum Requirements
+      birdsRemaining(3) 
 {
     window.setFramerateLimit(60);
 
-    // Ground
-    ground = std::make_unique<Entity>(*physics.GetWorld(), 640, 700, 1280, 40, EntityType::GROUND);
+    // MUST CALL THIS FIRST!
+    LoadAssets();
 
-    // The Tower
-    blocks.push_back(std::make_unique<Entity>(*physics.GetWorld(), 900, 650, 50, 50, EntityType::WOOD));
-    blocks.push_back(std::make_unique<Entity>(*physics.GetWorld(), 900, 600, 50, 50, EntityType::WOOD));
-    blocks.push_back(std::make_unique<Entity>(*physics.GetWorld(), 900, 550, 50, 50, EntityType::WOOD));
-    blocks.push_back(std::make_unique<Entity>(*physics.GetWorld(), 850, 650, 50, 50, EntityType::WOOD));
-    blocks.push_back(std::make_unique<Entity>(*physics.GetWorld(), 950, 650, 50, 50, EntityType::WOOD));
+    // Pass the memory addresses (&) of the textures to the entities
+    ground = std::make_unique<Entity>(*physics.GetWorld(), 640, 700, 1280, 40, EntityType::GROUND, &groundTex);
 
-    // Load first bird
+    blocks.push_back(std::make_unique<Entity>(*physics.GetWorld(), 900, 650, 50, 50, EntityType::WOOD, &woodTex));
+    blocks.push_back(std::make_unique<Entity>(*physics.GetWorld(), 900, 600, 50, 50, EntityType::WOOD, &woodTex));
+    blocks.push_back(std::make_unique<Entity>(*physics.GetWorld(), 900, 550, 50, 50, EntityType::WOOD, &woodTex));
+    blocks.push_back(std::make_unique<Entity>(*physics.GetWorld(), 850, 650, 50, 50, EntityType::WOOD, &woodTex));
+    blocks.push_back(std::make_unique<Entity>(*physics.GetWorld(), 950, 650, 50, 50, EntityType::WOOD, &woodTex));
+
     SpawnBird();
 }
 
 void Game::SpawnBird() {
     if (birdsRemaining > 0) {
-        // Create bird exactly at the slingshot position
-        bird = std::make_unique<Entity>(*physics.GetWorld(), slingshotPos.x, slingshotPos.y, 30, 30, EntityType::BIRD);
-        bird->GetBody()->SetType(b2_kinematicBody); // Make it ignore gravity while on the slingshot
+        // Don't forget to pass the bird texture here too!
+        bird = std::make_unique<Entity>(*physics.GetWorld(), slingshotPos.x, slingshotPos.y, 30, 30, EntityType::BIRD, &birdTex);
+        bird->GetBody()->SetType(b2_kinematicBody); 
         birdIsActive = false;
         isDragging = false;
     }
@@ -107,11 +108,13 @@ void Game::CheckBirdState() {
     if (!birdIsActive || !bird) return;
     
     b2Vec2 pos = bird->GetBody()->GetPosition();
-    b2Vec2 vel = bird->GetBody()->GetLinearVelocity();
     
-    // Check if bird is off screen or has completely stopped moving on the ground
+    // 1. Check if the bird flew completely off the screen
     bool offScreen = pos.x * SCALE > 1300 || pos.x * SCALE < -100 || pos.y * SCALE > 800;
-    bool stopped = (vel.LengthSquared() < 0.1f && pos.y * SCALE > 650);
+
+    // 2. Check if the bird has come to a complete rest anywhere (ground OR on wood)
+    // Box2D sets IsAwake() to false automatically when an object stops moving!
+    bool stopped = !bird->GetBody()->IsAwake();
 
     if (offScreen || stopped) {
         SpawnBird(); // Reload the next bird
@@ -218,6 +221,14 @@ void Game::DrawTrajectory() {
         
         window.draw(dot);
     }
+}
+
+void Game::LoadAssets() {
+    // These load the images from the assets folder.
+    // If it fails, SFML will print an error to your terminal automatically.
+    birdTex.loadFromFile("assets/bird.png");
+    woodTex.loadFromFile("assets/wood.png");
+    groundTex.loadFromFile("assets/ground.png");
 }
 
 void Game::Render() {

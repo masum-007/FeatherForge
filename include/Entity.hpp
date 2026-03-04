@@ -8,7 +8,9 @@ enum class EntityType { BIRD, WOOD, GROUND };
 
 class Entity {
 public:
-    Entity(b2World& world, float x, float y, float width, float height, EntityType type);
+    // UPDATE THIS LINE: Add the sf::Texture pointer at the end
+    Entity(b2World& world, float x, float y, float width, float height, EntityType type, sf::Texture* texture = nullptr);
+    
     void Render(sf::RenderWindow& window);
     b2Body* GetBody() { return body; }
 

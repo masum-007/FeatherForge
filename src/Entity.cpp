@@ -1,6 +1,6 @@
 #include "Entity.hpp"
 
-Entity::Entity(b2World& world, float x, float y, float w, float h, EntityType type) 
+Entity::Entity(b2World& world, float x, float y, float w, float h, EntityType type, sf::Texture* texture) 
     : width(w), height(h) {
     
     // 1. Define Body
@@ -8,38 +8,43 @@ Entity::Entity(b2World& world, float x, float y, float w, float h, EntityType ty
     bodyDef.position.Set(x / SCALE, y / SCALE);
 
     if (type == EntityType::GROUND) {
-        bodyDef.type = b2_staticBody; // Static: Doesn't move 
+        bodyDef.type = b2_staticBody; 
     } else {
-        bodyDef.type = b2_dynamicBody; // Dynamic: Affected by gravity/forces
+        bodyDef.type = b2_dynamicBody; 
     }
     
     body = world.CreateBody(&bodyDef);
 
-    // 2. Define Shape
+    // 2. Define Shape & Fixture
     b2PolygonShape boxShape;
     boxShape.SetAsBox((w / 2.0f) / SCALE, (h / 2.0f) / SCALE);
 
-    // 3. Define Fixture (Physical properties like friction/density)
     b2FixtureDef fixtureDef;
     fixtureDef.shape = &boxShape;
     fixtureDef.density = 1.0f;
     fixtureDef.friction = 0.3f;
 
-    // Set specialized properties based on material [cite: 116]
-    if (type == EntityType::BIRD) fixtureDef.restitution = 0.5f; // Bouncy
-    if (type == EntityType::WOOD) fixtureDef.density = 0.8f;     // Light
+    if (type == EntityType::BIRD) fixtureDef.restitution = 0.5f; 
+    if (type == EntityType::WOOD) fixtureDef.density = 0.8f;     
 
     body->CreateFixture(&fixtureDef);
 
-    // 4. Setup SFML Graphics
+    // 3. Setup SFML Graphics
     shape.setSize(sf::Vector2f(w, h));
     shape.setOrigin(w / 2.0f, h / 2.0f);
     
-    if (type == EntityType::BIRD) shape.setFillColor(sf::Color::Red);
-    else if (type == EntityType::WOOD) shape.setFillColor(sf::Color(139, 69, 19)); // Brown
-    else shape.setFillColor(sf::Color::Green);
+    // --- NEW TEXTURE LOGIC ---
+    if (texture) {
+        shape.setTexture(texture); // Map the image to the box!
+    } else {
+        // Fallback to solid colors if the image file is missing
+        if (type == EntityType::BIRD) shape.setFillColor(sf::Color::Red);
+        else if (type == EntityType::WOOD) shape.setFillColor(sf::Color(139, 69, 19)); 
+        else shape.setFillColor(sf::Color::Green);
+    }
 }
 
+// ... Keep your Entity::Render function exactly the same ...
 void Entity::Render(sf::RenderWindow& window) {
     // Sync Graphics with Physics
     b2Vec2 position = body->GetPosition();
