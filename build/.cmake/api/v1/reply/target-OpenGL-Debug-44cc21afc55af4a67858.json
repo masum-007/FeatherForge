@@ -1,0 +1,70 @@
+{
+	"abstract" : true,
+	"backtrace" : 3,
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"add_library",
+			"sfml_add_external",
+			"sfml_find_package",
+			"target_link_libraries"
+		],
+		"files" : 
+		[
+			"build/_deps/sfml-src/cmake/Macros.cmake",
+			"build/_deps/sfml-src/src/SFML/Window/CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 1
+			},
+			{
+				"command" : 2,
+				"file" : 1,
+				"line" : 328,
+				"parent" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 405,
+				"parent" : 1
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 341,
+				"parent" : 2
+			},
+			{
+				"command" : 3,
+				"file" : 0,
+				"line" : 357,
+				"parent" : 2
+			}
+		]
+	},
+	"codemodelVersion" : 
+	{
+		"major" : 2,
+		"minor" : 9
+	},
+	"id" : "OpenGL::@5730451e331e3690ae65",
+	"interfaceLinkLibraries" : 
+	[
+		{
+			"backtrace" : 4,
+			"fragment" : "opengl32"
+		}
+	],
+	"name" : "OpenGL",
+	"paths" : 
+	{
+		"build" : "_deps/sfml-build/src/SFML/Window",
+		"source" : "build/_deps/sfml-src/src/SFML/Window"
+	},
+	"sources" : [],
+	"type" : "INTERFACE_LIBRARY"
+}

@@ -1,0 +1,12 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-build/src/SFML/Window/sfml-window.rc
+winresrc.h
+C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-build/src/SFML/Window/winresrc.h
+

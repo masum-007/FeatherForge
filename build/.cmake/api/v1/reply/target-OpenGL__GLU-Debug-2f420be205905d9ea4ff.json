@@ -1,0 +1,84 @@
+{
+	"abstract" : true,
+	"backtrace" : 4,
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"add_library",
+			"find_package",
+			"sfml_find_package",
+			"set_target_properties"
+		],
+		"files" : 
+		[
+			"C:/msys64/mingw64/share/cmake/Modules/FindOpenGL.cmake",
+			"build/_deps/sfml-src/cmake/Macros.cmake",
+			"build/_deps/sfml-src/src/SFML/Window/CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 2
+			},
+			{
+				"command" : 2,
+				"file" : 2,
+				"line" : 328,
+				"parent" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 1,
+				"line" : 386,
+				"parent" : 1
+			},
+			{
+				"file" : 0,
+				"parent" : 2
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 865,
+				"parent" : 3
+			},
+			{
+				"command" : 3,
+				"file" : 0,
+				"line" : 869,
+				"parent" : 3
+			}
+		]
+	},
+	"codemodelVersion" : 
+	{
+		"major" : 2,
+		"minor" : 9
+	},
+	"id" : "OpenGL::GLU::@5730451e331e3690ae65",
+	"imported" : true,
+	"interfaceCompileDependencies" : 
+	[
+		{
+			"backtrace" : 5,
+			"id" : "OpenGL::GL::@5730451e331e3690ae65"
+		}
+	],
+	"interfaceLinkLibraries" : 
+	[
+		{
+			"backtrace" : 5,
+			"id" : "OpenGL::GL::@5730451e331e3690ae65"
+		}
+	],
+	"local" : true,
+	"name" : "OpenGL::GLU",
+	"paths" : 
+	{
+		"build" : "_deps/sfml-build/src/SFML/Window",
+		"source" : "build/_deps/sfml-src/src/SFML/Window"
+	},
+	"sources" : [],
+	"type" : "INTERFACE_LIBRARY"
+}

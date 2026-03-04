@@ -1,0 +1,1460 @@
+[
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe -DSFML_STATIC @CMakeFiles/FeatherForge.dir/includes_CXX.rsp -g -std=gnu++17 -o CMakeFiles\\FeatherForge.dir\\src\\Entity.cpp.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\src\\Entity.cpp",
+  "file": "C:/Users/masum/Desktop/FeatherForge/src/Entity.cpp",
+  "output": "CMakeFiles/FeatherForge.dir/src/Entity.cpp.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe -DSFML_STATIC @CMakeFiles/FeatherForge.dir/includes_CXX.rsp -g -std=gnu++17 -o CMakeFiles\\FeatherForge.dir\\src\\Game.cpp.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\src\\Game.cpp",
+  "file": "C:/Users/masum/Desktop/FeatherForge/src/Game.cpp",
+  "output": "CMakeFiles/FeatherForge.dir/src/Game.cpp.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe -DSFML_STATIC @CMakeFiles/FeatherForge.dir/includes_CXX.rsp -g -std=gnu++17 -o CMakeFiles\\FeatherForge.dir\\src\\PhysicsWorld.cpp.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\src\\PhysicsWorld.cpp",
+  "file": "C:/Users/masum/Desktop/FeatherForge/src/PhysicsWorld.cpp",
+  "output": "CMakeFiles/FeatherForge.dir/src/PhysicsWorld.cpp.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe -DSFML_STATIC @CMakeFiles/FeatherForge.dir/includes_CXX.rsp -g -std=gnu++17 -o CMakeFiles\\FeatherForge.dir\\src\\main.cpp.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\src\\main.cpp",
+  "file": "C:/Users/masum/Desktop/FeatherForge/src/main.cpp",
+  "output": "CMakeFiles/FeatherForge.dir/src/main.cpp.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-build/src/SFML/System",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe -DSFML_STATIC @CMakeFiles/sfml-system.dir/includes_CXX.rsp -g -std=gnu++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches -o CMakeFiles\\sfml-system.dir\\Clock.cpp.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\sfml-src\\src\\SFML\\System\\Clock.cpp",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-src/src/SFML/System/Clock.cpp",
+  "output": "_deps/sfml-build/src/SFML/System/CMakeFiles/sfml-system.dir/Clock.cpp.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-build/src/SFML/System",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe -DSFML_STATIC @CMakeFiles/sfml-system.dir/includes_CXX.rsp -g -std=gnu++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches -o CMakeFiles\\sfml-system.dir\\Err.cpp.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\sfml-src\\src\\SFML\\System\\Err.cpp",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-src/src/SFML/System/Err.cpp",
+  "output": "_deps/sfml-build/src/SFML/System/CMakeFiles/sfml-system.dir/Err.cpp.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-build/src/SFML/System",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe -DSFML_STATIC @CMakeFiles/sfml-system.dir/includes_CXX.rsp -g -std=gnu++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches -o CMakeFiles\\sfml-system.dir\\Lock.cpp.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\sfml-src\\src\\SFML\\System\\Lock.cpp",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-src/src/SFML/System/Lock.cpp",
+  "output": "_deps/sfml-build/src/SFML/System/CMakeFiles/sfml-system.dir/Lock.cpp.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-build/src/SFML/System",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe -DSFML_STATIC @CMakeFiles/sfml-system.dir/includes_CXX.rsp -g -std=gnu++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches -o CMakeFiles\\sfml-system.dir\\Mutex.cpp.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\sfml-src\\src\\SFML\\System\\Mutex.cpp",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-src/src/SFML/System/Mutex.cpp",
+  "output": "_deps/sfml-build/src/SFML/System/CMakeFiles/sfml-system.dir/Mutex.cpp.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-build/src/SFML/System",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe -DSFML_STATIC @CMakeFiles/sfml-system.dir/includes_CXX.rsp -g -std=gnu++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches -o CMakeFiles\\sfml-system.dir\\Sleep.cpp.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\sfml-src\\src\\SFML\\System\\Sleep.cpp",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-src/src/SFML/System/Sleep.cpp",
+  "output": "_deps/sfml-build/src/SFML/System/CMakeFiles/sfml-system.dir/Sleep.cpp.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-build/src/SFML/System",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe -DSFML_STATIC @CMakeFiles/sfml-system.dir/includes_CXX.rsp -g -std=gnu++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches -o CMakeFiles\\sfml-system.dir\\String.cpp.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\sfml-src\\src\\SFML\\System\\String.cpp",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-src/src/SFML/System/String.cpp",
+  "output": "_deps/sfml-build/src/SFML/System/CMakeFiles/sfml-system.dir/String.cpp.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-build/src/SFML/System",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe -DSFML_STATIC @CMakeFiles/sfml-system.dir/includes_CXX.rsp -g -std=gnu++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches -o CMakeFiles\\sfml-system.dir\\Thread.cpp.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\sfml-src\\src\\SFML\\System\\Thread.cpp",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-src/src/SFML/System/Thread.cpp",
+  "output": "_deps/sfml-build/src/SFML/System/CMakeFiles/sfml-system.dir/Thread.cpp.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-build/src/SFML/System",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe -DSFML_STATIC @CMakeFiles/sfml-system.dir/includes_CXX.rsp -g -std=gnu++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches -o CMakeFiles\\sfml-system.dir\\ThreadLocal.cpp.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\sfml-src\\src\\SFML\\System\\ThreadLocal.cpp",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-src/src/SFML/System/ThreadLocal.cpp",
+  "output": "_deps/sfml-build/src/SFML/System/CMakeFiles/sfml-system.dir/ThreadLocal.cpp.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-build/src/SFML/System",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe -DSFML_STATIC @CMakeFiles/sfml-system.dir/includes_CXX.rsp -g -std=gnu++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches -o CMakeFiles\\sfml-system.dir\\Time.cpp.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\sfml-src\\src\\SFML\\System\\Time.cpp",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-src/src/SFML/System/Time.cpp",
+  "output": "_deps/sfml-build/src/SFML/System/CMakeFiles/sfml-system.dir/Time.cpp.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-build/src/SFML/System",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe -DSFML_STATIC @CMakeFiles/sfml-system.dir/includes_CXX.rsp -g -std=gnu++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches -o CMakeFiles\\sfml-system.dir\\FileInputStream.cpp.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\sfml-src\\src\\SFML\\System\\FileInputStream.cpp",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-src/src/SFML/System/FileInputStream.cpp",
+  "output": "_deps/sfml-build/src/SFML/System/CMakeFiles/sfml-system.dir/FileInputStream.cpp.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-build/src/SFML/System",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe -DSFML_STATIC @CMakeFiles/sfml-system.dir/includes_CXX.rsp -g -std=gnu++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches -o CMakeFiles\\sfml-system.dir\\MemoryInputStream.cpp.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\sfml-src\\src\\SFML\\System\\MemoryInputStream.cpp",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-src/src/SFML/System/MemoryInputStream.cpp",
+  "output": "_deps/sfml-build/src/SFML/System/CMakeFiles/sfml-system.dir/MemoryInputStream.cpp.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-build/src/SFML/System",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe -DSFML_STATIC @CMakeFiles/sfml-system.dir/includes_CXX.rsp -g -std=gnu++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches -o CMakeFiles\\sfml-system.dir\\Win32\\ClockImpl.cpp.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\sfml-src\\src\\SFML\\System\\Win32\\ClockImpl.cpp",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-src/src/SFML/System/Win32/ClockImpl.cpp",
+  "output": "_deps/sfml-build/src/SFML/System/CMakeFiles/sfml-system.dir/Win32/ClockImpl.cpp.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-build/src/SFML/System",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe -DSFML_STATIC @CMakeFiles/sfml-system.dir/includes_CXX.rsp -g -std=gnu++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches -o CMakeFiles\\sfml-system.dir\\Win32\\MutexImpl.cpp.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\sfml-src\\src\\SFML\\System\\Win32\\MutexImpl.cpp",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-src/src/SFML/System/Win32/MutexImpl.cpp",
+  "output": "_deps/sfml-build/src/SFML/System/CMakeFiles/sfml-system.dir/Win32/MutexImpl.cpp.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-build/src/SFML/System",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe -DSFML_STATIC @CMakeFiles/sfml-system.dir/includes_CXX.rsp -g -std=gnu++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches -o CMakeFiles\\sfml-system.dir\\Win32\\SleepImpl.cpp.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\sfml-src\\src\\SFML\\System\\Win32\\SleepImpl.cpp",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-src/src/SFML/System/Win32/SleepImpl.cpp",
+  "output": "_deps/sfml-build/src/SFML/System/CMakeFiles/sfml-system.dir/Win32/SleepImpl.cpp.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-build/src/SFML/System",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe -DSFML_STATIC @CMakeFiles/sfml-system.dir/includes_CXX.rsp -g -std=gnu++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches -o CMakeFiles\\sfml-system.dir\\Win32\\ThreadImpl.cpp.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\sfml-src\\src\\SFML\\System\\Win32\\ThreadImpl.cpp",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-src/src/SFML/System/Win32/ThreadImpl.cpp",
+  "output": "_deps/sfml-build/src/SFML/System/CMakeFiles/sfml-system.dir/Win32/ThreadImpl.cpp.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-build/src/SFML/System",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe -DSFML_STATIC @CMakeFiles/sfml-system.dir/includes_CXX.rsp -g -std=gnu++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches -o CMakeFiles\\sfml-system.dir\\Win32\\ThreadLocalImpl.cpp.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\sfml-src\\src\\SFML\\System\\Win32\\ThreadLocalImpl.cpp",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-src/src/SFML/System/Win32/ThreadLocalImpl.cpp",
+  "output": "_deps/sfml-build/src/SFML/System/CMakeFiles/sfml-system.dir/Win32/ThreadLocalImpl.cpp.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-build/src/SFML/Main",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe -DSFML_STATIC @CMakeFiles/sfml-main.dir/includes_CXX.rsp -g -std=gnu++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches -o CMakeFiles\\sfml-main.dir\\MainWin32.cpp.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\sfml-src\\src\\SFML\\Main\\MainWin32.cpp",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-src/src/SFML/Main/MainWin32.cpp",
+  "output": "_deps/sfml-build/src/SFML/Main/CMakeFiles/sfml-main.dir/MainWin32.cpp.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-build/src/SFML/Window",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe -DSFML_STATIC -DUNICODE -D_UNICODE @CMakeFiles/sfml-window.dir/includes_CXX.rsp -g -std=gnu++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches -o CMakeFiles\\sfml-window.dir\\Clipboard.cpp.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\sfml-src\\src\\SFML\\Window\\Clipboard.cpp",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-src/src/SFML/Window/Clipboard.cpp",
+  "output": "_deps/sfml-build/src/SFML/Window/CMakeFiles/sfml-window.dir/Clipboard.cpp.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-build/src/SFML/Window",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe -DSFML_STATIC -DUNICODE -D_UNICODE @CMakeFiles/sfml-window.dir/includes_CXX.rsp -g -std=gnu++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches -o CMakeFiles\\sfml-window.dir\\Context.cpp.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\sfml-src\\src\\SFML\\Window\\Context.cpp",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-src/src/SFML/Window/Context.cpp",
+  "output": "_deps/sfml-build/src/SFML/Window/CMakeFiles/sfml-window.dir/Context.cpp.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-build/src/SFML/Window",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe -DSFML_STATIC -DUNICODE -D_UNICODE @CMakeFiles/sfml-window.dir/includes_CXX.rsp -g -std=gnu++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches -o CMakeFiles\\sfml-window.dir\\Cursor.cpp.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\sfml-src\\src\\SFML\\Window\\Cursor.cpp",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-src/src/SFML/Window/Cursor.cpp",
+  "output": "_deps/sfml-build/src/SFML/Window/CMakeFiles/sfml-window.dir/Cursor.cpp.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-build/src/SFML/Window",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe -DSFML_STATIC -DUNICODE -D_UNICODE @CMakeFiles/sfml-window.dir/includes_CXX.rsp -g -std=gnu++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches -o CMakeFiles\\sfml-window.dir\\GlContext.cpp.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\sfml-src\\src\\SFML\\Window\\GlContext.cpp",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-src/src/SFML/Window/GlContext.cpp",
+  "output": "_deps/sfml-build/src/SFML/Window/CMakeFiles/sfml-window.dir/GlContext.cpp.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-build/src/SFML/Window",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe -DSFML_STATIC -DUNICODE -D_UNICODE @CMakeFiles/sfml-window.dir/includes_CXX.rsp -g -std=gnu++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches -o CMakeFiles\\sfml-window.dir\\GlResource.cpp.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\sfml-src\\src\\SFML\\Window\\GlResource.cpp",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-src/src/SFML/Window/GlResource.cpp",
+  "output": "_deps/sfml-build/src/SFML/Window/CMakeFiles/sfml-window.dir/GlResource.cpp.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-build/src/SFML/Window",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe -DSFML_STATIC -DUNICODE -D_UNICODE @CMakeFiles/sfml-window.dir/includes_CXX.rsp -g -std=gnu++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches -o CMakeFiles\\sfml-window.dir\\Joystick.cpp.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\sfml-src\\src\\SFML\\Window\\Joystick.cpp",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-src/src/SFML/Window/Joystick.cpp",
+  "output": "_deps/sfml-build/src/SFML/Window/CMakeFiles/sfml-window.dir/Joystick.cpp.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-build/src/SFML/Window",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe -DSFML_STATIC -DUNICODE -D_UNICODE @CMakeFiles/sfml-window.dir/includes_CXX.rsp -g -std=gnu++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches -o CMakeFiles\\sfml-window.dir\\JoystickManager.cpp.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\sfml-src\\src\\SFML\\Window\\JoystickManager.cpp",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-src/src/SFML/Window/JoystickManager.cpp",
+  "output": "_deps/sfml-build/src/SFML/Window/CMakeFiles/sfml-window.dir/JoystickManager.cpp.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-build/src/SFML/Window",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe -DSFML_STATIC -DUNICODE -D_UNICODE @CMakeFiles/sfml-window.dir/includes_CXX.rsp -g -std=gnu++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches -o CMakeFiles\\sfml-window.dir\\Keyboard.cpp.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\sfml-src\\src\\SFML\\Window\\Keyboard.cpp",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-src/src/SFML/Window/Keyboard.cpp",
+  "output": "_deps/sfml-build/src/SFML/Window/CMakeFiles/sfml-window.dir/Keyboard.cpp.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-build/src/SFML/Window",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe -DSFML_STATIC -DUNICODE -D_UNICODE @CMakeFiles/sfml-window.dir/includes_CXX.rsp -g -std=gnu++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches -o CMakeFiles\\sfml-window.dir\\Mouse.cpp.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\sfml-src\\src\\SFML\\Window\\Mouse.cpp",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-src/src/SFML/Window/Mouse.cpp",
+  "output": "_deps/sfml-build/src/SFML/Window/CMakeFiles/sfml-window.dir/Mouse.cpp.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-build/src/SFML/Window",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe -DSFML_STATIC -DUNICODE -D_UNICODE @CMakeFiles/sfml-window.dir/includes_CXX.rsp -g -std=gnu++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches -o CMakeFiles\\sfml-window.dir\\Touch.cpp.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\sfml-src\\src\\SFML\\Window\\Touch.cpp",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-src/src/SFML/Window/Touch.cpp",
+  "output": "_deps/sfml-build/src/SFML/Window/CMakeFiles/sfml-window.dir/Touch.cpp.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-build/src/SFML/Window",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe -DSFML_STATIC -DUNICODE -D_UNICODE @CMakeFiles/sfml-window.dir/includes_CXX.rsp -g -std=gnu++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches -o CMakeFiles\\sfml-window.dir\\Sensor.cpp.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\sfml-src\\src\\SFML\\Window\\Sensor.cpp",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-src/src/SFML/Window/Sensor.cpp",
+  "output": "_deps/sfml-build/src/SFML/Window/CMakeFiles/sfml-window.dir/Sensor.cpp.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-build/src/SFML/Window",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe -DSFML_STATIC -DUNICODE -D_UNICODE @CMakeFiles/sfml-window.dir/includes_CXX.rsp -g -std=gnu++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches -o CMakeFiles\\sfml-window.dir\\SensorManager.cpp.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\sfml-src\\src\\SFML\\Window\\SensorManager.cpp",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-src/src/SFML/Window/SensorManager.cpp",
+  "output": "_deps/sfml-build/src/SFML/Window/CMakeFiles/sfml-window.dir/SensorManager.cpp.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-build/src/SFML/Window",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe -DSFML_STATIC -DUNICODE -D_UNICODE @CMakeFiles/sfml-window.dir/includes_CXX.rsp -g -std=gnu++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches -o CMakeFiles\\sfml-window.dir\\VideoMode.cpp.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\sfml-src\\src\\SFML\\Window\\VideoMode.cpp",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-src/src/SFML/Window/VideoMode.cpp",
+  "output": "_deps/sfml-build/src/SFML/Window/CMakeFiles/sfml-window.dir/VideoMode.cpp.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-build/src/SFML/Window",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe -DSFML_STATIC -DUNICODE -D_UNICODE @CMakeFiles/sfml-window.dir/includes_CXX.rsp -g -std=gnu++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches -o CMakeFiles\\sfml-window.dir\\Vulkan.cpp.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\sfml-src\\src\\SFML\\Window\\Vulkan.cpp",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-src/src/SFML/Window/Vulkan.cpp",
+  "output": "_deps/sfml-build/src/SFML/Window/CMakeFiles/sfml-window.dir/Vulkan.cpp.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-build/src/SFML/Window",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe -DSFML_STATIC -DUNICODE -D_UNICODE @CMakeFiles/sfml-window.dir/includes_CXX.rsp -g -std=gnu++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches -o CMakeFiles\\sfml-window.dir\\Window.cpp.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\sfml-src\\src\\SFML\\Window\\Window.cpp",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-src/src/SFML/Window/Window.cpp",
+  "output": "_deps/sfml-build/src/SFML/Window/CMakeFiles/sfml-window.dir/Window.cpp.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-build/src/SFML/Window",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe -DSFML_STATIC -DUNICODE -D_UNICODE @CMakeFiles/sfml-window.dir/includes_CXX.rsp -g -std=gnu++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches -o CMakeFiles\\sfml-window.dir\\WindowBase.cpp.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\sfml-src\\src\\SFML\\Window\\WindowBase.cpp",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-src/src/SFML/Window/WindowBase.cpp",
+  "output": "_deps/sfml-build/src/SFML/Window/CMakeFiles/sfml-window.dir/WindowBase.cpp.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-build/src/SFML/Window",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe -DSFML_STATIC -DUNICODE -D_UNICODE @CMakeFiles/sfml-window.dir/includes_CXX.rsp -g -std=gnu++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches -o CMakeFiles\\sfml-window.dir\\WindowImpl.cpp.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\sfml-src\\src\\SFML\\Window\\WindowImpl.cpp",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-src/src/SFML/Window/WindowImpl.cpp",
+  "output": "_deps/sfml-build/src/SFML/Window/CMakeFiles/sfml-window.dir/WindowImpl.cpp.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-build/src/SFML/Window",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe -DSFML_STATIC -DUNICODE -D_UNICODE @CMakeFiles/sfml-window.dir/includes_CXX.rsp -g -std=gnu++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches -o CMakeFiles\\sfml-window.dir\\Win32\\CursorImpl.cpp.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\sfml-src\\src\\SFML\\Window\\Win32\\CursorImpl.cpp",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-src/src/SFML/Window/Win32/CursorImpl.cpp",
+  "output": "_deps/sfml-build/src/SFML/Window/CMakeFiles/sfml-window.dir/Win32/CursorImpl.cpp.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-build/src/SFML/Window",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe -DSFML_STATIC -DUNICODE -D_UNICODE @CMakeFiles/sfml-window.dir/includes_CXX.rsp -g -std=gnu++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches -o CMakeFiles\\sfml-window.dir\\Win32\\ClipboardImpl.cpp.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\sfml-src\\src\\SFML\\Window\\Win32\\ClipboardImpl.cpp",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-src/src/SFML/Window/Win32/ClipboardImpl.cpp",
+  "output": "_deps/sfml-build/src/SFML/Window/CMakeFiles/sfml-window.dir/Win32/ClipboardImpl.cpp.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-build/src/SFML/Window",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe -DSFML_STATIC -DUNICODE -D_UNICODE @CMakeFiles/sfml-window.dir/includes_CXX.rsp -g -std=gnu++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches -o CMakeFiles\\sfml-window.dir\\Win32\\InputImpl.cpp.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\sfml-src\\src\\SFML\\Window\\Win32\\InputImpl.cpp",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-src/src/SFML/Window/Win32/InputImpl.cpp",
+  "output": "_deps/sfml-build/src/SFML/Window/CMakeFiles/sfml-window.dir/Win32/InputImpl.cpp.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-build/src/SFML/Window",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe -DSFML_STATIC -DUNICODE -D_UNICODE @CMakeFiles/sfml-window.dir/includes_CXX.rsp -g -std=gnu++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches -o CMakeFiles\\sfml-window.dir\\Win32\\JoystickImpl.cpp.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\sfml-src\\src\\SFML\\Window\\Win32\\JoystickImpl.cpp",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-src/src/SFML/Window/Win32/JoystickImpl.cpp",
+  "output": "_deps/sfml-build/src/SFML/Window/CMakeFiles/sfml-window.dir/Win32/JoystickImpl.cpp.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-build/src/SFML/Window",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe -DSFML_STATIC -DUNICODE -D_UNICODE @CMakeFiles/sfml-window.dir/includes_CXX.rsp -g -std=gnu++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches -o CMakeFiles\\sfml-window.dir\\Win32\\SensorImpl.cpp.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\sfml-src\\src\\SFML\\Window\\Win32\\SensorImpl.cpp",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-src/src/SFML/Window/Win32/SensorImpl.cpp",
+  "output": "_deps/sfml-build/src/SFML/Window/CMakeFiles/sfml-window.dir/Win32/SensorImpl.cpp.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-build/src/SFML/Window",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe -DSFML_STATIC -DUNICODE -D_UNICODE @CMakeFiles/sfml-window.dir/includes_CXX.rsp -g -std=gnu++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches -o CMakeFiles\\sfml-window.dir\\Win32\\VideoModeImpl.cpp.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\sfml-src\\src\\SFML\\Window\\Win32\\VideoModeImpl.cpp",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-src/src/SFML/Window/Win32/VideoModeImpl.cpp",
+  "output": "_deps/sfml-build/src/SFML/Window/CMakeFiles/sfml-window.dir/Win32/VideoModeImpl.cpp.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-build/src/SFML/Window",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe -DSFML_STATIC -DUNICODE -D_UNICODE @CMakeFiles/sfml-window.dir/includes_CXX.rsp -g -std=gnu++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches -o CMakeFiles\\sfml-window.dir\\Win32\\VulkanImplWin32.cpp.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\sfml-src\\src\\SFML\\Window\\Win32\\VulkanImplWin32.cpp",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-src/src/SFML/Window/Win32/VulkanImplWin32.cpp",
+  "output": "_deps/sfml-build/src/SFML/Window/CMakeFiles/sfml-window.dir/Win32/VulkanImplWin32.cpp.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-build/src/SFML/Window",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe -DSFML_STATIC -DUNICODE -D_UNICODE @CMakeFiles/sfml-window.dir/includes_CXX.rsp -g -std=gnu++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches -o CMakeFiles\\sfml-window.dir\\Win32\\WindowImplWin32.cpp.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\sfml-src\\src\\SFML\\Window\\Win32\\WindowImplWin32.cpp",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-src/src/SFML/Window/Win32/WindowImplWin32.cpp",
+  "output": "_deps/sfml-build/src/SFML/Window/CMakeFiles/sfml-window.dir/Win32/WindowImplWin32.cpp.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-build/src/SFML/Window",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe -DSFML_STATIC -DUNICODE -D_UNICODE @CMakeFiles/sfml-window.dir/includes_CXX.rsp -g -std=gnu++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches -o CMakeFiles\\sfml-window.dir\\Win32\\WglContext.cpp.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\sfml-src\\src\\SFML\\Window\\Win32\\WglContext.cpp",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-src/src/SFML/Window/Win32/WglContext.cpp",
+  "output": "_deps/sfml-build/src/SFML/Window/CMakeFiles/sfml-window.dir/Win32/WglContext.cpp.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-build/src/SFML/Network",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe -DSFML_STATIC @CMakeFiles/sfml-network.dir/includes_CXX.rsp -g -std=gnu++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches -o CMakeFiles\\sfml-network.dir\\Ftp.cpp.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\sfml-src\\src\\SFML\\Network\\Ftp.cpp",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-src/src/SFML/Network/Ftp.cpp",
+  "output": "_deps/sfml-build/src/SFML/Network/CMakeFiles/sfml-network.dir/Ftp.cpp.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-build/src/SFML/Network",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe -DSFML_STATIC @CMakeFiles/sfml-network.dir/includes_CXX.rsp -g -std=gnu++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches -o CMakeFiles\\sfml-network.dir\\Http.cpp.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\sfml-src\\src\\SFML\\Network\\Http.cpp",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-src/src/SFML/Network/Http.cpp",
+  "output": "_deps/sfml-build/src/SFML/Network/CMakeFiles/sfml-network.dir/Http.cpp.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-build/src/SFML/Network",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe -DSFML_STATIC @CMakeFiles/sfml-network.dir/includes_CXX.rsp -g -std=gnu++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches -o CMakeFiles\\sfml-network.dir\\IpAddress.cpp.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\sfml-src\\src\\SFML\\Network\\IpAddress.cpp",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-src/src/SFML/Network/IpAddress.cpp",
+  "output": "_deps/sfml-build/src/SFML/Network/CMakeFiles/sfml-network.dir/IpAddress.cpp.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-build/src/SFML/Network",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe -DSFML_STATIC @CMakeFiles/sfml-network.dir/includes_CXX.rsp -g -std=gnu++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches -o CMakeFiles\\sfml-network.dir\\Packet.cpp.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\sfml-src\\src\\SFML\\Network\\Packet.cpp",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-src/src/SFML/Network/Packet.cpp",
+  "output": "_deps/sfml-build/src/SFML/Network/CMakeFiles/sfml-network.dir/Packet.cpp.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-build/src/SFML/Network",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe -DSFML_STATIC @CMakeFiles/sfml-network.dir/includes_CXX.rsp -g -std=gnu++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches -o CMakeFiles\\sfml-network.dir\\Socket.cpp.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\sfml-src\\src\\SFML\\Network\\Socket.cpp",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-src/src/SFML/Network/Socket.cpp",
+  "output": "_deps/sfml-build/src/SFML/Network/CMakeFiles/sfml-network.dir/Socket.cpp.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-build/src/SFML/Network",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe -DSFML_STATIC @CMakeFiles/sfml-network.dir/includes_CXX.rsp -g -std=gnu++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches -o CMakeFiles\\sfml-network.dir\\SocketSelector.cpp.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\sfml-src\\src\\SFML\\Network\\SocketSelector.cpp",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-src/src/SFML/Network/SocketSelector.cpp",
+  "output": "_deps/sfml-build/src/SFML/Network/CMakeFiles/sfml-network.dir/SocketSelector.cpp.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-build/src/SFML/Network",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe -DSFML_STATIC @CMakeFiles/sfml-network.dir/includes_CXX.rsp -g -std=gnu++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches -o CMakeFiles\\sfml-network.dir\\TcpListener.cpp.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\sfml-src\\src\\SFML\\Network\\TcpListener.cpp",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-src/src/SFML/Network/TcpListener.cpp",
+  "output": "_deps/sfml-build/src/SFML/Network/CMakeFiles/sfml-network.dir/TcpListener.cpp.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-build/src/SFML/Network",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe -DSFML_STATIC @CMakeFiles/sfml-network.dir/includes_CXX.rsp -g -std=gnu++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches -o CMakeFiles\\sfml-network.dir\\TcpSocket.cpp.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\sfml-src\\src\\SFML\\Network\\TcpSocket.cpp",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-src/src/SFML/Network/TcpSocket.cpp",
+  "output": "_deps/sfml-build/src/SFML/Network/CMakeFiles/sfml-network.dir/TcpSocket.cpp.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-build/src/SFML/Network",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe -DSFML_STATIC @CMakeFiles/sfml-network.dir/includes_CXX.rsp -g -std=gnu++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches -o CMakeFiles\\sfml-network.dir\\UdpSocket.cpp.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\sfml-src\\src\\SFML\\Network\\UdpSocket.cpp",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-src/src/SFML/Network/UdpSocket.cpp",
+  "output": "_deps/sfml-build/src/SFML/Network/CMakeFiles/sfml-network.dir/UdpSocket.cpp.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-build/src/SFML/Network",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe -DSFML_STATIC @CMakeFiles/sfml-network.dir/includes_CXX.rsp -g -std=gnu++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches -o CMakeFiles\\sfml-network.dir\\Win32\\SocketImpl.cpp.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\sfml-src\\src\\SFML\\Network\\Win32\\SocketImpl.cpp",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-src/src/SFML/Network/Win32/SocketImpl.cpp",
+  "output": "_deps/sfml-build/src/SFML/Network/CMakeFiles/sfml-network.dir/Win32/SocketImpl.cpp.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-build/src/SFML/Graphics",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe -DSFML_STATIC -DSTBI_FAILURE_USERMSG @CMakeFiles/sfml-graphics.dir/includes_CXX.rsp -g -std=gnu++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches -o CMakeFiles\\sfml-graphics.dir\\BlendMode.cpp.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\sfml-src\\src\\SFML\\Graphics\\BlendMode.cpp",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-src/src/SFML/Graphics/BlendMode.cpp",
+  "output": "_deps/sfml-build/src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/BlendMode.cpp.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-build/src/SFML/Graphics",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe -DSFML_STATIC -DSTBI_FAILURE_USERMSG @CMakeFiles/sfml-graphics.dir/includes_CXX.rsp -g -std=gnu++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches -o CMakeFiles\\sfml-graphics.dir\\Color.cpp.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\sfml-src\\src\\SFML\\Graphics\\Color.cpp",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-src/src/SFML/Graphics/Color.cpp",
+  "output": "_deps/sfml-build/src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/Color.cpp.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-build/src/SFML/Graphics",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe -DSFML_STATIC -DSTBI_FAILURE_USERMSG @CMakeFiles/sfml-graphics.dir/includes_CXX.rsp -g -std=gnu++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches -o CMakeFiles\\sfml-graphics.dir\\Font.cpp.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\sfml-src\\src\\SFML\\Graphics\\Font.cpp",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-src/src/SFML/Graphics/Font.cpp",
+  "output": "_deps/sfml-build/src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/Font.cpp.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-build/src/SFML/Graphics",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe -DSFML_STATIC -DSTBI_FAILURE_USERMSG @CMakeFiles/sfml-graphics.dir/includes_CXX.rsp -g -std=gnu++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches -o CMakeFiles\\sfml-graphics.dir\\Glsl.cpp.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\sfml-src\\src\\SFML\\Graphics\\Glsl.cpp",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-src/src/SFML/Graphics/Glsl.cpp",
+  "output": "_deps/sfml-build/src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/Glsl.cpp.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-build/src/SFML/Graphics",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe -DSFML_STATIC -DSTBI_FAILURE_USERMSG @CMakeFiles/sfml-graphics.dir/includes_CXX.rsp -g -std=gnu++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches -o CMakeFiles\\sfml-graphics.dir\\GLCheck.cpp.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\sfml-src\\src\\SFML\\Graphics\\GLCheck.cpp",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-src/src/SFML/Graphics/GLCheck.cpp",
+  "output": "_deps/sfml-build/src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/GLCheck.cpp.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-build/src/SFML/Graphics",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe -DSFML_STATIC -DSTBI_FAILURE_USERMSG @CMakeFiles/sfml-graphics.dir/includes_CXX.rsp -g -std=gnu++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches -o CMakeFiles\\sfml-graphics.dir\\GLExtensions.cpp.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\sfml-src\\src\\SFML\\Graphics\\GLExtensions.cpp",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-src/src/SFML/Graphics/GLExtensions.cpp",
+  "output": "_deps/sfml-build/src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/GLExtensions.cpp.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-build/src/SFML/Graphics",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe -DSFML_STATIC -DSTBI_FAILURE_USERMSG @CMakeFiles/sfml-graphics.dir/includes_CXX.rsp -g -std=gnu++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches -o CMakeFiles\\sfml-graphics.dir\\Image.cpp.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\sfml-src\\src\\SFML\\Graphics\\Image.cpp",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-src/src/SFML/Graphics/Image.cpp",
+  "output": "_deps/sfml-build/src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/Image.cpp.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-build/src/SFML/Graphics",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe -DSFML_STATIC -DSTBI_FAILURE_USERMSG @CMakeFiles/sfml-graphics.dir/includes_CXX.rsp -g -std=gnu++17 -fno-strict-aliasing -o CMakeFiles\\sfml-graphics.dir\\ImageLoader.cpp.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\sfml-src\\src\\SFML\\Graphics\\ImageLoader.cpp",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-src/src/SFML/Graphics/ImageLoader.cpp",
+  "output": "_deps/sfml-build/src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/ImageLoader.cpp.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-build/src/SFML/Graphics",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe -DSFML_STATIC -DSTBI_FAILURE_USERMSG @CMakeFiles/sfml-graphics.dir/includes_CXX.rsp -g -std=gnu++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches -o CMakeFiles\\sfml-graphics.dir\\RenderStates.cpp.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\sfml-src\\src\\SFML\\Graphics\\RenderStates.cpp",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-src/src/SFML/Graphics/RenderStates.cpp",
+  "output": "_deps/sfml-build/src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/RenderStates.cpp.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-build/src/SFML/Graphics",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe -DSFML_STATIC -DSTBI_FAILURE_USERMSG @CMakeFiles/sfml-graphics.dir/includes_CXX.rsp -g -std=gnu++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches -o CMakeFiles\\sfml-graphics.dir\\RenderTexture.cpp.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\sfml-src\\src\\SFML\\Graphics\\RenderTexture.cpp",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-src/src/SFML/Graphics/RenderTexture.cpp",
+  "output": "_deps/sfml-build/src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/RenderTexture.cpp.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-build/src/SFML/Graphics",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe -DSFML_STATIC -DSTBI_FAILURE_USERMSG @CMakeFiles/sfml-graphics.dir/includes_CXX.rsp -g -std=gnu++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches -o CMakeFiles\\sfml-graphics.dir\\RenderTarget.cpp.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\sfml-src\\src\\SFML\\Graphics\\RenderTarget.cpp",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-src/src/SFML/Graphics/RenderTarget.cpp",
+  "output": "_deps/sfml-build/src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/RenderTarget.cpp.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-build/src/SFML/Graphics",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe -DSFML_STATIC -DSTBI_FAILURE_USERMSG @CMakeFiles/sfml-graphics.dir/includes_CXX.rsp -g -std=gnu++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches -o CMakeFiles\\sfml-graphics.dir\\RenderWindow.cpp.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\sfml-src\\src\\SFML\\Graphics\\RenderWindow.cpp",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-src/src/SFML/Graphics/RenderWindow.cpp",
+  "output": "_deps/sfml-build/src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/RenderWindow.cpp.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-build/src/SFML/Graphics",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe -DSFML_STATIC -DSTBI_FAILURE_USERMSG @CMakeFiles/sfml-graphics.dir/includes_CXX.rsp -g -std=gnu++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches -o CMakeFiles\\sfml-graphics.dir\\Shader.cpp.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\sfml-src\\src\\SFML\\Graphics\\Shader.cpp",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-src/src/SFML/Graphics/Shader.cpp",
+  "output": "_deps/sfml-build/src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/Shader.cpp.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-build/src/SFML/Graphics",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe -DSFML_STATIC -DSTBI_FAILURE_USERMSG @CMakeFiles/sfml-graphics.dir/includes_CXX.rsp -g -std=gnu++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches -o CMakeFiles\\sfml-graphics.dir\\Texture.cpp.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\sfml-src\\src\\SFML\\Graphics\\Texture.cpp",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-src/src/SFML/Graphics/Texture.cpp",
+  "output": "_deps/sfml-build/src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/Texture.cpp.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-build/src/SFML/Graphics",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe -DSFML_STATIC -DSTBI_FAILURE_USERMSG @CMakeFiles/sfml-graphics.dir/includes_CXX.rsp -g -std=gnu++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches -o CMakeFiles\\sfml-graphics.dir\\TextureSaver.cpp.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\sfml-src\\src\\SFML\\Graphics\\TextureSaver.cpp",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-src/src/SFML/Graphics/TextureSaver.cpp",
+  "output": "_deps/sfml-build/src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/TextureSaver.cpp.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-build/src/SFML/Graphics",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe -DSFML_STATIC -DSTBI_FAILURE_USERMSG @CMakeFiles/sfml-graphics.dir/includes_CXX.rsp -g -std=gnu++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches -o CMakeFiles\\sfml-graphics.dir\\Transform.cpp.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\sfml-src\\src\\SFML\\Graphics\\Transform.cpp",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-src/src/SFML/Graphics/Transform.cpp",
+  "output": "_deps/sfml-build/src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/Transform.cpp.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-build/src/SFML/Graphics",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe -DSFML_STATIC -DSTBI_FAILURE_USERMSG @CMakeFiles/sfml-graphics.dir/includes_CXX.rsp -g -std=gnu++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches -o CMakeFiles\\sfml-graphics.dir\\Transformable.cpp.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\sfml-src\\src\\SFML\\Graphics\\Transformable.cpp",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-src/src/SFML/Graphics/Transformable.cpp",
+  "output": "_deps/sfml-build/src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/Transformable.cpp.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-build/src/SFML/Graphics",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe -DSFML_STATIC -DSTBI_FAILURE_USERMSG @CMakeFiles/sfml-graphics.dir/includes_CXX.rsp -g -std=gnu++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches -o CMakeFiles\\sfml-graphics.dir\\View.cpp.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\sfml-src\\src\\SFML\\Graphics\\View.cpp",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-src/src/SFML/Graphics/View.cpp",
+  "output": "_deps/sfml-build/src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/View.cpp.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-build/src/SFML/Graphics",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe -DSFML_STATIC -DSTBI_FAILURE_USERMSG @CMakeFiles/sfml-graphics.dir/includes_CXX.rsp -g -std=gnu++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches -o CMakeFiles\\sfml-graphics.dir\\Vertex.cpp.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\sfml-src\\src\\SFML\\Graphics\\Vertex.cpp",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-src/src/SFML/Graphics/Vertex.cpp",
+  "output": "_deps/sfml-build/src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/Vertex.cpp.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-build/src/SFML/Graphics",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe -DSFML_STATIC -DSTBI_FAILURE_USERMSG @CMakeFiles/sfml-graphics.dir/includes_CXX.rsp -g -std=gnu++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches -o CMakeFiles\\sfml-graphics.dir\\Shape.cpp.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\sfml-src\\src\\SFML\\Graphics\\Shape.cpp",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-src/src/SFML/Graphics/Shape.cpp",
+  "output": "_deps/sfml-build/src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/Shape.cpp.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-build/src/SFML/Graphics",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe -DSFML_STATIC -DSTBI_FAILURE_USERMSG @CMakeFiles/sfml-graphics.dir/includes_CXX.rsp -g -std=gnu++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches -o CMakeFiles\\sfml-graphics.dir\\CircleShape.cpp.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\sfml-src\\src\\SFML\\Graphics\\CircleShape.cpp",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-src/src/SFML/Graphics/CircleShape.cpp",
+  "output": "_deps/sfml-build/src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/CircleShape.cpp.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-build/src/SFML/Graphics",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe -DSFML_STATIC -DSTBI_FAILURE_USERMSG @CMakeFiles/sfml-graphics.dir/includes_CXX.rsp -g -std=gnu++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches -o CMakeFiles\\sfml-graphics.dir\\RectangleShape.cpp.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\sfml-src\\src\\SFML\\Graphics\\RectangleShape.cpp",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-src/src/SFML/Graphics/RectangleShape.cpp",
+  "output": "_deps/sfml-build/src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/RectangleShape.cpp.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-build/src/SFML/Graphics",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe -DSFML_STATIC -DSTBI_FAILURE_USERMSG @CMakeFiles/sfml-graphics.dir/includes_CXX.rsp -g -std=gnu++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches -o CMakeFiles\\sfml-graphics.dir\\ConvexShape.cpp.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\sfml-src\\src\\SFML\\Graphics\\ConvexShape.cpp",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-src/src/SFML/Graphics/ConvexShape.cpp",
+  "output": "_deps/sfml-build/src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/ConvexShape.cpp.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-build/src/SFML/Graphics",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe -DSFML_STATIC -DSTBI_FAILURE_USERMSG @CMakeFiles/sfml-graphics.dir/includes_CXX.rsp -g -std=gnu++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches -o CMakeFiles\\sfml-graphics.dir\\Sprite.cpp.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\sfml-src\\src\\SFML\\Graphics\\Sprite.cpp",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-src/src/SFML/Graphics/Sprite.cpp",
+  "output": "_deps/sfml-build/src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/Sprite.cpp.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-build/src/SFML/Graphics",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe -DSFML_STATIC -DSTBI_FAILURE_USERMSG @CMakeFiles/sfml-graphics.dir/includes_CXX.rsp -g -std=gnu++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches -o CMakeFiles\\sfml-graphics.dir\\Text.cpp.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\sfml-src\\src\\SFML\\Graphics\\Text.cpp",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-src/src/SFML/Graphics/Text.cpp",
+  "output": "_deps/sfml-build/src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/Text.cpp.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-build/src/SFML/Graphics",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe -DSFML_STATIC -DSTBI_FAILURE_USERMSG @CMakeFiles/sfml-graphics.dir/includes_CXX.rsp -g -std=gnu++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches -o CMakeFiles\\sfml-graphics.dir\\VertexArray.cpp.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\sfml-src\\src\\SFML\\Graphics\\VertexArray.cpp",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-src/src/SFML/Graphics/VertexArray.cpp",
+  "output": "_deps/sfml-build/src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/VertexArray.cpp.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-build/src/SFML/Graphics",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe -DSFML_STATIC -DSTBI_FAILURE_USERMSG @CMakeFiles/sfml-graphics.dir/includes_CXX.rsp -g -std=gnu++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches -o CMakeFiles\\sfml-graphics.dir\\VertexBuffer.cpp.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\sfml-src\\src\\SFML\\Graphics\\VertexBuffer.cpp",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-src/src/SFML/Graphics/VertexBuffer.cpp",
+  "output": "_deps/sfml-build/src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/VertexBuffer.cpp.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-build/src/SFML/Graphics",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe -DSFML_STATIC -DSTBI_FAILURE_USERMSG @CMakeFiles/sfml-graphics.dir/includes_CXX.rsp -g -std=gnu++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches -o CMakeFiles\\sfml-graphics.dir\\RenderTextureImpl.cpp.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\sfml-src\\src\\SFML\\Graphics\\RenderTextureImpl.cpp",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-src/src/SFML/Graphics/RenderTextureImpl.cpp",
+  "output": "_deps/sfml-build/src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/RenderTextureImpl.cpp.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-build/src/SFML/Graphics",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe -DSFML_STATIC -DSTBI_FAILURE_USERMSG @CMakeFiles/sfml-graphics.dir/includes_CXX.rsp -g -std=gnu++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches -o CMakeFiles\\sfml-graphics.dir\\RenderTextureImplFBO.cpp.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\sfml-src\\src\\SFML\\Graphics\\RenderTextureImplFBO.cpp",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-src/src/SFML/Graphics/RenderTextureImplFBO.cpp",
+  "output": "_deps/sfml-build/src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/RenderTextureImplFBO.cpp.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-build/src/SFML/Graphics",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe -DSFML_STATIC -DSTBI_FAILURE_USERMSG @CMakeFiles/sfml-graphics.dir/includes_CXX.rsp -g -std=gnu++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches -o CMakeFiles\\sfml-graphics.dir\\RenderTextureImplDefault.cpp.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\sfml-src\\src\\SFML\\Graphics\\RenderTextureImplDefault.cpp",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-src/src/SFML/Graphics/RenderTextureImplDefault.cpp",
+  "output": "_deps/sfml-build/src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/RenderTextureImplDefault.cpp.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-build/src/SFML/Audio",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe -DFLAC__NO_DLL -DOV_EXCLUDE_STATIC_CALLBACKS -DSFML_STATIC @CMakeFiles/sfml-audio.dir/includes_CXX.rsp -g -std=gnu++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches -o CMakeFiles\\sfml-audio.dir\\ALCheck.cpp.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\sfml-src\\src\\SFML\\Audio\\ALCheck.cpp",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-src/src/SFML/Audio/ALCheck.cpp",
+  "output": "_deps/sfml-build/src/SFML/Audio/CMakeFiles/sfml-audio.dir/ALCheck.cpp.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-build/src/SFML/Audio",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe -DFLAC__NO_DLL -DOV_EXCLUDE_STATIC_CALLBACKS -DSFML_STATIC @CMakeFiles/sfml-audio.dir/includes_CXX.rsp -g -std=gnu++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches -o CMakeFiles\\sfml-audio.dir\\AlResource.cpp.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\sfml-src\\src\\SFML\\Audio\\AlResource.cpp",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-src/src/SFML/Audio/AlResource.cpp",
+  "output": "_deps/sfml-build/src/SFML/Audio/CMakeFiles/sfml-audio.dir/AlResource.cpp.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-build/src/SFML/Audio",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe -DFLAC__NO_DLL -DOV_EXCLUDE_STATIC_CALLBACKS -DSFML_STATIC @CMakeFiles/sfml-audio.dir/includes_CXX.rsp -g -std=gnu++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches -o CMakeFiles\\sfml-audio.dir\\AudioDevice.cpp.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\sfml-src\\src\\SFML\\Audio\\AudioDevice.cpp",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-src/src/SFML/Audio/AudioDevice.cpp",
+  "output": "_deps/sfml-build/src/SFML/Audio/CMakeFiles/sfml-audio.dir/AudioDevice.cpp.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-build/src/SFML/Audio",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe -DFLAC__NO_DLL -DOV_EXCLUDE_STATIC_CALLBACKS -DSFML_STATIC @CMakeFiles/sfml-audio.dir/includes_CXX.rsp -g -std=gnu++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches -o CMakeFiles\\sfml-audio.dir\\Listener.cpp.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\sfml-src\\src\\SFML\\Audio\\Listener.cpp",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-src/src/SFML/Audio/Listener.cpp",
+  "output": "_deps/sfml-build/src/SFML/Audio/CMakeFiles/sfml-audio.dir/Listener.cpp.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-build/src/SFML/Audio",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe -DFLAC__NO_DLL -DOV_EXCLUDE_STATIC_CALLBACKS -DSFML_STATIC @CMakeFiles/sfml-audio.dir/includes_CXX.rsp -g -std=gnu++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches -o CMakeFiles\\sfml-audio.dir\\Music.cpp.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\sfml-src\\src\\SFML\\Audio\\Music.cpp",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-src/src/SFML/Audio/Music.cpp",
+  "output": "_deps/sfml-build/src/SFML/Audio/CMakeFiles/sfml-audio.dir/Music.cpp.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-build/src/SFML/Audio",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe -DFLAC__NO_DLL -DOV_EXCLUDE_STATIC_CALLBACKS -DSFML_STATIC @CMakeFiles/sfml-audio.dir/includes_CXX.rsp -g -std=gnu++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches -o CMakeFiles\\sfml-audio.dir\\Sound.cpp.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\sfml-src\\src\\SFML\\Audio\\Sound.cpp",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-src/src/SFML/Audio/Sound.cpp",
+  "output": "_deps/sfml-build/src/SFML/Audio/CMakeFiles/sfml-audio.dir/Sound.cpp.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-build/src/SFML/Audio",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe -DFLAC__NO_DLL -DOV_EXCLUDE_STATIC_CALLBACKS -DSFML_STATIC @CMakeFiles/sfml-audio.dir/includes_CXX.rsp -g -std=gnu++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches -o CMakeFiles\\sfml-audio.dir\\SoundBuffer.cpp.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\sfml-src\\src\\SFML\\Audio\\SoundBuffer.cpp",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-src/src/SFML/Audio/SoundBuffer.cpp",
+  "output": "_deps/sfml-build/src/SFML/Audio/CMakeFiles/sfml-audio.dir/SoundBuffer.cpp.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-build/src/SFML/Audio",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe -DFLAC__NO_DLL -DOV_EXCLUDE_STATIC_CALLBACKS -DSFML_STATIC @CMakeFiles/sfml-audio.dir/includes_CXX.rsp -g -std=gnu++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches -o CMakeFiles\\sfml-audio.dir\\SoundBufferRecorder.cpp.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\sfml-src\\src\\SFML\\Audio\\SoundBufferRecorder.cpp",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-src/src/SFML/Audio/SoundBufferRecorder.cpp",
+  "output": "_deps/sfml-build/src/SFML/Audio/CMakeFiles/sfml-audio.dir/SoundBufferRecorder.cpp.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-build/src/SFML/Audio",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe -DFLAC__NO_DLL -DOV_EXCLUDE_STATIC_CALLBACKS -DSFML_STATIC @CMakeFiles/sfml-audio.dir/includes_CXX.rsp -g -std=gnu++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches -o CMakeFiles\\sfml-audio.dir\\InputSoundFile.cpp.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\sfml-src\\src\\SFML\\Audio\\InputSoundFile.cpp",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-src/src/SFML/Audio/InputSoundFile.cpp",
+  "output": "_deps/sfml-build/src/SFML/Audio/CMakeFiles/sfml-audio.dir/InputSoundFile.cpp.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-build/src/SFML/Audio",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe -DFLAC__NO_DLL -DOV_EXCLUDE_STATIC_CALLBACKS -DSFML_STATIC @CMakeFiles/sfml-audio.dir/includes_CXX.rsp -g -std=gnu++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches -o CMakeFiles\\sfml-audio.dir\\OutputSoundFile.cpp.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\sfml-src\\src\\SFML\\Audio\\OutputSoundFile.cpp",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-src/src/SFML/Audio/OutputSoundFile.cpp",
+  "output": "_deps/sfml-build/src/SFML/Audio/CMakeFiles/sfml-audio.dir/OutputSoundFile.cpp.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-build/src/SFML/Audio",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe -DFLAC__NO_DLL -DOV_EXCLUDE_STATIC_CALLBACKS -DSFML_STATIC @CMakeFiles/sfml-audio.dir/includes_CXX.rsp -g -std=gnu++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches -o CMakeFiles\\sfml-audio.dir\\SoundRecorder.cpp.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\sfml-src\\src\\SFML\\Audio\\SoundRecorder.cpp",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-src/src/SFML/Audio/SoundRecorder.cpp",
+  "output": "_deps/sfml-build/src/SFML/Audio/CMakeFiles/sfml-audio.dir/SoundRecorder.cpp.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-build/src/SFML/Audio",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe -DFLAC__NO_DLL -DOV_EXCLUDE_STATIC_CALLBACKS -DSFML_STATIC @CMakeFiles/sfml-audio.dir/includes_CXX.rsp -g -std=gnu++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches -o CMakeFiles\\sfml-audio.dir\\SoundSource.cpp.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\sfml-src\\src\\SFML\\Audio\\SoundSource.cpp",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-src/src/SFML/Audio/SoundSource.cpp",
+  "output": "_deps/sfml-build/src/SFML/Audio/CMakeFiles/sfml-audio.dir/SoundSource.cpp.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-build/src/SFML/Audio",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe -DFLAC__NO_DLL -DOV_EXCLUDE_STATIC_CALLBACKS -DSFML_STATIC @CMakeFiles/sfml-audio.dir/includes_CXX.rsp -g -std=gnu++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches -o CMakeFiles\\sfml-audio.dir\\SoundStream.cpp.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\sfml-src\\src\\SFML\\Audio\\SoundStream.cpp",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-src/src/SFML/Audio/SoundStream.cpp",
+  "output": "_deps/sfml-build/src/SFML/Audio/CMakeFiles/sfml-audio.dir/SoundStream.cpp.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-build/src/SFML/Audio",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe -DFLAC__NO_DLL -DOV_EXCLUDE_STATIC_CALLBACKS -DSFML_STATIC @CMakeFiles/sfml-audio.dir/includes_CXX.rsp -g -std=gnu++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches -o CMakeFiles\\sfml-audio.dir\\SoundFileFactory.cpp.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\sfml-src\\src\\SFML\\Audio\\SoundFileFactory.cpp",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-src/src/SFML/Audio/SoundFileFactory.cpp",
+  "output": "_deps/sfml-build/src/SFML/Audio/CMakeFiles/sfml-audio.dir/SoundFileFactory.cpp.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-build/src/SFML/Audio",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe -DFLAC__NO_DLL -DOV_EXCLUDE_STATIC_CALLBACKS -DSFML_STATIC @CMakeFiles/sfml-audio.dir/includes_CXX.rsp -g -std=gnu++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches -o CMakeFiles\\sfml-audio.dir\\SoundFileReaderFlac.cpp.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\sfml-src\\src\\SFML\\Audio\\SoundFileReaderFlac.cpp",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-src/src/SFML/Audio/SoundFileReaderFlac.cpp",
+  "output": "_deps/sfml-build/src/SFML/Audio/CMakeFiles/sfml-audio.dir/SoundFileReaderFlac.cpp.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-build/src/SFML/Audio",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe -DFLAC__NO_DLL -DOV_EXCLUDE_STATIC_CALLBACKS -DSFML_STATIC @CMakeFiles/sfml-audio.dir/includes_CXX.rsp -g -std=gnu++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches -o CMakeFiles\\sfml-audio.dir\\SoundFileReaderMp3.cpp.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\sfml-src\\src\\SFML\\Audio\\SoundFileReaderMp3.cpp",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-src/src/SFML/Audio/SoundFileReaderMp3.cpp",
+  "output": "_deps/sfml-build/src/SFML/Audio/CMakeFiles/sfml-audio.dir/SoundFileReaderMp3.cpp.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-build/src/SFML/Audio",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe -DFLAC__NO_DLL -DOV_EXCLUDE_STATIC_CALLBACKS -DSFML_STATIC @CMakeFiles/sfml-audio.dir/includes_CXX.rsp -g -std=gnu++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches -o CMakeFiles\\sfml-audio.dir\\SoundFileReaderOgg.cpp.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\sfml-src\\src\\SFML\\Audio\\SoundFileReaderOgg.cpp",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-src/src/SFML/Audio/SoundFileReaderOgg.cpp",
+  "output": "_deps/sfml-build/src/SFML/Audio/CMakeFiles/sfml-audio.dir/SoundFileReaderOgg.cpp.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-build/src/SFML/Audio",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe -DFLAC__NO_DLL -DOV_EXCLUDE_STATIC_CALLBACKS -DSFML_STATIC @CMakeFiles/sfml-audio.dir/includes_CXX.rsp -g -std=gnu++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches -o CMakeFiles\\sfml-audio.dir\\SoundFileReaderWav.cpp.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\sfml-src\\src\\SFML\\Audio\\SoundFileReaderWav.cpp",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-src/src/SFML/Audio/SoundFileReaderWav.cpp",
+  "output": "_deps/sfml-build/src/SFML/Audio/CMakeFiles/sfml-audio.dir/SoundFileReaderWav.cpp.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-build/src/SFML/Audio",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe -DFLAC__NO_DLL -DOV_EXCLUDE_STATIC_CALLBACKS -DSFML_STATIC @CMakeFiles/sfml-audio.dir/includes_CXX.rsp -g -std=gnu++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches -o CMakeFiles\\sfml-audio.dir\\SoundFileWriterFlac.cpp.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\sfml-src\\src\\SFML\\Audio\\SoundFileWriterFlac.cpp",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-src/src/SFML/Audio/SoundFileWriterFlac.cpp",
+  "output": "_deps/sfml-build/src/SFML/Audio/CMakeFiles/sfml-audio.dir/SoundFileWriterFlac.cpp.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-build/src/SFML/Audio",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe -DFLAC__NO_DLL -DOV_EXCLUDE_STATIC_CALLBACKS -DSFML_STATIC @CMakeFiles/sfml-audio.dir/includes_CXX.rsp -g -std=gnu++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches -o CMakeFiles\\sfml-audio.dir\\SoundFileWriterOgg.cpp.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\sfml-src\\src\\SFML\\Audio\\SoundFileWriterOgg.cpp",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-src/src/SFML/Audio/SoundFileWriterOgg.cpp",
+  "output": "_deps/sfml-build/src/SFML/Audio/CMakeFiles/sfml-audio.dir/SoundFileWriterOgg.cpp.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-build/src/SFML/Audio",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe -DFLAC__NO_DLL -DOV_EXCLUDE_STATIC_CALLBACKS -DSFML_STATIC @CMakeFiles/sfml-audio.dir/includes_CXX.rsp -g -std=gnu++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches -o CMakeFiles\\sfml-audio.dir\\SoundFileWriterWav.cpp.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\sfml-src\\src\\SFML\\Audio\\SoundFileWriterWav.cpp",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-src/src/SFML/Audio/SoundFileWriterWav.cpp",
+  "output": "_deps/sfml-build/src/SFML/Audio/CMakeFiles/sfml-audio.dir/SoundFileWriterWav.cpp.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-build/src",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe  @CMakeFiles/box2d.dir/includes_CXX.rsp -g -std=c++11 -fvisibility=hidden -fno-keep-inline-dllexport -o CMakeFiles\\box2d.dir\\collision\\b2_broad_phase.cpp.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\box2d-src\\src\\collision\\b2_broad_phase.cpp",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-src/src/collision/b2_broad_phase.cpp",
+  "output": "_deps/box2d-build/src/CMakeFiles/box2d.dir/collision/b2_broad_phase.cpp.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-build/src",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe  @CMakeFiles/box2d.dir/includes_CXX.rsp -g -std=c++11 -fvisibility=hidden -fno-keep-inline-dllexport -o CMakeFiles\\box2d.dir\\collision\\b2_chain_shape.cpp.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\box2d-src\\src\\collision\\b2_chain_shape.cpp",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-src/src/collision/b2_chain_shape.cpp",
+  "output": "_deps/box2d-build/src/CMakeFiles/box2d.dir/collision/b2_chain_shape.cpp.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-build/src",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe  @CMakeFiles/box2d.dir/includes_CXX.rsp -g -std=c++11 -fvisibility=hidden -fno-keep-inline-dllexport -o CMakeFiles\\box2d.dir\\collision\\b2_circle_shape.cpp.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\box2d-src\\src\\collision\\b2_circle_shape.cpp",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-src/src/collision/b2_circle_shape.cpp",
+  "output": "_deps/box2d-build/src/CMakeFiles/box2d.dir/collision/b2_circle_shape.cpp.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-build/src",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe  @CMakeFiles/box2d.dir/includes_CXX.rsp -g -std=c++11 -fvisibility=hidden -fno-keep-inline-dllexport -o CMakeFiles\\box2d.dir\\collision\\b2_collide_circle.cpp.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\box2d-src\\src\\collision\\b2_collide_circle.cpp",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-src/src/collision/b2_collide_circle.cpp",
+  "output": "_deps/box2d-build/src/CMakeFiles/box2d.dir/collision/b2_collide_circle.cpp.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-build/src",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe  @CMakeFiles/box2d.dir/includes_CXX.rsp -g -std=c++11 -fvisibility=hidden -fno-keep-inline-dllexport -o CMakeFiles\\box2d.dir\\collision\\b2_collide_edge.cpp.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\box2d-src\\src\\collision\\b2_collide_edge.cpp",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-src/src/collision/b2_collide_edge.cpp",
+  "output": "_deps/box2d-build/src/CMakeFiles/box2d.dir/collision/b2_collide_edge.cpp.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-build/src",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe  @CMakeFiles/box2d.dir/includes_CXX.rsp -g -std=c++11 -fvisibility=hidden -fno-keep-inline-dllexport -o CMakeFiles\\box2d.dir\\collision\\b2_collide_polygon.cpp.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\box2d-src\\src\\collision\\b2_collide_polygon.cpp",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-src/src/collision/b2_collide_polygon.cpp",
+  "output": "_deps/box2d-build/src/CMakeFiles/box2d.dir/collision/b2_collide_polygon.cpp.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-build/src",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe  @CMakeFiles/box2d.dir/includes_CXX.rsp -g -std=c++11 -fvisibility=hidden -fno-keep-inline-dllexport -o CMakeFiles\\box2d.dir\\collision\\b2_collision.cpp.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\box2d-src\\src\\collision\\b2_collision.cpp",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-src/src/collision/b2_collision.cpp",
+  "output": "_deps/box2d-build/src/CMakeFiles/box2d.dir/collision/b2_collision.cpp.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-build/src",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe  @CMakeFiles/box2d.dir/includes_CXX.rsp -g -std=c++11 -fvisibility=hidden -fno-keep-inline-dllexport -o CMakeFiles\\box2d.dir\\collision\\b2_distance.cpp.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\box2d-src\\src\\collision\\b2_distance.cpp",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-src/src/collision/b2_distance.cpp",
+  "output": "_deps/box2d-build/src/CMakeFiles/box2d.dir/collision/b2_distance.cpp.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-build/src",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe  @CMakeFiles/box2d.dir/includes_CXX.rsp -g -std=c++11 -fvisibility=hidden -fno-keep-inline-dllexport -o CMakeFiles\\box2d.dir\\collision\\b2_dynamic_tree.cpp.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\box2d-src\\src\\collision\\b2_dynamic_tree.cpp",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-src/src/collision/b2_dynamic_tree.cpp",
+  "output": "_deps/box2d-build/src/CMakeFiles/box2d.dir/collision/b2_dynamic_tree.cpp.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-build/src",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe  @CMakeFiles/box2d.dir/includes_CXX.rsp -g -std=c++11 -fvisibility=hidden -fno-keep-inline-dllexport -o CMakeFiles\\box2d.dir\\collision\\b2_edge_shape.cpp.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\box2d-src\\src\\collision\\b2_edge_shape.cpp",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-src/src/collision/b2_edge_shape.cpp",
+  "output": "_deps/box2d-build/src/CMakeFiles/box2d.dir/collision/b2_edge_shape.cpp.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-build/src",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe  @CMakeFiles/box2d.dir/includes_CXX.rsp -g -std=c++11 -fvisibility=hidden -fno-keep-inline-dllexport -o CMakeFiles\\box2d.dir\\collision\\b2_polygon_shape.cpp.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\box2d-src\\src\\collision\\b2_polygon_shape.cpp",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-src/src/collision/b2_polygon_shape.cpp",
+  "output": "_deps/box2d-build/src/CMakeFiles/box2d.dir/collision/b2_polygon_shape.cpp.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-build/src",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe  @CMakeFiles/box2d.dir/includes_CXX.rsp -g -std=c++11 -fvisibility=hidden -fno-keep-inline-dllexport -o CMakeFiles\\box2d.dir\\collision\\b2_time_of_impact.cpp.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\box2d-src\\src\\collision\\b2_time_of_impact.cpp",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-src/src/collision/b2_time_of_impact.cpp",
+  "output": "_deps/box2d-build/src/CMakeFiles/box2d.dir/collision/b2_time_of_impact.cpp.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-build/src",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe  @CMakeFiles/box2d.dir/includes_CXX.rsp -g -std=c++11 -fvisibility=hidden -fno-keep-inline-dllexport -o CMakeFiles\\box2d.dir\\common\\b2_block_allocator.cpp.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\box2d-src\\src\\common\\b2_block_allocator.cpp",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-src/src/common/b2_block_allocator.cpp",
+  "output": "_deps/box2d-build/src/CMakeFiles/box2d.dir/common/b2_block_allocator.cpp.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-build/src",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe  @CMakeFiles/box2d.dir/includes_CXX.rsp -g -std=c++11 -fvisibility=hidden -fno-keep-inline-dllexport -o CMakeFiles\\box2d.dir\\common\\b2_draw.cpp.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\box2d-src\\src\\common\\b2_draw.cpp",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-src/src/common/b2_draw.cpp",
+  "output": "_deps/box2d-build/src/CMakeFiles/box2d.dir/common/b2_draw.cpp.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-build/src",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe  @CMakeFiles/box2d.dir/includes_CXX.rsp -g -std=c++11 -fvisibility=hidden -fno-keep-inline-dllexport -o CMakeFiles\\box2d.dir\\common\\b2_math.cpp.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\box2d-src\\src\\common\\b2_math.cpp",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-src/src/common/b2_math.cpp",
+  "output": "_deps/box2d-build/src/CMakeFiles/box2d.dir/common/b2_math.cpp.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-build/src",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe  @CMakeFiles/box2d.dir/includes_CXX.rsp -g -std=c++11 -fvisibility=hidden -fno-keep-inline-dllexport -o CMakeFiles\\box2d.dir\\common\\b2_settings.cpp.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\box2d-src\\src\\common\\b2_settings.cpp",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-src/src/common/b2_settings.cpp",
+  "output": "_deps/box2d-build/src/CMakeFiles/box2d.dir/common/b2_settings.cpp.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-build/src",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe  @CMakeFiles/box2d.dir/includes_CXX.rsp -g -std=c++11 -fvisibility=hidden -fno-keep-inline-dllexport -o CMakeFiles\\box2d.dir\\common\\b2_stack_allocator.cpp.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\box2d-src\\src\\common\\b2_stack_allocator.cpp",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-src/src/common/b2_stack_allocator.cpp",
+  "output": "_deps/box2d-build/src/CMakeFiles/box2d.dir/common/b2_stack_allocator.cpp.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-build/src",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe  @CMakeFiles/box2d.dir/includes_CXX.rsp -g -std=c++11 -fvisibility=hidden -fno-keep-inline-dllexport -o CMakeFiles\\box2d.dir\\common\\b2_timer.cpp.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\box2d-src\\src\\common\\b2_timer.cpp",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-src/src/common/b2_timer.cpp",
+  "output": "_deps/box2d-build/src/CMakeFiles/box2d.dir/common/b2_timer.cpp.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-build/src",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe  @CMakeFiles/box2d.dir/includes_CXX.rsp -g -std=c++11 -fvisibility=hidden -fno-keep-inline-dllexport -o CMakeFiles\\box2d.dir\\dynamics\\b2_body.cpp.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\box2d-src\\src\\dynamics\\b2_body.cpp",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-src/src/dynamics/b2_body.cpp",
+  "output": "_deps/box2d-build/src/CMakeFiles/box2d.dir/dynamics/b2_body.cpp.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-build/src",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe  @CMakeFiles/box2d.dir/includes_CXX.rsp -g -std=c++11 -fvisibility=hidden -fno-keep-inline-dllexport -o CMakeFiles\\box2d.dir\\dynamics\\b2_chain_circle_contact.cpp.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\box2d-src\\src\\dynamics\\b2_chain_circle_contact.cpp",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-src/src/dynamics/b2_chain_circle_contact.cpp",
+  "output": "_deps/box2d-build/src/CMakeFiles/box2d.dir/dynamics/b2_chain_circle_contact.cpp.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-build/src",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe  @CMakeFiles/box2d.dir/includes_CXX.rsp -g -std=c++11 -fvisibility=hidden -fno-keep-inline-dllexport -o CMakeFiles\\box2d.dir\\dynamics\\b2_chain_polygon_contact.cpp.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\box2d-src\\src\\dynamics\\b2_chain_polygon_contact.cpp",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-src/src/dynamics/b2_chain_polygon_contact.cpp",
+  "output": "_deps/box2d-build/src/CMakeFiles/box2d.dir/dynamics/b2_chain_polygon_contact.cpp.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-build/src",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe  @CMakeFiles/box2d.dir/includes_CXX.rsp -g -std=c++11 -fvisibility=hidden -fno-keep-inline-dllexport -o CMakeFiles\\box2d.dir\\dynamics\\b2_circle_contact.cpp.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\box2d-src\\src\\dynamics\\b2_circle_contact.cpp",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-src/src/dynamics/b2_circle_contact.cpp",
+  "output": "_deps/box2d-build/src/CMakeFiles/box2d.dir/dynamics/b2_circle_contact.cpp.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-build/src",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe  @CMakeFiles/box2d.dir/includes_CXX.rsp -g -std=c++11 -fvisibility=hidden -fno-keep-inline-dllexport -o CMakeFiles\\box2d.dir\\dynamics\\b2_contact.cpp.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\box2d-src\\src\\dynamics\\b2_contact.cpp",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-src/src/dynamics/b2_contact.cpp",
+  "output": "_deps/box2d-build/src/CMakeFiles/box2d.dir/dynamics/b2_contact.cpp.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-build/src",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe  @CMakeFiles/box2d.dir/includes_CXX.rsp -g -std=c++11 -fvisibility=hidden -fno-keep-inline-dllexport -o CMakeFiles\\box2d.dir\\dynamics\\b2_contact_manager.cpp.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\box2d-src\\src\\dynamics\\b2_contact_manager.cpp",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-src/src/dynamics/b2_contact_manager.cpp",
+  "output": "_deps/box2d-build/src/CMakeFiles/box2d.dir/dynamics/b2_contact_manager.cpp.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-build/src",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe  @CMakeFiles/box2d.dir/includes_CXX.rsp -g -std=c++11 -fvisibility=hidden -fno-keep-inline-dllexport -o CMakeFiles\\box2d.dir\\dynamics\\b2_contact_solver.cpp.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\box2d-src\\src\\dynamics\\b2_contact_solver.cpp",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-src/src/dynamics/b2_contact_solver.cpp",
+  "output": "_deps/box2d-build/src/CMakeFiles/box2d.dir/dynamics/b2_contact_solver.cpp.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-build/src",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe  @CMakeFiles/box2d.dir/includes_CXX.rsp -g -std=c++11 -fvisibility=hidden -fno-keep-inline-dllexport -o CMakeFiles\\box2d.dir\\dynamics\\b2_distance_joint.cpp.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\box2d-src\\src\\dynamics\\b2_distance_joint.cpp",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-src/src/dynamics/b2_distance_joint.cpp",
+  "output": "_deps/box2d-build/src/CMakeFiles/box2d.dir/dynamics/b2_distance_joint.cpp.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-build/src",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe  @CMakeFiles/box2d.dir/includes_CXX.rsp -g -std=c++11 -fvisibility=hidden -fno-keep-inline-dllexport -o CMakeFiles\\box2d.dir\\dynamics\\b2_edge_circle_contact.cpp.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\box2d-src\\src\\dynamics\\b2_edge_circle_contact.cpp",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-src/src/dynamics/b2_edge_circle_contact.cpp",
+  "output": "_deps/box2d-build/src/CMakeFiles/box2d.dir/dynamics/b2_edge_circle_contact.cpp.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-build/src",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe  @CMakeFiles/box2d.dir/includes_CXX.rsp -g -std=c++11 -fvisibility=hidden -fno-keep-inline-dllexport -o CMakeFiles\\box2d.dir\\dynamics\\b2_edge_polygon_contact.cpp.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\box2d-src\\src\\dynamics\\b2_edge_polygon_contact.cpp",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-src/src/dynamics/b2_edge_polygon_contact.cpp",
+  "output": "_deps/box2d-build/src/CMakeFiles/box2d.dir/dynamics/b2_edge_polygon_contact.cpp.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-build/src",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe  @CMakeFiles/box2d.dir/includes_CXX.rsp -g -std=c++11 -fvisibility=hidden -fno-keep-inline-dllexport -o CMakeFiles\\box2d.dir\\dynamics\\b2_fixture.cpp.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\box2d-src\\src\\dynamics\\b2_fixture.cpp",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-src/src/dynamics/b2_fixture.cpp",
+  "output": "_deps/box2d-build/src/CMakeFiles/box2d.dir/dynamics/b2_fixture.cpp.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-build/src",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe  @CMakeFiles/box2d.dir/includes_CXX.rsp -g -std=c++11 -fvisibility=hidden -fno-keep-inline-dllexport -o CMakeFiles\\box2d.dir\\dynamics\\b2_friction_joint.cpp.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\box2d-src\\src\\dynamics\\b2_friction_joint.cpp",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-src/src/dynamics/b2_friction_joint.cpp",
+  "output": "_deps/box2d-build/src/CMakeFiles/box2d.dir/dynamics/b2_friction_joint.cpp.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-build/src",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe  @CMakeFiles/box2d.dir/includes_CXX.rsp -g -std=c++11 -fvisibility=hidden -fno-keep-inline-dllexport -o CMakeFiles\\box2d.dir\\dynamics\\b2_gear_joint.cpp.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\box2d-src\\src\\dynamics\\b2_gear_joint.cpp",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-src/src/dynamics/b2_gear_joint.cpp",
+  "output": "_deps/box2d-build/src/CMakeFiles/box2d.dir/dynamics/b2_gear_joint.cpp.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-build/src",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe  @CMakeFiles/box2d.dir/includes_CXX.rsp -g -std=c++11 -fvisibility=hidden -fno-keep-inline-dllexport -o CMakeFiles\\box2d.dir\\dynamics\\b2_island.cpp.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\box2d-src\\src\\dynamics\\b2_island.cpp",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-src/src/dynamics/b2_island.cpp",
+  "output": "_deps/box2d-build/src/CMakeFiles/box2d.dir/dynamics/b2_island.cpp.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-build/src",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe  @CMakeFiles/box2d.dir/includes_CXX.rsp -g -std=c++11 -fvisibility=hidden -fno-keep-inline-dllexport -o CMakeFiles\\box2d.dir\\dynamics\\b2_joint.cpp.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\box2d-src\\src\\dynamics\\b2_joint.cpp",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-src/src/dynamics/b2_joint.cpp",
+  "output": "_deps/box2d-build/src/CMakeFiles/box2d.dir/dynamics/b2_joint.cpp.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-build/src",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe  @CMakeFiles/box2d.dir/includes_CXX.rsp -g -std=c++11 -fvisibility=hidden -fno-keep-inline-dllexport -o CMakeFiles\\box2d.dir\\dynamics\\b2_motor_joint.cpp.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\box2d-src\\src\\dynamics\\b2_motor_joint.cpp",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-src/src/dynamics/b2_motor_joint.cpp",
+  "output": "_deps/box2d-build/src/CMakeFiles/box2d.dir/dynamics/b2_motor_joint.cpp.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-build/src",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe  @CMakeFiles/box2d.dir/includes_CXX.rsp -g -std=c++11 -fvisibility=hidden -fno-keep-inline-dllexport -o CMakeFiles\\box2d.dir\\dynamics\\b2_mouse_joint.cpp.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\box2d-src\\src\\dynamics\\b2_mouse_joint.cpp",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-src/src/dynamics/b2_mouse_joint.cpp",
+  "output": "_deps/box2d-build/src/CMakeFiles/box2d.dir/dynamics/b2_mouse_joint.cpp.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-build/src",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe  @CMakeFiles/box2d.dir/includes_CXX.rsp -g -std=c++11 -fvisibility=hidden -fno-keep-inline-dllexport -o CMakeFiles\\box2d.dir\\dynamics\\b2_polygon_circle_contact.cpp.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\box2d-src\\src\\dynamics\\b2_polygon_circle_contact.cpp",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-src/src/dynamics/b2_polygon_circle_contact.cpp",
+  "output": "_deps/box2d-build/src/CMakeFiles/box2d.dir/dynamics/b2_polygon_circle_contact.cpp.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-build/src",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe  @CMakeFiles/box2d.dir/includes_CXX.rsp -g -std=c++11 -fvisibility=hidden -fno-keep-inline-dllexport -o CMakeFiles\\box2d.dir\\dynamics\\b2_polygon_contact.cpp.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\box2d-src\\src\\dynamics\\b2_polygon_contact.cpp",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-src/src/dynamics/b2_polygon_contact.cpp",
+  "output": "_deps/box2d-build/src/CMakeFiles/box2d.dir/dynamics/b2_polygon_contact.cpp.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-build/src",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe  @CMakeFiles/box2d.dir/includes_CXX.rsp -g -std=c++11 -fvisibility=hidden -fno-keep-inline-dllexport -o CMakeFiles\\box2d.dir\\dynamics\\b2_prismatic_joint.cpp.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\box2d-src\\src\\dynamics\\b2_prismatic_joint.cpp",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-src/src/dynamics/b2_prismatic_joint.cpp",
+  "output": "_deps/box2d-build/src/CMakeFiles/box2d.dir/dynamics/b2_prismatic_joint.cpp.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-build/src",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe  @CMakeFiles/box2d.dir/includes_CXX.rsp -g -std=c++11 -fvisibility=hidden -fno-keep-inline-dllexport -o CMakeFiles\\box2d.dir\\dynamics\\b2_pulley_joint.cpp.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\box2d-src\\src\\dynamics\\b2_pulley_joint.cpp",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-src/src/dynamics/b2_pulley_joint.cpp",
+  "output": "_deps/box2d-build/src/CMakeFiles/box2d.dir/dynamics/b2_pulley_joint.cpp.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-build/src",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe  @CMakeFiles/box2d.dir/includes_CXX.rsp -g -std=c++11 -fvisibility=hidden -fno-keep-inline-dllexport -o CMakeFiles\\box2d.dir\\dynamics\\b2_revolute_joint.cpp.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\box2d-src\\src\\dynamics\\b2_revolute_joint.cpp",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-src/src/dynamics/b2_revolute_joint.cpp",
+  "output": "_deps/box2d-build/src/CMakeFiles/box2d.dir/dynamics/b2_revolute_joint.cpp.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-build/src",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe  @CMakeFiles/box2d.dir/includes_CXX.rsp -g -std=c++11 -fvisibility=hidden -fno-keep-inline-dllexport -o CMakeFiles\\box2d.dir\\dynamics\\b2_weld_joint.cpp.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\box2d-src\\src\\dynamics\\b2_weld_joint.cpp",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-src/src/dynamics/b2_weld_joint.cpp",
+  "output": "_deps/box2d-build/src/CMakeFiles/box2d.dir/dynamics/b2_weld_joint.cpp.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-build/src",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe  @CMakeFiles/box2d.dir/includes_CXX.rsp -g -std=c++11 -fvisibility=hidden -fno-keep-inline-dllexport -o CMakeFiles\\box2d.dir\\dynamics\\b2_wheel_joint.cpp.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\box2d-src\\src\\dynamics\\b2_wheel_joint.cpp",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-src/src/dynamics/b2_wheel_joint.cpp",
+  "output": "_deps/box2d-build/src/CMakeFiles/box2d.dir/dynamics/b2_wheel_joint.cpp.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-build/src",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe  @CMakeFiles/box2d.dir/includes_CXX.rsp -g -std=c++11 -fvisibility=hidden -fno-keep-inline-dllexport -o CMakeFiles\\box2d.dir\\dynamics\\b2_world.cpp.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\box2d-src\\src\\dynamics\\b2_world.cpp",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-src/src/dynamics/b2_world.cpp",
+  "output": "_deps/box2d-build/src/CMakeFiles/box2d.dir/dynamics/b2_world.cpp.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-build/src",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe  @CMakeFiles/box2d.dir/includes_CXX.rsp -g -std=c++11 -fvisibility=hidden -fno-keep-inline-dllexport -o CMakeFiles\\box2d.dir\\dynamics\\b2_world_callbacks.cpp.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\box2d-src\\src\\dynamics\\b2_world_callbacks.cpp",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-src/src/dynamics/b2_world_callbacks.cpp",
+  "output": "_deps/box2d-build/src/CMakeFiles/box2d.dir/dynamics/b2_world_callbacks.cpp.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-build/src",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe  @CMakeFiles/box2d.dir/includes_CXX.rsp -g -std=c++11 -fvisibility=hidden -fno-keep-inline-dllexport -o CMakeFiles\\box2d.dir\\rope\\b2_rope.cpp.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\box2d-src\\src\\rope\\b2_rope.cpp",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-src/src/rope/b2_rope.cpp",
+  "output": "_deps/box2d-build/src/CMakeFiles/box2d.dir/rope/b2_rope.cpp.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-build/unit-test",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe  @CMakeFiles/unit_test.dir/includes_CXX.rsp -g -std=c++11 -fvisibility=hidden -fno-keep-inline-dllexport -o CMakeFiles\\unit_test.dir\\hello_world.cpp.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\box2d-src\\unit-test\\hello_world.cpp",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-src/unit-test/hello_world.cpp",
+  "output": "_deps/box2d-build/unit-test/CMakeFiles/unit_test.dir/hello_world.cpp.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-build/unit-test",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe  @CMakeFiles/unit_test.dir/includes_CXX.rsp -g -std=c++11 -fvisibility=hidden -fno-keep-inline-dllexport -o CMakeFiles\\unit_test.dir\\collision_test.cpp.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\box2d-src\\unit-test\\collision_test.cpp",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-src/unit-test/collision_test.cpp",
+  "output": "_deps/box2d-build/unit-test/CMakeFiles/unit_test.dir/collision_test.cpp.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-build/unit-test",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe  @CMakeFiles/unit_test.dir/includes_CXX.rsp -g -std=c++11 -fvisibility=hidden -fno-keep-inline-dllexport -o CMakeFiles\\unit_test.dir\\joint_test.cpp.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\box2d-src\\unit-test\\joint_test.cpp",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-src/unit-test/joint_test.cpp",
+  "output": "_deps/box2d-build/unit-test/CMakeFiles/unit_test.dir/joint_test.cpp.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-build/unit-test",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe  @CMakeFiles/unit_test.dir/includes_CXX.rsp -g -std=c++11 -fvisibility=hidden -fno-keep-inline-dllexport -o CMakeFiles\\unit_test.dir\\math_test.cpp.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\box2d-src\\unit-test\\math_test.cpp",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-src/unit-test/math_test.cpp",
+  "output": "_deps/box2d-build/unit-test/CMakeFiles/unit_test.dir/math_test.cpp.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-build/unit-test",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe  @CMakeFiles/unit_test.dir/includes_CXX.rsp -g -std=c++11 -fvisibility=hidden -fno-keep-inline-dllexport -o CMakeFiles\\unit_test.dir\\world_test.cpp.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\box2d-src\\unit-test\\world_test.cpp",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-src/unit-test/world_test.cpp",
+  "output": "_deps/box2d-build/unit-test/CMakeFiles/unit_test.dir/world_test.cpp.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-build/extern/glad",
+  "command": "C:\\msys64\\mingw64\\bin\\gcc.exe  @CMakeFiles/glad.dir/includes_C.rsp -g -o CMakeFiles\\glad.dir\\src\\gl.c.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\box2d-src\\extern\\glad\\src\\gl.c",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-src/extern/glad/src/gl.c",
+  "output": "_deps/box2d-build/extern/glad/CMakeFiles/glad.dir/src/gl.c.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-build/extern/glfw",
+  "command": "C:\\msys64\\mingw64\\bin\\gcc.exe  @CMakeFiles/glfw.dir/includes_C.rsp -g -o CMakeFiles\\glfw.dir\\src\\context.c.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\box2d-src\\extern\\glfw\\src\\context.c",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-src/extern/glfw/src/context.c",
+  "output": "_deps/box2d-build/extern/glfw/CMakeFiles/glfw.dir/src/context.c.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-build/extern/glfw",
+  "command": "C:\\msys64\\mingw64\\bin\\gcc.exe  @CMakeFiles/glfw.dir/includes_C.rsp -g -o CMakeFiles\\glfw.dir\\src\\init.c.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\box2d-src\\extern\\glfw\\src\\init.c",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-src/extern/glfw/src/init.c",
+  "output": "_deps/box2d-build/extern/glfw/CMakeFiles/glfw.dir/src/init.c.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-build/extern/glfw",
+  "command": "C:\\msys64\\mingw64\\bin\\gcc.exe  @CMakeFiles/glfw.dir/includes_C.rsp -g -o CMakeFiles\\glfw.dir\\src\\input.c.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\box2d-src\\extern\\glfw\\src\\input.c",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-src/extern/glfw/src/input.c",
+  "output": "_deps/box2d-build/extern/glfw/CMakeFiles/glfw.dir/src/input.c.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-build/extern/glfw",
+  "command": "C:\\msys64\\mingw64\\bin\\gcc.exe  @CMakeFiles/glfw.dir/includes_C.rsp -g -o CMakeFiles\\glfw.dir\\src\\monitor.c.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\box2d-src\\extern\\glfw\\src\\monitor.c",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-src/extern/glfw/src/monitor.c",
+  "output": "_deps/box2d-build/extern/glfw/CMakeFiles/glfw.dir/src/monitor.c.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-build/extern/glfw",
+  "command": "C:\\msys64\\mingw64\\bin\\gcc.exe  @CMakeFiles/glfw.dir/includes_C.rsp -g -o CMakeFiles\\glfw.dir\\src\\vulkan.c.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\box2d-src\\extern\\glfw\\src\\vulkan.c",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-src/extern/glfw/src/vulkan.c",
+  "output": "_deps/box2d-build/extern/glfw/CMakeFiles/glfw.dir/src/vulkan.c.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-build/extern/glfw",
+  "command": "C:\\msys64\\mingw64\\bin\\gcc.exe  @CMakeFiles/glfw.dir/includes_C.rsp -g -o CMakeFiles\\glfw.dir\\src\\window.c.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\box2d-src\\extern\\glfw\\src\\window.c",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-src/extern/glfw/src/window.c",
+  "output": "_deps/box2d-build/extern/glfw/CMakeFiles/glfw.dir/src/window.c.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-build/extern/glfw",
+  "command": "C:\\msys64\\mingw64\\bin\\gcc.exe  @CMakeFiles/glfw.dir/includes_C.rsp -g -o CMakeFiles\\glfw.dir\\src\\win32_init.c.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\box2d-src\\extern\\glfw\\src\\win32_init.c",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-src/extern/glfw/src/win32_init.c",
+  "output": "_deps/box2d-build/extern/glfw/CMakeFiles/glfw.dir/src/win32_init.c.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-build/extern/glfw",
+  "command": "C:\\msys64\\mingw64\\bin\\gcc.exe  @CMakeFiles/glfw.dir/includes_C.rsp -g -o CMakeFiles\\glfw.dir\\src\\win32_joystick.c.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\box2d-src\\extern\\glfw\\src\\win32_joystick.c",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-src/extern/glfw/src/win32_joystick.c",
+  "output": "_deps/box2d-build/extern/glfw/CMakeFiles/glfw.dir/src/win32_joystick.c.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-build/extern/glfw",
+  "command": "C:\\msys64\\mingw64\\bin\\gcc.exe  @CMakeFiles/glfw.dir/includes_C.rsp -g -o CMakeFiles\\glfw.dir\\src\\win32_monitor.c.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\box2d-src\\extern\\glfw\\src\\win32_monitor.c",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-src/extern/glfw/src/win32_monitor.c",
+  "output": "_deps/box2d-build/extern/glfw/CMakeFiles/glfw.dir/src/win32_monitor.c.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-build/extern/glfw",
+  "command": "C:\\msys64\\mingw64\\bin\\gcc.exe  @CMakeFiles/glfw.dir/includes_C.rsp -g -o CMakeFiles\\glfw.dir\\src\\win32_time.c.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\box2d-src\\extern\\glfw\\src\\win32_time.c",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-src/extern/glfw/src/win32_time.c",
+  "output": "_deps/box2d-build/extern/glfw/CMakeFiles/glfw.dir/src/win32_time.c.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-build/extern/glfw",
+  "command": "C:\\msys64\\mingw64\\bin\\gcc.exe  @CMakeFiles/glfw.dir/includes_C.rsp -g -o CMakeFiles\\glfw.dir\\src\\win32_thread.c.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\box2d-src\\extern\\glfw\\src\\win32_thread.c",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-src/extern/glfw/src/win32_thread.c",
+  "output": "_deps/box2d-build/extern/glfw/CMakeFiles/glfw.dir/src/win32_thread.c.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-build/extern/glfw",
+  "command": "C:\\msys64\\mingw64\\bin\\gcc.exe  @CMakeFiles/glfw.dir/includes_C.rsp -g -o CMakeFiles\\glfw.dir\\src\\win32_window.c.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\box2d-src\\extern\\glfw\\src\\win32_window.c",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-src/extern/glfw/src/win32_window.c",
+  "output": "_deps/box2d-build/extern/glfw/CMakeFiles/glfw.dir/src/win32_window.c.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-build/extern/glfw",
+  "command": "C:\\msys64\\mingw64\\bin\\gcc.exe  @CMakeFiles/glfw.dir/includes_C.rsp -g -o CMakeFiles\\glfw.dir\\src\\wgl_context.c.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\box2d-src\\extern\\glfw\\src\\wgl_context.c",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-src/extern/glfw/src/wgl_context.c",
+  "output": "_deps/box2d-build/extern/glfw/CMakeFiles/glfw.dir/src/wgl_context.c.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-build/extern/glfw",
+  "command": "C:\\msys64\\mingw64\\bin\\gcc.exe  @CMakeFiles/glfw.dir/includes_C.rsp -g -o CMakeFiles\\glfw.dir\\src\\egl_context.c.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\box2d-src\\extern\\glfw\\src\\egl_context.c",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-src/extern/glfw/src/egl_context.c",
+  "output": "_deps/box2d-build/extern/glfw/CMakeFiles/glfw.dir/src/egl_context.c.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-build/extern/glfw",
+  "command": "C:\\msys64\\mingw64\\bin\\gcc.exe  @CMakeFiles/glfw.dir/includes_C.rsp -g -o CMakeFiles\\glfw.dir\\src\\osmesa_context.c.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\box2d-src\\extern\\glfw\\src\\osmesa_context.c",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-src/extern/glfw/src/osmesa_context.c",
+  "output": "_deps/box2d-build/extern/glfw/CMakeFiles/glfw.dir/src/osmesa_context.c.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-build/extern/imgui",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe  @CMakeFiles/imgui.dir/includes_CXX.rsp -g -std=gnu++17 -fvisibility=hidden -fno-keep-inline-dllexport -o CMakeFiles\\imgui.dir\\imgui.cpp.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\box2d-src\\extern\\imgui\\imgui.cpp",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-src/extern/imgui/imgui.cpp",
+  "output": "_deps/box2d-build/extern/imgui/CMakeFiles/imgui.dir/imgui.cpp.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-build/extern/imgui",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe  @CMakeFiles/imgui.dir/includes_CXX.rsp -g -std=gnu++17 -fvisibility=hidden -fno-keep-inline-dllexport -o CMakeFiles\\imgui.dir\\imgui_demo.cpp.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\box2d-src\\extern\\imgui\\imgui_demo.cpp",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-src/extern/imgui/imgui_demo.cpp",
+  "output": "_deps/box2d-build/extern/imgui/CMakeFiles/imgui.dir/imgui_demo.cpp.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-build/extern/imgui",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe  @CMakeFiles/imgui.dir/includes_CXX.rsp -g -std=gnu++17 -fvisibility=hidden -fno-keep-inline-dllexport -o CMakeFiles\\imgui.dir\\imgui_draw.cpp.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\box2d-src\\extern\\imgui\\imgui_draw.cpp",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-src/extern/imgui/imgui_draw.cpp",
+  "output": "_deps/box2d-build/extern/imgui/CMakeFiles/imgui.dir/imgui_draw.cpp.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-build/extern/imgui",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe  @CMakeFiles/imgui.dir/includes_CXX.rsp -g -std=gnu++17 -fvisibility=hidden -fno-keep-inline-dllexport -o CMakeFiles\\imgui.dir\\imgui_widgets.cpp.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\box2d-src\\extern\\imgui\\imgui_widgets.cpp",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-src/extern/imgui/imgui_widgets.cpp",
+  "output": "_deps/box2d-build/extern/imgui/CMakeFiles/imgui.dir/imgui_widgets.cpp.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-build/extern/sajson",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe  @CMakeFiles/sajson.dir/includes_CXX.rsp -g -std=c++11 -fvisibility=hidden -fno-keep-inline-dllexport -o CMakeFiles\\sajson.dir\\sajson.cpp.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\box2d-src\\extern\\sajson\\sajson.cpp",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-src/extern/sajson/sajson.cpp",
+  "output": "_deps/box2d-build/extern/sajson/CMakeFiles/sajson.dir/sajson.cpp.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-build/testbed",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe  @CMakeFiles/testbed.dir/includes_CXX.rsp -g -std=c++11 -fvisibility=hidden -fno-keep-inline-dllexport -o CMakeFiles\\testbed.dir\\draw.cpp.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\box2d-src\\testbed\\draw.cpp",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-src/testbed/draw.cpp",
+  "output": "_deps/box2d-build/testbed/CMakeFiles/testbed.dir/draw.cpp.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-build/testbed",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe  @CMakeFiles/testbed.dir/includes_CXX.rsp -g -std=c++11 -fvisibility=hidden -fno-keep-inline-dllexport -o CMakeFiles\\testbed.dir\\imgui_impl_glfw.cpp.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\box2d-src\\testbed\\imgui_impl_glfw.cpp",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-src/testbed/imgui_impl_glfw.cpp",
+  "output": "_deps/box2d-build/testbed/CMakeFiles/testbed.dir/imgui_impl_glfw.cpp.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-build/testbed",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe  @CMakeFiles/testbed.dir/includes_CXX.rsp -g -std=c++11 -fvisibility=hidden -fno-keep-inline-dllexport -o CMakeFiles\\testbed.dir\\imgui_impl_opengl3.cpp.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\box2d-src\\testbed\\imgui_impl_opengl3.cpp",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-src/testbed/imgui_impl_opengl3.cpp",
+  "output": "_deps/box2d-build/testbed/CMakeFiles/testbed.dir/imgui_impl_opengl3.cpp.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-build/testbed",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe  @CMakeFiles/testbed.dir/includes_CXX.rsp -g -std=c++11 -fvisibility=hidden -fno-keep-inline-dllexport -o CMakeFiles\\testbed.dir\\main.cpp.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\box2d-src\\testbed\\main.cpp",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-src/testbed/main.cpp",
+  "output": "_deps/box2d-build/testbed/CMakeFiles/testbed.dir/main.cpp.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-build/testbed",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe  @CMakeFiles/testbed.dir/includes_CXX.rsp -g -std=c++11 -fvisibility=hidden -fno-keep-inline-dllexport -o CMakeFiles\\testbed.dir\\settings.cpp.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\box2d-src\\testbed\\settings.cpp",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-src/testbed/settings.cpp",
+  "output": "_deps/box2d-build/testbed/CMakeFiles/testbed.dir/settings.cpp.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-build/testbed",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe  @CMakeFiles/testbed.dir/includes_CXX.rsp -g -std=c++11 -fvisibility=hidden -fno-keep-inline-dllexport -o CMakeFiles\\testbed.dir\\test.cpp.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\box2d-src\\testbed\\test.cpp",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-src/testbed/test.cpp",
+  "output": "_deps/box2d-build/testbed/CMakeFiles/testbed.dir/test.cpp.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-build/testbed",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe  @CMakeFiles/testbed.dir/includes_CXX.rsp -g -std=c++11 -fvisibility=hidden -fno-keep-inline-dllexport -o CMakeFiles\\testbed.dir\\tests\\add_pair.cpp.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\box2d-src\\testbed\\tests\\add_pair.cpp",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-src/testbed/tests/add_pair.cpp",
+  "output": "_deps/box2d-build/testbed/CMakeFiles/testbed.dir/tests/add_pair.cpp.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-build/testbed",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe  @CMakeFiles/testbed.dir/includes_CXX.rsp -g -std=c++11 -fvisibility=hidden -fno-keep-inline-dllexport -o CMakeFiles\\testbed.dir\\tests\\apply_force.cpp.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\box2d-src\\testbed\\tests\\apply_force.cpp",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-src/testbed/tests/apply_force.cpp",
+  "output": "_deps/box2d-build/testbed/CMakeFiles/testbed.dir/tests/apply_force.cpp.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-build/testbed",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe  @CMakeFiles/testbed.dir/includes_CXX.rsp -g -std=c++11 -fvisibility=hidden -fno-keep-inline-dllexport -o CMakeFiles\\testbed.dir\\tests\\body_types.cpp.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\box2d-src\\testbed\\tests\\body_types.cpp",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-src/testbed/tests/body_types.cpp",
+  "output": "_deps/box2d-build/testbed/CMakeFiles/testbed.dir/tests/body_types.cpp.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-build/testbed",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe  @CMakeFiles/testbed.dir/includes_CXX.rsp -g -std=c++11 -fvisibility=hidden -fno-keep-inline-dllexport -o CMakeFiles\\testbed.dir\\tests\\box_stack.cpp.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\box2d-src\\testbed\\tests\\box_stack.cpp",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-src/testbed/tests/box_stack.cpp",
+  "output": "_deps/box2d-build/testbed/CMakeFiles/testbed.dir/tests/box_stack.cpp.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-build/testbed",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe  @CMakeFiles/testbed.dir/includes_CXX.rsp -g -std=c++11 -fvisibility=hidden -fno-keep-inline-dllexport -o CMakeFiles\\testbed.dir\\tests\\breakable.cpp.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\box2d-src\\testbed\\tests\\breakable.cpp",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-src/testbed/tests/breakable.cpp",
+  "output": "_deps/box2d-build/testbed/CMakeFiles/testbed.dir/tests/breakable.cpp.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-build/testbed",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe  @CMakeFiles/testbed.dir/includes_CXX.rsp -g -std=c++11 -fvisibility=hidden -fno-keep-inline-dllexport -o CMakeFiles\\testbed.dir\\tests\\bridge.cpp.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\box2d-src\\testbed\\tests\\bridge.cpp",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-src/testbed/tests/bridge.cpp",
+  "output": "_deps/box2d-build/testbed/CMakeFiles/testbed.dir/tests/bridge.cpp.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-build/testbed",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe  @CMakeFiles/testbed.dir/includes_CXX.rsp -g -std=c++11 -fvisibility=hidden -fno-keep-inline-dllexport -o CMakeFiles\\testbed.dir\\tests\\bullet_test.cpp.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\box2d-src\\testbed\\tests\\bullet_test.cpp",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-src/testbed/tests/bullet_test.cpp",
+  "output": "_deps/box2d-build/testbed/CMakeFiles/testbed.dir/tests/bullet_test.cpp.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-build/testbed",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe  @CMakeFiles/testbed.dir/includes_CXX.rsp -g -std=c++11 -fvisibility=hidden -fno-keep-inline-dllexport -o CMakeFiles\\testbed.dir\\tests\\cantilever.cpp.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\box2d-src\\testbed\\tests\\cantilever.cpp",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-src/testbed/tests/cantilever.cpp",
+  "output": "_deps/box2d-build/testbed/CMakeFiles/testbed.dir/tests/cantilever.cpp.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-build/testbed",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe  @CMakeFiles/testbed.dir/includes_CXX.rsp -g -std=c++11 -fvisibility=hidden -fno-keep-inline-dllexport -o CMakeFiles\\testbed.dir\\tests\\car.cpp.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\box2d-src\\testbed\\tests\\car.cpp",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-src/testbed/tests/car.cpp",
+  "output": "_deps/box2d-build/testbed/CMakeFiles/testbed.dir/tests/car.cpp.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-build/testbed",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe  @CMakeFiles/testbed.dir/includes_CXX.rsp -g -std=c++11 -fvisibility=hidden -fno-keep-inline-dllexport -o CMakeFiles\\testbed.dir\\tests\\chain.cpp.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\box2d-src\\testbed\\tests\\chain.cpp",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-src/testbed/tests/chain.cpp",
+  "output": "_deps/box2d-build/testbed/CMakeFiles/testbed.dir/tests/chain.cpp.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-build/testbed",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe  @CMakeFiles/testbed.dir/includes_CXX.rsp -g -std=c++11 -fvisibility=hidden -fno-keep-inline-dllexport -o CMakeFiles\\testbed.dir\\tests\\chain_problem.cpp.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\box2d-src\\testbed\\tests\\chain_problem.cpp",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-src/testbed/tests/chain_problem.cpp",
+  "output": "_deps/box2d-build/testbed/CMakeFiles/testbed.dir/tests/chain_problem.cpp.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-build/testbed",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe  @CMakeFiles/testbed.dir/includes_CXX.rsp -g -std=c++11 -fvisibility=hidden -fno-keep-inline-dllexport -o CMakeFiles\\testbed.dir\\tests\\character_collision.cpp.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\box2d-src\\testbed\\tests\\character_collision.cpp",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-src/testbed/tests/character_collision.cpp",
+  "output": "_deps/box2d-build/testbed/CMakeFiles/testbed.dir/tests/character_collision.cpp.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-build/testbed",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe  @CMakeFiles/testbed.dir/includes_CXX.rsp -g -std=c++11 -fvisibility=hidden -fno-keep-inline-dllexport -o CMakeFiles\\testbed.dir\\tests\\circle_stack.cpp.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\box2d-src\\testbed\\tests\\circle_stack.cpp",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-src/testbed/tests/circle_stack.cpp",
+  "output": "_deps/box2d-build/testbed/CMakeFiles/testbed.dir/tests/circle_stack.cpp.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-build/testbed",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe  @CMakeFiles/testbed.dir/includes_CXX.rsp -g -std=c++11 -fvisibility=hidden -fno-keep-inline-dllexport -o CMakeFiles\\testbed.dir\\tests\\collision_filtering.cpp.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\box2d-src\\testbed\\tests\\collision_filtering.cpp",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-src/testbed/tests/collision_filtering.cpp",
+  "output": "_deps/box2d-build/testbed/CMakeFiles/testbed.dir/tests/collision_filtering.cpp.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-build/testbed",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe  @CMakeFiles/testbed.dir/includes_CXX.rsp -g -std=c++11 -fvisibility=hidden -fno-keep-inline-dllexport -o CMakeFiles\\testbed.dir\\tests\\collision_processing.cpp.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\box2d-src\\testbed\\tests\\collision_processing.cpp",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-src/testbed/tests/collision_processing.cpp",
+  "output": "_deps/box2d-build/testbed/CMakeFiles/testbed.dir/tests/collision_processing.cpp.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-build/testbed",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe  @CMakeFiles/testbed.dir/includes_CXX.rsp -g -std=c++11 -fvisibility=hidden -fno-keep-inline-dllexport -o CMakeFiles\\testbed.dir\\tests\\compound_shapes.cpp.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\box2d-src\\testbed\\tests\\compound_shapes.cpp",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-src/testbed/tests/compound_shapes.cpp",
+  "output": "_deps/box2d-build/testbed/CMakeFiles/testbed.dir/tests/compound_shapes.cpp.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-build/testbed",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe  @CMakeFiles/testbed.dir/includes_CXX.rsp -g -std=c++11 -fvisibility=hidden -fno-keep-inline-dllexport -o CMakeFiles\\testbed.dir\\tests\\confined.cpp.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\box2d-src\\testbed\\tests\\confined.cpp",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-src/testbed/tests/confined.cpp",
+  "output": "_deps/box2d-build/testbed/CMakeFiles/testbed.dir/tests/confined.cpp.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-build/testbed",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe  @CMakeFiles/testbed.dir/includes_CXX.rsp -g -std=c++11 -fvisibility=hidden -fno-keep-inline-dllexport -o CMakeFiles\\testbed.dir\\tests\\continuous_test.cpp.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\box2d-src\\testbed\\tests\\continuous_test.cpp",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-src/testbed/tests/continuous_test.cpp",
+  "output": "_deps/box2d-build/testbed/CMakeFiles/testbed.dir/tests/continuous_test.cpp.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-build/testbed",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe  @CMakeFiles/testbed.dir/includes_CXX.rsp -g -std=c++11 -fvisibility=hidden -fno-keep-inline-dllexport -o CMakeFiles\\testbed.dir\\tests\\convex_hull.cpp.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\box2d-src\\testbed\\tests\\convex_hull.cpp",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-src/testbed/tests/convex_hull.cpp",
+  "output": "_deps/box2d-build/testbed/CMakeFiles/testbed.dir/tests/convex_hull.cpp.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-build/testbed",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe  @CMakeFiles/testbed.dir/includes_CXX.rsp -g -std=c++11 -fvisibility=hidden -fno-keep-inline-dllexport -o CMakeFiles\\testbed.dir\\tests\\conveyor_belt.cpp.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\box2d-src\\testbed\\tests\\conveyor_belt.cpp",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-src/testbed/tests/conveyor_belt.cpp",
+  "output": "_deps/box2d-build/testbed/CMakeFiles/testbed.dir/tests/conveyor_belt.cpp.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-build/testbed",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe  @CMakeFiles/testbed.dir/includes_CXX.rsp -g -std=c++11 -fvisibility=hidden -fno-keep-inline-dllexport -o CMakeFiles\\testbed.dir\\tests\\distance_joint.cpp.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\box2d-src\\testbed\\tests\\distance_joint.cpp",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-src/testbed/tests/distance_joint.cpp",
+  "output": "_deps/box2d-build/testbed/CMakeFiles/testbed.dir/tests/distance_joint.cpp.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-build/testbed",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe  @CMakeFiles/testbed.dir/includes_CXX.rsp -g -std=c++11 -fvisibility=hidden -fno-keep-inline-dllexport -o CMakeFiles\\testbed.dir\\tests\\distance_test.cpp.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\box2d-src\\testbed\\tests\\distance_test.cpp",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-src/testbed/tests/distance_test.cpp",
+  "output": "_deps/box2d-build/testbed/CMakeFiles/testbed.dir/tests/distance_test.cpp.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-build/testbed",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe  @CMakeFiles/testbed.dir/includes_CXX.rsp -g -std=c++11 -fvisibility=hidden -fno-keep-inline-dllexport -o CMakeFiles\\testbed.dir\\tests\\dominos.cpp.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\box2d-src\\testbed\\tests\\dominos.cpp",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-src/testbed/tests/dominos.cpp",
+  "output": "_deps/box2d-build/testbed/CMakeFiles/testbed.dir/tests/dominos.cpp.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-build/testbed",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe  @CMakeFiles/testbed.dir/includes_CXX.rsp -g -std=c++11 -fvisibility=hidden -fno-keep-inline-dllexport -o CMakeFiles\\testbed.dir\\tests\\dump_loader.cpp.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\box2d-src\\testbed\\tests\\dump_loader.cpp",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-src/testbed/tests/dump_loader.cpp",
+  "output": "_deps/box2d-build/testbed/CMakeFiles/testbed.dir/tests/dump_loader.cpp.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-build/testbed",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe  @CMakeFiles/testbed.dir/includes_CXX.rsp -g -std=c++11 -fvisibility=hidden -fno-keep-inline-dllexport -o CMakeFiles\\testbed.dir\\tests\\dynamic_tree.cpp.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\box2d-src\\testbed\\tests\\dynamic_tree.cpp",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-src/testbed/tests/dynamic_tree.cpp",
+  "output": "_deps/box2d-build/testbed/CMakeFiles/testbed.dir/tests/dynamic_tree.cpp.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-build/testbed",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe  @CMakeFiles/testbed.dir/includes_CXX.rsp -g -std=c++11 -fvisibility=hidden -fno-keep-inline-dllexport -o CMakeFiles\\testbed.dir\\tests\\edge_shapes.cpp.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\box2d-src\\testbed\\tests\\edge_shapes.cpp",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-src/testbed/tests/edge_shapes.cpp",
+  "output": "_deps/box2d-build/testbed/CMakeFiles/testbed.dir/tests/edge_shapes.cpp.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-build/testbed",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe  @CMakeFiles/testbed.dir/includes_CXX.rsp -g -std=c++11 -fvisibility=hidden -fno-keep-inline-dllexport -o CMakeFiles\\testbed.dir\\tests\\edge_test.cpp.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\box2d-src\\testbed\\tests\\edge_test.cpp",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-src/testbed/tests/edge_test.cpp",
+  "output": "_deps/box2d-build/testbed/CMakeFiles/testbed.dir/tests/edge_test.cpp.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-build/testbed",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe  @CMakeFiles/testbed.dir/includes_CXX.rsp -g -std=c++11 -fvisibility=hidden -fno-keep-inline-dllexport -o CMakeFiles\\testbed.dir\\tests\\friction.cpp.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\box2d-src\\testbed\\tests\\friction.cpp",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-src/testbed/tests/friction.cpp",
+  "output": "_deps/box2d-build/testbed/CMakeFiles/testbed.dir/tests/friction.cpp.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-build/testbed",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe  @CMakeFiles/testbed.dir/includes_CXX.rsp -g -std=c++11 -fvisibility=hidden -fno-keep-inline-dllexport -o CMakeFiles\\testbed.dir\\tests\\gear_joint.cpp.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\box2d-src\\testbed\\tests\\gear_joint.cpp",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-src/testbed/tests/gear_joint.cpp",
+  "output": "_deps/box2d-build/testbed/CMakeFiles/testbed.dir/tests/gear_joint.cpp.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-build/testbed",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe  @CMakeFiles/testbed.dir/includes_CXX.rsp -g -std=c++11 -fvisibility=hidden -fno-keep-inline-dllexport -o CMakeFiles\\testbed.dir\\tests\\heavy1.cpp.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\box2d-src\\testbed\\tests\\heavy1.cpp",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-src/testbed/tests/heavy1.cpp",
+  "output": "_deps/box2d-build/testbed/CMakeFiles/testbed.dir/tests/heavy1.cpp.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-build/testbed",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe  @CMakeFiles/testbed.dir/includes_CXX.rsp -g -std=c++11 -fvisibility=hidden -fno-keep-inline-dllexport -o CMakeFiles\\testbed.dir\\tests\\heavy2.cpp.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\box2d-src\\testbed\\tests\\heavy2.cpp",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-src/testbed/tests/heavy2.cpp",
+  "output": "_deps/box2d-build/testbed/CMakeFiles/testbed.dir/tests/heavy2.cpp.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-build/testbed",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe  @CMakeFiles/testbed.dir/includes_CXX.rsp -g -std=c++11 -fvisibility=hidden -fno-keep-inline-dllexport -o CMakeFiles\\testbed.dir\\tests\\mobile_balanced.cpp.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\box2d-src\\testbed\\tests\\mobile_balanced.cpp",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-src/testbed/tests/mobile_balanced.cpp",
+  "output": "_deps/box2d-build/testbed/CMakeFiles/testbed.dir/tests/mobile_balanced.cpp.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-build/testbed",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe  @CMakeFiles/testbed.dir/includes_CXX.rsp -g -std=c++11 -fvisibility=hidden -fno-keep-inline-dllexport -o CMakeFiles\\testbed.dir\\tests\\mobile_unbalanced.cpp.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\box2d-src\\testbed\\tests\\mobile_unbalanced.cpp",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-src/testbed/tests/mobile_unbalanced.cpp",
+  "output": "_deps/box2d-build/testbed/CMakeFiles/testbed.dir/tests/mobile_unbalanced.cpp.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-build/testbed",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe  @CMakeFiles/testbed.dir/includes_CXX.rsp -g -std=c++11 -fvisibility=hidden -fno-keep-inline-dllexport -o CMakeFiles\\testbed.dir\\tests\\motor_joint.cpp.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\box2d-src\\testbed\\tests\\motor_joint.cpp",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-src/testbed/tests/motor_joint.cpp",
+  "output": "_deps/box2d-build/testbed/CMakeFiles/testbed.dir/tests/motor_joint.cpp.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-build/testbed",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe  @CMakeFiles/testbed.dir/includes_CXX.rsp -g -std=c++11 -fvisibility=hidden -fno-keep-inline-dllexport -o CMakeFiles\\testbed.dir\\tests\\pinball.cpp.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\box2d-src\\testbed\\tests\\pinball.cpp",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-src/testbed/tests/pinball.cpp",
+  "output": "_deps/box2d-build/testbed/CMakeFiles/testbed.dir/tests/pinball.cpp.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-build/testbed",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe  @CMakeFiles/testbed.dir/includes_CXX.rsp -g -std=c++11 -fvisibility=hidden -fno-keep-inline-dllexport -o CMakeFiles\\testbed.dir\\tests\\platformer.cpp.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\box2d-src\\testbed\\tests\\platformer.cpp",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-src/testbed/tests/platformer.cpp",
+  "output": "_deps/box2d-build/testbed/CMakeFiles/testbed.dir/tests/platformer.cpp.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-build/testbed",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe  @CMakeFiles/testbed.dir/includes_CXX.rsp -g -std=c++11 -fvisibility=hidden -fno-keep-inline-dllexport -o CMakeFiles\\testbed.dir\\tests\\polygon_collision.cpp.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\box2d-src\\testbed\\tests\\polygon_collision.cpp",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-src/testbed/tests/polygon_collision.cpp",
+  "output": "_deps/box2d-build/testbed/CMakeFiles/testbed.dir/tests/polygon_collision.cpp.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-build/testbed",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe  @CMakeFiles/testbed.dir/includes_CXX.rsp -g -std=c++11 -fvisibility=hidden -fno-keep-inline-dllexport -o CMakeFiles\\testbed.dir\\tests\\polygon_shapes.cpp.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\box2d-src\\testbed\\tests\\polygon_shapes.cpp",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-src/testbed/tests/polygon_shapes.cpp",
+  "output": "_deps/box2d-build/testbed/CMakeFiles/testbed.dir/tests/polygon_shapes.cpp.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-build/testbed",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe  @CMakeFiles/testbed.dir/includes_CXX.rsp -g -std=c++11 -fvisibility=hidden -fno-keep-inline-dllexport -o CMakeFiles\\testbed.dir\\tests\\prismatic_joint.cpp.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\box2d-src\\testbed\\tests\\prismatic_joint.cpp",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-src/testbed/tests/prismatic_joint.cpp",
+  "output": "_deps/box2d-build/testbed/CMakeFiles/testbed.dir/tests/prismatic_joint.cpp.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-build/testbed",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe  @CMakeFiles/testbed.dir/includes_CXX.rsp -g -std=c++11 -fvisibility=hidden -fno-keep-inline-dllexport -o CMakeFiles\\testbed.dir\\tests\\pulley_joint.cpp.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\box2d-src\\testbed\\tests\\pulley_joint.cpp",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-src/testbed/tests/pulley_joint.cpp",
+  "output": "_deps/box2d-build/testbed/CMakeFiles/testbed.dir/tests/pulley_joint.cpp.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-build/testbed",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe  @CMakeFiles/testbed.dir/includes_CXX.rsp -g -std=c++11 -fvisibility=hidden -fno-keep-inline-dllexport -o CMakeFiles\\testbed.dir\\tests\\pyramid.cpp.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\box2d-src\\testbed\\tests\\pyramid.cpp",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-src/testbed/tests/pyramid.cpp",
+  "output": "_deps/box2d-build/testbed/CMakeFiles/testbed.dir/tests/pyramid.cpp.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-build/testbed",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe  @CMakeFiles/testbed.dir/includes_CXX.rsp -g -std=c++11 -fvisibility=hidden -fno-keep-inline-dllexport -o CMakeFiles\\testbed.dir\\tests\\ray_cast.cpp.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\box2d-src\\testbed\\tests\\ray_cast.cpp",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-src/testbed/tests/ray_cast.cpp",
+  "output": "_deps/box2d-build/testbed/CMakeFiles/testbed.dir/tests/ray_cast.cpp.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-build/testbed",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe  @CMakeFiles/testbed.dir/includes_CXX.rsp -g -std=c++11 -fvisibility=hidden -fno-keep-inline-dllexport -o CMakeFiles\\testbed.dir\\tests\\restitution.cpp.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\box2d-src\\testbed\\tests\\restitution.cpp",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-src/testbed/tests/restitution.cpp",
+  "output": "_deps/box2d-build/testbed/CMakeFiles/testbed.dir/tests/restitution.cpp.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-build/testbed",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe  @CMakeFiles/testbed.dir/includes_CXX.rsp -g -std=c++11 -fvisibility=hidden -fno-keep-inline-dllexport -o CMakeFiles\\testbed.dir\\tests\\revolute_joint.cpp.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\box2d-src\\testbed\\tests\\revolute_joint.cpp",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-src/testbed/tests/revolute_joint.cpp",
+  "output": "_deps/box2d-build/testbed/CMakeFiles/testbed.dir/tests/revolute_joint.cpp.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-build/testbed",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe  @CMakeFiles/testbed.dir/includes_CXX.rsp -g -std=c++11 -fvisibility=hidden -fno-keep-inline-dllexport -o CMakeFiles\\testbed.dir\\tests\\rope.cpp.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\box2d-src\\testbed\\tests\\rope.cpp",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-src/testbed/tests/rope.cpp",
+  "output": "_deps/box2d-build/testbed/CMakeFiles/testbed.dir/tests/rope.cpp.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-build/testbed",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe  @CMakeFiles/testbed.dir/includes_CXX.rsp -g -std=c++11 -fvisibility=hidden -fno-keep-inline-dllexport -o CMakeFiles\\testbed.dir\\tests\\sensor.cpp.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\box2d-src\\testbed\\tests\\sensor.cpp",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-src/testbed/tests/sensor.cpp",
+  "output": "_deps/box2d-build/testbed/CMakeFiles/testbed.dir/tests/sensor.cpp.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-build/testbed",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe  @CMakeFiles/testbed.dir/includes_CXX.rsp -g -std=c++11 -fvisibility=hidden -fno-keep-inline-dllexport -o CMakeFiles\\testbed.dir\\tests\\shape_cast.cpp.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\box2d-src\\testbed\\tests\\shape_cast.cpp",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-src/testbed/tests/shape_cast.cpp",
+  "output": "_deps/box2d-build/testbed/CMakeFiles/testbed.dir/tests/shape_cast.cpp.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-build/testbed",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe  @CMakeFiles/testbed.dir/includes_CXX.rsp -g -std=c++11 -fvisibility=hidden -fno-keep-inline-dllexport -o CMakeFiles\\testbed.dir\\tests\\shape_editing.cpp.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\box2d-src\\testbed\\tests\\shape_editing.cpp",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-src/testbed/tests/shape_editing.cpp",
+  "output": "_deps/box2d-build/testbed/CMakeFiles/testbed.dir/tests/shape_editing.cpp.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-build/testbed",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe  @CMakeFiles/testbed.dir/includes_CXX.rsp -g -std=c++11 -fvisibility=hidden -fno-keep-inline-dllexport -o CMakeFiles\\testbed.dir\\tests\\skier.cpp.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\box2d-src\\testbed\\tests\\skier.cpp",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-src/testbed/tests/skier.cpp",
+  "output": "_deps/box2d-build/testbed/CMakeFiles/testbed.dir/tests/skier.cpp.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-build/testbed",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe  @CMakeFiles/testbed.dir/includes_CXX.rsp -g -std=c++11 -fvisibility=hidden -fno-keep-inline-dllexport -o CMakeFiles\\testbed.dir\\tests\\slider_crank_1.cpp.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\box2d-src\\testbed\\tests\\slider_crank_1.cpp",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-src/testbed/tests/slider_crank_1.cpp",
+  "output": "_deps/box2d-build/testbed/CMakeFiles/testbed.dir/tests/slider_crank_1.cpp.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-build/testbed",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe  @CMakeFiles/testbed.dir/includes_CXX.rsp -g -std=c++11 -fvisibility=hidden -fno-keep-inline-dllexport -o CMakeFiles\\testbed.dir\\tests\\slider_crank_2.cpp.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\box2d-src\\testbed\\tests\\slider_crank_2.cpp",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-src/testbed/tests/slider_crank_2.cpp",
+  "output": "_deps/box2d-build/testbed/CMakeFiles/testbed.dir/tests/slider_crank_2.cpp.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-build/testbed",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe  @CMakeFiles/testbed.dir/includes_CXX.rsp -g -std=c++11 -fvisibility=hidden -fno-keep-inline-dllexport -o CMakeFiles\\testbed.dir\\tests\\theo_jansen.cpp.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\box2d-src\\testbed\\tests\\theo_jansen.cpp",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-src/testbed/tests/theo_jansen.cpp",
+  "output": "_deps/box2d-build/testbed/CMakeFiles/testbed.dir/tests/theo_jansen.cpp.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-build/testbed",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe  @CMakeFiles/testbed.dir/includes_CXX.rsp -g -std=c++11 -fvisibility=hidden -fno-keep-inline-dllexport -o CMakeFiles\\testbed.dir\\tests\\tiles.cpp.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\box2d-src\\testbed\\tests\\tiles.cpp",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-src/testbed/tests/tiles.cpp",
+  "output": "_deps/box2d-build/testbed/CMakeFiles/testbed.dir/tests/tiles.cpp.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-build/testbed",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe  @CMakeFiles/testbed.dir/includes_CXX.rsp -g -std=c++11 -fvisibility=hidden -fno-keep-inline-dllexport -o CMakeFiles\\testbed.dir\\tests\\time_of_impact.cpp.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\box2d-src\\testbed\\tests\\time_of_impact.cpp",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-src/testbed/tests/time_of_impact.cpp",
+  "output": "_deps/box2d-build/testbed/CMakeFiles/testbed.dir/tests/time_of_impact.cpp.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-build/testbed",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe  @CMakeFiles/testbed.dir/includes_CXX.rsp -g -std=c++11 -fvisibility=hidden -fno-keep-inline-dllexport -o CMakeFiles\\testbed.dir\\tests\\tumbler.cpp.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\box2d-src\\testbed\\tests\\tumbler.cpp",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-src/testbed/tests/tumbler.cpp",
+  "output": "_deps/box2d-build/testbed/CMakeFiles/testbed.dir/tests/tumbler.cpp.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-build/testbed",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe  @CMakeFiles/testbed.dir/includes_CXX.rsp -g -std=c++11 -fvisibility=hidden -fno-keep-inline-dllexport -o CMakeFiles\\testbed.dir\\tests\\web.cpp.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\box2d-src\\testbed\\tests\\web.cpp",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-src/testbed/tests/web.cpp",
+  "output": "_deps/box2d-build/testbed/CMakeFiles/testbed.dir/tests/web.cpp.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-build/testbed",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe  @CMakeFiles/testbed.dir/includes_CXX.rsp -g -std=c++11 -fvisibility=hidden -fno-keep-inline-dllexport -o CMakeFiles\\testbed.dir\\tests\\wheel_joint.cpp.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\box2d-src\\testbed\\tests\\wheel_joint.cpp",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-src/testbed/tests/wheel_joint.cpp",
+  "output": "_deps/box2d-build/testbed/CMakeFiles/testbed.dir/tests/wheel_joint.cpp.obj"
+},
+{
+  "directory": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-build/testbed",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe  @CMakeFiles/testbed.dir/includes_CXX.rsp -g -std=c++11 -fvisibility=hidden -fno-keep-inline-dllexport -o CMakeFiles\\testbed.dir\\tests\\wrecking_ball.cpp.obj -c C:\\Users\\masum\\Desktop\\FeatherForge\\build\\_deps\\box2d-src\\testbed\\tests\\wrecking_ball.cpp",
+  "file": "C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-src/testbed/tests/wrecking_ball.cpp",
+  "output": "_deps/box2d-build/testbed/CMakeFiles/testbed.dir/tests/wrecking_ball.cpp.obj"
+}
+]

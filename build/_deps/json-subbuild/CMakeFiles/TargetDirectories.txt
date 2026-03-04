@@ -1,0 +1,3 @@
+C:/Users/masum/Desktop/FeatherForge/build/_deps/json-subbuild/CMakeFiles/json-populate.dir
+C:/Users/masum/Desktop/FeatherForge/build/_deps/json-subbuild/CMakeFiles/edit_cache.dir
+C:/Users/masum/Desktop/FeatherForge/build/_deps/json-subbuild/CMakeFiles/rebuild_cache.dir

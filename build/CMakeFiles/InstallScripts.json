@@ -1,0 +1,24 @@
+{
+	"InstallScripts" : 
+	[
+		"C:/Users/masum/Desktop/FeatherForge/build/cmake_install.cmake",
+		"C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-build/cmake_install.cmake",
+		"C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-build/src/SFML/cmake_install.cmake",
+		"C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-build/src/SFML/System/cmake_install.cmake",
+		"C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-build/src/SFML/Main/cmake_install.cmake",
+		"C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-build/src/SFML/Window/cmake_install.cmake",
+		"C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-build/src/SFML/Network/cmake_install.cmake",
+		"C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-build/src/SFML/Graphics/cmake_install.cmake",
+		"C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-build/src/SFML/Audio/cmake_install.cmake",
+		"C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-build/cmake_install.cmake",
+		"C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-build/src/cmake_install.cmake",
+		"C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-build/unit-test/cmake_install.cmake",
+		"C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-build/extern/glad/cmake_install.cmake",
+		"C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-build/extern/glfw/cmake_install.cmake",
+		"C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-build/extern/imgui/cmake_install.cmake",
+		"C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-build/extern/sajson/cmake_install.cmake",
+		"C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-build/testbed/cmake_install.cmake",
+		"C:/Users/masum/Desktop/FeatherForge/build/_deps/json-build/cmake_install.cmake"
+	],
+	"Parallel" : false
+}
