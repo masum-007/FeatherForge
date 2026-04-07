@@ -309,4 +309,7 @@ CMakeFiles/FeatherForge.dir/src/Entity.cpp.obj: \
  C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-src/include/box2d/b2_pulley_joint.h \
  C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-src/include/box2d/b2_revolute_joint.h \
  C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-src/include/box2d/b2_weld_joint.h \
- C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-src/include/box2d/b2_wheel_joint.h
+ C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-src/include/box2d/b2_wheel_joint.h \
+ C:/msys64/mingw64/include/c++/15.2.0/iostream \
+ C:/msys64/mingw64/include/c++/15.2.0/istream \
+ C:/msys64/mingw64/include/c++/15.2.0/bits/istream.tcc

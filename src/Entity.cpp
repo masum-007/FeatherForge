@@ -1,8 +1,14 @@
 #include "Entity.hpp"
+#include <iostream>
 
 Entity::Entity(b2World& world, float x, float y, float w, float h, EntityType type, sf::Texture* texture) 
-    : width(w), height(h) {
+    : width(w), height(h), type(type), isDestroyed(false) { // Initialize new variables
     
+        // Set Health based on type
+    if (type == EntityType::WOOD) health = 100.0f;
+    else if (type == EntityType::ENEMY) health = 50.0f;
+    else health = 9999.0f; // Indestructible (Ground/Bird)
+
     // 1. Define Body
     b2BodyDef bodyDef;
     bodyDef.position.Set(x / SCALE, y / SCALE);
@@ -61,6 +67,31 @@ Entity::Entity(b2World& world, float x, float y, float w, float h, EntityType ty
         if (type == EntityType::BIRD) shape.setFillColor(sf::Color::Red);
         else if (type == EntityType::WOOD) shape.setFillColor(sf::Color(139, 69, 19)); 
         else shape.setFillColor(sf::Color::Green);
+    }
+    // Crucial: Tell Box2D that this specific C++ Entity owns this physics body!
+    // This allows us to link the physics collision back to our health system.
+    body->GetUserData().pointer = reinterpret_cast<uintptr_t>(this);
+}
+Entity::~Entity() {
+    // Automatically remove the body from the physics world when the entity is deleted
+    if (body && body->GetWorld()) {
+        body->GetWorld()->DestroyBody(body);
+    }
+}
+void Entity::TakeDamage(float impact) {
+    if (isDestroyed || type == EntityType::GROUND || type == EntityType::BIRD) return;
+
+    // FIX 1: Increased threshold from 2.0f to 10.0f so gentle bumps don't hurt
+    if (impact > 10.0f) {
+        
+        // FIX 2: Removed the * 10.0f multiplier. Raw impact is balanced!
+        health -= impact; 
+        
+        // std::cout << "Hit! Impact: " << impact << " | Health left: " << health << "\n";
+
+        if (health <= 0) {
+            isDestroyed = true;
+        }
     }
 }
 

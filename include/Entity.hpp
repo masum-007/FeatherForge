@@ -2,20 +2,28 @@
 #include <SFML/Graphics.hpp>
 #include <box2d/box2d.h>
 
-const float SCALE = 30.0f; // 30 pixels per meter
+const float SCALE = 30.0f;
 
-enum class EntityType { BIRD, WOOD, GROUND, ENEMY }; // Added ENEMY
+enum class EntityType { BIRD, WOOD, GROUND, ENEMY };
 
 class Entity {
 public:
-    // UPDATE THIS LINE: Add the sf::Texture pointer at the end
     Entity(b2World& world, float x, float y, float width, float height, EntityType type, sf::Texture* texture = nullptr);
-    
+    ~Entity(); // Need a destructor to clean up physics bodies properly
+
     void Render(sf::RenderWindow& window);
+    void TakeDamage(float impact); // NEW
+
     b2Body* GetBody() { return body; }
+    EntityType GetType() { return type; } // NEW
+    bool IsDestroyed() { return isDestroyed; } // NEW
 
 private:
     b2Body* body;
     sf::RectangleShape shape;
     float width, height;
+    
+    EntityType type; // NEW
+    float health;    // NEW
+    bool isDestroyed;// NEW
 };

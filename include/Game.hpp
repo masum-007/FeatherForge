@@ -34,7 +34,10 @@ private:
     sf::Texture woodTex;
     sf::Texture groundTex;
     sf::Texture enemyTex; // NEW TEXTURE
-
+// --- NEW UI VARIABLES ---
+    sf::Font font;
+    sf::Text scoreText;
+    int score;
 
     sf::RenderWindow window;
     PhysicsWorld physics;

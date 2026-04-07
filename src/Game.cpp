@@ -6,7 +6,8 @@ Game::Game()
       slingshotPos(200, 550), 
       isDragging(false),
       birdIsActive(false),
-      birdsRemaining(3) 
+      birdsRemaining(3), 
+      score(0) // Initialize score to 0
 {
     window.setFramerateLimit(60);
     
@@ -124,19 +125,29 @@ void Game::CheckBirdState() {
 void Game::Update() {
     physics.Update(1.0f / 60.0f);
     CheckBirdState();
-    // --- NEW CAMERA TRACKING LOGIC ---
+
     if (bird && birdIsActive) {
         float birdX = bird->GetBody()->GetPosition().x * SCALE;
-        
-        // Clamp the camera so it doesn't show the void behind the slingshot.
-        // It will only pan right if the bird passes the center of the screen (640).
         float cameraX = std::max(640.0f, birdX);
-        
-        worldView.setCenter(cameraX, 360); // Keep Y locked to 360 for horizontal panning
+        worldView.setCenter(cameraX, 360); 
     } else {
-        // Reset camera back to the slingshot when the bird resets
         worldView.setCenter(640, 360);
     }
+
+    // --- UPDATED CLEANUP & SCORING ---
+    blocks.erase(
+        std::remove_if(blocks.begin(), blocks.end(),
+            [this](const std::unique_ptr<Entity>& e) { 
+                if (e->IsDestroyed()) {
+                    // Add to score before deleting
+                    if (e->GetType() == EntityType::ENEMY) score += 500;
+                    else score += 100;
+                    return true;
+                }
+                return false;
+            }),
+        blocks.end()
+    );
 }
 
 void Game::DrawEnvironment() {
@@ -243,6 +254,12 @@ void Game::LoadAssets() {
     woodTex.loadFromFile("assets/wood.png");
     groundTex.loadFromFile("assets/ground.png");
     enemyTex.loadFromFile("assets/enemy.png");//added enemy
+    // --- NEW FONT SETUP ---
+    font.loadFromFile("assets/arial.ttf");
+    scoreText.setFont(font);
+    scoreText.setCharacterSize(24);
+    scoreText.setFillColor(sf::Color::Black);
+    scoreText.setPosition(20, 50); // Place it below the red bird icons
 }
 
 
@@ -304,6 +321,9 @@ void Game::Render() {
         uiBird.setPosition(20 + (i * 30), 20);
         window.draw(uiBird);
     }
+    // --- NEW: Draw the Score ---
+    scoreText.setString("SCORE: " + std::to_string(score));
+    window.draw(scoreText);
 
     window.display();
 }

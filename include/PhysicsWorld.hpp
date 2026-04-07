@@ -1,6 +1,13 @@
 #pragma once
 #include <box2d/box2d.h>
 
+// NEW CLASS: Listens for Box2D crashes
+class GameContactListener : public b2ContactListener {
+public:
+    // PostSolve happens right after Box2D calculates how hard they hit
+    void PostSolve(b2Contact* contact, const b2ContactImpulse* impulse) override;
+};
+
 class PhysicsWorld {
 public:
     PhysicsWorld();
@@ -13,4 +20,6 @@ private:
     float timeStep;
     int32 velocityIterations;
     int32 positionIterations;
+    
+    GameContactListener contactListener; // NEW
 };
