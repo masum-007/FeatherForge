@@ -136,12 +136,11 @@ void Game::Update() {
         worldView.setCenter(640, 360);
     }
 
-    // --- NEW: Visual Damage System ---
-    // Check all blocks. If a wood block is at half health (50) and isn't cracked yet, crack it!
+    // --- Visual Damage System ---
     for (auto& block : blocks) {
         if (block->GetType() == EntityType::WOOD && block->GetHealth() <= 50.0f && !block->isCracked) {
             block->SwapTexture(&woodCrackedTex);
-            block->isCracked = true; // Mark it so we don't swap it again every single frame
+            block->isCracked = true; 
         }
     }
 
@@ -150,15 +149,33 @@ void Game::Update() {
         std::remove_if(blocks.begin(), blocks.end(),
             [this](const std::unique_ptr<Entity>& e) { 
                 if (e->IsDestroyed()) {
+                    
+                    // --- EMIT SPECIFIC PARTICLES ---
+                    // Convert Box2D coordinates to SFML pixel coordinates
+                    sf::Vector2f deathPos(e->GetBody()->GetPosition().x * SCALE, e->GetBody()->GetPosition().y * SCALE);
+                    
+                    if (e->GetType() == EntityType::WOOD) {
+                        m_particles.emitWood(deathPos);
+                    } else if (e->GetType() == EntityType::BIRD) {
+                        m_particles.emitFeathers(deathPos);
+                    } else {
+                        m_particles.emitDust(deathPos); // Fallback for enemies/stone
+                    }
+                    // -------------------------------
+
                     // Add to score before deleting
                     if (e->GetType() == EntityType::ENEMY) score += 500;
                     else score += 100;
+                    
                     return true;
                 }
                 return false;
             }),
         blocks.end()
     );
+
+    // Step the particles forward in time using our physics timestep
+    m_particles.update(1.0f / 60.0f);
 }
 
 void Game::DrawEnvironment() {
@@ -337,6 +354,6 @@ void Game::Render() {
     // --- NEW: Draw the Score ---
     scoreText.setString("SCORE: " + std::to_string(score));
     window.draw(scoreText);
-
+    window.draw(m_particles);
     window.display();
 }

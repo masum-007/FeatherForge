@@ -7,7 +7,7 @@
 #include <memory>
 #include "PhysicsWorld.hpp"
 #include "Entity.hpp"
-
+#include "ParticleSystem.hpp"
 class Game {
 public:
     Game();
@@ -17,7 +17,7 @@ private:
     void ProcessEvents();
     void Update();
     void Render();
-    
+    ParticleSystem m_particles;
     // New Features
     void SpawnBird();
     void CheckBirdState();
@@ -35,7 +35,7 @@ private:
     sf::Texture groundTex;
     sf::Texture enemyTex; // NEW TEXTURE
     sf::Texture woodCrackedTex; // NEW TEXTURE
-    
+
 // --- NEW UI VARIABLES ---
     sf::Font font;
     sf::Text scoreText;

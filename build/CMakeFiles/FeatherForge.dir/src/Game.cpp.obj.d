@@ -419,4 +419,5 @@ CMakeFiles/FeatherForge.dir/src/Game.cpp.obj: \
  C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-src/include/box2d/b2_revolute_joint.h \
  C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-src/include/box2d/b2_weld_joint.h \
  C:/Users/masum/Desktop/FeatherForge/build/_deps/box2d-src/include/box2d/b2_wheel_joint.h \
- C:/Users/masum/Desktop/FeatherForge/include/Entity.hpp
+ C:/Users/masum/Desktop/FeatherForge/include/Entity.hpp \
+ C:/Users/masum/Desktop/FeatherForge/include/ParticleSystem.hpp

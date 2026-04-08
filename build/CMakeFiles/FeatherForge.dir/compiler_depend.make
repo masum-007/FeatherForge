@@ -482,6 +482,7 @@ CMakeFiles/FeatherForge.dir/src/Game.cpp.obj: C:/Users/masum/Desktop/FeatherForg
   _deps/sfml-src/include/SFML/Window/WindowStyle.hpp \
   C:/Users/masum/Desktop/FeatherForge/include/Entity.hpp \
   C:/Users/masum/Desktop/FeatherForge/include/Game.hpp \
+  C:/Users/masum/Desktop/FeatherForge/include/ParticleSystem.hpp \
   C:/Users/masum/Desktop/FeatherForge/include/PhysicsWorld.hpp \
   C:/msys64/mingw64/include/_mingw.h \
   C:/msys64/mingw64/include/_mingw_mac.h \
@@ -1229,6 +1230,7 @@ CMakeFiles/FeatherForge.dir/src/main.cpp.obj: C:/Users/masum/Desktop/FeatherForg
   _deps/sfml-src/include/SFML/Window/WindowStyle.hpp \
   C:/Users/masum/Desktop/FeatherForge/include/Entity.hpp \
   C:/Users/masum/Desktop/FeatherForge/include/Game.hpp \
+  C:/Users/masum/Desktop/FeatherForge/include/ParticleSystem.hpp \
   C:/Users/masum/Desktop/FeatherForge/include/PhysicsWorld.hpp \
   C:/msys64/mingw64/include/_mingw.h \
   C:/msys64/mingw64/include/_mingw_mac.h \
@@ -1561,6 +1563,8 @@ C:/msys64/mingw64/include/c++/15.2.0/backward/auto_ptr.h:
 C:/msys64/mingw64/include/c++/15.2.0/array:
 
 C:/Users/masum/Desktop/FeatherForge/include/PhysicsWorld.hpp:
+
+C:/Users/masum/Desktop/FeatherForge/include/ParticleSystem.hpp:
 
 _deps/json-src/include/nlohmann/ordered_map.hpp:
 
