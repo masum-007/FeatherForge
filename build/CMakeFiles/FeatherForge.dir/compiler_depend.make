@@ -481,6 +481,7 @@ CMakeFiles/FeatherForge.dir/src/Game.cpp.obj: C:/Users/masum/Desktop/FeatherForg
   _deps/sfml-src/include/SFML/Window/WindowHandle.hpp \
   _deps/sfml-src/include/SFML/Window/WindowStyle.hpp \
   C:/Users/masum/Desktop/FeatherForge/include/Entity.hpp \
+  C:/Users/masum/Desktop/FeatherForge/include/EnvironmentSystem.hpp \
   C:/Users/masum/Desktop/FeatherForge/include/Game.hpp \
   C:/Users/masum/Desktop/FeatherForge/include/ParticleSystem.hpp \
   C:/Users/masum/Desktop/FeatherForge/include/PhysicsWorld.hpp \
@@ -1229,6 +1230,7 @@ CMakeFiles/FeatherForge.dir/src/main.cpp.obj: C:/Users/masum/Desktop/FeatherForg
   _deps/sfml-src/include/SFML/Window/WindowHandle.hpp \
   _deps/sfml-src/include/SFML/Window/WindowStyle.hpp \
   C:/Users/masum/Desktop/FeatherForge/include/Entity.hpp \
+  C:/Users/masum/Desktop/FeatherForge/include/EnvironmentSystem.hpp \
   C:/Users/masum/Desktop/FeatherForge/include/Game.hpp \
   C:/Users/masum/Desktop/FeatherForge/include/ParticleSystem.hpp \
   C:/Users/masum/Desktop/FeatherForge/include/PhysicsWorld.hpp \
@@ -1603,6 +1605,8 @@ _deps/json-src/include/nlohmann/detail/iterators/primitive_iterator.hpp:
 _deps/json-src/include/nlohmann/detail/iterators/iteration_proxy.hpp:
 
 _deps/json-src/include/nlohmann/detail/iterators/iter_impl.hpp:
+
+C:/Users/masum/Desktop/FeatherForge/include/EnvironmentSystem.hpp:
 
 _deps/json-src/include/nlohmann/detail/iterators/internal_iterator.hpp:
 

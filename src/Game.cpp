@@ -52,37 +52,41 @@ void Game::ProcessEvents() {
             window.close();
             
         if (event.type == sf::Event::MouseButtonPressed && event.mouseButton.button == sf::Mouse::Left) {
-            // Get mouse position relative to the UI camera for clicking buttons
             sf::Vector2f mousePosUI = window.mapPixelToCoords(sf::Mouse::getPosition(window), uiView);
 
             if (m_currentState == GameState::Menu) {
-                if (sf::FloatRect(540, 300, 200, 60).contains(mousePosUI)) m_currentState = GameState::LevelSelect;
-                if (sf::FloatRect(540, 400, 200, 60).contains(mousePosUI)) window.close();
+                // Play Button (Raw Math bypasses SFML 3 Rect changes)
+                if (mousePosUI.x >= 540 && mousePosUI.x <= 740 && mousePosUI.y >= 300 && mousePosUI.y <= 360) m_currentState = GameState::LevelSelect;
+                // Exit Button
+                if (mousePosUI.x >= 540 && mousePosUI.x <= 740 && mousePosUI.y >= 400 && mousePosUI.y <= 460) window.close();
             } 
             else if (m_currentState == GameState::LevelSelect) {
                 for (int i = 0; i < MAX_LEVELS; i++) {
-                    float x = 340 + (i % 3) * 220.0f;
-                    float y = 250 + (i / 3) * 150.0f;
-                    if (sf::FloatRect(x, y, 100, 100).contains(mousePosUI)) {
-                        ResetLevel(i + 1); // Start the level!
+                    float x = 340.f + (i % 3) * 220.0f;
+                    float y = 250.f + (i / 3) * 150.0f;
+                    if (mousePosUI.x >= x && mousePosUI.x <= x + 100 && mousePosUI.y >= y && mousePosUI.y <= y + 100) {
+                        ResetLevel(i + 1); 
                     }
                 }
             }
             else if (m_currentState == GameState::LevelComplete) {
-                if (sf::FloatRect(540, 350, 200, 60).contains(mousePosUI)) {
+                // Next Level Button
+                if (mousePosUI.x >= 540 && mousePosUI.x <= 740 && mousePosUI.y >= 350 && mousePosUI.y <= 410) {
                     if (m_currentLevel < MAX_LEVELS) ResetLevel(m_currentLevel + 1);
-                    else m_currentState = GameState::Menu; // Back to menu if beaten game
+                    else m_currentState = GameState::Menu; 
                 }
-                if (sf::FloatRect(540, 450, 200, 60).contains(mousePosUI)) m_currentState = GameState::Menu;
+                // Menu Button
+                if (mousePosUI.x >= 540 && mousePosUI.x <= 740 && mousePosUI.y >= 450 && mousePosUI.y <= 510) {
+                    m_currentState = GameState::Menu;
+                }
             }
             else if (m_currentState == GameState::Playing) {
-                // GAMEPLAY DRAG LOGIC
                 if (!birdIsActive && bird) {
                     sf::Vector2f mouseWorld = window.mapPixelToCoords(sf::Mouse::getPosition(window), worldView);
                     b2Vec2 b2Pos = bird->GetBody()->GetPosition(); 
-                    sf::Vector2f birdPos(b2Pos.x * SCALE, b2Pos.y * SCALE);
+                    sf::Vector2f birdPos{b2Pos.x * SCALE, b2Pos.y * SCALE};
 
-                    if (abs(mouseWorld.x - birdPos.x) < 50 && abs(mouseWorld.y - birdPos.y) < 50) {
+                    if (std::abs(mouseWorld.x - birdPos.x) < 50.f && std::abs(mouseWorld.y - birdPos.y) < 50.f) {
                         isDragging = true;
                     }
                 }
@@ -138,6 +142,9 @@ void Game::CheckBirdState() {
 
 // --- 3. UPDATE ---
 void Game::Update() {
+    // FIX: Always update the environment so clouds animate in menus!
+    m_environment.update(1.0f / 60.0f);
+
     if (m_currentState != GameState::Playing) return;
 
     physics.Update(1.0f / 60.0f);
@@ -146,9 +153,9 @@ void Game::Update() {
     if (bird && birdIsActive) {
         float birdX = bird->GetBody()->GetPosition().x * SCALE;
         float cameraX = std::max(640.0f, birdX);
-        worldView.setCenter(cameraX, 360); 
+        worldView.setCenter({cameraX, 360.f}); 
     } else {
-        worldView.setCenter(640, 360);
+        worldView.setCenter({640.f, 360.f});
     }
 
     for (auto& block : blocks) {
@@ -158,12 +165,12 @@ void Game::Update() {
         }
     }
 
-    // --- FIX: Erase objects natively without double-deleting ---
+    // Safely erase entities
     blocks.erase(
         std::remove_if(blocks.begin(), blocks.end(),
             [this](const std::unique_ptr<Entity>& e) { 
                 if (e->IsDestroyed()) {
-                    sf::Vector2f deathPos(e->GetBody()->GetPosition().x * SCALE, e->GetBody()->GetPosition().y * SCALE);
+                    sf::Vector2f deathPos{e->GetBody()->GetPosition().x * SCALE, e->GetBody()->GetPosition().y * SCALE};
                     
                     if (e->GetType() == EntityType::WOOD) m_particles.emitWood(deathPos);
                     else if (e->GetType() == EntityType::BIRD) m_particles.emitFeathers(deathPos);
@@ -172,9 +179,7 @@ void Game::Update() {
                     if (e->GetType() == EntityType::ENEMY) score += 500;
                     else score += 100;
                     
-                    // RAII magic: returning true deletes the unique_ptr, 
-                    // which calls ~Entity(), safely destroying the Box2D body!
-                    return true; 
+                    return true; // The ~Entity destructor handles Box2D safely!
                 }
                 return false;
             }),
@@ -183,7 +188,7 @@ void Game::Update() {
 
     m_particles.update(1.0f / 60.0f);
 
-    // --- FIX: 2 Second Delay before showing "Level Complete" ---
+    // Timer check
     bool enemiesAlive = false;
     for (auto& b : blocks) {
         if (b->GetType() == EntityType::ENEMY) { enemiesAlive = true; break; }
@@ -191,53 +196,13 @@ void Game::Update() {
     
     if (!enemiesAlive) {
         m_levelTransitionTimer += (1.0f / 60.0f);
-        if (m_levelTransitionTimer > 2.0f) { // Wait 2 full seconds
+        if (m_levelTransitionTimer > 2.0f) { 
             m_currentState = GameState::LevelComplete; 
             m_levelTransitionTimer = 0.0f;
         }
     } else {
         m_levelTransitionTimer = 0.0f; 
     }
-}
-
-void Game::DrawEnvironment() {
-    // 1. Draw Sky Layer
-    window.clear(sf::Color(135, 206, 235)); 
-
-    // 2. Draw Sun
-    sf::CircleShape sun(40);
-    sun.setFillColor(sf::Color(255, 223, 0));
-    sun.setPosition(1000, 100);
-    window.draw(sun);
-
-    // 3. Draw Clouds
-    sf::CircleShape cloudPart(30);
-    cloudPart.setFillColor(sf::Color(255, 255, 255, 200));
-    cloudPart.setPosition(200, 150);
-    window.draw(cloudPart);
-    cloudPart.setPosition(240, 130);
-    window.draw(cloudPart);
-    cloudPart.setPosition(280, 150);
-    window.draw(cloudPart);
-
-    // 4. Draw Mountains (Triangles)
-    sf::ConvexShape mountain;
-    mountain.setPointCount(3);
-    mountain.setFillColor(sf::Color(105, 105, 105)); // Dark Gray
-    mountain.setPoint(0, sf::Vector2f(400, 680));
-    mountain.setPoint(1, sf::Vector2f(600, 300));
-    mountain.setPoint(2, sf::Vector2f(800, 680));
-    window.draw(mountain);
-
-    // 5. Draw simple Tree
-    sf::RectangleShape trunk(sf::Vector2f(20, 80));
-    trunk.setFillColor(sf::Color(139, 69, 19));
-    trunk.setPosition(100, 600);
-    window.draw(trunk);
-    sf::CircleShape leaves(40);
-    leaves.setFillColor(sf::Color(34, 139, 34));
-    leaves.setPosition(70, 540);
-    window.draw(leaves);
 }
 
 void Game::DrawSlingshot() {
@@ -353,7 +318,11 @@ void Game::Render() {
     if (m_currentState == GameState::Playing || m_currentState == GameState::LevelComplete) {
         // Draw game world
         window.setView(worldView);
-        DrawEnvironment();
+
+        // --- NEW: Render the dynamic parallax background ---
+        float camX = worldView.getCenter().x;
+        m_environment.render(window, camX);
+
         DrawSlingshot();
         ground->Render(window);
         for (auto& block : blocks) block->Render(window);
@@ -385,8 +354,7 @@ void Game::Render() {
 // --- NEW HELPER FUNCTIONS (Paste these at the bottom of Game.cpp) ---
 
 void Game::ResetLevel(int level) {
-    // --- FIX: No manual destruction loop! ---
-    // Clearing the vector handles everything automatically and safely.
+    // FIX: 100% rely on your Entity destructors to prevent the Box2D double-free crash.
     blocks.clear();
     bird.reset();
 
@@ -396,6 +364,9 @@ void Game::ResetLevel(int level) {
     birdIsActive = false;
     isDragging = false;
     m_levelTransitionTimer = 0.0f;
+
+    // Load the background theme
+    m_environment.loadLevel(level);
 
     std::string path = "assets/level" + std::to_string(level) + ".json";
     LoadLevel(path);

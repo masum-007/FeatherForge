@@ -8,6 +8,7 @@
 #include "PhysicsWorld.hpp"
 #include "Entity.hpp"
 #include "ParticleSystem.hpp"
+#include "EnvironmentSystem.hpp"
 
 // --- NEW: Define Game States ---
 enum class GameState {
@@ -29,7 +30,6 @@ private:
     // New Features
     void SpawnBird();
     void CheckBirdState();
-    void DrawEnvironment();
     void DrawSlingshot();
     void DrawTrajectory(); // <--- ADD THIS LINE
     void LoadAssets(); // The new asset loader
@@ -72,6 +72,7 @@ private:
     bool birdIsActive;
     int birdsRemaining;
 
+    EnvironmentSystem m_environment;
     // --- NEW: State Variables ---
     GameState m_currentState = GameState::Menu;
     int m_currentLevel = 1;
