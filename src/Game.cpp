@@ -7,7 +7,9 @@ Game::Game()
       isDragging(false),
       birdIsActive(false),
       birdsRemaining(3), 
-      score(0) // Initialize score to 0
+      score(0), // Initialize score to 0
+      m_currentState(GameState::Menu), // Start at the menu
+      m_currentLevel(1)
 {
     window.setFramerateLimit(60);
     
@@ -17,13 +19,11 @@ Game::Game()
 
     LoadAssets();
 
-    // Ground is still hardcoded as the foundation
+    // Ground is persistent across levels
     ground = std::make_unique<Entity>(*physics.GetWorld(), 640, 700, 1280, 40, EntityType::GROUND, &groundTex);
-
-    // --- LOAD THE JSON LEVEL INSTEAD OF HARDCODING BLOCKS ---
-    LoadLevel("assets/level1.json");
-
-    SpawnBird();
+    
+    // Notice we do NOT LoadLevel() or SpawnBird() here anymore. 
+    // That happens when the user clicks a level!
 }
 
 void Game::SpawnBird() {
@@ -44,65 +44,77 @@ void Game::Run() {
     }
 }
 
+// --- 2. PROCESS EVENTS ---
 void Game::ProcessEvents() {
     sf::Event event;
     while (window.pollEvent(event)) {
         if (event.type == sf::Event::Closed)
             window.close();
             
-        // Start Drag
         if (event.type == sf::Event::MouseButtonPressed && event.mouseButton.button == sf::Mouse::Left) {
-            if (!birdIsActive && bird) {
-                // --- FIX 1: Map the physical mouse click to the game world camera ---
-                sf::Vector2f mousePos = window.mapPixelToCoords(sf::Mouse::getPosition(window), worldView);
-                b2Vec2 b2Pos = bird->GetBody()->GetPosition(); 
-                sf::Vector2f birdPos(b2Pos.x * SCALE, b2Pos.y * SCALE);
+            // Get mouse position relative to the UI camera for clicking buttons
+            sf::Vector2f mousePosUI = window.mapPixelToCoords(sf::Mouse::getPosition(window), uiView);
 
-                if (abs(mousePos.x - birdPos.x) < 50 && abs(mousePos.y - birdPos.y) < 50) {
-                    isDragging = true;
+            if (m_currentState == GameState::Menu) {
+                if (sf::FloatRect(540, 300, 200, 60).contains(mousePosUI)) m_currentState = GameState::LevelSelect;
+                if (sf::FloatRect(540, 400, 200, 60).contains(mousePosUI)) window.close();
+            } 
+            else if (m_currentState == GameState::LevelSelect) {
+                for (int i = 0; i < MAX_LEVELS; i++) {
+                    float x = 340 + (i % 3) * 220.0f;
+                    float y = 250 + (i / 3) * 150.0f;
+                    if (sf::FloatRect(x, y, 100, 100).contains(mousePosUI)) {
+                        ResetLevel(i + 1); // Start the level!
+                    }
+                }
+            }
+            else if (m_currentState == GameState::LevelComplete) {
+                if (sf::FloatRect(540, 350, 200, 60).contains(mousePosUI)) {
+                    if (m_currentLevel < MAX_LEVELS) ResetLevel(m_currentLevel + 1);
+                    else m_currentState = GameState::Menu; // Back to menu if beaten game
+                }
+                if (sf::FloatRect(540, 450, 200, 60).contains(mousePosUI)) m_currentState = GameState::Menu;
+            }
+            else if (m_currentState == GameState::Playing) {
+                // GAMEPLAY DRAG LOGIC
+                if (!birdIsActive && bird) {
+                    sf::Vector2f mouseWorld = window.mapPixelToCoords(sf::Mouse::getPosition(window), worldView);
+                    b2Vec2 b2Pos = bird->GetBody()->GetPosition(); 
+                    sf::Vector2f birdPos(b2Pos.x * SCALE, b2Pos.y * SCALE);
+
+                    if (abs(mouseWorld.x - birdPos.x) < 50 && abs(mouseWorld.y - birdPos.y) < 50) {
+                        isDragging = true;
+                    }
                 }
             }
         }
 
-        /// Release to Launch
         if (event.type == sf::Event::MouseButtonReleased && event.mouseButton.button == sf::Mouse::Left) {
-            if (isDragging && bird) {
+            if (m_currentState == GameState::Playing && isDragging && bird) {
                 isDragging = false;
                 birdIsActive = true;
                 birdsRemaining--;
 
                 bird->GetBody()->SetType(b2_dynamicBody);
                 bird->GetBody()->SetAwake(true);
-
-                sf::Vector2i mousePos = sf::Mouse::getPosition(window);
                 
-                // FIX 2: Increased multiplier from 0.15f to 0.6f for a strong punch
                 b2Vec2 force((slingshotPos.x - bird->GetBody()->GetPosition().x * SCALE) * 0.6f, 
                              (slingshotPos.y - bird->GetBody()->GetPosition().y * SCALE) * 0.6f);
-                
                 bird->GetBody()->ApplyLinearImpulseToCenter(force, true);
             }
         }
     }
 
-    // Handle Dragging Math
-    if (isDragging && bird) {
-        sf::Vector2i mousePos = sf::Mouse::getPosition(window);
-        // --- FIX 2: Map the dragging mouse position to the game world camera ---
+    if (m_currentState == GameState::Playing && isDragging && bird) {
         sf::Vector2f dragPos = window.mapPixelToCoords(sf::Mouse::getPosition(window), worldView);
-        
-        // Calculate pull vector
         sf::Vector2f pullVec = dragPos - slingshotPos;
         float dist = std::sqrt(pullVec.x * pullVec.x + pullVec.y * pullVec.y);
-        float maxPull = 100.0f; // Max rubber band stretch
+        float maxPull = 100.0f; 
         
-        // Clamp the drag distance
         if (dist > maxPull) {
             pullVec = (pullVec / dist) * maxPull;
             dragPos = slingshotPos + pullVec;
         }
-        
-        // Move physics body with mouse
         bird->GetBody()->SetTransform(b2Vec2(dragPos.x / SCALE, dragPos.y / SCALE), 0);
     }
 }
@@ -124,7 +136,10 @@ void Game::CheckBirdState() {
     }
 }
 
+// --- 3. UPDATE ---
 void Game::Update() {
+    if (m_currentState != GameState::Playing) return;
+
     physics.Update(1.0f / 60.0f);
     CheckBirdState();
 
@@ -136,7 +151,6 @@ void Game::Update() {
         worldView.setCenter(640, 360);
     }
 
-    // --- Visual Damage System ---
     for (auto& block : blocks) {
         if (block->GetType() == EntityType::WOOD && block->GetHealth() <= 50.0f && !block->isCracked) {
             block->SwapTexture(&woodCrackedTex);
@@ -144,38 +158,46 @@ void Game::Update() {
         }
     }
 
-    // --- UPDATED CLEANUP & SCORING ---
+    // --- FIX: Erase objects natively without double-deleting ---
     blocks.erase(
         std::remove_if(blocks.begin(), blocks.end(),
             [this](const std::unique_ptr<Entity>& e) { 
                 if (e->IsDestroyed()) {
-                    
-                    // --- EMIT SPECIFIC PARTICLES ---
-                    // Convert Box2D coordinates to SFML pixel coordinates
                     sf::Vector2f deathPos(e->GetBody()->GetPosition().x * SCALE, e->GetBody()->GetPosition().y * SCALE);
                     
-                    if (e->GetType() == EntityType::WOOD) {
-                        m_particles.emitWood(deathPos);
-                    } else if (e->GetType() == EntityType::BIRD) {
-                        m_particles.emitFeathers(deathPos);
-                    } else {
-                        m_particles.emitDust(deathPos); // Fallback for enemies/stone
-                    }
-                    // -------------------------------
+                    if (e->GetType() == EntityType::WOOD) m_particles.emitWood(deathPos);
+                    else if (e->GetType() == EntityType::BIRD) m_particles.emitFeathers(deathPos);
+                    else m_particles.emitDust(deathPos); 
 
-                    // Add to score before deleting
                     if (e->GetType() == EntityType::ENEMY) score += 500;
                     else score += 100;
                     
-                    return true;
+                    // RAII magic: returning true deletes the unique_ptr, 
+                    // which calls ~Entity(), safely destroying the Box2D body!
+                    return true; 
                 }
                 return false;
             }),
         blocks.end()
     );
 
-    // Step the particles forward in time using our physics timestep
     m_particles.update(1.0f / 60.0f);
+
+    // --- FIX: 2 Second Delay before showing "Level Complete" ---
+    bool enemiesAlive = false;
+    for (auto& b : blocks) {
+        if (b->GetType() == EntityType::ENEMY) { enemiesAlive = true; break; }
+    }
+    
+    if (!enemiesAlive) {
+        m_levelTransitionTimer += (1.0f / 60.0f);
+        if (m_levelTransitionTimer > 2.0f) { // Wait 2 full seconds
+            m_currentState = GameState::LevelComplete; 
+            m_levelTransitionTimer = 0.0f;
+        }
+    } else {
+        m_levelTransitionTimer = 0.0f; 
+    }
 }
 
 void Game::DrawEnvironment() {
@@ -276,20 +298,24 @@ void Game::DrawTrajectory() {
 }
 
 void Game::LoadAssets() {
-    // These load the images from the assets folder.
-    // If it fails, SFML will print an error to your terminal automatically.
     birdTex.loadFromFile("assets/bird.png");
     woodTex.loadFromFile("assets/wood.png");
     groundTex.loadFromFile("assets/ground.png");
-    enemyTex.loadFromFile("assets/enemy.png");//added enemy
-    // --- NEW ASSET ---
+    enemyTex.loadFromFile("assets/enemy.png");
     woodCrackedTex.loadFromFile("assets/wood_cracked.png");
-    // --- NEW FONT SETUP ---
     font.loadFromFile("assets/arial.ttf");
+    
     scoreText.setFont(font);
     scoreText.setCharacterSize(24);
     scoreText.setFillColor(sf::Color::Black);
-    scoreText.setPosition(20, 50); // Place it below the red bird icons
+    scoreText.setPosition(20, 50);
+
+    // --- NEW: Load your beautiful background ---
+    if (menuBgTex.loadFromFile("assets/Feather.png")) {
+        menuBgSprite.setTexture(menuBgTex);
+        // Scale it to perfectly fit the 1280x720 window
+        menuBgSprite.setScale(1280.0f / menuBgTex.getSize().x, 720.0f / menuBgTex.getSize().y);
+    }
 }
 
 
@@ -320,40 +346,161 @@ void Game::LoadLevel(const std::string& filepath) {
     }
 }
 
+// --- 4. RENDER ---
 void Game::Render() {
-    // 1. APPLY THE GAME CAMERA
-    window.setView(worldView);
+    window.clear(sf::Color(135, 206, 235)); // Sky background
 
-    DrawEnvironment();
-    DrawSlingshot();
+    if (m_currentState == GameState::Playing || m_currentState == GameState::LevelComplete) {
+        // Draw game world
+        window.setView(worldView);
+        DrawEnvironment();
+        DrawSlingshot();
+        ground->Render(window);
+        for (auto& block : blocks) block->Render(window);
+        if (isDragging) DrawTrajectory();
+        if (bird) bird->Render(window);
+        window.draw(m_particles);
 
-    ground->Render(window);
-    
-    for (auto& block : blocks) {
-        block->Render(window);
-    }
-    
-    if (isDragging) {
-        DrawTrajectory();
-    }
-    
-    if (bird) {
-        bird->Render(window);
+        // Draw HUD overlay
+        window.setView(uiView);
+        for (int i = 0; i < birdsRemaining; i++) {
+            sf::CircleShape uiBird(10);
+            uiBird.setFillColor(sf::Color::Red);
+            uiBird.setPosition(20 + (i * 30), 20);
+            window.draw(uiBird);
+        }
+        scoreText.setString("SCORE: " + std::to_string(score));
+        window.draw(scoreText);
     }
 
-    // 2. SWITCH TO UI CAMERA (so the UI doesn't fly away with the bird)
+    // Draw UI Panels over everything
     window.setView(uiView);
+    if (m_currentState == GameState::Menu) DrawMenu();
+    else if (m_currentState == GameState::LevelSelect) DrawLevelSelect();
+    else if (m_currentState == GameState::LevelComplete) DrawLevelComplete();
 
-    // UI: Draw Remaining Birds counter
-    for (int i = 0; i < birdsRemaining; i++) {
-        sf::CircleShape uiBird(10);
-        uiBird.setFillColor(sf::Color::Red);
-        uiBird.setPosition(20 + (i * 30), 20);
-        window.draw(uiBird);
-    }
-    // --- NEW: Draw the Score ---
-    scoreText.setString("SCORE: " + std::to_string(score));
-    window.draw(scoreText);
-    window.draw(m_particles);
     window.display();
+}
+
+// --- NEW HELPER FUNCTIONS (Paste these at the bottom of Game.cpp) ---
+
+void Game::ResetLevel(int level) {
+    // --- FIX: No manual destruction loop! ---
+    // Clearing the vector handles everything automatically and safely.
+    blocks.clear();
+    bird.reset();
+
+    m_currentLevel = level;
+    score = 0;
+    birdsRemaining = 3;
+    birdIsActive = false;
+    isDragging = false;
+    m_levelTransitionTimer = 0.0f;
+
+    std::string path = "assets/level" + std::to_string(level) + ".json";
+    LoadLevel(path);
+    SpawnBird();
+    
+    m_currentState = GameState::Playing;
+}
+
+void Game::DrawMenu() {
+    // Draw your uploaded background first
+    window.draw(menuBgSprite);
+
+    // Draw a dark transparent box so text is readable over the image
+    sf::RectangleShape panel(sf::Vector2f(400, 350));
+    panel.setFillColor(sf::Color(0, 0, 0, 180));
+    panel.setPosition(440, 150);
+    window.draw(panel);
+
+    sf::Text title("FEATHER FORGE", font, 45);
+    title.setFillColor(sf::Color(255, 215, 0)); // Gold title
+    title.setPosition(455, 180);
+    window.draw(title);
+
+    // Play Button
+    sf::RectangleShape startBtn(sf::Vector2f(200, 60));
+    startBtn.setPosition(540, 300);
+    startBtn.setFillColor(sf::Color(46, 204, 113)); // Bright green
+    startBtn.setOutlineThickness(2);
+    startBtn.setOutlineColor(sf::Color::White);
+    window.draw(startBtn);
+
+    sf::Text startTxt("START", font, 30);
+    startTxt.setFillColor(sf::Color::White);
+    startTxt.setPosition(590, 310);
+    window.draw(startTxt);
+
+    // Exit Button
+    sf::RectangleShape exitBtn(sf::Vector2f(200, 60));
+    exitBtn.setPosition(540, 400);
+    exitBtn.setFillColor(sf::Color(231, 76, 60)); // Bright red
+    exitBtn.setOutlineThickness(2);
+    exitBtn.setOutlineColor(sf::Color::White);
+    window.draw(exitBtn);
+
+    sf::Text exitTxt("EXIT", font, 30);
+    exitTxt.setFillColor(sf::Color::White);
+    exitTxt.setPosition(605, 410);
+    window.draw(exitTxt);
+}
+
+void Game::DrawLevelSelect() {
+    sf::Text title("SELECT LEVEL", font, 48);
+    title.setFillColor(sf::Color::Black);
+    title.setPosition(470, 100);
+    window.draw(title);
+
+    for (int i = 0; i < MAX_LEVELS; i++) {
+        float x = 340 + (i % 3) * 220.0f;
+        float y = 250 + (i / 3) * 150.0f;
+
+        sf::RectangleShape box(sf::Vector2f(100, 100));
+        box.setPosition(x, y);
+        box.setFillColor(sf::Color(150, 150, 150));
+        window.draw(box);
+
+        sf::Text lvlTxt(std::to_string(i + 1), font, 40);
+        lvlTxt.setFillColor(sf::Color::White);
+        lvlTxt.setPosition(x + 35, y + 25);
+        window.draw(lvlTxt);
+    }
+}
+
+void Game::DrawLevelComplete() {
+    // Semi-transparent dark overlay
+    sf::RectangleShape overlay(sf::Vector2f(1280, 720));
+    overlay.setFillColor(sf::Color(0, 0, 0, 150));
+    window.draw(overlay);
+
+    sf::Text title("LEVEL COMPLETE!", font, 64);
+    title.setFillColor(sf::Color::Yellow);
+    title.setPosition(380, 150);
+    window.draw(title);
+
+    sf::Text scoreDisplay("FINAL SCORE: " + std::to_string(score), font, 40);
+    scoreDisplay.setFillColor(sf::Color::White);
+    scoreDisplay.setPosition(480, 250);
+    window.draw(scoreDisplay);
+
+    sf::RectangleShape nextBtn(sf::Vector2f(200, 60));
+    nextBtn.setPosition(540, 350);
+    nextBtn.setFillColor(sf::Color(100, 200, 100));
+    window.draw(nextBtn);
+
+    sf::Text nextTxt("NEXT LEVEL", font, 24);
+    nextTxt.setFillColor(sf::Color::White);
+    nextTxt.setPosition(565, 365);
+    window.draw(nextTxt);
+
+    sf::RectangleShape menuBtn(sf::Vector2f(200, 60));
+    menuBtn.setPosition(540, 450);
+    menuBtn.setFillColor(sf::Color(100, 100, 200));
+    window.draw(menuBtn);
+
+    sf::Text menuTxt("MAIN MENU", font, 24);
+    menuTxt.setFillColor(sf::Color::White);
+    menuTxt.setPosition(570, 465);
+    window.draw(menuTxt);
 }

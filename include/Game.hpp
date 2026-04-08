@@ -8,6 +8,14 @@
 #include "PhysicsWorld.hpp"
 #include "Entity.hpp"
 #include "ParticleSystem.hpp"
+
+// --- NEW: Define Game States ---
+enum class GameState {
+    Menu,
+    LevelSelect,
+    Playing,
+    LevelComplete
+};
 class Game {
 public:
     Game();
@@ -26,6 +34,13 @@ private:
     void DrawTrajectory(); // <--- ADD THIS LINE
     void LoadAssets(); // The new asset loader
     void LoadLevel(const std::string& filepath); // NEW FUNCTION
+
+    // --- NEW: Level & UI Functions ---
+    void ResetLevel(int level);
+    void DrawMenu();
+    void DrawLevelSelect();
+    void DrawLevelComplete();
+
     // --- NEW CAMERA VARIABLES ---
     sf::View worldView;
     sf::View uiView;
@@ -40,7 +55,9 @@ private:
     sf::Font font;
     sf::Text scoreText;
     int score;
-
+    // --- NEW ASSET VARIABLES ---
+    sf::Texture menuBgTex; // Added menuBgTex
+    sf::Sprite menuBgSprite; // Added Sprite for the background
     sf::RenderWindow window;
     PhysicsWorld physics;
     
@@ -54,4 +71,13 @@ private:
     bool isDragging;
     bool birdIsActive;
     int birdsRemaining;
+
+    // --- NEW: State Variables ---
+    GameState m_currentState = GameState::Menu;
+    int m_currentLevel = 1;
+    const int MAX_LEVELS = 6;
+
+    // --- NEW TIMING VARIABLE ---
+    float m_levelTransitionTimer = 0.0f; // Tracks time after last enemy dies
+    
 };
