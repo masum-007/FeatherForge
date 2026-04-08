@@ -95,6 +95,13 @@ void Entity::TakeDamage(float impact) {
     }
 }
 
+// NEW FUNCTION: Swaps the image while keeping the physics body identical
+void Entity::SwapTexture(sf::Texture* newTexture) {
+    if (newTexture && newTexture->getSize().x > 0) {
+        shape.setTexture(newTexture);
+    }
+}
+
 // ... Keep your Entity::Render function exactly the same ...
 void Entity::Render(sf::RenderWindow& window) {
     // Sync Graphics with Physics

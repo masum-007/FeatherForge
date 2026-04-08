@@ -53,7 +53,8 @@ void Game::ProcessEvents() {
         // Start Drag
         if (event.type == sf::Event::MouseButtonPressed && event.mouseButton.button == sf::Mouse::Left) {
             if (!birdIsActive && bird) {
-                sf::Vector2f mousePos(event.mouseButton.x, event.mouseButton.y);
+                // --- FIX 1: Map the physical mouse click to the game world camera ---
+                sf::Vector2f mousePos = window.mapPixelToCoords(sf::Mouse::getPosition(window), worldView);
                 b2Vec2 b2Pos = bird->GetBody()->GetPosition(); 
                 sf::Vector2f birdPos(b2Pos.x * SCALE, b2Pos.y * SCALE);
 
@@ -87,7 +88,8 @@ void Game::ProcessEvents() {
     // Handle Dragging Math
     if (isDragging && bird) {
         sf::Vector2i mousePos = sf::Mouse::getPosition(window);
-        sf::Vector2f dragPos(mousePos.x, mousePos.y);
+        // --- FIX 2: Map the dragging mouse position to the game world camera ---
+        sf::Vector2f dragPos = window.mapPixelToCoords(sf::Mouse::getPosition(window), worldView);
         
         // Calculate pull vector
         sf::Vector2f pullVec = dragPos - slingshotPos;
@@ -132,6 +134,15 @@ void Game::Update() {
         worldView.setCenter(cameraX, 360); 
     } else {
         worldView.setCenter(640, 360);
+    }
+
+    // --- NEW: Visual Damage System ---
+    // Check all blocks. If a wood block is at half health (50) and isn't cracked yet, crack it!
+    for (auto& block : blocks) {
+        if (block->GetType() == EntityType::WOOD && block->GetHealth() <= 50.0f && !block->isCracked) {
+            block->SwapTexture(&woodCrackedTex);
+            block->isCracked = true; // Mark it so we don't swap it again every single frame
+        }
     }
 
     // --- UPDATED CLEANUP & SCORING ---
@@ -254,6 +265,8 @@ void Game::LoadAssets() {
     woodTex.loadFromFile("assets/wood.png");
     groundTex.loadFromFile("assets/ground.png");
     enemyTex.loadFromFile("assets/enemy.png");//added enemy
+    // --- NEW ASSET ---
+    woodCrackedTex.loadFromFile("assets/wood_cracked.png");
     // --- NEW FONT SETUP ---
     font.loadFromFile("assets/arial.ttf");
     scoreText.setFont(font);

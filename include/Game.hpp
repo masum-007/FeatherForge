@@ -34,6 +34,8 @@ private:
     sf::Texture woodTex;
     sf::Texture groundTex;
     sf::Texture enemyTex; // NEW TEXTURE
+    sf::Texture woodCrackedTex; // NEW TEXTURE
+    
 // --- NEW UI VARIABLES ---
     sf::Font font;
     sf::Text scoreText;

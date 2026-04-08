@@ -18,6 +18,11 @@ public:
     EntityType GetType() { return type; } // NEW
     bool IsDestroyed() { return isDestroyed; } // NEW
 
+    // --- NEW LINES FOR CRACK SYSTEM ---
+    float GetHealth() { return health; } 
+    void SwapTexture(sf::Texture* newTexture); 
+    bool isCracked = false;
+
 private:
     b2Body* body;
     sf::RectangleShape shape;
