@@ -151,7 +151,6 @@ CMakeFiles/FeatherForge.dir/src/Entity.cpp.obj
  C:/msys64/mingw64/include/c++/15.2.0/bits/hash_bytes.h
  C:/msys64/mingw64/include/c++/15.2.0/bits/invoke.h
  C:/msys64/mingw64/include/c++/15.2.0/bits/ios_base.h
- C:/msys64/mingw64/include/c++/15.2.0/bits/istream.tcc
  C:/msys64/mingw64/include/c++/15.2.0/bits/locale_classes.h
  C:/msys64/mingw64/include/c++/15.2.0/bits/locale_classes.tcc
  C:/msys64/mingw64/include/c++/15.2.0/bits/locale_conv.h
@@ -227,8 +226,6 @@ CMakeFiles/FeatherForge.dir/src/Entity.cpp.obj
  C:/msys64/mingw64/include/c++/15.2.0/initializer_list
  C:/msys64/mingw64/include/c++/15.2.0/ios
  C:/msys64/mingw64/include/c++/15.2.0/iosfwd
- C:/msys64/mingw64/include/c++/15.2.0/iostream
- C:/msys64/mingw64/include/c++/15.2.0/istream
  C:/msys64/mingw64/include/c++/15.2.0/iterator
  C:/msys64/mingw64/include/c++/15.2.0/limits
  C:/msys64/mingw64/include/c++/15.2.0/locale
@@ -482,6 +479,7 @@ CMakeFiles/FeatherForge.dir/src/Game.cpp.obj
  C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-src/include/SFML/Window/WindowBase.hpp
  C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-src/include/SFML/Window/WindowHandle.hpp
  C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-src/include/SFML/Window/WindowStyle.hpp
+ C:/Users/masum/Desktop/FeatherForge/include/CustomGraphics.hpp
  C:/Users/masum/Desktop/FeatherForge/include/Entity.hpp
  C:/Users/masum/Desktop/FeatherForge/include/EnvironmentSystem.hpp
  C:/Users/masum/Desktop/FeatherForge/include/Game.hpp
@@ -588,10 +586,12 @@ CMakeFiles/FeatherForge.dir/src/Game.cpp.obj
  C:/msys64/mingw64/include/c++/15.2.0/bits/stl_iterator_base_types.h
  C:/msys64/mingw64/include/c++/15.2.0/bits/stl_map.h
  C:/msys64/mingw64/include/c++/15.2.0/bits/stl_multimap.h
+ C:/msys64/mingw64/include/c++/15.2.0/bits/stl_multiset.h
  C:/msys64/mingw64/include/c++/15.2.0/bits/stl_numeric.h
  C:/msys64/mingw64/include/c++/15.2.0/bits/stl_pair.h
  C:/msys64/mingw64/include/c++/15.2.0/bits/stl_raw_storage_iter.h
  C:/msys64/mingw64/include/c++/15.2.0/bits/stl_relops.h
+ C:/msys64/mingw64/include/c++/15.2.0/bits/stl_set.h
  C:/msys64/mingw64/include/c++/15.2.0/bits/stl_tempbuf.h
  C:/msys64/mingw64/include/c++/15.2.0/bits/stl_tree.h
  C:/msys64/mingw64/include/c++/15.2.0/bits/stl_uninitialized.h
@@ -663,6 +663,7 @@ CMakeFiles/FeatherForge.dir/src/Game.cpp.obj
  C:/msys64/mingw64/include/c++/15.2.0/pstl/glue_numeric_defs.h
  C:/msys64/mingw64/include/c++/15.2.0/pstl/pstl_config.h
  C:/msys64/mingw64/include/c++/15.2.0/ratio
+ C:/msys64/mingw64/include/c++/15.2.0/set
  C:/msys64/mingw64/include/c++/15.2.0/sstream
  C:/msys64/mingw64/include/c++/15.2.0/stdexcept
  C:/msys64/mingw64/include/c++/15.2.0/stdlib.h
@@ -1233,6 +1234,7 @@ CMakeFiles/FeatherForge.dir/src/main.cpp.obj
  C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-src/include/SFML/Window/WindowBase.hpp
  C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-src/include/SFML/Window/WindowHandle.hpp
  C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-src/include/SFML/Window/WindowStyle.hpp
+ C:/Users/masum/Desktop/FeatherForge/include/CustomGraphics.hpp
  C:/Users/masum/Desktop/FeatherForge/include/Entity.hpp
  C:/Users/masum/Desktop/FeatherForge/include/EnvironmentSystem.hpp
  C:/Users/masum/Desktop/FeatherForge/include/Game.hpp
@@ -1339,10 +1341,12 @@ CMakeFiles/FeatherForge.dir/src/main.cpp.obj
  C:/msys64/mingw64/include/c++/15.2.0/bits/stl_iterator_base_types.h
  C:/msys64/mingw64/include/c++/15.2.0/bits/stl_map.h
  C:/msys64/mingw64/include/c++/15.2.0/bits/stl_multimap.h
+ C:/msys64/mingw64/include/c++/15.2.0/bits/stl_multiset.h
  C:/msys64/mingw64/include/c++/15.2.0/bits/stl_numeric.h
  C:/msys64/mingw64/include/c++/15.2.0/bits/stl_pair.h
  C:/msys64/mingw64/include/c++/15.2.0/bits/stl_raw_storage_iter.h
  C:/msys64/mingw64/include/c++/15.2.0/bits/stl_relops.h
+ C:/msys64/mingw64/include/c++/15.2.0/bits/stl_set.h
  C:/msys64/mingw64/include/c++/15.2.0/bits/stl_tempbuf.h
  C:/msys64/mingw64/include/c++/15.2.0/bits/stl_tree.h
  C:/msys64/mingw64/include/c++/15.2.0/bits/stl_uninitialized.h
@@ -1414,6 +1418,7 @@ CMakeFiles/FeatherForge.dir/src/main.cpp.obj
  C:/msys64/mingw64/include/c++/15.2.0/pstl/glue_numeric_defs.h
  C:/msys64/mingw64/include/c++/15.2.0/pstl/pstl_config.h
  C:/msys64/mingw64/include/c++/15.2.0/ratio
+ C:/msys64/mingw64/include/c++/15.2.0/set
  C:/msys64/mingw64/include/c++/15.2.0/sstream
  C:/msys64/mingw64/include/c++/15.2.0/stdexcept
  C:/msys64/mingw64/include/c++/15.2.0/stdlib.h

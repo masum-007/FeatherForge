@@ -1,115 +1,72 @@
 #include "Entity.hpp"
-#include <iostream>
 
 Entity::Entity(b2World& world, float x, float y, float w, float h, EntityType type, sf::Texture* texture) 
-    : width(w), height(h), type(type), isDestroyed(false) { // Initialize new variables
+    : width(w), height(h), type(type), isDestroyed(false), outgoingDamageMultiplier(1.0f) { 
     
-        // Set Health based on type
+    // --- FIX: Ice is extremely fragile now ---
     if (type == EntityType::WOOD) health = 100.0f;
+    else if (type == EntityType::ICE) health = 10.0f; // Shatters instantly!
     else if (type == EntityType::ENEMY) health = 50.0f;
-    else health = 9999.0f; // Indestructible (Ground/Bird)
+    else health = 9999.0f; 
 
-    // 1. Define Body
     b2BodyDef bodyDef;
     bodyDef.position.Set(x / SCALE, y / SCALE);
-
-    if (type == EntityType::GROUND) {
-        bodyDef.type = b2_staticBody; 
-    } else {
-        bodyDef.type = b2_dynamicBody; 
-    }
-    
+    bodyDef.type = (type == EntityType::GROUND) ? b2_staticBody : b2_dynamicBody; 
     body = world.CreateBody(&bodyDef);
 
-    // 2. Define Shape & Fixture
     b2FixtureDef fixtureDef;
     fixtureDef.density = 1.0f;
     fixtureDef.friction = 0.3f;
 
     b2PolygonShape boxShape;
-    b2CircleShape circleShape; // Box2D circle math
+    b2CircleShape circleShape;
 
     if (type == EntityType::ENEMY || type == EntityType::BIRD) {
         circleShape.m_radius = (w / 2.0f) / SCALE;
         fixtureDef.shape = &circleShape;
-        fixtureDef.restitution = 0.4f; // slightly bouncy
+        fixtureDef.restitution = 0.4f; 
     } else {
         boxShape.SetAsBox((w / 2.0f) / SCALE, (h / 2.0f) / SCALE);
         fixtureDef.shape = &boxShape;
+        // --- FIX: Ice is lighter, Wood is heavier ---
         if (type == EntityType::WOOD) fixtureDef.density = 0.8f;
+        else if (type == EntityType::ICE) fixtureDef.density = 0.3f; 
     }
 
     body->CreateFixture(&fixtureDef);
 
-    // 3. Setup SFML Graphics
-    shape.setSize(sf::Vector2f(w, h));
-    shape.setOrigin(w / 2.0f, h / 2.0f);
-    
-    // FIX: Check if texture exists AND actually loaded an image (size > 0)
-    if (texture && texture->getSize().x > 0) {
-        shape.setTexture(texture); 
-    } else {
-        if (type == EntityType::BIRD) shape.setFillColor(sf::Color::Red);
-        else if (type == EntityType::WOOD) shape.setFillColor(sf::Color(139, 69, 19)); 
-        else if (type == EntityType::ENEMY) shape.setFillColor(sf::Color::Red); // Now it will be red!
-        else shape.setFillColor(sf::Color(34, 139, 34)); // Ground
+    if (texture) {
+        sprite.setTexture(*texture);
+        sprite.setScale({w / texture->getSize().x, h / texture->getSize().y});
+        sprite.setOrigin({texture->getSize().x / 2.0f, texture->getSize().y / 2.0f});
     }
 
-    // 3. Setup SFML Graphics
-    shape.setSize(sf::Vector2f(w, h));
-    shape.setOrigin(w / 2.0f, h / 2.0f);
-    
-    // --- NEW TEXTURE LOGIC ---
-    if (texture) {
-        shape.setTexture(texture); // Map the image to the box!
-    } else {
-        // Fallback to solid colors if the image file is missing
-        if (type == EntityType::BIRD) shape.setFillColor(sf::Color::Red);
-        else if (type == EntityType::WOOD) shape.setFillColor(sf::Color(139, 69, 19)); 
-        else shape.setFillColor(sf::Color::Green);
-    }
-    // Crucial: Tell Box2D that this specific C++ Entity owns this physics body!
-    // This allows us to link the physics collision back to our health system.
     body->GetUserData().pointer = reinterpret_cast<uintptr_t>(this);
 }
+
 Entity::~Entity() {
-    // Automatically remove the body from the physics world when the entity is deleted
-    if (body && body->GetWorld()) {
-        body->GetWorld()->DestroyBody(body);
-    }
+    if (body && body->GetWorld()) body->GetWorld()->DestroyBody(body);
 }
+
 void Entity::TakeDamage(float impact) {
     if (isDestroyed || type == EntityType::GROUND || type == EntityType::BIRD) return;
 
-    // FIX 1: Increased threshold from 2.0f to 10.0f so gentle bumps don't hurt
-    if (impact > 10.0f) {
-        
-        // FIX 2: Removed the * 10.0f multiplier. Raw impact is balanced!
+    if (impact > 5.0f) { // Lowered impact threshold so soft hits break Ice
         health -= impact; 
-        
-        // std::cout << "Hit! Impact: " << impact << " | Health left: " << health << "\n";
-
-        if (health <= 0) {
-            isDestroyed = true;
-        }
+        if (health <= 0) isDestroyed = true;
     }
 }
 
-// NEW FUNCTION: Swaps the image while keeping the physics body identical
 void Entity::SwapTexture(sf::Texture* newTexture) {
-    if (newTexture && newTexture->getSize().x > 0) {
-        shape.setTexture(newTexture);
-    }
+    if (newTexture && newTexture->getSize().x > 0) sprite.setTexture(*newTexture);
 }
 
-// ... Keep your Entity::Render function exactly the same ...
 void Entity::Render(sf::RenderWindow& window) {
-    // Sync Graphics with Physics
-    b2Vec2 position = body->GetPosition();
-    float angle = body->GetAngle(); // Box2D is in radians
+    if (isDestroyed) return;
+    b2Vec2 pos = body->GetPosition();
+    float angle = body->GetAngle() * 180.0f / 3.14159f;
 
-    shape.setPosition(position.x * SCALE, position.y * SCALE);
-    shape.setRotation(angle * 180.0f / b2_pi); // Convert to degrees for SFML
-
-    window.draw(shape);
+    sprite.setPosition({pos.x * SCALE, pos.y * SCALE});
+    sprite.setRotation(angle);
+    window.draw(sprite);
 }

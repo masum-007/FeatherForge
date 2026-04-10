@@ -1,0 +1,16 @@
+{
+  "birds": ["normal", "fire", "sloth", "water", "freeze", "fire"],
+  "entities": [
+    {"type": "wood", "x": 800, "y": 660, "width": 40, "height": 200},
+    {"type": "wood", "x": 1000, "y": 660, "width": 40, "height": 200},
+    {"type": "ice", "x": 900, "y": 540, "width": 240, "height": 20},
+    
+    {"type": "enemy", "x": 840, "y": 500, "width": 40, "height": 40},
+    {"type": "enemy", "x": 900, "y": 500, "width": 40, "height": 40},
+    {"type": "enemy", "x": 960, "y": 500, "width": 40, "height": 40},
+
+    {"type": "wood", "x": 840, "y": 460, "width": 40, "height": 40},
+    {"type": "wood", "x": 900, "y": 460, "width": 40, "height": 40},
+    {"type": "wood", "x": 960, "y": 460, "width": 40, "height": 40}
+  ]
+}

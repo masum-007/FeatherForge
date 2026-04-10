@@ -1,7 +1,8 @@
 {
+  "birds": ["normal", "fire", "normal"],
   "entities": [
     {"type": "wood", "x": 800, "y": 660, "width": 40, "height": 40},
-    {"type": "wood", "x": 800, "y": 620, "width": 40, "height": 40},
+    {"type": "ice", "x": 800, "y": 620, "width": 40, "height": 40},
     {"type": "wood", "x": 800, "y": 580, "width": 40, "height": 40},
     {"type": "enemy", "x": 800, "y": 540, "width": 40, "height": 40}
   ]

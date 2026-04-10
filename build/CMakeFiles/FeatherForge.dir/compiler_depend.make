@@ -150,7 +150,6 @@ CMakeFiles/FeatherForge.dir/src/Entity.cpp.obj: C:/Users/masum/Desktop/FeatherFo
   C:/msys64/mingw64/include/c++/15.2.0/bits/hash_bytes.h \
   C:/msys64/mingw64/include/c++/15.2.0/bits/invoke.h \
   C:/msys64/mingw64/include/c++/15.2.0/bits/ios_base.h \
-  C:/msys64/mingw64/include/c++/15.2.0/bits/istream.tcc \
   C:/msys64/mingw64/include/c++/15.2.0/bits/locale_classes.h \
   C:/msys64/mingw64/include/c++/15.2.0/bits/locale_classes.tcc \
   C:/msys64/mingw64/include/c++/15.2.0/bits/locale_conv.h \
@@ -226,8 +225,6 @@ CMakeFiles/FeatherForge.dir/src/Entity.cpp.obj: C:/Users/masum/Desktop/FeatherFo
   C:/msys64/mingw64/include/c++/15.2.0/initializer_list \
   C:/msys64/mingw64/include/c++/15.2.0/ios \
   C:/msys64/mingw64/include/c++/15.2.0/iosfwd \
-  C:/msys64/mingw64/include/c++/15.2.0/iostream \
-  C:/msys64/mingw64/include/c++/15.2.0/istream \
   C:/msys64/mingw64/include/c++/15.2.0/iterator \
   C:/msys64/mingw64/include/c++/15.2.0/limits \
   C:/msys64/mingw64/include/c++/15.2.0/locale \
@@ -480,6 +477,7 @@ CMakeFiles/FeatherForge.dir/src/Game.cpp.obj: C:/Users/masum/Desktop/FeatherForg
   _deps/sfml-src/include/SFML/Window/WindowBase.hpp \
   _deps/sfml-src/include/SFML/Window/WindowHandle.hpp \
   _deps/sfml-src/include/SFML/Window/WindowStyle.hpp \
+  C:/Users/masum/Desktop/FeatherForge/include/CustomGraphics.hpp \
   C:/Users/masum/Desktop/FeatherForge/include/Entity.hpp \
   C:/Users/masum/Desktop/FeatherForge/include/EnvironmentSystem.hpp \
   C:/Users/masum/Desktop/FeatherForge/include/Game.hpp \
@@ -586,10 +584,12 @@ CMakeFiles/FeatherForge.dir/src/Game.cpp.obj: C:/Users/masum/Desktop/FeatherForg
   C:/msys64/mingw64/include/c++/15.2.0/bits/stl_iterator_base_types.h \
   C:/msys64/mingw64/include/c++/15.2.0/bits/stl_map.h \
   C:/msys64/mingw64/include/c++/15.2.0/bits/stl_multimap.h \
+  C:/msys64/mingw64/include/c++/15.2.0/bits/stl_multiset.h \
   C:/msys64/mingw64/include/c++/15.2.0/bits/stl_numeric.h \
   C:/msys64/mingw64/include/c++/15.2.0/bits/stl_pair.h \
   C:/msys64/mingw64/include/c++/15.2.0/bits/stl_raw_storage_iter.h \
   C:/msys64/mingw64/include/c++/15.2.0/bits/stl_relops.h \
+  C:/msys64/mingw64/include/c++/15.2.0/bits/stl_set.h \
   C:/msys64/mingw64/include/c++/15.2.0/bits/stl_tempbuf.h \
   C:/msys64/mingw64/include/c++/15.2.0/bits/stl_tree.h \
   C:/msys64/mingw64/include/c++/15.2.0/bits/stl_uninitialized.h \
@@ -661,6 +661,7 @@ CMakeFiles/FeatherForge.dir/src/Game.cpp.obj: C:/Users/masum/Desktop/FeatherForg
   C:/msys64/mingw64/include/c++/15.2.0/pstl/glue_numeric_defs.h \
   C:/msys64/mingw64/include/c++/15.2.0/pstl/pstl_config.h \
   C:/msys64/mingw64/include/c++/15.2.0/ratio \
+  C:/msys64/mingw64/include/c++/15.2.0/set \
   C:/msys64/mingw64/include/c++/15.2.0/sstream \
   C:/msys64/mingw64/include/c++/15.2.0/stdexcept \
   C:/msys64/mingw64/include/c++/15.2.0/stdlib.h \
@@ -1229,6 +1230,7 @@ CMakeFiles/FeatherForge.dir/src/main.cpp.obj: C:/Users/masum/Desktop/FeatherForg
   _deps/sfml-src/include/SFML/Window/WindowBase.hpp \
   _deps/sfml-src/include/SFML/Window/WindowHandle.hpp \
   _deps/sfml-src/include/SFML/Window/WindowStyle.hpp \
+  C:/Users/masum/Desktop/FeatherForge/include/CustomGraphics.hpp \
   C:/Users/masum/Desktop/FeatherForge/include/Entity.hpp \
   C:/Users/masum/Desktop/FeatherForge/include/EnvironmentSystem.hpp \
   C:/Users/masum/Desktop/FeatherForge/include/Game.hpp \
@@ -1335,10 +1337,12 @@ CMakeFiles/FeatherForge.dir/src/main.cpp.obj: C:/Users/masum/Desktop/FeatherForg
   C:/msys64/mingw64/include/c++/15.2.0/bits/stl_iterator_base_types.h \
   C:/msys64/mingw64/include/c++/15.2.0/bits/stl_map.h \
   C:/msys64/mingw64/include/c++/15.2.0/bits/stl_multimap.h \
+  C:/msys64/mingw64/include/c++/15.2.0/bits/stl_multiset.h \
   C:/msys64/mingw64/include/c++/15.2.0/bits/stl_numeric.h \
   C:/msys64/mingw64/include/c++/15.2.0/bits/stl_pair.h \
   C:/msys64/mingw64/include/c++/15.2.0/bits/stl_raw_storage_iter.h \
   C:/msys64/mingw64/include/c++/15.2.0/bits/stl_relops.h \
+  C:/msys64/mingw64/include/c++/15.2.0/bits/stl_set.h \
   C:/msys64/mingw64/include/c++/15.2.0/bits/stl_tempbuf.h \
   C:/msys64/mingw64/include/c++/15.2.0/bits/stl_tree.h \
   C:/msys64/mingw64/include/c++/15.2.0/bits/stl_uninitialized.h \
@@ -1410,6 +1414,7 @@ CMakeFiles/FeatherForge.dir/src/main.cpp.obj: C:/Users/masum/Desktop/FeatherForg
   C:/msys64/mingw64/include/c++/15.2.0/pstl/glue_numeric_defs.h \
   C:/msys64/mingw64/include/c++/15.2.0/pstl/pstl_config.h \
   C:/msys64/mingw64/include/c++/15.2.0/ratio \
+  C:/msys64/mingw64/include/c++/15.2.0/set \
   C:/msys64/mingw64/include/c++/15.2.0/sstream \
   C:/msys64/mingw64/include/c++/15.2.0/stdexcept \
   C:/msys64/mingw64/include/c++/15.2.0/stdlib.h \
@@ -1516,6 +1521,8 @@ C:/msys64/mingw64/include/c++/15.2.0/pstl/glue_numeric_defs.h:
 
 C:/msys64/mingw64/include/c++/15.2.0/pstl/glue_memory_defs.h:
 
+C:/msys64/mingw64/include/c++/15.2.0/istream:
+
 C:/msys64/mingw64/include/c++/15.2.0/fstream:
 
 C:/msys64/mingw64/include/c++/15.2.0/cstring:
@@ -1526,9 +1533,13 @@ C:/msys64/mingw64/include/c++/15.2.0/bits/valarray_array.h:
 
 C:/msys64/mingw64/include/c++/15.2.0/bits/valarray_after.h:
 
+C:/msys64/mingw64/include/c++/15.2.0/bits/stl_set.h:
+
 C:/msys64/mingw64/include/c++/15.2.0/bits/stl_relops.h:
 
 C:/msys64/mingw64/include/c++/15.2.0/bits/stl_numeric.h:
+
+C:/msys64/mingw64/include/c++/15.2.0/bits/stl_multiset.h:
 
 C:/msys64/mingw64/include/c++/15.2.0/bits/sstream.tcc:
 
@@ -1638,6 +1649,12 @@ C:/Users/masum/Desktop/FeatherForge/src/Game.cpp:
 
 C:/msys64/mingw64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/stdarg.h:
 
+C:/msys64/mingw64/include/c++/15.2.0/bits/istream.tcc:
+
+_deps/json-src/include/nlohmann/detail/meta/cpp_future.hpp:
+
+C:/msys64/mingw64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/mm_malloc.h:
+
 C:/msys64/mingw64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/float.h:
 
 C:/msys64/mingw64/include/wctype.h:
@@ -1728,8 +1745,6 @@ C:/msys64/mingw64/include/c++/15.2.0/x86_64-w64-mingw32/bits/cpu_defines.h:
 
 C:/msys64/mingw64/include/c++/15.2.0/x86_64-w64-mingw32/bits/c++config.h:
 
-C:/msys64/mingw64/include/c++/15.2.0/vector:
-
 C:/msys64/mingw64/include/c++/15.2.0/algorithm:
 
 C:/msys64/mingw64/include/sys/types.h:
@@ -1777,6 +1792,8 @@ _deps/sfml-src/include/SFML/Window/GlResource.hpp:
 C:/msys64/mingw64/include/_mingw_off_t.h:
 
 _deps/sfml-src/include/SFML/Window/Export.hpp:
+
+C:/msys64/mingw64/include/c++/15.2.0/set:
 
 C:/msys64/mingw64/include/c++/15.2.0/bits/streambuf_iterator.h:
 
@@ -1972,8 +1989,6 @@ _deps/box2d-src/include/box2d/b2_world.h:
 
 C:/msys64/mingw64/include/c++/15.2.0/debug/assertions.h:
 
-C:/msys64/mingw64/include/c++/15.2.0/istream:
-
 _deps/json-src/include/nlohmann/detail/output/serializer.hpp:
 
 _deps/box2d-src/include/box2d/b2_settings.h:
@@ -1985,10 +2000,6 @@ _deps/box2d-src/include/box2d/b2_growable_stack.h:
 C:/msys64/mingw64/include/c++/15.2.0/bits/locale_classes.h:
 
 C:/msys64/mingw64/include/c++/15.2.0/bits/concept_check.h:
-
-C:/msys64/mingw64/include/c++/15.2.0/x86_64-w64-mingw32/bits/atomic_word.h:
-
-_deps/box2d-src/include/box2d/b2_contact_manager.h:
 
 C:/msys64/mingw64/include/c++/15.2.0/bits/ptr_traits.h:
 
@@ -2003,14 +2014,6 @@ _deps/box2d-src/include/box2d/b2_block_allocator.h:
 C:/msys64/mingw64/include/c++/15.2.0/version:
 
 _deps/box2d-src/include/box2d/b2_circle_shape.h:
-
-C:/msys64/mingw64/include/c++/15.2.0/typeinfo:
-
-_deps/sfml-src/include/SFML/System/String.inl:
-
-C:/msys64/mingw64/include/c++/15.2.0/bits/locale_facets_nonio.tcc:
-
-_deps/sfml-src/include/SFML/Window.hpp:
 
 _deps/box2d-src/include/box2d/b2_weld_joint.h:
 
@@ -2130,12 +2133,6 @@ _deps/sfml-src/include/SFML/Graphics/Image.hpp:
 
 _deps/sfml-src/include/SFML/Graphics/RectangleShape.hpp:
 
-_deps/json-src/include/nlohmann/detail/meta/cpp_future.hpp:
-
-C:/msys64/mingw64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/mm_malloc.h:
-
-C:/msys64/mingw64/include/c++/15.2.0/bits/istream.tcc:
-
 C:/msys64/mingw64/include/c++/15.2.0/bits/utility.h:
 
 C:/msys64/mingw64/include/c++/15.2.0/bits/std_abs.h:
@@ -2179,6 +2176,8 @@ C:/msys64/mingw64/include/c++/15.2.0/bits/cpp_type_traits.h:
 C:/msys64/mingw64/include/c++/15.2.0/bits/cxxabi_init_exception.h:
 
 C:/msys64/mingw64/include/c++/15.2.0/bits/erase_if.h:
+
+C:/Users/masum/Desktop/FeatherForge/include/CustomGraphics.hpp:
 
 C:/msys64/mingw64/include/c++/15.2.0/bits/exception.h:
 
@@ -2270,6 +2269,10 @@ C:/msys64/mingw64/include/c++/15.2.0/bits/stringfwd.h:
 
 C:/msys64/mingw64/include/c++/15.2.0/cctype:
 
+_deps/box2d-src/include/box2d/b2_contact_manager.h:
+
+C:/msys64/mingw64/include/c++/15.2.0/x86_64-w64-mingw32/bits/atomic_word.h:
+
 C:/msys64/mingw64/include/c++/15.2.0/cerrno:
 
 C:/msys64/mingw64/include/c++/15.2.0/numeric:
@@ -2308,8 +2311,6 @@ C:/msys64/mingw64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/stddef.h:
 
 _deps/sfml-src/include/SFML/Graphics/Rect.inl:
 
-C:/msys64/mingw64/include/c++/15.2.0/iostream:
-
 C:/msys64/mingw64/include/c++/15.2.0/ext/aligned_buffer.h:
 
 C:/msys64/mingw64/include/c++/15.2.0/ext/alloc_traits.h:
@@ -2337,6 +2338,8 @@ C:/msys64/mingw64/include/c++/15.2.0/pstl/execution_defs.h:
 _deps/sfml-src/include/SFML/System/Vector3.inl:
 
 C:/msys64/mingw64/include/c++/15.2.0/pstl/pstl_config.h:
+
+C:/msys64/mingw64/include/c++/15.2.0/vector:
 
 _deps/sfml-src/include/SFML/Graphics/VertexBuffer.hpp:
 
@@ -2367,3 +2370,11 @@ C:/msys64/mingw64/include/c++/15.2.0/tr1/poly_laguerre.tcc:
 C:/msys64/mingw64/include/c++/15.2.0/tr1/special_function_util.h:
 
 C:/msys64/mingw64/include/c++/15.2.0/tuple:
+
+_deps/sfml-src/include/SFML/System/String.inl:
+
+C:/msys64/mingw64/include/c++/15.2.0/bits/locale_facets_nonio.tcc:
+
+_deps/sfml-src/include/SFML/Window.hpp:
+
+C:/msys64/mingw64/include/c++/15.2.0/typeinfo:
