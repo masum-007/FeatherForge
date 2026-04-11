@@ -47,41 +47,20 @@ public:
     EnvironmentSystem() : m_time(0.0f), m_lightningFlash(0.0f), m_nextLightning(5.0f) {
         std::srand(static_cast<unsigned>(std::time(nullptr))); 
 
-        // --- 10 HAND-CRAFTED CINEMATIC LEVEL THEMES ---
-
-        // Level 1: Classic Day (Calm, bright blue skies)
+        // 10 HAND-CRAFTED CINEMATIC LEVEL THEMES
         m_themes.push_back({sf::Color{120, 180, 240}, sf::Color{210, 235, 255}, sf::Color{255, 245, 180}, sf::Color{255, 230, 150, 100}, sf::Color{140, 175, 205}, sf::Color{100, 140, 120}, sf::Color{80, 55, 40}, sf::Color{45, 140, 75}, false, false, false});
-        
-        // Level 2: Heavy Thunderstorm (Requested: Rain, lightning, moody dark greys)
         m_themes.push_back({sf::Color{50, 60, 75}, sf::Color{90, 100, 110}, sf::Color{200, 200, 210}, sf::Color{150, 150, 160, 10}, sf::Color{65, 75, 85}, sf::Color{40, 50, 60}, sf::Color{25, 30, 35}, sf::Color{35, 60, 45}, false, true, true});
-        
-        // Level 3: Sunset (Deep oranges, purples, silhouettes)
         m_themes.push_back({sf::Color{180, 90, 120}, sf::Color{255, 170, 100}, sf::Color{255, 130, 80}, sf::Color{255, 100, 50, 120}, sf::Color{140, 80, 90}, sf::Color{90, 50, 60}, sf::Color{50, 30, 25}, sf::Color{140, 60, 40}, false, false, false});
-        
-        // Level 4: Clear Starry Night (Deep navy, twinkling stars, glowing moon)
         m_themes.push_back({sf::Color{10, 15, 35}, sf::Color{30, 45, 80}, sf::Color{240, 245, 255}, sf::Color{200, 210, 255, 40}, sf::Color{35, 45, 65}, sf::Color{20, 30, 45}, sf::Color{15, 15, 20}, sf::Color{25, 60, 45}, true, false, false});
-        
-        // Level 5: Dawn Misty (Soft lavender, peach, morning fog)
         m_themes.push_back({sf::Color{90, 80, 140}, sf::Color{255, 190, 160}, sf::Color{255, 220, 180}, sf::Color{255, 180, 120, 80}, sf::Color{110, 100, 140}, sf::Color{70, 75, 105}, sf::Color{45, 35, 40}, sf::Color{50, 100, 85}, false, false, false});
-        
-        // Level 6: Midnight Rain (Starry night but with gentle rainfall)
         m_themes.push_back({sf::Color{15, 20, 45}, sf::Color{40, 55, 90}, sf::Color{240, 245, 255}, sf::Color{200, 210, 255, 20}, sf::Color{45, 55, 75}, sf::Color{25, 40, 55}, sf::Color{15, 15, 25}, sf::Color{30, 70, 55}, true, false, true});
-        
-        // Level 7: Autumn Golden Hour (Warm golds, browns, beautiful sun)
         m_themes.push_back({sf::Color{140, 175, 215}, sf::Color{255, 230, 170}, sf::Color{255, 210, 100}, sf::Color{255, 160, 50, 100}, sf::Color{170, 145, 120}, sf::Color{130, 95, 70}, sf::Color{70, 40, 25}, sf::Color{200, 110, 40}, false, false, false});
-        
-        // Level 8: Sunshower (Bright day, shining sun, light rain)
         m_themes.push_back({sf::Color{100, 160, 220}, sf::Color{190, 215, 235}, sf::Color{255, 240, 150}, sf::Color{255, 220, 100, 80}, sf::Color{120, 155, 185}, sf::Color{80, 120, 100}, sf::Color{70, 45, 30}, sf::Color{35, 130, 65}, false, false, true});
-        
-        // Level 9: Crimson Eclipse (Intense deep red, dramatic boss-level feel)
         m_themes.push_back({sf::Color{80, 10, 15}, sf::Color{180, 40, 30}, sf::Color{255, 200, 200}, sf::Color{255, 50, 50, 150}, sf::Color{100, 20, 25}, sf::Color{50, 10, 15}, sf::Color{20, 5, 10}, sf::Color{80, 20, 25}, false, false, false});
-        
-        // Level 10: The Emperor's Storm (Epic finale: Dark purple, fierce lightning, stars)
         m_themes.push_back({sf::Color{20, 10, 35}, sf::Color{50, 20, 60}, sf::Color{255, 255, 255}, sf::Color{200, 150, 255, 80}, sf::Color{30, 15, 45}, sf::Color{15, 10, 25}, sf::Color{10, 5, 15}, sf::Color{20, 15, 35}, true, true, true});
     }
 
     void loadLevel(int level) {
-        // --- FIX: Specific Themes locked to Specific Levels ---
         m_theme = m_themes[(level - 1) % m_themes.size()]; 
         
         m_time = 0.0f;
@@ -148,13 +127,12 @@ public:
             }
         }
 
-        // --- UPGRADED: Softer, more natural rain ---
         if (m_theme.isRaining) {
             for (int i = 0; i < 350; i++) { 
                 m_raindrops.push_back({
                     sf::Vector2f{-1000.f + (rand() % 4000), -500.f + (rand() % 1500)}, 
-                    600.f + (rand() % 400), // Much slower, natural falling speed
-                    10.f + (rand() % 15)    // Shorter, softer droplets
+                    600.f + (rand() % 400), 
+                    10.f + (rand() % 15)    
                 });
             }
         }
@@ -162,6 +140,7 @@ public:
         m_lightningFlash = 0.0f;
         m_nextLightning = 2.0f + (rand() % 50) / 10.f;
 
+        // Mountain Layers
         sf::Color backTop = m_theme.mountFar;
         sf::Color backBot = m_theme.skyBot; 
         generateMountains(m_mountainsBack, backTop, backBot, 400.f, 250.f, 0.f, true);
@@ -176,6 +155,10 @@ public:
         sf::Color frontTop = m_theme.mountNear;
         sf::Color frontBot = m_theme.treeTrunk; 
         generateMountains(m_mountainsNear, frontTop, frontBot, 620.f, 100.f, 12000.f, false);
+
+        // --- FIX: Push the foreground down to Y = 1000 and make it less wavy ---
+        sf::Color extremeFront = sf::Color(10, 10, 15, 255); 
+        generateMountains(m_mountainsForeground, extremeFront, extremeFront, 1000.f, 150.f, 25000.f, false);
     }
 
     void update(float dt) {
@@ -192,7 +175,7 @@ public:
         if (m_theme.isRaining) {
             for (auto& drop : m_raindrops) {
                 drop.pos.y += drop.speed * dt;
-                drop.pos.x += (drop.speed * 0.08f) * dt; // Softer, more realistic wind slant
+                drop.pos.x += (drop.speed * 0.08f) * dt; 
                 
                 if (drop.pos.y > 900.f) { 
                     drop.pos.y = -100.f - (rand() % 500);
@@ -215,7 +198,9 @@ public:
         }
     }
 
-    void render(sf::RenderWindow& window, float cameraX) {
+    // --- FIX: ALL DRAW FUNCTIONS NOW USE sf::RenderTarget& ---
+
+    void render(sf::RenderTarget& window, float cameraX) {
         float cx = cameraX - 640.f; 
         
         sf::VertexArray sky(sf::PrimitiveType::TriangleStrip, 4);
@@ -277,15 +262,20 @@ public:
 
         if (m_theme.isRaining) {
             sf::VertexArray rainArray(sf::PrimitiveType::Lines, m_raindrops.size() * 2);
-            sf::Color rainCol{220, 230, 255, 100}; // Softer, less obtrusive rain color
+            sf::Color rainCol{220, 230, 255, 100}; 
             for (size_t i = 0; i < m_raindrops.size(); i++) {
                 sf::Vector2f dropPos = m_raindrops[i].pos + sf::Vector2f{cameraX, 0.f}; 
-                
                 rainArray[i*2 + 0] = sf::Vertex{dropPos, rainCol};
                 rainArray[i*2 + 1] = sf::Vertex{dropPos + sf::Vector2f{-m_raindrops[i].length * 0.08f, -m_raindrops[i].length}, rainCol};
             }
             window.draw(rainArray);
         }
+    }
+
+    // --- NEW: Foreground Rendering Function ---
+    void renderForeground(sf::RenderTarget& window, float cameraX) {
+        // Parallax multiplier is 1.4f (moves FASTER than the camera to create extreme depth)
+        drawParallaxLayer(window, m_mountainsForeground, cameraX, 1.4f);
     }
 
 private:
@@ -297,7 +287,9 @@ private:
     std::vector<Bird> m_birds;
     std::vector<Star> m_stars;
     std::vector<Raindrop> m_raindrops;
-    sf::VertexArray m_mountainsBack, m_mountainsMid, m_mountainsNear;
+    
+    // Updated with Foreground Array
+    sf::VertexArray m_mountainsBack, m_mountainsMid, m_mountainsNear, m_mountainsForeground;
     
     float m_lightningFlash;
     float m_nextLightning;
@@ -351,13 +343,13 @@ private:
         }
     }
 
-    void drawParallaxLayer(sf::RenderWindow& win, const sf::VertexArray& va, float camX, float parallax) {
+    void drawParallaxLayer(sf::RenderTarget& win, const sf::VertexArray& va, float camX, float parallax) {
         sf::Transform t;
         t.translate({camX * (1.0f - parallax), 0.f});
         win.draw(va, t);
     }
 
-    void drawCloud(sf::RenderWindow& win, const Cloud& c, float camX, float parallax) {
+    void drawCloud(sf::RenderTarget& win, const Cloud& c, float camX, float parallax) {
         float drawX = c.pos.x + camX * (1.0f - parallax);
         if (drawX < camX - 800.f || drawX > camX + 1480.f) return; 
         
@@ -389,7 +381,7 @@ private:
         drawPuff(75.f, 10.f, 25.f, baseCol);
     }
 
-    void drawTree(sf::RenderWindow& win, const Tree& t, float camX, float parallax) {
+    void drawTree(sf::RenderTarget& win, const Tree& t, float camX, float parallax) {
         float drawX = t.pos.x + camX * (1.0f - parallax);
         if (drawX < camX - 800.f || drawX > camX + 1280.f) return; 
 
@@ -445,7 +437,7 @@ private:
         win.draw(leafArray);
     }
 
-    void drawBird(sf::RenderWindow& win, const Bird& b, float camX, float parallax) {
+    void drawBird(sf::RenderTarget& win, const Bird& b, float camX, float parallax) {
         float drawX = b.pos.x + camX * (1.0f - parallax);
         if (drawX < camX - 800.f || drawX > camX + 1280.f) return;
 

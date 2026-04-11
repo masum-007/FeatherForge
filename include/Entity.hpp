@@ -10,7 +10,7 @@ public:
     Entity(b2World& world, float x, float y, float width, float height, EntityType type, sf::Texture* texture = nullptr);
     ~Entity(); 
 
-    void Render(sf::RenderWindow& window);
+    void Render(sf::RenderTarget& window); // Updated from sf::RenderWindow&
     void TakeDamage(float impact); 
 
     b2Body* GetBody() { return body; }

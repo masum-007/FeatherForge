@@ -12,6 +12,10 @@ Game::Game()
       m_currentLevel(1)
 {
     window.setFramerateLimit(60);
+
+    // --- FIX 1: You MUST create the render texture buffer! ---
+    m_renderTexture.create(1280, 720);
+
     worldView.setSize({1280.f, 720.f});
     worldView.setCenter({640.f, 360.f});
     uiView = window.getDefaultView(); 
@@ -47,6 +51,10 @@ void Game::LoadAssets() {
     runeTex = CustomGraphics::GenerateMagicRune();
     runeSprite.setTexture(runeTex);
     runeSprite.setOrigin({100.f, 100.f}); // Center the 200x200 image
+
+    if (!m_postShader.loadFromFile("assets/postprocess.frag", sf::Shader::Fragment)) {
+    printf("Warning: Could not load shader!\n");
+}
 }
 
 void Game::LoadLevel(const std::string& filepath) {
@@ -139,6 +147,18 @@ void Game::CheckBirdState() {
 }
 
 void Game::Update() {
+
+    // --- NEW: Hit-Stop Logic (Freezes physics for a split second on heavy impact) ---
+    if (m_hitStopTimer > 0.0f) {
+        m_hitStopTimer -= (1.0f / 60.0f);
+        return; // Skip all physics and updates this frame!
+    }
+
+    // --- NEW: Camera Shake Timer ---
+    if (m_shakeTimer > 0.0f) {
+        m_shakeTimer -= (1.0f / 60.0f);
+    }
+
     m_environment.update(1.0f / 60.0f);
     if (m_currentState != GameState::Playing) return;
 
@@ -220,18 +240,29 @@ void Game::Update() {
             block->isCracked = true; 
         }
     }
+    // Update the cleanup loop to trigger the juicy effects!
     blocks.erase(
         std::remove_if(blocks.begin(), blocks.end(),
             [this](const std::unique_ptr<Entity>& e) { 
                 float yPos = e->GetBody()->GetPosition().y * SCALE;
                 if (e->IsDestroyed() || yPos > 800.f) {
                     sf::Vector2f deathPos{e->GetBody()->GetPosition().x * SCALE, std::min(yPos, 700.f)};
+                    
                     if (e->GetType() == EntityType::WOOD) m_particles.emitWood(deathPos);
-                    else if (e->GetType() == EntityType::ICE) m_particles.emitIce(deathPos);
+                    else if (e->GetType() == EntityType::ICE) {
+                        m_particles.emitIce(deathPos);
+                        TriggerHitStop(0.04f); // Tiny freeze for glass shattering
+                    }
                     else if (e->GetType() == EntityType::BIRD) m_particles.emitFeathers(deathPos);
                     else m_particles.emitDust(deathPos); 
-                    if (e->GetType() == EntityType::ENEMY) score += 500;
+
+                    if (e->GetType() == EntityType::ENEMY) {
+                        score += 500;
+                        TriggerHitStop(0.1f); // Massive pause for killing an enemy
+                        TriggerShake(0.25f, 15.0f); // Screen shake!
+                    }
                     else score += 100;
+
                     m_burningBodies.erase(e->GetBody());
                     m_frozenBodies.erase(e->GetBody());
                     return true; 
@@ -278,63 +309,62 @@ void Game::ResetLevel(int level) {
 }
 
 void Game::DrawSlingshot() {
-    slingshotPos = sf::Vector2f{200.f, 620.f}; // Grounded
+    slingshotPos = sf::Vector2f(200.f, 620.f); 
 
     // --- Draw the Magical Rune behind everything ---
     runeSprite.setPosition(slingshotPos);
-    runeRotation += 0.5f; // Slowly rotate it every frame
+    runeRotation += 0.5f; 
     runeSprite.setRotation(runeRotation);
     
     if (isDragging) {
-        // When pulling back, the rune glows brightly and pulses!
         runeSprite.setColor(sf::Color(255, 255, 255, 255));
-        
-        // --- FIX: Use runeRotation to drive the pulse math instead of m_time ---
         float pulse = 1.2f + (std::sin(runeRotation * 0.1f) * 0.05f); 
-        runeSprite.setScale({pulse, pulse});
+        runeSprite.setScale(pulse, pulse);
     } else {
-        // When idle, it is faded and dormant
         runeSprite.setColor(sf::Color(255, 255, 255, 80));
-        runeSprite.setScale({1.0f, 1.0f});
+        runeSprite.setScale(1.0f, 1.0f);
     }
-    window.draw(runeSprite);
+    m_renderTexture.draw(runeSprite); 
 
-    sf::RectangleShape stem(sf::Vector2f{16.f, 60.f});
-    stem.setFillColor(sf::Color{90, 50, 20}); 
-    stem.setOrigin({8.f, 0.f});
-    stem.setPosition({slingshotPos.x, slingshotPos.y + 10.f});
-    window.draw(stem);
+    // 1. Dark Main Stem 
+    sf::RectangleShape stem(sf::Vector2f(16.f, 60.f));
+    stem.setFillColor(sf::Color(90, 50, 20)); 
+    stem.setOrigin(8.f, 0.f);
+    stem.setPosition(slingshotPos.x, slingshotPos.y + 10.f);
+    m_renderTexture.draw(stem);
 
-    sf::RectangleShape backFork(sf::Vector2f{12.f, 40.f});
-    backFork.setFillColor(sf::Color{70, 40, 15}); 
-    backFork.setOrigin({6.f, 40.f});
-    backFork.setPosition({slingshotPos.x + 8.f, slingshotPos.y + 15.f});
+    // 2. Back Fork
+    sf::RectangleShape backFork(sf::Vector2f(12.f, 40.f));
+    backFork.setFillColor(sf::Color(70, 40, 15)); 
+    backFork.setOrigin(6.f, 40.f);
+    backFork.setPosition(slingshotPos.x + 8.f, slingshotPos.y + 15.f);
     backFork.setRotation(25.f);
-    window.draw(backFork);
+    m_renderTexture.draw(backFork);
 
     if (bird && !birdIsActive) {
         b2Vec2 b2Pos = bird->GetBody()->GetPosition(); 
         sf::Vertex backBand[] = {
-            sf::Vertex{sf::Vector2f{slingshotPos.x + 18.f, slingshotPos.y - 15.f}, sf::Color{40, 40, 40}},
-            sf::Vertex{sf::Vector2f{b2Pos.x * SCALE, b2Pos.y * SCALE}, sf::Color{40, 40, 40}}
+            sf::Vertex(sf::Vector2f(slingshotPos.x + 18.f, slingshotPos.y - 15.f), sf::Color(40, 40, 40)),
+            sf::Vertex(sf::Vector2f(b2Pos.x * SCALE, b2Pos.y * SCALE), sf::Color(40, 40, 40))
         };
-        window.draw(backBand, 2, sf::PrimitiveType::Lines);
+        m_renderTexture.draw(backBand, 2, sf::Lines);
     }
 
-    sf::RectangleShape frontFork(sf::Vector2f{12.f, 40.f});
-    frontFork.setFillColor(sf::Color{110, 70, 30}); 
-    frontFork.setOrigin({6.f, 40.f});
-    frontFork.setPosition({slingshotPos.x - 8.f, slingshotPos.y + 15.f});
+    // 3. Front Fork 
+    sf::RectangleShape frontFork(sf::Vector2f(12.f, 40.f));
+    frontFork.setFillColor(sf::Color(110, 70, 30)); 
+    frontFork.setOrigin(6.f, 40.f);
+    frontFork.setPosition(slingshotPos.x - 8.f, slingshotPos.y + 15.f);
     frontFork.setRotation(-25.f);
-    window.draw(frontFork);
+    m_renderTexture.draw(frontFork);
 
     if (bird && !birdIsActive) {
         b2Vec2 b2Pos = bird->GetBody()->GetPosition(); 
         sf::Vertex frontBand[] = {
-            sf::Vertex{sf::Vector2f{slingshotPos.x - 18.f, slingshotPos.y - 15.f}, sf::Color{60, 60, 60}},
-            sf::Vertex{sf::Vector2f{b2Pos.x * SCALE, b2Pos.y * SCALE}, sf::Color{60, 60, 60}}
+            sf::Vertex(sf::Vector2f(slingshotPos.x - 18.f, slingshotPos.y - 15.f), sf::Color(60, 60, 60)),
+            sf::Vertex(sf::Vector2f(b2Pos.x * SCALE, b2Pos.y * SCALE), sf::Color(60, 60, 60))
         };
-        window.draw(frontBand, 2, sf::PrimitiveType::Lines);
+        m_renderTexture.draw(frontBand, 2, sf::Lines);
     }
 }
 
@@ -342,8 +372,6 @@ void Game::DrawTrajectory() {
     if (!bird) return;
 
     b2Vec2 startPos = bird->GetBody()->GetPosition();
-
-    // --- FIX: Aiming dots must match the new dynamic speeds! ---
     float speedMult = 0.6f;
     if (m_currentBirdType == BirdType::Fire) speedMult = 0.85f; 
     else if (m_currentBirdType == BirdType::Sloth) speedMult = 0.35f; 
@@ -365,9 +393,9 @@ void Game::DrawTrajectory() {
 
         sf::CircleShape dot(3.f); 
         dot.setFillColor(sf::Color::White); 
-        dot.setOrigin({1.5f, 1.5f}); 
-        dot.setPosition({stepPos.x * SCALE, stepPos.y * SCALE}); 
-        window.draw(dot);
+        dot.setOrigin(1.5f, 1.5f); 
+        dot.setPosition(stepPos.x * SCALE, stepPos.y * SCALE); 
+        m_renderTexture.draw(dot); 
     }
 }
 
@@ -452,23 +480,56 @@ void Game::ProcessEvents() {
 }
 
 void Game::Render() {
-    window.clear(sf::Color(135, 206, 235)); 
+    // 1. Clear our off-screen buffer
+    m_renderTexture.clear(sf::Color(135, 206, 235)); 
 
     if (m_currentState == GameState::Playing || m_currentState == GameState::LevelComplete || m_currentState == GameState::GameOver) {
-        window.setView(worldView);
-        float camX = worldView.getCenter().x;
-        m_environment.render(window, camX);
+        float currentCamX = worldView.getCenter().x;
+        float currentCamY = worldView.getCenter().y;
         
-        DrawSlingshot();
-        ground->Render(window);
-        for (auto& block : blocks) block->Render(window);
-        if (isDragging) DrawTrajectory();
-        if (bird) bird->Render(window);
-        window.draw(m_particles);
+        // Camera Shake logic
+        if (m_shakeTimer > 0.0f) {
+            float offsetX = (rand() % 100 - 50) * 0.01f * m_shakeMagnitude;
+            float offsetY = (rand() % 100 - 50) * 0.01f * m_shakeMagnitude;
+            worldView.setCenter(currentCamX + offsetX, currentCamY + offsetY);
+        }
 
-        window.setView(uiView);
+        m_renderTexture.setView(worldView);
         
-        // Draw upcoming birds using PNGs
+        // Draw World to the Render Texture
+        m_environment.render(m_renderTexture, currentCamX);
+        DrawSlingshot();
+        ground->Render(m_renderTexture);
+        for (auto& block : blocks) block->Render(m_renderTexture);
+        if (isDragging) DrawTrajectory();
+        if (bird) bird->Render(m_renderTexture);
+        m_renderTexture.draw(m_particles);
+        m_environment.renderForeground(m_renderTexture, currentCamX);
+
+        // Reset camera so it doesn't drift permanently
+        worldView.setCenter(currentCamX, currentCamY);
+    }
+
+    m_renderTexture.display();
+
+    // 2. Draw the rendered texture to the ACTUAL window using our GLSL Shader
+    window.clear();
+    
+    m_renderSprite.setTexture(m_renderTexture.getTexture());
+    // Fix the upside-down texture issue in SFML 2
+    m_renderSprite.setTextureRect(sf::IntRect(0, 0, 1280, 720)); 
+
+    // Only use shader if it loaded properly to prevent black screen
+    if (m_postShader.getNativeHandle() != 0) {
+        m_postShader.setUniform("time", m_shakeTimer); 
+        window.draw(m_renderSprite, &m_postShader);
+    } else {
+        window.draw(m_renderSprite);
+    }
+
+    // 3. Draw UI normally on top
+    window.setView(uiView);
+    if (m_currentState == GameState::Playing || m_currentState == GameState::LevelComplete || m_currentState == GameState::GameOver) {
         for (size_t i = 0; i < m_birdQueue.size(); i++) {
             sf::Sprite uiBird;
             if (m_birdQueue[i] == BirdType::Normal) uiBird.setTexture(birdTex);
@@ -480,16 +541,15 @@ void Game::Render() {
             if (uiBird.getTexture()) {
                 float sX = 20.0f / uiBird.getTexture()->getSize().x;
                 float sY = 20.0f / uiBird.getTexture()->getSize().y;
-                uiBird.setScale({sX, sY});
+                uiBird.setScale(sX, sY);
             }
-            uiBird.setPosition({20.f + (i * 30.f), 20.f});
+            uiBird.setPosition(20.f + (i * 30.f), 20.f);
             window.draw(uiBird);
         }
         scoreText.setString("SCORE: " + std::to_string(score));
         window.draw(scoreText);
     }
 
-    window.setView(uiView);
     if (m_currentState == GameState::Menu) DrawMenu();
     else if (m_currentState == GameState::LevelSelect) DrawLevelSelect();
     else if (m_currentState == GameState::LevelComplete) DrawLevelComplete();
@@ -632,4 +692,13 @@ void Game::Run() {
         Update();
         Render();
     }
+}
+
+void Game::TriggerShake(float duration, float magnitude) {
+    m_shakeTimer = duration;
+    m_shakeMagnitude = magnitude;
+}
+
+void Game::TriggerHitStop(float duration) {
+    m_hitStopTimer = duration;
 }

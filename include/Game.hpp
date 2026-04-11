@@ -40,6 +40,20 @@ private:
     void DrawLevelComplete();
     void DrawGameOver();
 
+
+    // --- NEW: Post-Processing & Rendering ---
+    sf::RenderTexture m_renderTexture;
+    sf::Sprite m_renderSprite;
+    sf::Shader m_postShader;
+
+    // --- NEW: Camera Kinematics (Game Feel) ---
+    float m_shakeTimer = 0.0f;
+    float m_shakeMagnitude = 0.0f;
+    float m_hitStopTimer = 0.0f;
+
+    void TriggerShake(float duration, float magnitude);
+    void TriggerHitStop(float duration);
+
     sf::RenderWindow window;
     sf::View worldView;
     sf::View uiView;
@@ -66,7 +80,7 @@ private:
     sf::Texture runeTex;
     sf::Sprite runeSprite;
     float runeRotation = 0.0f;
-    
+
     ParticleSystem m_particles;
     EnvironmentSystem m_environment;
 

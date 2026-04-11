@@ -61,12 +61,14 @@ void Entity::SwapTexture(sf::Texture* newTexture) {
     if (newTexture && newTexture->getSize().x > 0) sprite.setTexture(*newTexture);
 }
 
-void Entity::Render(sf::RenderWindow& window) {
+// Change the function signature in Entity.cpp:
+void Entity::Render(sf::RenderTarget& window) {
     if (isDestroyed) return;
-    b2Vec2 pos = body->GetPosition();
-    float angle = body->GetAngle() * 180.0f / 3.14159f;
+    b2Vec2 position = body->GetPosition();
+    float angle = body->GetAngle();
 
-    sprite.setPosition({pos.x * SCALE, pos.y * SCALE});
-    sprite.setRotation(angle);
+    sprite.setPosition({position.x * SCALE, position.y * SCALE});
+    sprite.setRotation(angle * 180.0f / 3.14159f);
+
     window.draw(sprite);
 }
