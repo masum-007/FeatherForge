@@ -48,7 +48,7 @@ struct Theme {
     bool isNight;
     bool isStormy; 
     bool isRaining; 
-    int moonPhase; // 0 = Full, 1 = Crescent, 2 = Half
+    int moonPhase; 
 };
 
 class EnvironmentSystem {
@@ -56,26 +56,18 @@ public:
     EnvironmentSystem() : m_time(0.0f), m_lightningFlash(0.0f), m_nextLightning(5.0f) {
         std::srand(static_cast<unsigned>(std::time(nullptr))); 
         
-        // --- CREATE THE HIDDEN MOON CANVAS ---
         m_moonBuffer.create(300, 300);
 
-        // --- 5 BEAUTIFUL DAY/SUNSET SCENARIOS ---
         m_themes.push_back({sf::Color{120, 180, 240}, sf::Color{210, 235, 255}, sf::Color{255, 230, 0}, sf::Color{255, 240, 150, 150}, sf::Color{140, 175, 205}, sf::Color{100, 140, 120}, sf::Color{80, 55, 40}, sf::Color{45, 140, 75}, false, false, false, 0});
         m_themes.push_back({sf::Color{50, 60, 75}, sf::Color{90, 100, 110}, sf::Color{200, 200, 210}, sf::Color{150, 150, 160, 10}, sf::Color{65, 75, 85}, sf::Color{40, 50, 60}, sf::Color{25, 30, 35}, sf::Color{35, 60, 45}, false, true, true, 0});
         m_themes.push_back({sf::Color{180, 90, 120}, sf::Color{255, 170, 100}, sf::Color{255, 230, 180}, sf::Color{255, 100, 50, 150}, sf::Color{140, 80, 90}, sf::Color{90, 50, 60}, sf::Color{50, 30, 25}, sf::Color{140, 60, 40}, false, false, false, 0});
         m_themes.push_back({sf::Color{90, 80, 140}, sf::Color{255, 190, 160}, sf::Color{255, 240, 220}, sf::Color{255, 180, 120, 100}, sf::Color{110, 100, 140}, sf::Color{70, 75, 105}, sf::Color{45, 35, 40}, sf::Color{50, 100, 85}, false, false, false, 0});
         m_themes.push_back({sf::Color{140, 175, 215}, sf::Color{255, 230, 170}, sf::Color{255, 245, 200}, sf::Color{255, 180, 80, 120}, sf::Color{170, 145, 120}, sf::Color{130, 95, 70}, sf::Color{70, 40, 25}, sf::Color{200, 110, 40}, false, false, false, 0});
 
-        // --- 5 BREATHTAKING NIGHT SCENARIOS ---
-        // Night 1: Majestic Clear Full Moon (Deep Navy)
         m_themes.push_back({sf::Color{10, 15, 35}, sf::Color{30, 45, 80}, sf::Color{255, 255, 245}, sf::Color{150, 180, 255, 120}, sf::Color{35, 45, 65}, sf::Color{20, 30, 45}, sf::Color{15, 15, 20}, sf::Color{25, 60, 45}, true, false, false, 0});
-        // Night 2: Quiet Tilted Crescent Moon (Deep Space Purple, highly starry)
         m_themes.push_back({sf::Color{8, 5, 15}, sf::Color{25, 15, 45}, sf::Color{255, 250, 240}, sf::Color{180, 160, 255, 100}, sf::Color{25, 20, 40}, sf::Color{15, 10, 25}, sf::Color{10, 5, 15}, sf::Color{15, 30, 25}, true, false, false, 1});
-        // Night 3: Eerie Tilted Half Moon (Foggy Teal/Grey)
         m_themes.push_back({sf::Color{15, 25, 30}, sf::Color{40, 60, 70}, sf::Color{220, 240, 230}, sf::Color{120, 180, 200, 100}, sf::Color{35, 50, 60}, sf::Color{25, 35, 45}, sf::Color{15, 20, 25}, sf::Color{20, 45, 35}, true, false, false, 2});
-        // Night 4: Midnight Rain (Glowing Full Moon with intense storm)
         m_themes.push_back({sf::Color{15, 20, 45}, sf::Color{40, 55, 90}, sf::Color{240, 245, 255}, sf::Color{150, 170, 255, 100}, sf::Color{45, 55, 75}, sf::Color{25, 40, 55}, sf::Color{15, 15, 25}, sf::Color{30, 70, 55}, true, false, true, 0});
-        // Night 5: The Emperor's Storm (Epic purple lightning, sharp Crescent Moon)
         m_themes.push_back({sf::Color{20, 10, 35}, sf::Color{50, 20, 60}, sf::Color{255, 255, 255}, sf::Color{200, 150, 255, 120}, sf::Color{30, 15, 45}, sf::Color{15, 10, 25}, sf::Color{10, 5, 15}, sf::Color{20, 15, 35}, true, true, true, 1});
     }
 
@@ -199,14 +191,21 @@ public:
         }
     }
 
-    void render(sf::RenderTarget& window, float cameraX) {
-        float cx = cameraX - 640.f; 
+    // --- UPGRADED Render signature to handle dynamic view sizing ---
+    void render(sf::RenderTarget& window, float cameraX, sf::Vector2f viewSize) {
+        float halfW = viewSize.x / 2.0f;
+        float halfH = viewSize.y / 2.0f;
+        float left = cameraX - halfW;
+        float right = cameraX + halfW;
+        float top = 360.f - halfH;
+        float bottom = 360.f + halfH;
         
+        // 1. Draw Sky (Responsive to zoom bounds)
         sf::VertexArray sky(sf::PrimitiveType::TriangleStrip, 4);
-        sky[0].position = sf::Vector2f{cx, 0.f};               sky[0].color = m_theme.skyTop;
-        sky[1].position = sf::Vector2f{cx, 720.f};             sky[1].color = m_theme.skyBot;
-        sky[2].position = sf::Vector2f{cx + 1280.f, 0.f};      sky[2].color = m_theme.skyTop;
-        sky[3].position = sf::Vector2f{cx + 1280.f, 720.f};    sky[3].color = m_theme.skyBot;
+        sky[0] = { {left, top}, m_theme.skyTop };
+        sky[1] = { {left, bottom}, m_theme.skyBot };
+        sky[2] = { {right, top}, m_theme.skyTop };
+        sky[3] = { {right, bottom}, m_theme.skyBot };
         window.draw(sky);
 
         if (m_theme.isNight) {
@@ -214,7 +213,7 @@ public:
             for (size_t i = 0; i < m_stars.size(); i++) {
                 float twinkle = (std::sin(m_time * 4.0f + m_stars[i].twinklePhase) + 1.0f) * 0.5f; 
                 sf::Color c = sf::Color{255, 255, 255, static_cast<std::uint8_t>(50 + 200 * twinkle)};
-                sf::Vector2f sp = sf::Vector2f{cx + m_stars[i].pos.x, m_stars[i].pos.y};
+                sf::Vector2f sp = sf::Vector2f{left + m_stars[i].pos.x, m_stars[i].pos.y};
                 float s = m_stars[i].size;
                 starArray[i*6+0] = sf::Vertex{sp + sf::Vector2f{-s,-s}, c}; starArray[i*6+1] = sf::Vertex{sp + sf::Vector2f{s,-s}, c}; starArray[i*6+2] = sf::Vertex{sp + sf::Vector2f{s,s}, c};
                 starArray[i*6+3] = sf::Vertex{sp + sf::Vector2f{-s,-s}, c}; starArray[i*6+4] = sf::Vertex{sp + sf::Vector2f{s,s}, c}; starArray[i*6+5] = sf::Vertex{sp + sf::Vector2f{-s,s}, c};
@@ -224,21 +223,21 @@ public:
 
         if (m_theme.isStormy && m_lightningFlash > 0.0f) {
             if (m_lightningFlash > 0.6f) { 
-                sf::Transform t; t.translate({cx, 0.f});
+                sf::Transform t; t.translate({left, 0.f});
                 window.draw(m_lightningBolt, t); t.translate({1.f, 0.f}); window.draw(m_lightningBolt, t); t.translate({-2.f, 0.f}); window.draw(m_lightningBolt, t);
             }
             sf::VertexArray flash(sf::PrimitiveType::TriangleStrip, 4);
             sf::Color flashCol{255, 255, 255, static_cast<std::uint8_t>(m_lightningFlash * 150)};
-            flash[0].position = {cx, 0.f}; flash[0].color = flashCol; flash[1].position = {cx, 720.f}; flash[1].color = flashCol;
-            flash[2].position = {cx+1280.f, 0.f}; flash[2].color = flashCol; flash[3].position = {cx+1280.f, 720.f}; flash[3].color = flashCol;
+            flash[0].position = {left, top}; flash[0].color = flashCol; flash[1].position = {left, bottom}; flash[1].color = flashCol;
+            flash[2].position = {right, top}; flash[2].color = flashCol; flash[3].position = {right, bottom}; flash[3].color = flashCol;
             window.draw(flash);
         }
 
-        // --- UPGRADED: MAJESTIC 12-SECOND CELESTIAL ANIMATION ---
+        // --- UPGRADED: MAJESTIC CELESTIAL POSITIONING (Zoom Responsive) ---
         float animProgress = std::clamp(m_time / 12.0f, 0.0f, 1.0f);
         float easeOut = 1.0f - std::pow(1.0f - animProgress, 4.0f);
         float celestialY = 750.f - (600.f * easeOut); 
-        float sunX = cx + 900.f - (cameraX * 0.05f); 
+        float sunX = left + (viewSize.x * 0.75f) - (cameraX * 0.05f); 
 
         if (!m_theme.isNight) {
             // BEAUTIFUL GRADIENT SUN
@@ -266,7 +265,6 @@ public:
             // --- FLAWLESS STENCIL MOON ---
             m_moonBuffer.clear(sf::Color::Transparent);
 
-            // 1. Draw Beautiful Soft Glow to the isolated buffer
             sf::Color baseGlow = m_theme.sunGlow;
             for(int i = 6; i >= 1; --i) {
                 float r = 20.f * i;
@@ -276,52 +274,45 @@ public:
                 g.setFillColor(c); m_moonBuffer.draw(g);
             }
 
-            // 2. Draw Solid Moon Core
             sf::CircleShape core(30.f);
             core.setOrigin({30.f, 30.f}); core.setPosition({150.f, 150.f});
             core.setFillColor(m_theme.sunCore); m_moonBuffer.draw(core);
 
-            // 3. Draw Craters
             sf::Color craterCol(0, 0, 0, 30); 
             sf::CircleShape c1(6.f); c1.setOrigin({6.f, 6.f}); c1.setPosition({138.f, 138.f}); c1.setFillColor(craterCol); m_moonBuffer.draw(c1);
             sf::CircleShape c2(9.f); c2.setOrigin({9.f, 9.f}); c2.setPosition({165.f, 155.f}); c2.setFillColor(craterCol); m_moonBuffer.draw(c2);
             sf::CircleShape c3(4.f); c3.setOrigin({4.f, 4.f}); c3.setPosition({140.f, 168.f}); c3.setFillColor(craterCol); m_moonBuffer.draw(c3);
 
-            // 4. APPLY THE ERASER MASK (This perfectly deletes the dark side AND its glow!)
             sf::RenderStates eraseState(sf::BlendNone);
             
             if (m_theme.moonPhase == 1) { // Crescent Moon
-                // Erase the left half of the canvas (gets rid of the left glow)
                 sf::RectangleShape halfMask(sf::Vector2f(150.f, 300.f));
                 halfMask.setPosition({0.f, 0.f});
                 halfMask.setFillColor(sf::Color::Transparent);
                 m_moonBuffer.draw(halfMask, eraseState);
 
-                // Take a precise bite out of the core to form a mathematical crescent
-                sf::CircleShape bite(30.f); // Same exact radius as the core!
+                sf::CircleShape bite(30.f); 
                 bite.setOrigin({30.f, 30.f});
-                bite.setPosition({138.f, 150.f}); // Shifted just 12 pixels left
+                bite.setPosition({138.f, 150.f}); 
                 bite.setFillColor(sf::Color::Transparent);
                 m_moonBuffer.draw(bite, eraseState);
             } 
             else if (m_theme.moonPhase == 2) { // Half Moon
-                // Perfectly cut exactly down the middle
                 sf::RectangleShape mask(sf::Vector2f(150.f, 300.f));
-                mask.setPosition({0.f, 0.f}); // X=0 to 150
+                mask.setPosition({0.f, 0.f}); 
                 mask.setFillColor(sf::Color::Transparent);
                 m_moonBuffer.draw(mask, eraseState);
             }
             m_moonBuffer.display();
 
-            // 5. Draw the perfected moon onto the actual game screen
             sf::Sprite moonSprite(m_moonBuffer.getTexture());
             moonSprite.setOrigin({150.f, 150.f});
             moonSprite.setPosition({sunX, celestialY});
             
-            // --- BEAUTIFUL TILTING ---
-            if (m_theme.moonPhase == 1) moonSprite.setRotation(125.f); // Tilt Crescent
-            else if (m_theme.moonPhase == 2) moonSprite.setRotation(130.f); // Tilt Half Moon
-            else moonSprite.setRotation(-15.f); // Slight natural tilt for full moon
+            // --- YOUR BEAUTIFUL TILTING PREFERENCES! ---
+            if (m_theme.moonPhase == 1) moonSprite.setRotation(125.f); 
+            else if (m_theme.moonPhase == 2) moonSprite.setRotation(130.f); 
+            else moonSprite.setRotation(-15.f); 
 
             window.draw(moonSprite);
         }
@@ -379,7 +370,6 @@ private:
     float m_nextLightning;
     sf::VertexArray m_lightningBolt;
     
-    // --- HIDDEN CANVAS FOR FLAWLESS STENCIL MOONS ---
     sf::RenderTexture m_moonBuffer;
 
     void generateLightningBolt() {
@@ -408,7 +398,9 @@ private:
                     peakColor.b = static_cast<std::uint8_t>(topColor.b + (snowColor.b - topColor.b) * blend);
                 }
             }
-            va.append(sf::Vertex{sf::Vector2f{x, 800.f}, bottomColor}); va.append(sf::Vertex{sf::Vector2f{x, height}, peakColor});
+            // --- FIX: Push bottom coordinates down to 1500.f to prevent void gap during zoom! ---
+            va.append(sf::Vertex{sf::Vector2f{x, 1500.f}, bottomColor}); 
+            va.append(sf::Vertex{sf::Vector2f{x, height}, peakColor});
         }
     }
 

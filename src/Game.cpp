@@ -13,6 +13,9 @@ Game::Game()
 {
     window.setFramerateLimit(60);
 
+    // --- ADD THIS LINE ---
+    m_cameraPos = sf::Vector2f(640.f, 360.f);
+
     // --- FIX 1: You MUST create the render texture buffer! ---
     m_renderTexture.create(1280, 720);
 
@@ -23,6 +26,7 @@ Game::Game()
     LoadAssets();
     // --- CHANGE THIS LINE ---
     // Width changed from 1280 to 8000. Center X changed from 640 to 4000.
+    // Increased height from 40 to 400 so the "dirt" goes deep into the zoom void
     ground = std::make_unique<Entity>(*physics.GetWorld(), 4000, 700, 8000, 40, EntityType::GROUND, &groundTex);
 }
 
@@ -179,17 +183,36 @@ void Game::Update() {
     physics.Update(1.0f / 60.0f);
     CheckBirdState();
 
+    // --- UPGRADED: Cinematic Camera (Smooth Lerp & Dynamic Zoom) ---
+    float targetCamX = 640.f;
+    float targetZoom = 1.0f;
+    
     if (bird && birdIsActive) {
-        float birdX = bird->GetBody()->GetPosition().x * SCALE;
-        worldView.setCenter({std::max(640.0f, birdX), 360.f}); 
+        // 1. Where should the camera look? (Don't let it go further left than the start)
+        targetCamX = std::max(640.0f, bird->GetBody()->GetPosition().x * SCALE);
         
-        // --- NEW: Draw Flight Trails! ---
-        sf::Vector2f pxPos{birdX, bird->GetBody()->GetPosition().y * SCALE};
+        // 2. Dynamic Zoom: If bird flies fast, pull the camera out slightly to show more level!
+        float speed = bird->GetBody()->GetLinearVelocity().Length();
+        if (speed > 10.0f) {
+            // The faster it goes, the more it zooms out (maximum 15% zoom out)
+            targetZoom = 1.0f + std::min((speed - 10.0f) * 0.015f, 0.15f); 
+        }
+        
+        // (Keep your particle trail logic here if you have it)
+        sf::Vector2f pxPos{bird->GetBody()->GetPosition().x * SCALE, bird->GetBody()->GetPosition().y * SCALE};
         if (m_currentBirdType == BirdType::Fire) m_particles.emitFireTrail(pxPos);
         else if (m_currentBirdType == BirdType::Freeze) m_particles.emitIceTrail(pxPos);
-    } else {
-        worldView.setCenter({640.f, 360.f});
     }
+    
+    // 3. The "Lerp" (Linear Interpolation) Math
+    // This makes the camera smoothly glide towards the target instead of snapping instantly
+    // The '5.0f' is the tracking tightness. The '2.0f' is the zoom speed.
+    m_cameraPos.x += (targetCamX - m_cameraPos.x) * 5.0f * (1.0f / 60.0f);
+    m_cameraZoom += (targetZoom - m_cameraZoom) * 2.0f * (1.0f / 60.0f);
+
+    // Apply the zoom and position to the game's view
+    worldView.setSize({1280.f * m_cameraZoom, 720.f * m_cameraZoom});
+    worldView.setCenter({m_cameraPos.x, 360.f}); // Lock Y for stability
 
     if (bird && birdIsActive && !m_birdAbilityUsed) {
         b2Vec2 bPos = bird->GetBody()->GetPosition();
@@ -544,7 +567,8 @@ void Game::Render() {
         m_renderTexture.setView(worldView);
         
         // Draw World to the Render Texture
-        m_environment.render(m_renderTexture, currentCamX);
+        // --- UPDATED: Pass worldView.getSize() to make background responsive ---
+        m_environment.render(m_renderTexture, currentCamX, worldView.getSize());
         DrawSlingshot();
         ground->Render(m_renderTexture);
         // --- NEW: Draw permanent scorch marks on top of ground, behind crates ---

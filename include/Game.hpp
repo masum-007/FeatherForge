@@ -101,4 +101,8 @@ private:
 
     std::map<b2Body*, float> m_burningBodies;
     std::set<b2Body*> m_frozenBodies;
+
+    // --- NEW: Cinematic Camera Variables ---
+    sf::Vector2f m_cameraPos;
+    float m_cameraZoom = 1.0f;
 };
