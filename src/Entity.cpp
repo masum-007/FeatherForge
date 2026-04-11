@@ -38,9 +38,23 @@ Entity::Entity(b2World& world, float x, float y, float w, float h, EntityType ty
     // Inside the Entity::Entity constructor, replace your texture logic with this:
     if (texture) {
         sprite.setTexture(*texture);
-        baseScale = {w / texture->getSize().x, h / texture->getSize().y}; // Save it!
+        
+        if (type == EntityType::GROUND) {
+            // 1. Tell the sprite to repeat the texture until it hits the full width (w)
+            sprite.setTextureRect(sf::IntRect(0, 0, static_cast<int>(w), static_cast<int>(texture->getSize().y)));
+            
+            // 2. Fix the Origin: It must be half of the NEW width (w), not the texture width
+            sprite.setOrigin({ w / 2.0f, texture->getSize().y / 2.0f });
+            
+            // 3. Scale only the height to match 'h', leave width at 1.0 because TextureRect handles it
+            baseScale = { 1.0f, h / texture->getSize().y };
+        } else {
+            // Normal scaling for birds and blocks
+            baseScale = { w / texture->getSize().x, h / texture->getSize().y };
+            sprite.setOrigin({ texture->getSize().x / 2.0f, texture->getSize().y / 2.0f });
+        }
+        
         sprite.setScale(baseScale);
-        sprite.setOrigin({texture->getSize().x / 2.0f, texture->getSize().y / 2.0f});
     }
 
     body->GetUserData().pointer = reinterpret_cast<uintptr_t>(this);

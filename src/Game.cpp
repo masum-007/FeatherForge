@@ -21,7 +21,9 @@ Game::Game()
     uiView = window.getDefaultView(); 
 
     LoadAssets();
-    ground = std::make_unique<Entity>(*physics.GetWorld(), 640, 700, 1280, 40, EntityType::GROUND, &groundTex);
+    // --- CHANGE THIS LINE ---
+    // Width changed from 1280 to 8000. Center X changed from 640 to 4000.
+    ground = std::make_unique<Entity>(*physics.GetWorld(), 4000, 700, 8000, 40, EntityType::GROUND, &groundTex);
 }
 
 void Game::LoadAssets() {
@@ -36,6 +38,8 @@ void Game::LoadAssets() {
     iceTex.loadFromFile("assets/ice.png"); 
     groundTex.loadFromFile("assets/ground.png");
     enemyTex.loadFromFile("assets/enemy.png");
+    // --- ADD THIS LINE ---
+    groundTex.setRepeated(true);
     
     font.loadFromFile("assets/arial.ttf");
     scoreText.setFont(font);
@@ -267,45 +271,51 @@ void Game::Update() {
     }
     // Update the cleanup loop to trigger the juicy effects!
     blocks.erase(
-        std::remove_if(blocks.begin(), blocks.end(),
-            [this](const std::unique_ptr<Entity>& e) { 
-                float yPos = e->GetBody()->GetPosition().y * SCALE;
-                if (e->IsDestroyed() || yPos > 800.f) {
-                    sf::Vector2f deathPos{e->GetBody()->GetPosition().x * SCALE, std::min(yPos, 700.f)};
+    std::remove_if(blocks.begin(), blocks.end(),
+        [this](const std::unique_ptr<Entity>& e) { 
+            // 1. Grab the X position
+            float xPos = e->GetBody()->GetPosition().x * SCALE;
+            float yPos = e->GetBody()->GetPosition().y * SCALE;
+            
+            // 2. Add the X bounds to the kill condition
+            if (e->IsDestroyed() || yPos > 800.f || xPos < -200.f || xPos > 1500.f) {
+                
+                // 3. Make sure deathPos uses the new xPos so particles spawn exactly where it fell off
+                sf::Vector2f deathPos{xPos, std::min(yPos, 700.f)};
 
-                    // --- REFINED: Small ash pile from burning wood ---
-                    if (m_burningBodies.count(e->GetBody())) {
-                        sf::CircleShape scorch(10.f);
-                        scorch.setOrigin({10.f, 10.f});
-                        scorch.setFillColor(sf::Color(20, 15, 15, 140)); 
-                        scorch.setScale({2.5f, 0.3f});
-                        scorch.setPosition({deathPos.x, 695.f});
-                        m_scorchMarks.push_back(scorch);
-                    }
-                    
-                    if (e->GetType() == EntityType::WOOD) m_particles.emitWood(deathPos);
-                    else if (e->GetType() == EntityType::ICE) {
-                        m_particles.emitIce(deathPos);
-                        TriggerHitStop(0.04f); // Tiny freeze for glass shattering
-                    }
-                    else if (e->GetType() == EntityType::BIRD) m_particles.emitFeathers(deathPos);
-                    else m_particles.emitDust(deathPos); 
-
-                    if (e->GetType() == EntityType::ENEMY) {
-                        score += 500;
-                        TriggerHitStop(0.1f); // Massive pause for killing an enemy
-                        TriggerShake(0.25f, 15.0f); // Screen shake!
-                    }
-                    else score += 100;
-
-                    m_burningBodies.erase(e->GetBody());
-                    m_frozenBodies.erase(e->GetBody());
-                    return true; 
+                // --- REFINED: Small ash pile from burning wood ---
+                if (m_burningBodies.count(e->GetBody())) {
+                    sf::CircleShape scorch(10.f);
+                    scorch.setOrigin({10.f, 10.f});
+                    scorch.setFillColor(sf::Color(20, 15, 15, 140)); 
+                    scorch.setScale({2.5f, 0.3f});
+                    scorch.setPosition({deathPos.x, 695.f});
+                    m_scorchMarks.push_back(scorch);
                 }
-                return false;
-            }),
-        blocks.end()
-    );
+                
+                if (e->GetType() == EntityType::WOOD) m_particles.emitWood(deathPos);
+                else if (e->GetType() == EntityType::ICE) {
+                    m_particles.emitIce(deathPos);
+                    TriggerHitStop(0.04f); // Tiny freeze for glass shattering
+                }
+                else if (e->GetType() == EntityType::BIRD) m_particles.emitFeathers(deathPos);
+                else m_particles.emitDust(deathPos); 
+
+                if (e->GetType() == EntityType::ENEMY) {
+                    score += 500;
+                    TriggerHitStop(0.1f); // Massive pause for killing an enemy
+                    TriggerShake(0.25f, 15.0f); // Screen shake!
+                }
+                else score += 100;
+
+                m_burningBodies.erase(e->GetBody());
+                m_frozenBodies.erase(e->GetBody());
+                return true; 
+            }
+            return false;
+        }),
+    blocks.end()
+);
     m_particles.update(1.0f / 60.0f);
     bool enemiesAlive = false;
     for (auto& b : blocks) if (b->GetType() == EntityType::ENEMY) { enemiesAlive = true; break; }
