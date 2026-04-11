@@ -474,34 +474,43 @@ void Game::ProcessEvents() {
     while (window.pollEvent(event)) {
         if (event.type == sf::Event::Closed) window.close();
             
-        // ... Keep all menu UI click logic exactly the same ...
         if (event.type == sf::Event::MouseButtonPressed && event.mouseButton.button == sf::Mouse::Left) {
             sf::Vector2f mousePosUI = window.mapPixelToCoords(sf::Mouse::getPosition(window), uiView);
 
             if (m_currentState == GameState::Menu) {
                 if (mousePosUI.x >= 540 && mousePosUI.x <= 740 && mousePosUI.y >= 300 && mousePosUI.y <= 360) m_currentState = GameState::LevelSelect;
-                if (mousePosUI.x >= 540 && mousePosUI.x <= 740 && mousePosUI.y >= 400 && mousePosUI.y <= 460) window.close();
+                if (mousePosUI.x >= 540 && mousePosUI.x <= 740 && mousePosUI.y >= 390 && mousePosUI.y <= 450) m_currentState = GameState::Options;
+                if (mousePosUI.x >= 540 && mousePosUI.x <= 740 && mousePosUI.y >= 480 && mousePosUI.y <= 540) window.close();
             } 
+            else if (m_currentState == GameState::Options) {
+                // Music Toggle (490 to 790 width, 250 to 310 height)
+                if (mousePosUI.x >= 490 && mousePosUI.x <= 790 && mousePosUI.y >= 250 && mousePosUI.y <= 310) m_musicEnabled = !m_musicEnabled;
+                // SFX Toggle
+                if (mousePosUI.x >= 490 && mousePosUI.x <= 790 && mousePosUI.y >= 340 && mousePosUI.y <= 400) m_sfxEnabled = !m_sfxEnabled;
+                // Back Button
+                if (mousePosUI.x >= 540 && mousePosUI.x <= 740 && mousePosUI.y >= 480 && mousePosUI.y <= 540) m_currentState = GameState::Menu;
+            }
             else if (m_currentState == GameState::LevelSelect) {
+                // Back Button
+                if (mousePosUI.x >= 50 && mousePosUI.x <= 200 && mousePosUI.y >= 50 && mousePosUI.y <= 100) m_currentState = GameState::Menu;
+                
                 for (int i = 0; i < MAX_LEVELS; i++) {
-                    // --- FIX: Match the exact math from DrawLevelSelect (5x2 grid) ---
                     float x = 210.f + (i % 5) * 175.0f; 
                     float y = 250.f + (i / 5) * 150.0f; 
-                    
                     if (mousePosUI.x >= x && mousePosUI.x <= x + 100 && mousePosUI.y >= y && mousePosUI.y <= y + 100) {
                         ResetLevel(i + 1); 
                     }
                 }
             }
             else if (m_currentState == GameState::LevelComplete) {
-                if (mousePosUI.x >= 540 && mousePosUI.x <= 740 && mousePosUI.y >= 350 && mousePosUI.y <= 410) {
+                if (mousePosUI.x >= 540 && mousePosUI.x <= 740 && mousePosUI.y >= 360 && mousePosUI.y <= 420) {
                     if (m_currentLevel < MAX_LEVELS) ResetLevel(m_currentLevel + 1);
                     else m_currentState = GameState::Menu; 
                 }
                 if (mousePosUI.x >= 540 && mousePosUI.x <= 740 && mousePosUI.y >= 450 && mousePosUI.y <= 510) m_currentState = GameState::Menu;
             }
             else if (m_currentState == GameState::GameOver) {
-                if (mousePosUI.x >= 540 && mousePosUI.x <= 740 && mousePosUI.y >= 350 && mousePosUI.y <= 410) ResetLevel(m_currentLevel);
+                if (mousePosUI.x >= 540 && mousePosUI.x <= 740 && mousePosUI.y >= 360 && mousePosUI.y <= 420) ResetLevel(m_currentLevel);
                 if (mousePosUI.x >= 540 && mousePosUI.x <= 740 && mousePosUI.y >= 450 && mousePosUI.y <= 510) m_currentState = GameState::Menu;
             }
             else if (m_currentState == GameState::Playing) {
@@ -524,11 +533,10 @@ void Game::ProcessEvents() {
                 bird->GetBody()->SetType(b2_dynamicBody);
                 bird->GetBody()->SetAwake(true);
                 
-                // --- FIX: Dynamic Flight Speeds! ---
                 float speedMult = 0.6f;
-                if (m_currentBirdType == BirdType::Fire) speedMult = 0.85f; // Very fast
-                else if (m_currentBirdType == BirdType::Sloth) speedMult = 0.35f; // Very slow and heavy
-                else if (m_currentBirdType == BirdType::Freeze) speedMult = 0.45f; // Slow, floaty
+                if (m_currentBirdType == BirdType::Fire) speedMult = 0.85f; 
+                else if (m_currentBirdType == BirdType::Sloth) speedMult = 0.35f; 
+                else if (m_currentBirdType == BirdType::Freeze) speedMult = 0.45f; 
 
                 b2Vec2 force((slingshotPos.x - bird->GetBody()->GetPosition().x * SCALE) * speedMult, 
                              (slingshotPos.y - bird->GetBody()->GetPosition().y * SCALE) * speedMult);
@@ -601,9 +609,15 @@ void Game::Render() {
         window.draw(m_renderSprite);
     }
 
-    // 3. Draw UI normally on top
+    // 3. Draw Beautiful In-Game HUD
     window.setView(uiView);
     if (m_currentState == GameState::Playing || m_currentState == GameState::LevelComplete || m_currentState == GameState::GameOver) {
+        
+        // Sleek top glass bar
+        sf::RectangleShape topBar(sf::Vector2f(1280.f, 60.f));
+        topBar.setFillColor(sf::Color(10, 15, 25, 120));
+        window.draw(topBar);
+
         for (size_t i = 0; i < m_birdQueue.size(); i++) {
             sf::Sprite uiBird;
             if (m_birdQueue[i] == BirdType::Normal) uiBird.setTexture(birdTex);
@@ -613,152 +627,179 @@ void Game::Render() {
             else if (m_birdQueue[i] == BirdType::Water) uiBird.setTexture(birdWaterTex);
             
             if (uiBird.getTexture()) {
-                float sX = 20.0f / uiBird.getTexture()->getSize().x;
-                float sY = 20.0f / uiBird.getTexture()->getSize().y;
+                float sX = 24.0f / uiBird.getTexture()->getSize().x;
+                float sY = 24.0f / uiBird.getTexture()->getSize().y;
                 uiBird.setScale(sX, sY);
             }
-            uiBird.setPosition(20.f + (i * 30.f), 20.f);
+            uiBird.setPosition(20.f + (i * 35.f), 18.f);
             window.draw(uiBird);
         }
-        scoreText.setString("SCORE: " + std::to_string(score));
+
+        // Draw Score with drop-shadow for readability against bright skies
+        std::string scoreStr = "SCORE: " + std::to_string(score);
+        sf::Text scoreShadow(scoreStr, font, 28);
+        scoreShadow.setFillColor(sf::Color(0, 0, 0, 200));
+        scoreShadow.setPosition({1102.f, 17.f}); 
+        window.draw(scoreShadow);
+
+        scoreText.setString(scoreStr);
+        scoreText.setCharacterSize(28);
+        scoreText.setFillColor(sf::Color::White);
+        scoreText.setPosition({1100.f, 15.f});
         window.draw(scoreText);
     }
 
     if (m_currentState == GameState::Menu) DrawMenu();
+    else if (m_currentState == GameState::Options) DrawOptions();
     else if (m_currentState == GameState::LevelSelect) DrawLevelSelect();
     else if (m_currentState == GameState::LevelComplete) DrawLevelComplete();
     else if (m_currentState == GameState::GameOver) DrawGameOver();
 
     window.display();
 }
+// --- NEW AAA UI RENDERING FUNCTIONS ---
+
+// Helper lambda for gorgeous interactive hover buttons
+auto drawButton = [](sf::RenderWindow& win, sf::Font& font, const std::string& text, float x, float y, float w, float h) {
+    sf::Vector2f mousePos = win.mapPixelToCoords(sf::Mouse::getPosition(win), win.getDefaultView());
+    bool isHovered = (mousePos.x >= x && mousePos.x <= x + w && mousePos.y >= y && mousePos.y <= y + h);
+
+    sf::RectangleShape btn(sf::Vector2f(w, h));
+    btn.setPosition({x, y});
+    // Glassmorphism look: Semi-transparent fill, bright border on hover
+    btn.setFillColor(isHovered ? sf::Color(60, 80, 120, 220) : sf::Color(20, 30, 50, 180));
+    btn.setOutlineThickness(2.f);
+    btn.setOutlineColor(isHovered ? sf::Color(200, 220, 255, 255) : sf::Color(100, 120, 150, 100));
+    win.draw(btn);
+
+    sf::Text txt(text, font, 24);
+    sf::FloatRect bounds = txt.getLocalBounds();
+    txt.setOrigin({bounds.left + bounds.width / 2.0f, bounds.top + bounds.height / 2.0f});
+    txt.setPosition({x + w / 2.0f, y + h / 2.0f});
+    txt.setFillColor(isHovered ? sf::Color::White : sf::Color(200, 200, 200));
+    win.draw(txt);
+};
 
 void Game::DrawMenu() {
     window.draw(menuBgSprite);
-    sf::RectangleShape panel(sf::Vector2f{400.f, 350.f});
-    panel.setFillColor(sf::Color(0, 0, 0, 180));
-    panel.setPosition({440.f, 150.f});
-    window.draw(panel);
+    
+    sf::Text titleShadow("FEATHER FORGE", font, 64);
+    titleShadow.setFillColor(sf::Color(0, 0, 0, 150)); 
+    titleShadow.setPosition({374.f, 124.f});
+    window.draw(titleShadow);
 
-    sf::Text title("FEATHER FORGE", font, 43);
-    title.setFillColor(sf::Color(255, 215, 0)); 
-    title.setPosition({455.f, 180.f});
+    sf::Text title("FEATHER FORGE", font, 64);
+    title.setFillColor(sf::Color(255, 230, 100)); 
+    title.setPosition({370.f, 120.f});
     window.draw(title);
 
-    sf::RectangleShape startBtn(sf::Vector2f{200.f, 60.f});
-    startBtn.setPosition({540.f, 300.f});
-    startBtn.setFillColor(sf::Color(46, 204, 113)); 
-    window.draw(startBtn);
-    sf::Text startTxt("START", font, 30);
-    startTxt.setFillColor(sf::Color::White);
-    startTxt.setPosition({590.f, 310.f});
-    window.draw(startTxt);
+    drawButton(window, font, "START", 540.f, 300.f, 200.f, 60.f);
+    drawButton(window, font, "OPTIONS", 540.f, 390.f, 200.f, 60.f);
+    drawButton(window, font, "EXIT", 540.f, 480.f, 200.f, 60.f);
+}
 
-    sf::RectangleShape exitBtn(sf::Vector2f{200.f, 60.f});
-    exitBtn.setPosition({540.f, 400.f});
-    exitBtn.setFillColor(sf::Color(231, 76, 60)); 
-    window.draw(exitBtn);
-    sf::Text exitTxt("EXIT", font, 30);
-    exitTxt.setFillColor(sf::Color::White);
-    exitTxt.setPosition({605.f, 410.f});
-    window.draw(exitTxt);
+void Game::DrawOptions() {
+    window.draw(menuBgSprite);
+    
+    sf::RectangleShape panel(sf::Vector2f{500.f, 400.f});
+    panel.setFillColor(sf::Color(10, 15, 25, 220));
+    panel.setOutlineThickness(2.f);
+    panel.setOutlineColor(sf::Color(100, 120, 150, 100));
+    panel.setPosition({390.f, 180.f});
+    window.draw(panel);
+
+    sf::Text title("OPTIONS", font, 40);
+    title.setFillColor(sf::Color::White);
+    title.setPosition({540.f, 150.f});
+    window.draw(title);
+
+    std::string musStr = m_musicEnabled ? "MUSIC: ON" : "MUSIC: OFF";
+    std::string sfxStr = m_sfxEnabled ? "SFX: ON" : "SFX: OFF";
+    
+    drawButton(window, font, musStr, 490.f, 250.f, 300.f, 60.f);
+    drawButton(window, font, sfxStr, 490.f, 340.f, 300.f, 60.f);
+    drawButton(window, font, "BACK", 540.f, 480.f, 200.f, 60.f);
 }
 
 void Game::DrawLevelSelect() {
     window.draw(menuBgSprite); 
-    sf::RectangleShape panel(sf::Vector2f{1000.f, 550.f}); // Made panel wider
-    panel.setFillColor(sf::Color(0, 0, 0, 180));
-    panel.setPosition({140.f, 80.f});
+    
+    sf::RectangleShape panel(sf::Vector2f{1040.f, 500.f}); 
+    panel.setFillColor(sf::Color(10, 15, 25, 200));
+    panel.setOutlineThickness(2.f);
+    panel.setOutlineColor(sf::Color(100, 120, 150, 80));
+    panel.setPosition({120.f, 150.f});
     window.draw(panel);
 
     sf::Text title("SELECT LEVEL", font, 48);
     title.setFillColor(sf::Color::White);
-    title.setPosition({470.f, 100.f});
+    title.setPosition({460.f, 70.f});
     window.draw(title);
 
-    // --- FIX: 5x2 Grid to fit all 10 Levels cleanly ---
+    drawButton(window, font, "BACK", 50.f, 50.f, 150.f, 50.f);
+
+    sf::Vector2f mousePos = window.mapPixelToCoords(sf::Mouse::getPosition(window), uiView);
     for (int i = 0; i < MAX_LEVELS; i++) {
-        float x = 210.f + (i % 5) * 175.0f; // 5 columns
-        float y = 250.f + (i / 5) * 150.0f; // 2 rows
+        float x = 210.f + (i % 5) * 175.0f; 
+        float y = 250.f + (i / 5) * 150.0f; 
+        bool isHovered = (mousePos.x >= x && mousePos.x <= x + 100 && mousePos.y >= y && mousePos.y <= y + 100);
 
         sf::RectangleShape box(sf::Vector2f{100.f, 100.f});
         box.setPosition({x, y});
-        box.setFillColor(sf::Color(150, 150, 150));
+        box.setFillColor(isHovered ? sf::Color(60, 80, 120, 220) : sf::Color(30, 40, 60, 180));
+        box.setOutlineThickness(2.f);
+        box.setOutlineColor(isHovered ? sf::Color(200, 220, 255, 255) : sf::Color(100, 120, 150, 100));
         window.draw(box);
 
-        sf::Text lvlTxt(std::to_string(i + 1), font, 40);
-        lvlTxt.setFillColor(sf::Color::White);
-        
-        // Center single vs double digit numbers perfectly
-        float textOffsetX = (i >= 9) ? 25.f : 35.f; 
-        lvlTxt.setPosition({x + textOffsetX, y + 25.f});
+        sf::Text lvlTxt(std::to_string(i + 1), font, 36);
+        sf::FloatRect bounds = lvlTxt.getLocalBounds();
+        lvlTxt.setOrigin({bounds.left + bounds.width / 2.0f, bounds.top + bounds.height / 2.0f});
+        lvlTxt.setPosition({x + 50.f, y + 50.f});
+        lvlTxt.setFillColor(isHovered ? sf::Color::White : sf::Color(200, 200, 200));
         window.draw(lvlTxt);
-
-        // Click detection logic is still handled in ProcessEvents!
     }
 }
 
 void Game::DrawLevelComplete() {
     sf::RectangleShape overlay(sf::Vector2f{1280.f, 720.f});
-    overlay.setFillColor(sf::Color(0, 0, 0, 150));
+    overlay.setFillColor(sf::Color(0, 5, 10, 200)); 
     window.draw(overlay);
 
-    sf::Text title("LEVEL COMPLETE!", font, 64);
-    title.setFillColor(sf::Color(255, 215, 0));
-    title.setPosition({380.f, 150.f});
+    sf::Text title("LEVEL COMPLETE", font, 64);
+    title.setFillColor(sf::Color(255, 230, 100));
+    sf::FloatRect b = title.getLocalBounds();
+    title.setOrigin({b.left + b.width/2.f, b.top + b.height/2.f});
+    title.setPosition({640.f, 200.f});
     window.draw(title);
 
-    sf::Text scoreDisplay("FINAL SCORE: " + std::to_string(score), font, 40);
+    sf::Text scoreDisplay("FINAL SCORE: " + std::to_string(score), font, 36);
     scoreDisplay.setFillColor(sf::Color::White);
-    scoreDisplay.setPosition({480.f, 250.f});
+    b = scoreDisplay.getLocalBounds();
+    scoreDisplay.setOrigin({b.left + b.width/2.f, b.top + b.height/2.f});
+    scoreDisplay.setPosition({640.f, 280.f});
     window.draw(scoreDisplay);
 
-    sf::RectangleShape nextBtn(sf::Vector2f{200.f, 60.f});
-    nextBtn.setPosition({540.f, 350.f});
-    nextBtn.setFillColor(sf::Color(46, 204, 113));
-    window.draw(nextBtn);
-    sf::Text nextTxt("NEXT LEVEL", font, 24);
-    nextTxt.setFillColor(sf::Color::White);
-    nextTxt.setPosition({565.f, 365.f});
-    window.draw(nextTxt);
-
-    sf::RectangleShape menuBtn(sf::Vector2f{200.f, 60.f});
-    menuBtn.setPosition({540.f, 450.f});
-    menuBtn.setFillColor(sf::Color(100, 100, 200));
-    window.draw(menuBtn);
-    sf::Text menuTxt("MAIN MENU", font, 24);
-    menuTxt.setFillColor(sf::Color::White);
-    menuTxt.setPosition({570.f, 465.f});
-    window.draw(menuTxt);
+    std::string nextText = (m_currentLevel < MAX_LEVELS) ? "NEXT LEVEL" : "FINISH";
+    drawButton(window, font, nextText, 540.f, 360.f, 200.f, 60.f);
+    drawButton(window, font, "MAIN MENU", 540.f, 450.f, 200.f, 60.f);
 }
 
 void Game::DrawGameOver() {
     sf::RectangleShape overlay(sf::Vector2f{1280.f, 720.f});
-    overlay.setFillColor(sf::Color(0, 0, 0, 180));
+    overlay.setFillColor(sf::Color(20, 0, 0, 200)); 
     window.draw(overlay);
 
-    sf::Text title("OUT OF BIRDS!", font, 64);
-    title.setFillColor(sf::Color(231, 76, 60)); 
-    title.setPosition({410.f, 150.f});
+    sf::Text title("OUT OF BIRDS", font, 64);
+    title.setFillColor(sf::Color(255, 100, 100)); 
+    sf::FloatRect b = title.getLocalBounds();
+    title.setOrigin({b.left + b.width/2.f, b.top + b.height/2.f});
+    title.setPosition({640.f, 200.f});
     window.draw(title);
 
-    sf::RectangleShape retryBtn(sf::Vector2f{200.f, 60.f});
-    retryBtn.setPosition({540.f, 350.f});
-    retryBtn.setFillColor(sf::Color(46, 204, 113));
-    window.draw(retryBtn);
-    sf::Text retryTxt("TRY AGAIN", font, 24);
-    retryTxt.setFillColor(sf::Color::White);
-    retryTxt.setPosition({575.f, 365.f});
-    window.draw(retryTxt);
-
-    sf::RectangleShape menuBtn(sf::Vector2f{200.f, 60.f});
-    menuBtn.setPosition({540.f, 450.f});
-    menuBtn.setFillColor(sf::Color(100, 100, 200));
-    window.draw(menuBtn);
-    sf::Text menuTxt("MAIN MENU", font, 24);
-    menuTxt.setFillColor(sf::Color::White);
-    menuTxt.setPosition({570.f, 465.f});
-    window.draw(menuTxt);
+    drawButton(window, font, "TRY AGAIN", 540.f, 360.f, 200.f, 60.f);
+    drawButton(window, font, "MAIN MENU", 540.f, 450.f, 200.f, 60.f);
 }
+
 
 void Game::Run() {
     while (window.isOpen()) {

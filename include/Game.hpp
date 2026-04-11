@@ -12,8 +12,8 @@
 #include <nlohmann/json.hpp>
 #include "CustomGraphics.hpp"
 
-// --- ALL GAME STATES ---
-enum class GameState { Menu, LevelSelect, Playing, LevelComplete, GameOver };
+// 1. Add 'Options' to the GameState enum
+enum class GameState { Menu, LevelSelect, Options, Playing, LevelComplete, GameOver };
 // --- ALL BIRD ABILITIES ---
 enum class BirdType { Normal, Fire, Sloth, Freeze, Water };
 
@@ -105,4 +105,10 @@ private:
     // --- NEW: Cinematic Camera Variables ---
     sf::Vector2f m_cameraPos;
     float m_cameraZoom = 1.0f;
+    // --- NEW: Audio Toggle Variables ---
+    bool m_musicEnabled = true;
+    bool m_sfxEnabled = true;
+
+    // --- NEW: Options Draw Function ---
+    void DrawOptions();
 };

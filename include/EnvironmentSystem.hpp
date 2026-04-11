@@ -11,6 +11,33 @@ struct Cloud { sf::Vector2f pos; float scale; float speed; };
 struct Bird { sf::Vector2f pos; float speed; float flapSpeed; float phase; };
 struct Star { sf::Vector2f pos; float size; float twinklePhase; }; 
 
+// --- NEW: Micro-Motion Structs ---
+struct FallingLeaf {
+    sf::Vector2f pos;
+    float speedY;
+    float phase;
+    float scale;
+    sf::Color color;
+    float rotation;
+    float rotSpeed;
+};
+
+struct Flock {
+    sf::Vector2f pos;
+    float speed;
+    float scale;
+    float phase;
+};
+
+struct ShootingStar {
+    sf::Vector2f pos;
+    float life;
+    float maxLife;
+    float angle;
+    float speed;
+    float length;
+};
+
 struct GrassBlade {
     sf::Vector2f pos;
     float length;
@@ -53,9 +80,8 @@ struct Theme {
 
 class EnvironmentSystem {
 public:
-    EnvironmentSystem() : m_time(0.0f), m_lightningFlash(0.0f), m_nextLightning(5.0f) {
+    EnvironmentSystem() : m_time(0.0f), m_lightningFlash(0.0f), m_nextLightning(5.0f), m_shootingStarTimer(5.0f) {
         std::srand(static_cast<unsigned>(std::time(nullptr))); 
-        
         m_moonBuffer.create(300, 300);
 
         m_themes.push_back({sf::Color{120, 180, 240}, sf::Color{210, 235, 255}, sf::Color{255, 230, 0}, sf::Color{255, 240, 150, 150}, sf::Color{140, 175, 205}, sf::Color{100, 140, 120}, sf::Color{80, 55, 40}, sf::Color{45, 140, 75}, false, false, false, 0});
@@ -75,21 +101,47 @@ public:
         m_theme = m_themes[(level - 1) % m_themes.size()]; 
         m_time = 0.0f;
         m_clouds.clear(); m_trees.clear(); m_birds.clear(); m_stars.clear(); m_raindrops.clear(); m_grass.clear();
+        m_fallingLeaves.clear(); m_flocks.clear(); m_shootingStars.clear();
         
+        m_shootingStarTimer = 3.0f + (rand() % 5);
+
+        // Generate Grass
         for (float x = -1000.f; x <= 6000.f; x += 2.0f) { 
-            GrassBlade gb;
-            gb.pos = {x, 680.f};
-            gb.length = 5.f + (rand() % 6); 
-            gb.baseAngle = -1.57f + ((rand() % 20 - 10) * 0.03f); 
-            gb.currentAngle = gb.baseAngle;
+            GrassBlade gb; gb.pos = {x, 680.f}; gb.length = 5.f + (rand() % 6); gb.baseAngle = -1.57f + ((rand() % 20 - 10) * 0.03f); gb.currentAngle = gb.baseAngle;
+            sf::Color c = m_theme.treeLeaves; int var = (rand() % 50) - 25; 
+            c.r = static_cast<std::uint8_t>(std::clamp((int)c.r + var, 0, 255)); c.g = static_cast<std::uint8_t>(std::clamp((int)c.g + var, 0, 255)); c.b = static_cast<std::uint8_t>(std::clamp((int)c.b + var, 0, 255));
+            gb.color = c; m_grass.push_back(gb);
+        }
+
+        // --- NEW: Generate Falling Leaves ---
+        int numLeaves = m_theme.isRaining ? 15 : 60; // Fewer leaves in rain so it doesn't look cluttered
+        for (int i = 0; i < numLeaves; i++) {
+            FallingLeaf leaf;
+            leaf.pos = {-1000.f + (rand() % 10000), -100.f + (rand() % 900)};
+            leaf.speedY = 15.f + (rand() % 30);
+            leaf.phase = (rand() % 314) / 100.f;
+            leaf.scale = 0.4f + (rand() % 10) / 10.f;
+            leaf.rotation = rand() % 360;
+            leaf.rotSpeed = (rand() % 100) - 50.f;
             
             sf::Color c = m_theme.treeLeaves;
-            int var = (rand() % 50) - 25; 
+            int var = (rand() % 40) - 20;
             c.r = static_cast<std::uint8_t>(std::clamp((int)c.r + var, 0, 255));
             c.g = static_cast<std::uint8_t>(std::clamp((int)c.g + var, 0, 255));
             c.b = static_cast<std::uint8_t>(std::clamp((int)c.b + var, 0, 255));
-            gb.color = c;
-            m_grass.push_back(gb);
+            c.r = static_cast<std::uint8_t>(std::min(255, (int)c.r + 30)); // Add a slightly warm, dead-leaf tint
+            leaf.color = c;
+            m_fallingLeaves.push_back(leaf);
+        }
+
+        // --- NEW: Generate Distant Bird Flocks ---
+        for (int i = 0; i < 4; i++) {
+            Flock f;
+            f.pos = {-1000.f + (rand() % 10000), 50.f + (rand() % 250)};
+            f.speed = 15.f + (rand() % 20);
+            f.scale = 0.4f + (rand() % 6) / 10.f;
+            f.phase = (rand() % 314) / 100.f;
+            m_flocks.push_back(f);
         }
 
         for (int i = 0; i < 20; i++) m_clouds.push_back({sf::Vector2f{-1000.f + (rand() % 6000), 50.f + (rand() % 200)}, 0.5f + (rand() % 10)/10.f, 10.f + (rand() % 20)});
@@ -123,38 +175,77 @@ public:
             for (int i = 0; i < 350; i++) m_raindrops.push_back({sf::Vector2f{-1000.f + (rand() % 4000), -500.f + (rand() % 1500)}, 600.f + (rand() % 400), 10.f + (rand() % 15)});
         }
 
-        m_lightningFlash = 0.0f;
-        m_nextLightning = 2.0f + (rand() % 50) / 10.f;
+        m_lightningFlash = 0.0f; m_nextLightning = 2.0f + (rand() % 50) / 10.f;
 
         generateMountains(m_mountainsBack, m_theme.mountFar, m_theme.skyBot, 400.f, 250.f, 0.f, true);
-        
-        sf::Color midTop;
-        midTop.r = static_cast<std::uint8_t>((m_theme.mountFar.r + m_theme.mountNear.r) / 2);
-        midTop.g = static_cast<std::uint8_t>((m_theme.mountFar.g + m_theme.mountNear.g) / 2);
-        midTop.b = static_cast<std::uint8_t>((m_theme.mountFar.b + m_theme.mountNear.b) / 2);
+        sf::Color midTop; midTop.r = static_cast<std::uint8_t>((m_theme.mountFar.r + m_theme.mountNear.r) / 2); midTop.g = static_cast<std::uint8_t>((m_theme.mountFar.g + m_theme.mountNear.g) / 2); midTop.b = static_cast<std::uint8_t>((m_theme.mountFar.b + m_theme.mountNear.b) / 2);
         generateMountains(m_mountainsMid, midTop, m_theme.mountFar, 500.f, 180.f, 5000.f, true);
-        
         generateMountains(m_mountainsNear, m_theme.mountNear, m_theme.treeTrunk, 620.f, 100.f, 12000.f, false);
         generateMountains(m_mountainsForeground, sf::Color(10, 10, 15, 255), sf::Color(10, 10, 15, 255), 1000.f, 150.f, 25000.f, false);
     }
 
     void update(float dt, sf::Vector2f playerPos = {-9999.f, -9999.f}, sf::Vector2f playerVel = {0.f, 0.f}) {
         m_time += dt;
-        for (auto& cloud : m_clouds) {
-            cloud.pos.x += cloud.speed * dt;
-            if (cloud.pos.x > 5000.f) cloud.pos.x = -1000.f;
-        }
-        for (auto& bird : m_birds) {
-            bird.pos.x -= bird.speed * dt; 
-            if (bird.pos.x < -1000.f) bird.pos.x = 5000.f;
-        }
+        float refX = (playerPos.x > -9000.f) ? playerPos.x : 640.f; // Fallback to center if bird is dead
+
+        for (auto& cloud : m_clouds) { cloud.pos.x += cloud.speed * dt; if (cloud.pos.x > 5000.f) cloud.pos.x = -1000.f; }
+        for (auto& bird : m_birds) { bird.pos.x -= bird.speed * dt; if (bird.pos.x < -1000.f) bird.pos.x = 5000.f; }
 
         float globalWind = std::sin(m_time * 2.0f) * 0.2f;
         if (m_theme.isStormy) globalWind *= 3.0f;
 
+        // --- UPDATE: Falling Leaves ---
+        for (auto& leaf : m_fallingLeaves) {
+            leaf.pos.y += leaf.speedY * dt;
+            // The leaf gracefully drifts side to side, but is heavily pushed by global wind!
+            leaf.pos.x += (std::sin(m_time * 1.5f + leaf.phase) * 20.0f + globalWind * 180.0f) * dt;
+            leaf.rotation += leaf.rotSpeed * dt;
+
+            // If it hits the ground, respawn it randomly above the camera
+            if (leaf.pos.y > 900.f) {
+                leaf.pos.y = -50.f;
+                leaf.pos.x = refX - 1000.f + (rand() % 2500); 
+            }
+        }
+
+        // --- UPDATE: Distant Flocks ---
+        for (auto& flock : m_flocks) {
+            flock.pos.x -= flock.speed * dt;
+            if (flock.pos.x < refX - 1500.f) {
+                flock.pos.x = refX + 1500.f + (rand() % 1000);
+                flock.pos.y = 50.f + (rand() % 250);
+            }
+        }
+
+        // --- UPDATE: Shooting Stars ---
+        if (m_theme.isNight && !m_theme.isStormy) {
+            m_shootingStarTimer -= dt;
+            if (m_shootingStarTimer <= 0.0f) {
+                ShootingStar ss;
+                ss.pos = {refX - 800.f + (rand() % 2000), -50.f};
+                ss.angle = 0.5f + (rand() % 50) / 100.f; // Angle downward
+                if (rand() % 2 == 0) ss.angle = 3.14159f - ss.angle; // Flip direction randomly
+                
+                ss.speed = 1000.f + (rand() % 800); // Super fast streak
+                ss.length = 150.f + (rand() % 200); // Long tail
+                ss.maxLife = 0.6f + (rand() % 8) / 10.f;
+                ss.life = ss.maxLife;
+                
+                m_shootingStars.push_back(ss);
+                m_shootingStarTimer = 3.0f + (rand() % 10); // Random wait until next one
+            }
+
+            for (auto it = m_shootingStars.begin(); it != m_shootingStars.end(); ) {
+                it->pos.x += std::cos(it->angle) * it->speed * dt;
+                it->pos.y += std::sin(it->angle) * it->speed * dt;
+                it->life -= dt;
+                if (it->life <= 0.0f) it = m_shootingStars.erase(it);
+                else ++it;
+            }
+        }
+
         for (auto& gb : m_grass) {
             float targetAngle = gb.baseAngle + globalWind + std::sin(m_time * 4.0f + gb.pos.x * 0.01f) * 0.08f;
-            
             float dist = std::sqrt(std::pow(gb.pos.x - playerPos.x, 2) + std::pow(gb.pos.y - playerPos.y, 2));
             if (dist < 100.f) {
                 float force = (100.f - dist) / 100.f; 
@@ -162,50 +253,35 @@ public:
                 float speedForce = std::min(std::abs(playerVel.x) * 0.008f, 1.2f); 
                 targetAngle += bendDir * force * speedForce;
             }
-            
             gb.currentAngle += (targetAngle - gb.currentAngle) * dt * 8.0f;
         }
 
         if (m_theme.isRaining) {
             for (auto& drop : m_raindrops) {
-                drop.pos.y += drop.speed * dt;
-                drop.pos.x += (drop.speed * 0.08f) * dt; 
-                if (drop.pos.y > 900.f) { 
-                    drop.pos.y = -100.f - (rand() % 500);
-                    drop.pos.x = -500.f + (rand() % 3000); 
-                }
+                drop.pos.y += drop.speed * dt; drop.pos.x += (drop.speed * 0.08f) * dt; 
+                if (drop.pos.y > 900.f) { drop.pos.y = -100.f - (rand() % 500); drop.pos.x = -500.f + (rand() % 3000); }
             }
         }
 
         if (m_theme.isStormy) {
             m_nextLightning -= dt;
             if (m_nextLightning <= 0.0f) {
-                m_lightningFlash = 1.0f; 
-                m_nextLightning = 3.0f + (rand() % 70) / 10.f; 
-                generateLightningBolt();
+                m_lightningFlash = 1.0f; m_nextLightning = 3.0f + (rand() % 70) / 10.f; generateLightningBolt();
             }
             if (m_lightningFlash > 0.0f) {
-                m_lightningFlash -= dt * 1.5f; 
-                if (m_lightningFlash < 0.0f) m_lightningFlash = 0.0f;
+                m_lightningFlash -= dt * 1.5f; if (m_lightningFlash < 0.0f) m_lightningFlash = 0.0f;
             }
         }
     }
 
-    // --- UPGRADED Render signature to handle dynamic view sizing ---
     void render(sf::RenderTarget& window, float cameraX, sf::Vector2f viewSize) {
-        float halfW = viewSize.x / 2.0f;
-        float halfH = viewSize.y / 2.0f;
-        float left = cameraX - halfW;
-        float right = cameraX + halfW;
-        float top = 360.f - halfH;
-        float bottom = 360.f + halfH;
+        float halfW = viewSize.x / 2.0f; float halfH = viewSize.y / 2.0f;
+        float left = cameraX - halfW; float right = cameraX + halfW;
+        float top = 360.f - halfH; float bottom = 360.f + halfH;
         
-        // 1. Draw Sky (Responsive to zoom bounds)
         sf::VertexArray sky(sf::PrimitiveType::TriangleStrip, 4);
-        sky[0] = { {left, top}, m_theme.skyTop };
-        sky[1] = { {left, bottom}, m_theme.skyBot };
-        sky[2] = { {right, top}, m_theme.skyTop };
-        sky[3] = { {right, bottom}, m_theme.skyBot };
+        sky[0] = { {left, top}, m_theme.skyTop }; sky[1] = { {left, bottom}, m_theme.skyBot };
+        sky[2] = { {right, top}, m_theme.skyTop }; sky[3] = { {right, bottom}, m_theme.skyBot };
         window.draw(sky);
 
         if (m_theme.isNight) {
@@ -213,107 +289,67 @@ public:
             for (size_t i = 0; i < m_stars.size(); i++) {
                 float twinkle = (std::sin(m_time * 4.0f + m_stars[i].twinklePhase) + 1.0f) * 0.5f; 
                 sf::Color c = sf::Color{255, 255, 255, static_cast<std::uint8_t>(50 + 200 * twinkle)};
-                sf::Vector2f sp = sf::Vector2f{left + m_stars[i].pos.x, m_stars[i].pos.y};
-                float s = m_stars[i].size;
+                sf::Vector2f sp = sf::Vector2f{left + m_stars[i].pos.x, m_stars[i].pos.y}; float s = m_stars[i].size;
                 starArray[i*6+0] = sf::Vertex{sp + sf::Vector2f{-s,-s}, c}; starArray[i*6+1] = sf::Vertex{sp + sf::Vector2f{s,-s}, c}; starArray[i*6+2] = sf::Vertex{sp + sf::Vector2f{s,s}, c};
                 starArray[i*6+3] = sf::Vertex{sp + sf::Vector2f{-s,-s}, c}; starArray[i*6+4] = sf::Vertex{sp + sf::Vector2f{s,s}, c}; starArray[i*6+5] = sf::Vertex{sp + sf::Vector2f{-s,s}, c};
             }
             window.draw(starArray);
+
+            // --- RENDER: Shooting Stars ---
+            for (const auto& ss : m_shootingStars) {
+                float alpha = (ss.life / ss.maxLife) * 255.f;
+                sf::Color headCol = sf::Color(255, 255, 255, static_cast<std::uint8_t>(alpha));
+                sf::Color tailCol = sf::Color(255, 255, 255, 0);
+                
+                sf::VertexArray line(sf::PrimitiveType::Lines, 2);
+                float pDrawX = ss.pos.x + cameraX * 0.05f; // Extremely distant parallax
+                
+                sf::Vector2f tailPos = ss.pos - sf::Vector2f(std::cos(ss.angle) * ss.length, std::sin(ss.angle) * ss.length);
+                float tailDrawX = tailPos.x + cameraX * 0.05f;
+
+                line[0] = { {pDrawX, ss.pos.y}, headCol };
+                line[1] = { {tailDrawX, tailPos.y}, tailCol };
+                window.draw(line);
+            }
         }
 
         if (m_theme.isStormy && m_lightningFlash > 0.0f) {
-            if (m_lightningFlash > 0.6f) { 
-                sf::Transform t; t.translate({left, 0.f});
-                window.draw(m_lightningBolt, t); t.translate({1.f, 0.f}); window.draw(m_lightningBolt, t); t.translate({-2.f, 0.f}); window.draw(m_lightningBolt, t);
-            }
-            sf::VertexArray flash(sf::PrimitiveType::TriangleStrip, 4);
-            sf::Color flashCol{255, 255, 255, static_cast<std::uint8_t>(m_lightningFlash * 150)};
-            flash[0].position = {left, top}; flash[0].color = flashCol; flash[1].position = {left, bottom}; flash[1].color = flashCol;
-            flash[2].position = {right, top}; flash[2].color = flashCol; flash[3].position = {right, bottom}; flash[3].color = flashCol;
-            window.draw(flash);
+            if (m_lightningFlash > 0.6f) { sf::Transform t; t.translate({left, 0.f}); window.draw(m_lightningBolt, t); t.translate({1.f, 0.f}); window.draw(m_lightningBolt, t); t.translate({-2.f, 0.f}); window.draw(m_lightningBolt, t); }
+            sf::VertexArray flash(sf::PrimitiveType::TriangleStrip, 4); sf::Color flashCol{255, 255, 255, static_cast<std::uint8_t>(m_lightningFlash * 150)};
+            flash[0].position = {left, top}; flash[0].color = flashCol; flash[1].position = {left, bottom}; flash[1].color = flashCol; flash[2].position = {right, top}; flash[2].color = flashCol; flash[3].position = {right, bottom}; flash[3].color = flashCol; window.draw(flash);
         }
 
-        // --- UPGRADED: MAJESTIC CELESTIAL POSITIONING (Zoom Responsive) ---
         float animProgress = std::clamp(m_time / 12.0f, 0.0f, 1.0f);
         float easeOut = 1.0f - std::pow(1.0f - animProgress, 4.0f);
         float celestialY = 750.f - (600.f * easeOut); 
         float sunX = left + (viewSize.x * 0.75f) - (cameraX * 0.05f); 
 
         if (!m_theme.isNight) {
-            // BEAUTIFUL GRADIENT SUN
             sf::Color baseGlow = m_theme.sunGlow;
-            for(int i = 10; i >= 1; --i) {
-                float r = 18.f * i;
-                sf::CircleShape g(r);
-                g.setOrigin({r, r}); g.setPosition({sunX, celestialY});
-                sf::Color c = baseGlow; c.a = 255 / (i * i); 
-                g.setFillColor(c); window.draw(g);
-            }
-            
-            // Intense Inner Corona
-            sf::CircleShape corona(50.f);
-            corona.setOrigin({50.f, 50.f}); corona.setPosition({sunX, celestialY});
-            sf::Color coronaCol = m_theme.sunCore; coronaCol.a = 200;
-            corona.setFillColor(coronaCol); window.draw(corona);
-            
-            // Blinding White Core
-            sf::CircleShape core(30.f);
-            core.setOrigin({30.f, 30.f}); core.setPosition({sunX, celestialY});
-            core.setFillColor(sf::Color(255, 255, 245)); window.draw(core);
-
+            for(int i = 10; i >= 1; --i) { float r = 18.f * i; sf::CircleShape g(r); g.setOrigin({r, r}); g.setPosition({sunX, celestialY}); sf::Color c = baseGlow; c.a = 255 / (i * i); g.setFillColor(c); window.draw(g); }
+            sf::CircleShape corona(50.f); corona.setOrigin({50.f, 50.f}); corona.setPosition({sunX, celestialY}); sf::Color coronaCol = m_theme.sunCore; coronaCol.a = 200; corona.setFillColor(coronaCol); window.draw(corona);
+            sf::CircleShape core(30.f); core.setOrigin({30.f, 30.f}); core.setPosition({sunX, celestialY}); core.setFillColor(sf::Color(255, 255, 245)); window.draw(core);
         } else {
-            // --- FLAWLESS STENCIL MOON ---
             m_moonBuffer.clear(sf::Color::Transparent);
-
             sf::Color baseGlow = m_theme.sunGlow;
-            for(int i = 6; i >= 1; --i) {
-                float r = 20.f * i;
-                sf::CircleShape g(r);
-                g.setOrigin({r, r}); g.setPosition({150.f, 150.f});
-                sf::Color c = baseGlow; c.a = 150 / (i * i);
-                g.setFillColor(c); m_moonBuffer.draw(g);
-            }
-
-            sf::CircleShape core(30.f);
-            core.setOrigin({30.f, 30.f}); core.setPosition({150.f, 150.f});
-            core.setFillColor(m_theme.sunCore); m_moonBuffer.draw(core);
-
-            sf::Color craterCol(0, 0, 0, 30); 
-            sf::CircleShape c1(6.f); c1.setOrigin({6.f, 6.f}); c1.setPosition({138.f, 138.f}); c1.setFillColor(craterCol); m_moonBuffer.draw(c1);
-            sf::CircleShape c2(9.f); c2.setOrigin({9.f, 9.f}); c2.setPosition({165.f, 155.f}); c2.setFillColor(craterCol); m_moonBuffer.draw(c2);
-            sf::CircleShape c3(4.f); c3.setOrigin({4.f, 4.f}); c3.setPosition({140.f, 168.f}); c3.setFillColor(craterCol); m_moonBuffer.draw(c3);
-
+            for(int i = 6; i >= 1; --i) { float r = 20.f * i; sf::CircleShape g(r); g.setOrigin({r, r}); g.setPosition({150.f, 150.f}); sf::Color c = baseGlow; c.a = 150 / (i * i); g.setFillColor(c); m_moonBuffer.draw(g); }
+            sf::CircleShape core(30.f); core.setOrigin({30.f, 30.f}); core.setPosition({150.f, 150.f}); core.setFillColor(m_theme.sunCore); m_moonBuffer.draw(core);
+            sf::Color craterCol(0, 0, 0, 30); sf::CircleShape c1(6.f); c1.setOrigin({6.f, 6.f}); c1.setPosition({138.f, 138.f}); c1.setFillColor(craterCol); m_moonBuffer.draw(c1); sf::CircleShape c2(9.f); c2.setOrigin({9.f, 9.f}); c2.setPosition({165.f, 155.f}); c2.setFillColor(craterCol); m_moonBuffer.draw(c2); sf::CircleShape c3(4.f); c3.setOrigin({4.f, 4.f}); c3.setPosition({140.f, 168.f}); c3.setFillColor(craterCol); m_moonBuffer.draw(c3);
             sf::RenderStates eraseState(sf::BlendNone);
             
-            if (m_theme.moonPhase == 1) { // Crescent Moon
-                sf::RectangleShape halfMask(sf::Vector2f(150.f, 300.f));
-                halfMask.setPosition({0.f, 0.f});
-                halfMask.setFillColor(sf::Color::Transparent);
-                m_moonBuffer.draw(halfMask, eraseState);
-
-                sf::CircleShape bite(30.f); 
-                bite.setOrigin({30.f, 30.f});
-                bite.setPosition({138.f, 150.f}); 
-                bite.setFillColor(sf::Color::Transparent);
-                m_moonBuffer.draw(bite, eraseState);
+            if (m_theme.moonPhase == 1) { 
+                sf::RectangleShape halfMask(sf::Vector2f(150.f, 300.f)); halfMask.setPosition({0.f, 0.f}); halfMask.setFillColor(sf::Color::Transparent); m_moonBuffer.draw(halfMask, eraseState);
+                sf::CircleShape bite(30.f); bite.setOrigin({30.f, 30.f}); bite.setPosition({138.f, 150.f}); bite.setFillColor(sf::Color::Transparent); m_moonBuffer.draw(bite, eraseState);
             } 
-            else if (m_theme.moonPhase == 2) { // Half Moon
-                sf::RectangleShape mask(sf::Vector2f(150.f, 300.f));
-                mask.setPosition({0.f, 0.f}); 
-                mask.setFillColor(sf::Color::Transparent);
-                m_moonBuffer.draw(mask, eraseState);
+            else if (m_theme.moonPhase == 2) { 
+                sf::RectangleShape mask(sf::Vector2f(150.f, 300.f)); mask.setPosition({0.f, 0.f}); mask.setFillColor(sf::Color::Transparent); m_moonBuffer.draw(mask, eraseState);
             }
             m_moonBuffer.display();
 
-            sf::Sprite moonSprite(m_moonBuffer.getTexture());
-            moonSprite.setOrigin({150.f, 150.f});
-            moonSprite.setPosition({sunX, celestialY});
-            
-            // --- YOUR BEAUTIFUL TILTING PREFERENCES! ---
+            sf::Sprite moonSprite(m_moonBuffer.getTexture()); moonSprite.setOrigin({150.f, 150.f}); moonSprite.setPosition({sunX, celestialY});
             if (m_theme.moonPhase == 1) moonSprite.setRotation(125.f); 
             else if (m_theme.moonPhase == 2) moonSprite.setRotation(130.f); 
             else moonSprite.setRotation(-15.f); 
-
             window.draw(moonSprite);
         }
 
@@ -322,8 +358,53 @@ public:
         drawParallaxLayer(window, m_mountainsNear, cameraX, 0.45f);
 
         for (auto& cloud : m_clouds) drawCloud(window, cloud, cameraX, 0.15f);
+
+        // --- RENDER: Bird Flocks ---
+        for (const auto& flock : m_flocks) {
+            float drawX = flock.pos.x + cameraX * (1.0f - 0.15f); // Same parallax depth as clouds
+            if (drawX < left - 200.f || drawX > right + 200.f) continue;
+            
+            float baseBob = std::sin(m_time * 2.0f + flock.phase) * 15.f; // Whole flock moves up and down
+            sf::Color bCol = m_theme.isNight ? sf::Color(40, 40, 50, 180) : sf::Color(0, 0, 0, 150);
+
+            int numBirds = 5;
+            sf::VertexArray v(sf::PrimitiveType::Lines, numBirds * 4); // Each bird is 2 lines (4 points) forming a 'v'
+            for(int i = 0; i < numBirds; i++) {
+                float rowX = -std::abs(i - numBirds/2) * 20.f * flock.scale; // Creates the V shape
+                float rowY = (i - numBirds/2) * 15.f * flock.scale;
+                float wingY = std::sin(m_time * 8.0f + flock.phase + i) * 4.0f; // Flapping wings!
+                
+                sf::Vector2f bCenter = {drawX + rowX, flock.pos.y + baseBob + rowY};
+                
+                v[i*4+0] = { bCenter + sf::Vector2f(-5.f * flock.scale, -4.f * flock.scale + wingY), bCol };
+                v[i*4+1] = { bCenter, bCol };
+                v[i*4+2] = { bCenter, bCol };
+                v[i*4+3] = { bCenter + sf::Vector2f(5.f * flock.scale, -4.f * flock.scale + wingY), bCol };
+            }
+            window.draw(v);
+        }
+
         for (auto& tree : m_trees) drawTree(window, tree, cameraX, 0.8f);
         for (auto& bird : m_birds) drawBird(window, bird, cameraX, 0.6f);
+
+        // --- RENDER: Falling Leaves ---
+        for (const auto& leaf : m_fallingLeaves) {
+            float drawX = leaf.pos.x + cameraX * (1.0f - 0.85f); // Very close parallax
+            if (drawX < left - 50.f || drawX > right + 50.f) continue;
+            
+            sf::RectangleShape rect({6.f * leaf.scale, 4.f * leaf.scale});
+            rect.setOrigin({3.f * leaf.scale, 2.f * leaf.scale});
+            rect.setPosition({drawX, leaf.pos.y});
+            rect.setRotation(leaf.rotation); // They spin naturally
+            
+            sf::Color c = leaf.color;
+            if (leaf.pos.y > 600.f) {
+                // Fade them out gently right before they hit the ground
+                c.a = static_cast<std::uint8_t>(std::max(0.0f, 255.f - (leaf.pos.y - 600.f) * 2.0f));
+            }
+            rect.setFillColor(c);
+            window.draw(rect);
+        }
 
         sf::VertexArray grassArray(sf::PrimitiveType::Lines, m_grass.size() * 2);
         for (size_t i = 0; i < m_grass.size(); ++i) {
@@ -364,106 +445,34 @@ private:
     std::vector<Star> m_stars;
     std::vector<Raindrop> m_raindrops;
     std::vector<GrassBlade> m_grass; 
+    
+    // --- MICRO-MOTION ARRAYS ---
+    std::vector<FallingLeaf> m_fallingLeaves;
+    std::vector<Flock> m_flocks;
+    std::vector<ShootingStar> m_shootingStars;
+    float m_shootingStarTimer;
+
     sf::VertexArray m_mountainsBack, m_mountainsMid, m_mountainsNear, m_mountainsForeground;
-    
-    float m_lightningFlash;
-    float m_nextLightning;
-    sf::VertexArray m_lightningBolt;
-    
+    float m_lightningFlash, m_nextLightning; sf::VertexArray m_lightningBolt;
     sf::RenderTexture m_moonBuffer;
 
-    void generateLightningBolt() {
-        m_lightningBolt.clear(); m_lightningBolt.setPrimitiveType(sf::PrimitiveType::LineStrip);
-        float lx = 200.f + (rand() % 880); float ly = 0.f;
-        while (ly < 600.f) { 
-            m_lightningBolt.append(sf::Vertex{sf::Vector2f{lx, ly}, sf::Color::White});
-            lx += (rand() % 100) - 50.f; ly += 30.f + (rand() % 50);  
-        }
-    }
-
+    void generateLightningBolt() { m_lightningBolt.clear(); m_lightningBolt.setPrimitiveType(sf::PrimitiveType::LineStrip); float lx = 200.f + (rand() % 880); float ly = 0.f; while (ly < 600.f) { m_lightningBolt.append(sf::Vertex{sf::Vector2f{lx, ly}, sf::Color::White}); lx += (rand() % 100) - 50.f; ly += 30.f + (rand() % 50); } }
     void generateMountains(sf::VertexArray& va, sf::Color topColor, sf::Color bottomColor, float baseHeight, float variance, float seedOffset, bool hasSnow) {
-        va.setPrimitiveType(sf::PrimitiveType::TriangleStrip); va.resize(0);
-        sf::Color snowColor = m_theme.isNight ? sf::Color{130, 130, 150} : sf::Color{255, 255, 255};
+        va.setPrimitiveType(sf::PrimitiveType::TriangleStrip); va.resize(0); sf::Color snowColor = m_theme.isNight ? sf::Color{130, 130, 150} : sf::Color{255, 255, 255};
         for (float x = -4000.f; x <= 8000.f; x += 15.f) {
-            float nx = x + 15000.f + seedOffset; 
-            float combinedNoise = (std::sin(nx * 0.0008f) * 1.2f) + (std::sin(nx * 0.0025f + 1.0f) * 0.5f) - (std::abs(std::sin(nx * 0.006f)) * 0.3f) + (std::sin(nx * 0.015f + 2.0f) * 0.1f);
-            float height = baseHeight - (combinedNoise * variance);
-            sf::Color peakColor = topColor;
-            if (hasSnow) {
-                float snowLine = baseHeight - (variance * 0.2f); 
-                if (height < snowLine) { 
-                    float blend = std::clamp((snowLine - height) / (variance * 0.5f), 0.0f, 1.0f);
-                    peakColor.r = static_cast<std::uint8_t>(topColor.r + (snowColor.r - topColor.r) * blend);
-                    peakColor.g = static_cast<std::uint8_t>(topColor.g + (snowColor.g - topColor.g) * blend);
-                    peakColor.b = static_cast<std::uint8_t>(topColor.b + (snowColor.b - topColor.b) * blend);
-                }
-            }
-            // --- FIX: Push bottom coordinates down to 1500.f to prevent void gap during zoom! ---
-            va.append(sf::Vertex{sf::Vector2f{x, 1500.f}, bottomColor}); 
-            va.append(sf::Vertex{sf::Vector2f{x, height}, peakColor});
+            float nx = x + 15000.f + seedOffset; float combinedNoise = (std::sin(nx * 0.0008f) * 1.2f) + (std::sin(nx * 0.0025f + 1.0f) * 0.5f) - (std::abs(std::sin(nx * 0.006f)) * 0.3f) + (std::sin(nx * 0.015f + 2.0f) * 0.1f);
+            float height = baseHeight - (combinedNoise * variance); sf::Color peakColor = topColor;
+            if (hasSnow) { float snowLine = baseHeight - (variance * 0.2f); if (height < snowLine) { float blend = std::clamp((snowLine - height) / (variance * 0.5f), 0.0f, 1.0f); peakColor.r = static_cast<std::uint8_t>(topColor.r + (snowColor.r - topColor.r) * blend); peakColor.g = static_cast<std::uint8_t>(topColor.g + (snowColor.g - topColor.g) * blend); peakColor.b = static_cast<std::uint8_t>(topColor.b + (snowColor.b - topColor.b) * blend); } }
+            va.append(sf::Vertex{sf::Vector2f{x, 1500.f}, bottomColor}); va.append(sf::Vertex{sf::Vector2f{x, height}, peakColor});
         }
     }
-
-    void drawParallaxLayer(sf::RenderTarget& win, const sf::VertexArray& va, float camX, float parallax) {
-        sf::Transform t; t.translate({camX * (1.0f - parallax), 0.f}); win.draw(va, t);
-    }
-
-    void drawCloud(sf::RenderTarget& win, const Cloud& c, float camX, float parallax) {
-        float drawX = c.pos.x + camX * (1.0f - parallax);
-        if (drawX < camX - 800.f || drawX > camX + 1480.f) return; 
-        sf::Color baseCol = m_theme.isNight ? sf::Color{90, 90, 110, 220} : sf::Color{255, 255, 255, 240};
-        sf::Color shadowCol = m_theme.isNight ? sf::Color{60, 60, 80, 220} : sf::Color{210, 210, 225, 240};
-        if (m_theme.isStormy) { baseCol = sf::Color{100, 110, 120, 240}; shadowCol = sf::Color{70, 80, 90, 240}; }
-        auto drawPuff = [&](float offsetX, float offsetY, float radius, sf::Color col) {
-            sf::CircleShape puff(radius); puff.setOrigin({radius, radius}); puff.setPosition({drawX + offsetX * c.scale, c.pos.y + offsetY * c.scale});
-            puff.setScale({1.3f, 0.8f}); puff.setFillColor(col); win.draw(puff);
-        };
-        drawPuff(0.f, 15.f, 35.f, shadowCol); drawPuff(50.f, 10.f, 45.f, shadowCol); drawPuff(100.f, 20.f, 30.f, shadowCol);
-        drawPuff(-5.f, 0.f, 35.f, baseCol); drawPuff(45.f, -10.f, 45.f, baseCol); drawPuff(95.f, 5.f, 30.f, baseCol); drawPuff(25.f, 15.f, 25.f, baseCol); drawPuff(75.f, 10.f, 25.f, baseCol);
-    }
-
-    void drawTree(sf::RenderTarget& win, const Tree& t, float camX, float parallax) {
-        float drawX = t.pos.x + camX * (1.0f - parallax);
-        if (drawX < camX - 800.f || drawX > camX + 1280.f) return; 
-        sf::ConvexShape trunk(4);
-        trunk.setPoint(0, sf::Vector2f{-4.f * t.scale, -120.f * t.scale}); trunk.setPoint(1, sf::Vector2f{4.f * t.scale, -120.f * t.scale});  
-        trunk.setPoint(2, sf::Vector2f{14.f * t.scale, 0.f}); trunk.setPoint(3, sf::Vector2f{-14.f * t.scale, 0.f});             
-        trunk.setFillColor(m_theme.treeTrunk); trunk.setPosition({drawX, t.pos.y}); win.draw(trunk);
-
-        sf::VertexArray leafArray(sf::PrimitiveType::Triangles, t.leaves.size() * 6);
-        float globalWind = std::sin(m_time * 2.0f + t.phase);
-        if (m_theme.isStormy) globalWind *= 3.0f;
-
-        for (size_t i = 0; i < t.leaves.size(); ++i) {
-            const Leaf& l = t.leaves[i];
-            float swayAmount = globalWind * (std::abs(l.offset.y) * 0.08f);
-            float flutter = std::sin(m_time * 6.0f + l.phaseOffset) * 2.0f;
-            if (m_theme.isStormy) flutter *= 2.0f; 
-            
-            sf::Vector2f center = sf::Vector2f{drawX + l.offset.x + swayAmount + flutter, t.pos.y + l.offset.y};
-            float currentAngle = l.baseAngle + (flutter * 0.1f); 
-            float cosA = std::cos(currentAngle); float sinA = std::sin(currentAngle);
-            auto rotate = [&](float x, float y) { return sf::Vector2f{x * cosA - y * sinA, x * sinA + y * cosA}; };
-
-            sf::Vector2f top = center + rotate(0.f, -l.length); sf::Vector2f bottom = center + rotate(0.f, l.length);
-            sf::Vector2f left = center + rotate(-l.width, 0.f); sf::Vector2f right = center + rotate(l.width, 0.f);
-
-            sf::Color darkTip = l.color;
-            darkTip.r = static_cast<std::uint8_t>(std::max(0, (int)darkTip.r - 30)); darkTip.g = static_cast<std::uint8_t>(std::max(0, (int)darkTip.g - 30)); darkTip.b = static_cast<std::uint8_t>(std::max(0, (int)darkTip.b - 30));
-
-            leafArray[i*6+0] = sf::Vertex{top, l.color}; leafArray[i*6+1] = sf::Vertex{left, l.color}; leafArray[i*6+2] = sf::Vertex{right, l.color};
-            leafArray[i*6+3] = sf::Vertex{bottom, darkTip}; leafArray[i*6+4] = sf::Vertex{right, l.color}; leafArray[i*6+5] = sf::Vertex{left, l.color};
-        }
-        win.draw(leafArray);
-    }
-
-    void drawBird(sf::RenderTarget& win, const Bird& b, float camX, float parallax) {
-        float drawX = b.pos.x + camX * (1.0f - parallax);
-        if (drawX < camX - 800.f || drawX > camX + 1280.f) return;
-        float wingY = std::sin(m_time * b.flapSpeed + b.phase) * 10.0f;
-        sf::VertexArray v(sf::PrimitiveType::LineStrip, 3);
-        sf::Color bCol = m_theme.isNight ? sf::Color{50, 50, 50} : sf::Color::Black;
-        v[0] = sf::Vertex{sf::Vector2f{drawX - 10.f, b.pos.y + wingY}, bCol}; v[1] = sf::Vertex{sf::Vector2f{drawX, b.pos.y}, bCol}; v[2] = sf::Vertex{sf::Vector2f{drawX + 15.f, b.pos.y + wingY}, bCol};
-        win.draw(v);
-    }
+    void drawParallaxLayer(sf::RenderTarget& win, const sf::VertexArray& va, float camX, float parallax) { sf::Transform t; t.translate({camX * (1.0f - parallax), 0.f}); win.draw(va, t); }
+    void drawCloud(sf::RenderTarget& win, const Cloud& c, float camX, float parallax) { float drawX = c.pos.x + camX * (1.0f - parallax); if (drawX < camX - 800.f || drawX > camX + 1480.f) return; sf::Color baseCol = m_theme.isNight ? sf::Color{90, 90, 110, 220} : sf::Color{255, 255, 255, 240}; sf::Color shadowCol = m_theme.isNight ? sf::Color{60, 60, 80, 220} : sf::Color{210, 210, 225, 240}; if (m_theme.isStormy) { baseCol = sf::Color{100, 110, 120, 240}; shadowCol = sf::Color{70, 80, 90, 240}; } auto drawPuff = [&](float offsetX, float offsetY, float radius, sf::Color col) { sf::CircleShape puff(radius); puff.setOrigin({radius, radius}); puff.setPosition({drawX + offsetX * c.scale, c.pos.y + offsetY * c.scale}); puff.setScale({1.3f, 0.8f}); puff.setFillColor(col); win.draw(puff); }; drawPuff(0.f, 15.f, 35.f, shadowCol); drawPuff(50.f, 10.f, 45.f, shadowCol); drawPuff(100.f, 20.f, 30.f, shadowCol); drawPuff(-5.f, 0.f, 35.f, baseCol); drawPuff(45.f, -10.f, 45.f, baseCol); drawPuff(95.f, 5.f, 30.f, baseCol); drawPuff(25.f, 15.f, 25.f, baseCol); drawPuff(75.f, 10.f, 25.f, baseCol); }
+    void drawTree(sf::RenderTarget& win, const Tree& t, float camX, float parallax) { float drawX = t.pos.x + camX * (1.0f - parallax); if (drawX < camX - 800.f || drawX > camX + 1280.f) return; sf::ConvexShape trunk(4); trunk.setPoint(0, sf::Vector2f{-4.f * t.scale, -120.f * t.scale}); trunk.setPoint(1, sf::Vector2f{4.f * t.scale, -120.f * t.scale}); trunk.setPoint(2, sf::Vector2f{14.f * t.scale, 0.f}); trunk.setPoint(3, sf::Vector2f{-14.f * t.scale, 0.f}); trunk.setFillColor(m_theme.treeTrunk); trunk.setPosition({drawX, t.pos.y}); win.draw(trunk);
+        sf::VertexArray leafArray(sf::PrimitiveType::Triangles, t.leaves.size() * 6); float globalWind = std::sin(m_time * 2.0f + t.phase); if (m_theme.isStormy) globalWind *= 3.0f;
+        for (size_t i = 0; i < t.leaves.size(); ++i) { const Leaf& l = t.leaves[i]; float swayAmount = globalWind * (std::abs(l.offset.y) * 0.08f); float flutter = std::sin(m_time * 6.0f + l.phaseOffset) * 2.0f; if (m_theme.isStormy) flutter *= 2.0f; sf::Vector2f center = sf::Vector2f{drawX + l.offset.x + swayAmount + flutter, t.pos.y + l.offset.y}; float currentAngle = l.baseAngle + (flutter * 0.1f); float cosA = std::cos(currentAngle); float sinA = std::sin(currentAngle); auto rotate = [&](float x, float y) { return sf::Vector2f{x * cosA - y * sinA, x * sinA + y * cosA}; }; sf::Vector2f top = center + rotate(0.f, -l.length); sf::Vector2f bottom = center + rotate(0.f, l.length); sf::Vector2f left = center + rotate(-l.width, 0.f); sf::Vector2f right = center + rotate(l.width, 0.f);
+            sf::Color darkTip = l.color; darkTip.r = static_cast<std::uint8_t>(std::max(0, (int)darkTip.r - 30)); darkTip.g = static_cast<std::uint8_t>(std::max(0, (int)darkTip.g - 30)); darkTip.b = static_cast<std::uint8_t>(std::max(0, (int)darkTip.b - 30));
+            leafArray[i*6+0] = sf::Vertex{top, l.color}; leafArray[i*6+1] = sf::Vertex{left, l.color}; leafArray[i*6+2] = sf::Vertex{right, l.color}; leafArray[i*6+3] = sf::Vertex{bottom, darkTip}; leafArray[i*6+4] = sf::Vertex{right, l.color}; leafArray[i*6+5] = sf::Vertex{left, l.color}; }
+        win.draw(leafArray); }
+    void drawBird(sf::RenderTarget& win, const Bird& b, float camX, float parallax) { float drawX = b.pos.x + camX * (1.0f - parallax); if (drawX < camX - 800.f || drawX > camX + 1280.f) return; float wingY = std::sin(m_time * b.flapSpeed + b.phase) * 10.0f; sf::VertexArray v(sf::PrimitiveType::LineStrip, 3); sf::Color bCol = m_theme.isNight ? sf::Color{50, 50, 50} : sf::Color::Black; v[0] = sf::Vertex{sf::Vector2f{drawX - 10.f, b.pos.y + wingY}, bCol}; v[1] = sf::Vertex{sf::Vector2f{drawX, b.pos.y}, bCol}; v[2] = sf::Vertex{sf::Vector2f{drawX + 15.f, b.pos.y + wingY}, bCol}; win.draw(v); }
 };
