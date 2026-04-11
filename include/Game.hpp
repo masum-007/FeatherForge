@@ -50,6 +50,8 @@ private:
     float m_shakeTimer = 0.0f;
     float m_shakeMagnitude = 0.0f;
     float m_hitStopTimer = 0.0f;
+    // --- NEW: Permanent Environmental Decals ---
+    std::vector<sf::CircleShape> m_scorchMarks;
 
     void TriggerShake(float duration, float magnitude);
     void TriggerHitStop(float duration);

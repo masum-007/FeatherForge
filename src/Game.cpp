@@ -159,7 +159,17 @@ void Game::Update() {
         m_shakeTimer -= (1.0f / 60.0f);
     }
 
-    m_environment.update(1.0f / 60.0f);
+    // --- NEW: Get bird velocity to create the interactive grass wake ---
+    sf::Vector2f pPos{-9999.f, -9999.f};
+    sf::Vector2f pVel{0.f, 0.f};
+    if (bird && birdIsActive) {
+        pPos = {bird->GetBody()->GetPosition().x * SCALE, bird->GetBody()->GetPosition().y * SCALE};
+        pVel = {bird->GetBody()->GetLinearVelocity().x * SCALE, bird->GetBody()->GetLinearVelocity().y * SCALE};
+    }
+    
+    // Pass the bird coordinates into the environment!
+    m_environment.update(1.0f / 60.0f, pPos, pVel);
+
     if (m_currentState != GameState::Playing) return;
 
     physics.Update(1.0f / 60.0f);
@@ -190,6 +200,21 @@ void Game::Update() {
 
             if (m_currentBirdType == BirdType::Fire) {
                 m_particles.emitWood(pxPos); 
+                
+                // --- REFINED: Small, soft, realistic soot stain ---
+                sf::CircleShape scorch(12.f); // Much smaller radius
+                scorch.setOrigin({12.f, 12.f});
+                scorch.setFillColor(sf::Color(25, 20, 20, 160)); // Soft, semi-transparent ash
+                
+                if (pxPos.y > 640.f) { 
+                    // Flatten it into an oval on the ground
+                    scorch.setScale({3.0f, 0.35f});
+                    scorch.setPosition({pxPos.x, 695.f}); 
+                } else {
+                    scorch.setPosition(pxPos); // Mid-air explosion
+                }
+                m_scorchMarks.push_back(scorch);
+
                 for (auto& block : blocks) {
                     if ((bPos - block->GetBody()->GetPosition()).Length() < 3.5f) {
                         m_burningBodies[block->GetBody()] = 0.0f; 
@@ -247,6 +272,16 @@ void Game::Update() {
                 float yPos = e->GetBody()->GetPosition().y * SCALE;
                 if (e->IsDestroyed() || yPos > 800.f) {
                     sf::Vector2f deathPos{e->GetBody()->GetPosition().x * SCALE, std::min(yPos, 700.f)};
+
+                    // --- REFINED: Small ash pile from burning wood ---
+                    if (m_burningBodies.count(e->GetBody())) {
+                        sf::CircleShape scorch(10.f);
+                        scorch.setOrigin({10.f, 10.f});
+                        scorch.setFillColor(sf::Color(20, 15, 15, 140)); 
+                        scorch.setScale({2.5f, 0.3f});
+                        scorch.setPosition({deathPos.x, 695.f});
+                        m_scorchMarks.push_back(scorch);
+                    }
                     
                     if (e->GetType() == EntityType::WOOD) m_particles.emitWood(deathPos);
                     else if (e->GetType() == EntityType::ICE) {
@@ -291,6 +326,8 @@ void Game::ResetLevel(int level) {
     bird.reset();
     m_burningBodies.clear();
     m_frozenBodies.clear();
+// --- ADD THIS LINE TO CLEAR SCORCH MARKS ---
+    m_scorchMarks.clear();
 
     m_currentLevel = level;
     score = 0;
@@ -500,6 +537,9 @@ void Game::Render() {
         m_environment.render(m_renderTexture, currentCamX);
         DrawSlingshot();
         ground->Render(m_renderTexture);
+        // --- NEW: Draw permanent scorch marks on top of ground, behind crates ---
+        for (auto& scorch : m_scorchMarks) m_renderTexture.draw(scorch);
+
         for (auto& block : blocks) block->Render(m_renderTexture);
         if (isDragging) DrawTrajectory();
         if (bird) bird->Render(m_renderTexture);

@@ -36,4 +36,6 @@ private:
     float health;    
     bool isDestroyed;
     float outgoingDamageMultiplier = 1.0f; // NEW
+    // --- NEW: For Soft-Body Physics ---
+    sf::Vector2f baseScale;
 };

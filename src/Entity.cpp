@@ -35,9 +35,11 @@ Entity::Entity(b2World& world, float x, float y, float w, float h, EntityType ty
 
     body->CreateFixture(&fixtureDef);
 
+    // Inside the Entity::Entity constructor, replace your texture logic with this:
     if (texture) {
         sprite.setTexture(*texture);
-        sprite.setScale({w / texture->getSize().x, h / texture->getSize().y});
+        baseScale = {w / texture->getSize().x, h / texture->getSize().y}; // Save it!
+        sprite.setScale(baseScale);
         sprite.setOrigin({texture->getSize().x / 2.0f, texture->getSize().y / 2.0f});
     }
 
@@ -61,14 +63,41 @@ void Entity::SwapTexture(sf::Texture* newTexture) {
     if (newTexture && newTexture->getSize().x > 0) sprite.setTexture(*newTexture);
 }
 
-// Change the function signature in Entity.cpp:
 void Entity::Render(sf::RenderTarget& window) {
     if (isDestroyed) return;
     b2Vec2 position = body->GetPosition();
     float angle = body->GetAngle();
 
     sprite.setPosition({position.x * SCALE, position.y * SCALE});
-    sprite.setRotation(angle * 180.0f / 3.14159f);
+
+    // --- NEW: Soft-Body Squash and Stretch for Birds ---
+    if (type == EntityType::BIRD && body->IsAwake()) {
+        b2Vec2 vel = body->GetLinearVelocity();
+        float speed = vel.Length();
+        
+        if (speed > 2.0f) {
+            // Stretch along the velocity axis, squash perpendicular to it
+            float stretch = 1.0f + (speed * 0.015f);
+            float squash = 1.0f / stretch;
+            
+            // Clamp so it doesn't turn into a spaghetti noodle
+            stretch = std::min(stretch, 1.5f);
+            squash = std::max(squash, 0.5f);
+
+            // Rotate the bird to literally face its movement trajectory
+            float moveAngle = std::atan2(vel.y, vel.x);
+            sprite.setRotation(moveAngle * 180.0f / 3.14159f);
+            sprite.setScale({baseScale.x * stretch, baseScale.y * squash});
+        } else {
+            // Idle/Slow: Return to normal size and Box2D rotation
+            sprite.setRotation(angle * 180.0f / 3.14159f);
+            sprite.setScale(baseScale);
+        }
+    } else {
+        // Wood, Ice, Enemies, Ground
+        sprite.setRotation(angle * 180.0f / 3.14159f);
+        sprite.setScale(baseScale);
+    }
 
     window.draw(sprite);
 }
