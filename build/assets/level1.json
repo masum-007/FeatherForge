@@ -1,9 +1,14 @@
 {
-    "level_id": 1,
-    "entities": [
-        {"type": "wood", "x": 900, "y": 650, "width": 50, "height": 50},
-        {"type": "wood", "x": 1000, "y": 650, "width": 50, "height": 50},
-        {"type": "wood", "x": 950, "y": 550, "width": 150, "height": 20},
-        {"type": "enemy", "x": 950, "y": 650, "width": 40, "height": 40}
-    ]
+  "star2": 1200,
+  "star3": 1900,
+  "birds": ["normal", "normal", "normal"],
+  "entities": [
+    {"type": "wood", "x": 900, "y": 660, "width": 40, "height": 80},
+    {"type": "wood", "x": 1050, "y": 660, "width": 40, "height": 80},
+    {"type": "wood", "x": 975, "y": 600, "width": 240, "height": 40},
+    {"type": "wood", "x": 975, "y": 540, "width": 40, "height": 80},
+    {"type": "enemy", "x": 975, "y": 660, "width": 50, "height": 50},
+    {"type": "enemy", "x": 900, "y": 560, "width": 40, "height": 40},
+    {"type": "enemy", "x": 1050, "y": 560, "width": 40, "height": 40}
+  ]
 }

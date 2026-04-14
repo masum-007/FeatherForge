@@ -149,8 +149,16 @@ FeatherForge.exe: CMakeFiles/FeatherForge.dir/build.make
 FeatherForge.exe: _deps/sfml-build/lib/libsfml-graphics-s-d.a
 FeatherForge.exe: _deps/sfml-build/lib/libsfml-window-s-d.a
 FeatherForge.exe: _deps/sfml-build/lib/libsfml-system-s-d.a
+FeatherForge.exe: _deps/sfml-build/lib/libsfml-audio-s-d.a
 FeatherForge.exe: _deps/box2d-build/bin/libbox2d.a
 FeatherForge.exe: _deps/sfml-src/extlibs/libs-mingw/x64/libfreetype.a
+FeatherForge.exe: _deps/sfml-build/lib/libsfml-system-s-d.a
+FeatherForge.exe: C:/msys64/mingw64/lib/libopenal.dll.a
+FeatherForge.exe: _deps/sfml-src/extlibs/libs-mingw/x64/libvorbisenc.a
+FeatherForge.exe: _deps/sfml-src/extlibs/libs-mingw/x64/libvorbisfile.a
+FeatherForge.exe: _deps/sfml-src/extlibs/libs-mingw/x64/libvorbis.a
+FeatherForge.exe: _deps/sfml-src/extlibs/libs-mingw/x64/libogg.a
+FeatherForge.exe: _deps/sfml-src/extlibs/libs-mingw/x64/libFLAC.a
 FeatherForge.exe: CMakeFiles/FeatherForge.dir/linkLibs.rsp
 FeatherForge.exe: CMakeFiles/FeatherForge.dir/objects1.rsp
 FeatherForge.exe: CMakeFiles/FeatherForge.dir/link.txt

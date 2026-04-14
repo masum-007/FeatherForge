@@ -425,4 +425,21 @@ CMakeFiles/FeatherForge.dir/src/main.cpp.obj: \
  C:/msys64/mingw64/include/c++/15.2.0/any \
  C:/Users/masum/Desktop/FeatherForge/build/_deps/json-src/include/nlohmann/detail/macro_unscope.hpp \
  C:/Users/masum/Desktop/FeatherForge/build/_deps/json-src/include/nlohmann/thirdparty/hedley/hedley_undef.hpp \
- C:/Users/masum/Desktop/FeatherForge/include/CustomGraphics.hpp
+ C:/Users/masum/Desktop/FeatherForge/include/CustomGraphics.hpp \
+ C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-src/include/SFML/Audio.hpp \
+ C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-src/include/SFML/Audio/InputSoundFile.hpp \
+ C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-src/include/SFML/Audio/Export.hpp \
+ C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-src/include/SFML/Audio/Listener.hpp \
+ C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-src/include/SFML/Audio/Music.hpp \
+ C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-src/include/SFML/Audio/SoundStream.hpp \
+ C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-src/include/SFML/Audio/SoundSource.hpp \
+ C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-src/include/SFML/Audio/AlResource.hpp \
+ C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-src/include/SFML/Audio/OutputSoundFile.hpp \
+ C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-src/include/SFML/Audio/Sound.hpp \
+ C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-src/include/SFML/Audio/SoundBuffer.hpp \
+ C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-src/include/SFML/Audio/SoundBufferRecorder.hpp \
+ C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-src/include/SFML/Audio/SoundRecorder.hpp \
+ C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-src/include/SFML/Audio/SoundFileFactory.hpp \
+ C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-src/include/SFML/Audio/SoundFileFactory.inl \
+ C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-src/include/SFML/Audio/SoundFileReader.hpp \
+ C:/Users/masum/Desktop/FeatherForge/build/_deps/sfml-src/include/SFML/Audio/SoundFileWriter.hpp

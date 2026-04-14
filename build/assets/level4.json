@@ -1,20 +1,18 @@
 {
-  "birds": ["normal", "fire", "sloth", "freeze"],
+  "star2": 3200,
+  "star3": 4000,
+  "birds": ["freeze", "fire", "normal","water","normal"],
   "entities": [
-    {"type": "wood", "x": 800, "y": 660, "width": 40, "height": 40},
-    {"type": "ice", "x": 840, "y": 660, "width": 40, "height": 40},
-    {"type": "wood", "x": 880, "y": 660, "width": 40, "height": 40},
-    {"type": "ice", "x": 920, "y": 660, "width": 40, "height": 40},
-    {"type": "wood", "x": 960, "y": 660, "width": 40, "height": 40},
-    
-    {"type": "wood", "x": 820, "y": 620, "width": 40, "height": 40},
-    {"type": "enemy", "x": 880, "y": 620, "width": 40, "height": 40},
-    {"type": "wood", "x": 940, "y": 620, "width": 40, "height": 40},
-
-    {"type": "ice", "x": 840, "y": 580, "width": 40, "height": 40},
-    {"type": "wood", "x": 880, "y": 580, "width": 40, "height": 40},
-    {"type": "ice", "x": 920, "y": 580, "width": 40, "height": 40},
-
-    {"type": "enemy", "x": 880, "y": 540, "width": 40, "height": 40}
+    {"type": "wood", "x": 850, "y": 660, "width": 40, "height": 80},
+    {"type": "wood", "x": 850, "y": 580, "width": 40, "height": 80},
+    {"type": "ice", "x": 1000, "y": 660, "width": 40, "height": 80},
+    {"type": "ice", "x": 1100, "y": 660, "width": 40, "height": 80},
+    {"type": "wood", "x": 1050, "y": 600, "width": 160, "height": 40},
+    {"type": "wood", "x": 1000, "y": 540, "width": 40, "height": 80},
+    {"type": "wood", "x": 1100, "y": 540, "width": 40, "height": 80},
+    {"type": "enemy", "x": 925, "y": 660, "width": 50, "height": 50},
+    {"type": "enemy", "x": 1050, "y": 660, "width": 50, "height": 50},
+    {"type": "enemy", "x": 1050, "y": 560, "width": 40, "height": 40},
+    {"type": "enemy", "x": 1050, "y": 480, "width": 40, "height": 40}
   ]
 }

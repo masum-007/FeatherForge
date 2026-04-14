@@ -1,20 +1,24 @@
 {
-  "birds": ["sloth", "fire", "freeze", "water", "normal", "fire"],
+  "star2": 4200,
+  "star3": 5500,
+  "birds": ["fire", "fire", "sloth","water","normal"],
   "entities": [
-    {"type": "wood", "x": 750, "y": 660, "width": 40, "height": 80},
-    {"type": "ice", "x": 800, "y": 660, "width": 40, "height": 80},
-    {"type": "enemy", "x": 850, "y": 660, "width": 40, "height": 40},
     {"type": "wood", "x": 900, "y": 660, "width": 40, "height": 80},
-    {"type": "ice", "x": 950, "y": 660, "width": 40, "height": 80},
+    {"type": "wood", "x": 1000, "y": 660, "width": 40, "height": 80},
+    {"type": "wood", "x": 950, "y": 600, "width": 160, "height": 40},
+    {"type": "wood", "x": 900, "y": 540, "width": 40, "height": 80},
+    {"type": "wood", "x": 1000, "y": 540, "width": 40, "height": 80},
+    {"type": "enemy", "x": 950, "y": 660, "width": 50, "height": 50},
+    {"type": "enemy", "x": 950, "y": 560, "width": 40, "height": 40},
 
-    {"type": "wood", "x": 850, "y": 580, "width": 240, "height": 20},
+    {"type": "wood", "x": 1200, "y": 660, "width": 40, "height": 80},
+    {"type": "wood", "x": 1300, "y": 660, "width": 40, "height": 80},
+    {"type": "wood", "x": 1250, "y": 600, "width": 160, "height": 40},
+    {"type": "wood", "x": 1200, "y": 540, "width": 40, "height": 80},
+    {"type": "wood", "x": 1300, "y": 540, "width": 40, "height": 80},
+    {"type": "enemy", "x": 1250, "y": 660, "width": 50, "height": 50},
+    {"type": "enemy", "x": 1250, "y": 560, "width": 40, "height": 40},
     
-    {"type": "enemy", "x": 780, "y": 540, "width": 40, "height": 40},
-    {"type": "enemy", "x": 850, "y": 540, "width": 40, "height": 40},
-    {"type": "enemy", "x": 920, "y": 540, "width": 40, "height": 40},
-
-    {"type": "ice", "x": 850, "y": 500, "width": 180, "height": 20},
-    {"type": "wood", "x": 850, "y": 460, "width": 40, "height": 40},
-    {"type": "enemy", "x": 850, "y": 420, "width": 40, "height": 40}
+    {"type": "enemy", "x": 1100, "y": 660, "width": 50, "height": 50}
   ]
 }

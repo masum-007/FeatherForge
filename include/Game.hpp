@@ -11,9 +11,11 @@
 #include "EnvironmentSystem.hpp"
 #include <nlohmann/json.hpp>
 #include "CustomGraphics.hpp"
+#include <SFML/Audio.hpp>
+
 
 // 1. Add 'Options' to the GameState enum
-enum class GameState { Menu, LevelSelect, Options, Playing, LevelComplete, GameOver };
+enum class GameState { Menu, LevelSelect, Options, Playing, Paused, LevelComplete, GameOver };
 // --- ALL BIRD ABILITIES ---
 enum class BirdType { Normal, Fire, Sloth, Freeze, Water };
 
@@ -40,6 +42,26 @@ private:
     void DrawLevelComplete();
     void DrawGameOver();
 
+// ... inside private variables ...
+    bool m_musicEnabled = true;
+    bool m_sfxEnabled = true;
+
+    // --- NEW: Audio System ---
+    sf::Music m_bgMusic;
+    
+    // Sound Buffers (The audio files stored in RAM)
+    sf::SoundBuffer m_sbPull;
+    sf::SoundBuffer m_sbRelease;
+    sf::SoundBuffer m_sbWood;
+    sf::SoundBuffer m_sbIce;
+    sf::SoundBuffer m_sbExplode;
+
+    // Sound Pool (The "speakers" that play the audio)
+    std::vector<sf::Sound> m_soundPool;
+    
+    // Helper function to play overlapping sounds
+    void PlaySFX(const sf::SoundBuffer& buffer, float volume = 100.f, float pitch = 1.0f);
+    void UpdateThemeMusic();
 
     // --- NEW: Post-Processing & Rendering ---
     sf::RenderTexture m_renderTexture;
@@ -88,6 +110,9 @@ private:
 
     GameState m_currentState = GameState::Menu;
     int m_currentLevel = 1;
+    // --- NEW: Dynamic Star Scores ---
+    int m_targetScore2Star = 1500;
+    int m_targetScore3Star = 3000;
     // Change this line in your private variables:
     const int MAX_LEVELS = 10;
     float m_levelTransitionTimer = 0.0f; 
@@ -105,10 +130,15 @@ private:
     // --- NEW: Cinematic Camera Variables ---
     sf::Vector2f m_cameraPos;
     float m_cameraZoom = 1.0f;
-    // --- NEW: Audio Toggle Variables ---
-    bool m_musicEnabled = true;
-    bool m_sfxEnabled = true;
 
+    sf::SoundBuffer m_sbThud;
+    sf::SoundBuffer m_sbBirdPoof;
+    sf::SoundBuffer m_sbEnemyKill;
+    // --- NEW: Track where we came from when opening Options ---
+    GameState m_previousState = GameState::Menu;
+    // --- NEW: Pause Menu Draw Function ---
+    void DrawPauseMenu();
+    
     // --- NEW: Options Draw Function ---
     void DrawOptions();
 };

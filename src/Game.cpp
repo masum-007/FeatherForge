@@ -42,8 +42,21 @@ void Game::LoadAssets() {
     iceTex.loadFromFile("assets/ice.png"); 
     groundTex.loadFromFile("assets/ground.png");
     enemyTex.loadFromFile("assets/enemy.png");
-    // --- ADD THIS LINE ---
+    
     groundTex.setRepeated(true);
+
+    // --- NEW: Load Audio ---
+    m_sbPull.loadFromFile("assets/audio/pull.wav");
+    m_sbRelease.loadFromFile("assets/audio/release.wav");
+    m_sbWood.loadFromFile("assets/audio/wood_snap.wav");
+    m_sbIce.loadFromFile("assets/audio/ice_shatter.wav");
+    m_sbExplode.loadFromFile("assets/audio/explosion.wav");
+    m_sbThud.loadFromFile("assets/audio/thud.wav");
+    m_sbBirdPoof.loadFromFile("assets/audio/poof.wav");
+    m_sbEnemyKill.loadFromFile("assets/audio/enemy_kill.wav");
+    
+    // Create 16 independent speakers for overlapping SFX
+    m_soundPool.resize(16);
     
     font.loadFromFile("assets/arial.ttf");
     scoreText.setFont(font);
@@ -87,6 +100,10 @@ void Game::LoadLevel(const std::string& filepath) {
         m_birdQueue.push_back(BirdType::Normal);
     }
     birdsRemaining = m_birdQueue.size();
+
+    // --- NEW: Read Target Scores (with fallbacks if they are missing) ---
+    m_targetScore2Star = levelData.value("star2", 1500); 
+    m_targetScore3Star = levelData.value("star3", 3000);
 
     for (const auto& item : levelData["entities"]) {
         std::string typeStr = item["type"];
@@ -145,6 +162,9 @@ void Game::CheckBirdState() {
     if (offScreen || stopped || timeOut) {
         sf::Vector2f deathPos{pos.x * SCALE, pos.y * SCALE};
         m_particles.emitFeathers(deathPos);
+
+        // --- NEW: Play the disappearing Poof! (Slightly randomized pitch) ---
+        PlaySFX(m_sbBirdPoof, 100.f, 0.9f + (rand() % 20) / 100.f);
 
         bird.reset(); // Safe Box2D cleanup
         birdIsActive = false;
@@ -225,8 +245,12 @@ void Game::Update() {
             m_birdAbilityUsed = true;
             sf::Vector2f pxPos{bPos.x * SCALE, bPos.y * SCALE};
 
+            // --- NEW: Play a satisfying 'Thud' on every impact! ---
+            PlaySFX(m_sbThud, 90.f, 0.9f + (rand() % 20) / 100.f);
+            
             if (m_currentBirdType == BirdType::Fire) {
                 m_particles.emitWood(pxPos); 
+                PlaySFX(m_sbExplode, 100.f, 0.8f); // BOOM! Deep pitch for heavy explosion
                 
                 // --- REFINED: Small, soft, realistic soot stain ---
                 sf::CircleShape scorch(12.f); // Much smaller radius
@@ -250,6 +274,7 @@ void Game::Update() {
                 }
             } else if (m_currentBirdType == BirdType::Freeze) {
                 m_particles.emitIce(pxPos); 
+                PlaySFX(m_sbIce, 100.f, 1.2f); // Sharp, high-pitch shatter for the freeze spell
                 for (auto& block : blocks) {
                     if ((bPos - block->GetBody()->GetPosition()).Length() < 4.0f) {
                         m_frozenBodies.insert(block->GetBody()); 
@@ -292,53 +317,72 @@ void Game::Update() {
             block->isCracked = true; 
         }
     }
+
     // Update the cleanup loop to trigger the juicy effects!
     blocks.erase(
-    std::remove_if(blocks.begin(), blocks.end(),
-        [this](const std::unique_ptr<Entity>& e) { 
-            // 1. Grab the X position
-            float xPos = e->GetBody()->GetPosition().x * SCALE;
-            float yPos = e->GetBody()->GetPosition().y * SCALE;
-            
-            // 2. Add the X bounds to the kill condition
-            if (e->IsDestroyed() || yPos > 800.f || xPos < -200.f || xPos > 1500.f) {
+        std::remove_if(blocks.begin(), blocks.end(),
+            [this](const std::unique_ptr<Entity>& e) { 
+                // 1. Grab the X position
+                float xPos = e->GetBody()->GetPosition().x * SCALE;
+                float yPos = e->GetBody()->GetPosition().y * SCALE;
                 
-                // 3. Make sure deathPos uses the new xPos so particles spawn exactly where it fell off
-                sf::Vector2f deathPos{xPos, std::min(yPos, 700.f)};
+                // 2. Add the X bounds to the kill condition
+                if (e->IsDestroyed() || yPos > 800.f || xPos < -200.f || xPos > 1500.f) {
+                    
+                    // Make sure deathPos uses the new xPos so particles spawn exactly where it fell off
+                    sf::Vector2f deathPos{xPos, std::min(yPos, 700.f)};
+                    
+                    // Randomize pitch slightly so multiple blocks breaking sounds organic!
+                    float randomPitch = 0.85f + (rand() % 30) / 100.f; 
 
-                // --- REFINED: Small ash pile from burning wood ---
-                if (m_burningBodies.count(e->GetBody())) {
-                    sf::CircleShape scorch(10.f);
-                    scorch.setOrigin({10.f, 10.f});
-                    scorch.setFillColor(sf::Color(20, 15, 15, 140)); 
-                    scorch.setScale({2.5f, 0.3f});
-                    scorch.setPosition({deathPos.x, 695.f});
-                    m_scorchMarks.push_back(scorch);
-                }
-                
-                if (e->GetType() == EntityType::WOOD) m_particles.emitWood(deathPos);
-                else if (e->GetType() == EntityType::ICE) {
-                    m_particles.emitIce(deathPos);
-                    TriggerHitStop(0.04f); // Tiny freeze for glass shattering
-                }
-                else if (e->GetType() == EntityType::BIRD) m_particles.emitFeathers(deathPos);
-                else m_particles.emitDust(deathPos); 
+                    // --- CONTEXT-AWARE SOUNDS & SCORCH MARKS ---
+                    if (m_burningBodies.count(e->GetBody())) {
+                        PlaySFX(m_sbExplode, 80.f, 1.3f + (rand() % 20) / 100.f); // Pop/Explosion for fire
+                        
+                        sf::CircleShape scorch(10.f);
+                        scorch.setOrigin({10.f, 10.f});
+                        scorch.setFillColor(sf::Color(20, 15, 15, 140)); 
+                        scorch.setScale({2.5f, 0.3f});
+                        scorch.setPosition({deathPos.x, 695.f});
+                        m_scorchMarks.push_back(scorch);
+                    }
+                    else if (e->GetType() == EntityType::ICE) {
+                        PlaySFX(m_sbIce, 100.f, randomPitch); // Ice Shatter Sound
+                        TriggerHitStop(0.04f); // Tiny freeze for glass shattering
+                    }
+                    else if (e->GetType() == EntityType::WOOD) {
+                        PlaySFX(m_sbWood, 100.f, randomPitch); // Wood Crunch Sound
+                    }
 
-                if (e->GetType() == EntityType::ENEMY) {
-                    score += 500;
-                    TriggerHitStop(0.1f); // Massive pause for killing an enemy
-                    TriggerShake(0.25f, 15.0f); // Screen shake!
-                }
-                else score += 100;
+                    // --- VISUAL PARTICLES ---
+                    if (e->GetType() == EntityType::WOOD) m_particles.emitWood(deathPos);
+                    else if (e->GetType() == EntityType::ICE) m_particles.emitIce(deathPos);
+                    else if (e->GetType() == EntityType::BIRD) m_particles.emitFeathers(deathPos);
+                    else m_particles.emitDust(deathPos); 
 
-                m_burningBodies.erase(e->GetBody());
-                m_frozenBodies.erase(e->GetBody());
-                return true; 
-            }
-            return false;
-        }),
-    blocks.end()
-);
+                    // --- SCORING & ENEMY EFFECTS ---
+                    if (e->GetType() == EntityType::ENEMY) {
+                        // --- NEW: Satisfying Enemy Defeat Sound! ---
+                        PlaySFX(m_sbEnemyKill, 100.f, randomPitch);
+                        score += 500;
+                        TriggerHitStop(0.1f); // Massive pause for killing an enemy
+                        TriggerShake(0.25f, 15.0f); // Screen shake!
+                    }
+                    else {
+                        score += 100;
+                    }
+
+                    // --- CLEANUP ---
+                    m_burningBodies.erase(e->GetBody());
+                    m_frozenBodies.erase(e->GetBody());
+                    
+                    return true; // ALL LOGIC DONE -> Now delete the entity!
+                }
+                return false;
+            }),
+        blocks.end()
+    );
+
     m_particles.update(1.0f / 60.0f);
     bool enemiesAlive = false;
     for (auto& b : blocks) if (b->GetType() == EntityType::ENEMY) { enemiesAlive = true; break; }
@@ -376,6 +420,7 @@ void Game::ResetLevel(int level) {
     SpawnBird();
     
     m_currentState = GameState::Playing;
+    UpdateThemeMusic(); // Start the correct background track
 }
 
 void Game::DrawSlingshot() {
@@ -483,10 +528,15 @@ void Game::ProcessEvents() {
                 if (mousePosUI.x >= 540 && mousePosUI.x <= 740 && mousePosUI.y >= 480 && mousePosUI.y <= 540) window.close();
             } 
             else if (m_currentState == GameState::Options) {
-                // Music Toggle (490 to 790 width, 250 to 310 height)
-                if (mousePosUI.x >= 490 && mousePosUI.x <= 790 && mousePosUI.y >= 250 && mousePosUI.y <= 310) m_musicEnabled = !m_musicEnabled;
+                // Music Toggle
+                if (mousePosUI.x >= 490 && mousePosUI.x <= 790 && mousePosUI.y >= 250 && mousePosUI.y <= 310) {
+                    m_musicEnabled = !m_musicEnabled;
+                    UpdateThemeMusic(); // Instantly apply change
+                }
                 // SFX Toggle
-                if (mousePosUI.x >= 490 && mousePosUI.x <= 790 && mousePosUI.y >= 340 && mousePosUI.y <= 400) m_sfxEnabled = !m_sfxEnabled;
+                if (mousePosUI.x >= 490 && mousePosUI.x <= 790 && mousePosUI.y >= 340 && mousePosUI.y <= 400) {
+                    m_sfxEnabled = !m_sfxEnabled;
+                }
                 // Back Button
                 if (mousePosUI.x >= 540 && mousePosUI.x <= 740 && mousePosUI.y >= 480 && mousePosUI.y <= 540) m_currentState = GameState::Menu;
             }
@@ -503,11 +553,15 @@ void Game::ProcessEvents() {
                 }
             }
             else if (m_currentState == GameState::LevelComplete) {
-                if (mousePosUI.x >= 540 && mousePosUI.x <= 740 && mousePosUI.y >= 360 && mousePosUI.y <= 420) {
+                // NEXT LEVEL Button (Moved down to Y: 410 -> 470 to fit stars)
+                if (mousePosUI.x >= 540 && mousePosUI.x <= 740 && mousePosUI.y >= 410 && mousePosUI.y <= 470) {
                     if (m_currentLevel < MAX_LEVELS) ResetLevel(m_currentLevel + 1);
                     else m_currentState = GameState::Menu; 
                 }
-                if (mousePosUI.x >= 540 && mousePosUI.x <= 740 && mousePosUI.y >= 450 && mousePosUI.y <= 510) m_currentState = GameState::Menu;
+                // MAIN MENU Button (Moved down to Y: 500 -> 560)
+                if (mousePosUI.x >= 540 && mousePosUI.x <= 740 && mousePosUI.y >= 500 && mousePosUI.y <= 560) {
+                    m_currentState = GameState::Menu;
+                }
             }
             else if (m_currentState == GameState::GameOver) {
                 if (mousePosUI.x >= 540 && mousePosUI.x <= 740 && mousePosUI.y >= 360 && mousePosUI.y <= 420) ResetLevel(m_currentLevel);
@@ -520,6 +574,10 @@ void Game::ProcessEvents() {
                     sf::Vector2f birdPos{b2Pos.x * SCALE, b2Pos.y * SCALE};
 
                     if (std::abs(mouseWorld.x - birdPos.x) < 50.f && std::abs(mouseWorld.y - birdPos.y) < 50.f) isDragging = true;
+                    if (std::abs(mouseWorld.x - birdPos.x) < 50.f && std::abs(mouseWorld.y - birdPos.y) < 50.f) {
+                        isDragging = true;
+                        PlaySFX(m_sbPull, 80.f, 1.0f); // PLAY PULL SOUND
+                    }
                 }
             }
         }
@@ -529,6 +587,8 @@ void Game::ProcessEvents() {
                 isDragging = false;
                 birdIsActive = true;
                 birdsRemaining--;
+
+                PlaySFX(m_sbRelease, 100.f, 1.0f + (rand() % 20 - 10) * 0.01f); // PLAY RELEASE SOUND (slight random pitch)
 
                 bird->GetBody()->SetType(b2_dynamicBody);
                 bird->GetBody()->SetAwake(true);
@@ -708,7 +768,7 @@ void Game::DrawOptions() {
     panel.setPosition({390.f, 180.f});
     window.draw(panel);
 
-    sf::Text title("OPTIONS", font, 40);
+    sf::Text title("", font, 40);
     title.setFillColor(sf::Color::White);
     title.setPosition({540.f, 150.f});
     window.draw(title);
@@ -769,19 +829,49 @@ void Game::DrawLevelComplete() {
     title.setFillColor(sf::Color(255, 230, 100));
     sf::FloatRect b = title.getLocalBounds();
     title.setOrigin({b.left + b.width/2.f, b.top + b.height/2.f});
-    title.setPosition({640.f, 200.f});
+    title.setPosition({640.f, 130.f});
     window.draw(title);
 
+    // --- UPDATED: Calculate Stars Based on JSON Targets ---
+    int starsEarned = 1; 
+    if (score >= m_targetScore2Star) starsEarned = 2; 
+    if (score >= m_targetScore3Star) starsEarned = 3;
+
+    // --- NEW: Procedural Star Drawing Lambda ---
+    auto drawStar = [](sf::RenderWindow& win, float x, float y, float radius, bool earned) {
+        sf::ConvexShape star(10);
+        for (int i = 0; i < 10; ++i) {
+            // Math to calculate the 5 points and 5 inner dips of a perfect star
+            float angle = i * 36.0f * 3.14159f / 180.0f - (3.14159f / 2.0f);
+            float r = (i % 2 == 0) ? radius : radius / 2.5f;
+            star.setPoint(i, sf::Vector2f(std::cos(angle) * r, std::sin(angle) * r));
+        }
+        star.setPosition({x, y});
+        
+        // Glowing Gold if earned, Dark Glass if not earned
+        star.setFillColor(earned ? sf::Color(255, 215, 0) : sf::Color(30, 40, 60, 180));
+        star.setOutlineThickness(3.f);
+        star.setOutlineColor(earned ? sf::Color(255, 255, 200) : sf::Color(100, 120, 150, 100));
+        win.draw(star);
+    };
+
+    // Draw the 3 Stars (Middle one is slightly higher and larger)
+    drawStar(window, 540.f, 250.f, 40.f, starsEarned >= 1);
+    drawStar(window, 640.f, 230.f, 50.f, starsEarned >= 2);
+    drawStar(window, 740.f, 250.f, 40.f, starsEarned >= 3);
+
+    // Score Display
     sf::Text scoreDisplay("FINAL SCORE: " + std::to_string(score), font, 36);
     scoreDisplay.setFillColor(sf::Color::White);
     b = scoreDisplay.getLocalBounds();
     scoreDisplay.setOrigin({b.left + b.width/2.f, b.top + b.height/2.f});
-    scoreDisplay.setPosition({640.f, 280.f});
+    scoreDisplay.setPosition({640.f, 330.f});
     window.draw(scoreDisplay);
 
+    // Buttons
     std::string nextText = (m_currentLevel < MAX_LEVELS) ? "NEXT LEVEL" : "FINISH";
-    drawButton(window, font, nextText, 540.f, 360.f, 200.f, 60.f);
-    drawButton(window, font, "MAIN MENU", 540.f, 450.f, 200.f, 60.f);
+    drawButton(window, font, nextText, 540.f, 410.f, 200.f, 60.f);
+    drawButton(window, font, "MAIN MENU", 540.f, 500.f, 200.f, 60.f);
 }
 
 void Game::DrawGameOver() {
@@ -798,6 +888,41 @@ void Game::DrawGameOver() {
 
     drawButton(window, font, "TRY AGAIN", 540.f, 360.f, 200.f, 60.f);
     drawButton(window, font, "MAIN MENU", 540.f, 450.f, 200.f, 60.f);
+}
+
+void Game::PlaySFX(const sf::SoundBuffer& buffer, float volume, float pitch) {
+    if (!m_sfxEnabled) return;
+    
+    for (auto& sound : m_soundPool) {
+        if (sound.getStatus() != sf::Sound::Playing) {
+            sound.setBuffer(buffer);
+            sound.setVolume(volume);
+            sound.setPitch(pitch);
+            sound.play();
+            return;
+        }
+    }
+}
+
+void Game::UpdateThemeMusic() {
+    if (!m_musicEnabled) {
+        m_bgMusic.pause();
+        return;
+    }
+    
+    // Switch music based on the level to match your beautiful environment themes!
+    if (m_bgMusic.getStatus() != sf::Music::Playing) {
+        std::string musicFile = "assets/audio/bgm_day.ogg"; // Default
+        
+        // Example: Levels 6-10 are night/storm themes
+        if (m_currentLevel >= 6) musicFile = "assets/audio/bgm_night.ogg"; 
+        
+        if (m_bgMusic.openFromFile(musicFile)) {
+            m_bgMusic.setLoop(true);
+            m_bgMusic.setVolume(40.f); // Keep music softer than SFX
+            m_bgMusic.play();
+        }
+    }
 }
 
 

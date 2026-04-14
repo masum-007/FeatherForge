@@ -462,6 +462,7 @@ _deps/sfml-build/src/SFML/Window/clean: _deps/sfml-build/src/SFML/Window/CMakeFi
 CMakeFiles/FeatherForge.dir/all: _deps/sfml-build/src/SFML/System/CMakeFiles/sfml-system.dir/all
 CMakeFiles/FeatherForge.dir/all: _deps/sfml-build/src/SFML/Window/CMakeFiles/sfml-window.dir/all
 CMakeFiles/FeatherForge.dir/all: _deps/sfml-build/src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/all
+CMakeFiles/FeatherForge.dir/all: _deps/sfml-build/src/SFML/Audio/CMakeFiles/sfml-audio.dir/all
 CMakeFiles/FeatherForge.dir/all: _deps/box2d-build/src/CMakeFiles/box2d.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\FeatherForge.dir\build.make CMakeFiles/FeatherForge.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\FeatherForge.dir\build.make CMakeFiles/FeatherForge.dir/build
@@ -470,7 +471,7 @@ CMakeFiles/FeatherForge.dir/all: _deps/box2d-build/src/CMakeFiles/box2d.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/FeatherForge.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\masum\Desktop\FeatherForge\build\CMakeFiles 48
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\masum\Desktop\FeatherForge\build\CMakeFiles 57
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 CMakeFiles/FeatherForge.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\masum\Desktop\FeatherForge\build\CMakeFiles 0
 .PHONY : CMakeFiles/FeatherForge.dir/rule

@@ -401,6 +401,23 @@ CMakeFiles/FeatherForge.dir/src/Game.cpp.obj: C:/Users/masum/Desktop/FeatherForg
   _deps/json-src/include/nlohmann/ordered_map.hpp \
   _deps/json-src/include/nlohmann/thirdparty/hedley/hedley.hpp \
   _deps/json-src/include/nlohmann/thirdparty/hedley/hedley_undef.hpp \
+  _deps/sfml-src/include/SFML/Audio.hpp \
+  _deps/sfml-src/include/SFML/Audio/AlResource.hpp \
+  _deps/sfml-src/include/SFML/Audio/Export.hpp \
+  _deps/sfml-src/include/SFML/Audio/InputSoundFile.hpp \
+  _deps/sfml-src/include/SFML/Audio/Listener.hpp \
+  _deps/sfml-src/include/SFML/Audio/Music.hpp \
+  _deps/sfml-src/include/SFML/Audio/OutputSoundFile.hpp \
+  _deps/sfml-src/include/SFML/Audio/Sound.hpp \
+  _deps/sfml-src/include/SFML/Audio/SoundBuffer.hpp \
+  _deps/sfml-src/include/SFML/Audio/SoundBufferRecorder.hpp \
+  _deps/sfml-src/include/SFML/Audio/SoundFileFactory.hpp \
+  _deps/sfml-src/include/SFML/Audio/SoundFileFactory.inl \
+  _deps/sfml-src/include/SFML/Audio/SoundFileReader.hpp \
+  _deps/sfml-src/include/SFML/Audio/SoundFileWriter.hpp \
+  _deps/sfml-src/include/SFML/Audio/SoundRecorder.hpp \
+  _deps/sfml-src/include/SFML/Audio/SoundSource.hpp \
+  _deps/sfml-src/include/SFML/Audio/SoundStream.hpp \
   _deps/sfml-src/include/SFML/Config.hpp \
   _deps/sfml-src/include/SFML/Graphics.hpp \
   _deps/sfml-src/include/SFML/Graphics/BlendMode.hpp \
@@ -1154,6 +1171,23 @@ CMakeFiles/FeatherForge.dir/src/main.cpp.obj: C:/Users/masum/Desktop/FeatherForg
   _deps/json-src/include/nlohmann/ordered_map.hpp \
   _deps/json-src/include/nlohmann/thirdparty/hedley/hedley.hpp \
   _deps/json-src/include/nlohmann/thirdparty/hedley/hedley_undef.hpp \
+  _deps/sfml-src/include/SFML/Audio.hpp \
+  _deps/sfml-src/include/SFML/Audio/AlResource.hpp \
+  _deps/sfml-src/include/SFML/Audio/Export.hpp \
+  _deps/sfml-src/include/SFML/Audio/InputSoundFile.hpp \
+  _deps/sfml-src/include/SFML/Audio/Listener.hpp \
+  _deps/sfml-src/include/SFML/Audio/Music.hpp \
+  _deps/sfml-src/include/SFML/Audio/OutputSoundFile.hpp \
+  _deps/sfml-src/include/SFML/Audio/Sound.hpp \
+  _deps/sfml-src/include/SFML/Audio/SoundBuffer.hpp \
+  _deps/sfml-src/include/SFML/Audio/SoundBufferRecorder.hpp \
+  _deps/sfml-src/include/SFML/Audio/SoundFileFactory.hpp \
+  _deps/sfml-src/include/SFML/Audio/SoundFileFactory.inl \
+  _deps/sfml-src/include/SFML/Audio/SoundFileReader.hpp \
+  _deps/sfml-src/include/SFML/Audio/SoundFileWriter.hpp \
+  _deps/sfml-src/include/SFML/Audio/SoundRecorder.hpp \
+  _deps/sfml-src/include/SFML/Audio/SoundSource.hpp \
+  _deps/sfml-src/include/SFML/Audio/SoundStream.hpp \
   _deps/sfml-src/include/SFML/Config.hpp \
   _deps/sfml-src/include/SFML/Graphics.hpp \
   _deps/sfml-src/include/SFML/Graphics/BlendMode.hpp \
@@ -1531,8 +1565,6 @@ C:/msys64/mingw64/include/c++/15.2.0/bits/valarray_array.tcc:
 
 C:/msys64/mingw64/include/c++/15.2.0/bits/valarray_array.h:
 
-C:/msys64/mingw64/include/c++/15.2.0/bits/valarray_after.h:
-
 C:/msys64/mingw64/include/c++/15.2.0/bits/stl_set.h:
 
 C:/msys64/mingw64/include/c++/15.2.0/bits/stl_relops.h:
@@ -1542,8 +1574,6 @@ C:/msys64/mingw64/include/c++/15.2.0/bits/stl_numeric.h:
 C:/msys64/mingw64/include/c++/15.2.0/bits/stl_multiset.h:
 
 C:/msys64/mingw64/include/c++/15.2.0/bits/sstream.tcc:
-
-C:/msys64/mingw64/include/c++/15.2.0/bits/shared_ptr.h:
 
 C:/msys64/mingw64/include/c++/15.2.0/bits/quoted_string.h:
 
@@ -1555,11 +1585,7 @@ C:/msys64/mingw64/include/c++/15.2.0/bits/hashtable.h:
 
 C:/msys64/mingw64/include/c++/15.2.0/bits/gslice_array.h:
 
-C:/msys64/mingw64/include/c++/15.2.0/bits/fstream.tcc:
-
 C:/msys64/mingw64/include/c++/15.2.0/bits/fs_path.h:
-
-C:/msys64/mingw64/include/c++/15.2.0/bits/fs_ops.h:
 
 C:/msys64/mingw64/include/c++/15.2.0/bits/fs_dir.h:
 
@@ -1578,6 +1604,28 @@ C:/msys64/mingw64/include/c++/15.2.0/array:
 C:/Users/masum/Desktop/FeatherForge/include/PhysicsWorld.hpp:
 
 C:/Users/masum/Desktop/FeatherForge/include/ParticleSystem.hpp:
+
+C:/msys64/mingw64/include/c++/15.2.0/bits/shared_ptr.h:
+
+_deps/sfml-src/include/SFML/Audio/SoundSource.hpp:
+
+_deps/sfml-src/include/SFML/Audio/SoundBufferRecorder.hpp:
+
+C:/msys64/mingw64/include/c++/15.2.0/bits/valarray_after.h:
+
+_deps/sfml-src/include/SFML/Audio/OutputSoundFile.hpp:
+
+_deps/sfml-src/include/SFML/Audio/Listener.hpp:
+
+_deps/sfml-src/include/SFML/Audio/InputSoundFile.hpp:
+
+C:/msys64/mingw64/include/c++/15.2.0/bits/fs_ops.h:
+
+_deps/sfml-src/include/SFML/Audio/AlResource.hpp:
+
+C:/msys64/mingw64/include/c++/15.2.0/bits/fstream.tcc:
+
+_deps/sfml-src/include/SFML/Audio.hpp:
 
 _deps/json-src/include/nlohmann/ordered_map.hpp:
 
@@ -1605,9 +1653,13 @@ _deps/json-src/include/nlohmann/detail/meta/type_traits.hpp:
 
 _deps/json-src/include/nlohmann/detail/meta/std_fs.hpp:
 
+_deps/sfml-src/include/SFML/Audio/SoundFileFactory.inl:
+
 _deps/json-src/include/nlohmann/detail/meta/is_sax.hpp:
 
 _deps/json-src/include/nlohmann/detail/meta/call_std/begin.hpp:
+
+_deps/sfml-src/include/SFML/Audio/SoundFileFactory.hpp:
 
 _deps/json-src/include/nlohmann/detail/macro_scope.hpp:
 
@@ -1802,6 +1854,8 @@ C:/msys64/mingw64/include/process.h:
 C:/msys64/mingw64/include/c++/15.2.0/tr1/riemann_zeta.tcc:
 
 _deps/sfml-src/include/SFML/Window/Clipboard.hpp:
+
+_deps/sfml-src/include/SFML/Audio/SoundBuffer.hpp:
 
 C:/msys64/mingw64/include/c++/15.2.0/ext/atomicity.h:
 
@@ -2021,6 +2075,8 @@ _deps/box2d-src/include/box2d/b2_stack_allocator.h:
 
 C:/msys64/mingw64/include/c++/15.2.0/bits/charconv.h:
 
+_deps/sfml-src/include/SFML/Audio/Music.hpp:
+
 _deps/sfml-src/include/SFML/Graphics/Transformable.hpp:
 
 C:/msys64/mingw64/include/c++/15.2.0/bits/valarray_before.h:
@@ -2107,6 +2163,8 @@ C:/msys64/mingw64/include/c++/15.2.0/bits/gslice.h:
 
 C:/msys64/mingw64/include/c++/15.2.0/bits/stl_function.h:
 
+_deps/sfml-src/include/SFML/Audio/SoundFileWriter.hpp:
+
 _deps/json-src/include/nlohmann/detail/input/lexer.hpp:
 
 _deps/sfml-src/include/SFML/Graphics/Font.hpp:
@@ -2141,7 +2199,11 @@ _deps/box2d-src/include/box2d/b2_revolute_joint.h:
 
 C:/msys64/mingw64/include/c++/15.2.0/memory:
 
+_deps/sfml-src/include/SFML/Audio/Sound.hpp:
+
 _deps/box2d-src/include/box2d/b2_contact.h:
+
+_deps/sfml-src/include/SFML/Audio/SoundStream.hpp:
 
 _deps/sfml-src/include/SFML/Graphics/RenderWindow.hpp:
 
@@ -2183,7 +2245,11 @@ C:/msys64/mingw64/include/c++/15.2.0/bits/exception.h:
 
 C:/msys64/mingw64/include/c++/15.2.0/bits/exception_defines.h:
 
+_deps/sfml-src/include/SFML/Audio/SoundRecorder.hpp:
+
 C:/msys64/mingw64/include/c++/15.2.0/bits/functexcept.h:
+
+_deps/sfml-src/include/SFML/Audio/Export.hpp:
 
 _deps/box2d-src/include/box2d/b2_shape.h:
 
@@ -2344,6 +2410,8 @@ C:/msys64/mingw64/include/c++/15.2.0/vector:
 _deps/sfml-src/include/SFML/Graphics/VertexBuffer.hpp:
 
 C:/msys64/mingw64/include/c++/15.2.0/stdlib.h:
+
+_deps/sfml-src/include/SFML/Audio/SoundFileReader.hpp:
 
 C:/msys64/mingw64/include/c++/15.2.0/streambuf:
 

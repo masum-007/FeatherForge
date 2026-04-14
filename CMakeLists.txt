@@ -41,7 +41,9 @@ add_executable(FeatherForge ${SOURCES} ${HEADERS})
 
 # --- 5. Link Libraries ---
 target_include_directories(FeatherForge PRIVATE include)
-target_link_libraries(FeatherForge PRIVATE sfml-graphics sfml-window sfml-system box2d nlohmann_json::nlohmann_json)
+
+# ---> FIX: ADDED sfml-audio RIGHT HERE! <---
+target_link_libraries(FeatherForge PRIVATE sfml-graphics sfml-window sfml-system sfml-audio box2d nlohmann_json::nlohmann_json)
 
 # Copy assets to build directory (Optional but recommended)
 add_custom_command(TARGET FeatherForge POST_BUILD
