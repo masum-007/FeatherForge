@@ -1,6 +1,6 @@
 {
-  "star2": 4800,
-  "star3": 6500,
+  "star2": 1800,
+  "star3": 2600,
   "birds": ["sloth", "fire", "water", "normal","freeze","normal"],
   "entities": [
     {"type": "wood", "x": 900, "y": 660, "width": 40, "height": 80},

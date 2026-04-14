@@ -1,7 +1,7 @@
 {
   "star2": 1200,
   "star3": 1900,
-  "birds": ["normal", "normal", "normal"],
+  "birds": ["normal", "fire", "normal"],
   "entities": [
     {"type": "wood", "x": 900, "y": 660, "width": 40, "height": 80},
     {"type": "wood", "x": 1050, "y": 660, "width": 40, "height": 80},

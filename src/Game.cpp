@@ -176,6 +176,9 @@ void Game::CheckBirdState() {
 
 void Game::Update() {
 
+    // --- NEW: Freeze time if paused! ---
+    if (m_currentState == GameState::Paused) return;
+
     // --- NEW: Hit-Stop Logic (Freezes physics for a split second on heavy impact) ---
     if (m_hitStopTimer > 0.0f) {
         m_hitStopTimer -= (1.0f / 60.0f);
@@ -524,7 +527,10 @@ void Game::ProcessEvents() {
 
             if (m_currentState == GameState::Menu) {
                 if (mousePosUI.x >= 540 && mousePosUI.x <= 740 && mousePosUI.y >= 300 && mousePosUI.y <= 360) m_currentState = GameState::LevelSelect;
-                if (mousePosUI.x >= 540 && mousePosUI.x <= 740 && mousePosUI.y >= 390 && mousePosUI.y <= 450) m_currentState = GameState::Options;
+                if (mousePosUI.x >= 540 && mousePosUI.x <= 740 && mousePosUI.y >= 390 && mousePosUI.y <= 450) {
+                    m_previousState = GameState::Menu; // Remember we came from Menu!
+                    m_currentState = GameState::Options;
+                }
                 if (mousePosUI.x >= 540 && mousePosUI.x <= 740 && mousePosUI.y >= 480 && mousePosUI.y <= 540) window.close();
             } 
             else if (m_currentState == GameState::Options) {
@@ -537,8 +543,8 @@ void Game::ProcessEvents() {
                 if (mousePosUI.x >= 490 && mousePosUI.x <= 790 && mousePosUI.y >= 340 && mousePosUI.y <= 400) {
                     m_sfxEnabled = !m_sfxEnabled;
                 }
-                // Back Button
-                if (mousePosUI.x >= 540 && mousePosUI.x <= 740 && mousePosUI.y >= 480 && mousePosUI.y <= 540) m_currentState = GameState::Menu;
+                // Back Button (Returns to whichever screen opened it)
+                if (mousePosUI.x >= 540 && mousePosUI.x <= 740 && mousePosUI.y >= 480 && mousePosUI.y <= 540) m_currentState = m_previousState;
             }
             else if (m_currentState == GameState::LevelSelect) {
                 // Back Button
@@ -551,6 +557,16 @@ void Game::ProcessEvents() {
                         ResetLevel(i + 1); 
                     }
                 }
+            }
+            // --- NEW: PAUSED STATE CLICKS ---
+            else if (m_currentState == GameState::Paused) {
+                if (mousePosUI.x >= 540 && mousePosUI.x <= 740 && mousePosUI.y >= 250 && mousePosUI.y <= 310) m_currentState = GameState::Playing; // RESUME
+                if (mousePosUI.x >= 540 && mousePosUI.x <= 740 && mousePosUI.y >= 340 && mousePosUI.y <= 400) ResetLevel(m_currentLevel); // RETRY
+                if (mousePosUI.x >= 540 && mousePosUI.x <= 740 && mousePosUI.y >= 430 && mousePosUI.y <= 490) {
+                    m_previousState = GameState::Paused; // Remember we came from Pause!
+                    m_currentState = GameState::Options; // OPTIONS
+                }
+                if (mousePosUI.x >= 540 && mousePosUI.x <= 740 && mousePosUI.y >= 520 && mousePosUI.y <= 580) m_currentState = GameState::Menu; // MAIN MENU
             }
             else if (m_currentState == GameState::LevelComplete) {
                 // NEXT LEVEL Button (Moved down to Y: 410 -> 470 to fit stars)
@@ -568,12 +584,16 @@ void Game::ProcessEvents() {
                 if (mousePosUI.x >= 540 && mousePosUI.x <= 740 && mousePosUI.y >= 450 && mousePosUI.y <= 510) m_currentState = GameState::Menu;
             }
             else if (m_currentState == GameState::Playing) {
-                if (!birdIsActive && bird) {
+                // --- NEW: Check Pause Button Click (Top Right Corner) ---
+                if (mousePosUI.x >= 1200 && mousePosUI.x <= 1260 && mousePosUI.y >= 10 && mousePosUI.y <= 70) {
+                    m_currentState = GameState::Paused;
+                }
+                else if (!birdIsActive && bird) {
                     sf::Vector2f mouseWorld = window.mapPixelToCoords(sf::Mouse::getPosition(window), worldView);
                     b2Vec2 b2Pos = bird->GetBody()->GetPosition(); 
                     sf::Vector2f birdPos{b2Pos.x * SCALE, b2Pos.y * SCALE};
 
-                    if (std::abs(mouseWorld.x - birdPos.x) < 50.f && std::abs(mouseWorld.y - birdPos.y) < 50.f) isDragging = true;
+                    // Combined the duplicate check you had into one clean check
                     if (std::abs(mouseWorld.x - birdPos.x) < 50.f && std::abs(mouseWorld.y - birdPos.y) < 50.f) {
                         isDragging = true;
                         PlaySFX(m_sbPull, 80.f, 1.0f); // PLAY PULL SOUND
@@ -671,9 +691,8 @@ void Game::Render() {
 
     // 3. Draw Beautiful In-Game HUD
     window.setView(uiView);
-    if (m_currentState == GameState::Playing || m_currentState == GameState::LevelComplete || m_currentState == GameState::GameOver) {
+    if (m_currentState == GameState::Playing || m_currentState == GameState::Paused || m_currentState == GameState::LevelComplete || m_currentState == GameState::GameOver) {
         
-        // Sleek top glass bar
         sf::RectangleShape topBar(sf::Vector2f(1280.f, 60.f));
         topBar.setFillColor(sf::Color(10, 15, 25, 120));
         window.draw(topBar);
@@ -695,23 +714,47 @@ void Game::Render() {
             window.draw(uiBird);
         }
 
-        // Draw Score with drop-shadow for readability against bright skies
         std::string scoreStr = "SCORE: " + std::to_string(score);
         sf::Text scoreShadow(scoreStr, font, 28);
         scoreShadow.setFillColor(sf::Color(0, 0, 0, 200));
-        scoreShadow.setPosition({1102.f, 17.f}); 
+        scoreShadow.setPosition({1002.f, 17.f}); 
         window.draw(scoreShadow);
 
         scoreText.setString(scoreStr);
         scoreText.setCharacterSize(28);
         scoreText.setFillColor(sf::Color::White);
-        scoreText.setPosition({1100.f, 15.f});
+        scoreText.setPosition({1000.f, 15.f});
         window.draw(scoreText);
+
+        // --- NEW: Draw Procedural Pause Button in Top Right (Only when playing or paused) ---
+        if (m_currentState == GameState::Playing || m_currentState == GameState::Paused) {
+            sf::Vector2f mousePos = window.mapPixelToCoords(sf::Mouse::getPosition(window), uiView);
+            bool hoverPause = (mousePos.x >= 1200 && mousePos.x <= 1260 && mousePos.y >= 10 && mousePos.y <= 70);
+            
+            sf::RectangleShape pBox(sf::Vector2f(60.f, 60.f));
+            pBox.setPosition({1200.f, 10.f});
+            pBox.setFillColor(hoverPause ? sf::Color(60, 80, 120, 220) : sf::Color(20, 30, 50, 180));
+            pBox.setOutlineThickness(2.f);
+            pBox.setOutlineColor(hoverPause ? sf::Color(200, 220, 255, 255) : sf::Color(100, 120, 150, 100));
+            window.draw(pBox);
+
+            // The two vertical pause lines
+            sf::RectangleShape bar1(sf::Vector2f(8.f, 26.f));
+            bar1.setPosition({1218.f, 27.f});
+            bar1.setFillColor(hoverPause ? sf::Color::White : sf::Color(200, 200, 200));
+            window.draw(bar1);
+
+            sf::RectangleShape bar2(sf::Vector2f(8.f, 26.f));
+            bar2.setPosition({1234.f, 27.f});
+            bar2.setFillColor(hoverPause ? sf::Color::White : sf::Color(200, 200, 200));
+            window.draw(bar2);
+        }
     }
 
     if (m_currentState == GameState::Menu) DrawMenu();
     else if (m_currentState == GameState::Options) DrawOptions();
     else if (m_currentState == GameState::LevelSelect) DrawLevelSelect();
+    else if (m_currentState == GameState::Paused) DrawPauseMenu(); // <-- NEW
     else if (m_currentState == GameState::LevelComplete) DrawLevelComplete();
     else if (m_currentState == GameState::GameOver) DrawGameOver();
 
@@ -925,6 +968,30 @@ void Game::UpdateThemeMusic() {
     }
 }
 
+void Game::DrawPauseMenu() {
+    sf::RectangleShape overlay(sf::Vector2f{1280.f, 720.f});
+    overlay.setFillColor(sf::Color(0, 5, 10, 150)); 
+    window.draw(overlay);
+
+    sf::RectangleShape panel(sf::Vector2f{400.f, 480.f});
+    panel.setFillColor(sf::Color(10, 15, 25, 220));
+    panel.setOutlineThickness(2.f);
+    panel.setOutlineColor(sf::Color(100, 120, 150, 100));
+    panel.setPosition({440.f, 120.f});
+    window.draw(panel);
+
+    sf::Text title("PAUSED", font, 48);
+    title.setFillColor(sf::Color::White);
+    sf::FloatRect b = title.getLocalBounds();
+    title.setOrigin({b.left + b.width/2.f, b.top + b.height/2.f});
+    title.setPosition({640.f, 170.f});
+    window.draw(title);
+
+    drawButton(window, font, "RESUME", 540.f, 250.f, 200.f, 60.f);
+    drawButton(window, font, "RETRY", 540.f, 340.f, 200.f, 60.f);
+    drawButton(window, font, "OPTIONS", 540.f, 430.f, 200.f, 60.f);
+    drawButton(window, font, "MAIN MENU", 540.f, 520.f, 200.f, 60.f);
+}
 
 void Game::Run() {
     while (window.isOpen()) {

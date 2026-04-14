@@ -1,24 +1,24 @@
 {
-  "star2": 4200,
-  "star3": 5500,
-  "birds": ["fire", "fire", "sloth","water","normal"],
+  "star2": 2400,
+  "star3": 3400,
+  "birds": ["fire", "sloth","normal","water"],
   "entities": [
+    {"type": "wood", "x": 800, "y": 660, "width": 40, "height": 80},
     {"type": "wood", "x": 900, "y": 660, "width": 40, "height": 80},
-    {"type": "wood", "x": 1000, "y": 660, "width": 40, "height": 80},
-    {"type": "wood", "x": 950, "y": 600, "width": 160, "height": 40},
+    {"type": "wood", "x": 850, "y": 600, "width": 160, "height": 40},
+    {"type": "wood", "x": 800, "y": 540, "width": 40, "height": 80},
     {"type": "wood", "x": 900, "y": 540, "width": 40, "height": 80},
-    {"type": "wood", "x": 1000, "y": 540, "width": 40, "height": 80},
-    {"type": "enemy", "x": 950, "y": 660, "width": 50, "height": 50},
-    {"type": "enemy", "x": 950, "y": 560, "width": 40, "height": 40},
+    {"type": "enemy", "x": 850, "y": 660, "width": 50, "height": 50},
+    {"type": "enemy", "x": 850, "y": 560, "width": 40, "height": 40},
 
+    {"type": "wood", "x": 1100, "y": 660, "width": 40, "height": 80},
     {"type": "wood", "x": 1200, "y": 660, "width": 40, "height": 80},
-    {"type": "wood", "x": 1300, "y": 660, "width": 40, "height": 80},
-    {"type": "wood", "x": 1250, "y": 600, "width": 160, "height": 40},
+    {"type": "wood", "x": 1150, "y": 600, "width": 160, "height": 40},
+    {"type": "wood", "x": 1100, "y": 540, "width": 40, "height": 80},
     {"type": "wood", "x": 1200, "y": 540, "width": 40, "height": 80},
-    {"type": "wood", "x": 1300, "y": 540, "width": 40, "height": 80},
-    {"type": "enemy", "x": 1250, "y": 660, "width": 50, "height": 50},
-    {"type": "enemy", "x": 1250, "y": 560, "width": 40, "height": 40},
+    {"type": "enemy", "x": 1150, "y": 660, "width": 50, "height": 50},
+    {"type": "enemy", "x": 1150, "y": 560, "width": 40, "height": 40},
     
-    {"type": "enemy", "x": 1100, "y": 660, "width": 50, "height": 50}
+    {"type": "enemy", "x": 1000, "y": 660, "width": 50, "height": 50}
   ]
 }

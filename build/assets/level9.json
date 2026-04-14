@@ -1,6 +1,6 @@
 {
-  "star2": 5000,
-  "star3": 7000,
+  "star2": 3000,
+  "star3": 3800,
   "birds": ["water", "freeze", "sloth", "fire","water"],
   "entities": [
     {"type": "ice", "x": 800, "y": 660, "width": 20, "height": 80},
