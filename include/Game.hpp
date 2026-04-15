@@ -42,12 +42,12 @@ private:
     void DrawLevelComplete();
     void DrawGameOver();
 
-// ... inside private variables ...
-    bool m_musicEnabled = true;
-    bool m_sfxEnabled = true;
+//Volume floats (0 to 100) instead of booleans ---
+    float m_musicVolume = 40.f; 
+    float m_sfxVolume = 100.f;
 
-    // --- NEW: Audio System ---
-    sf::Music m_bgMusic;
+    // --- Audio System ---
+    sf::Music m_bgMusic;   
     
     // Sound Buffers (The audio files stored in RAM)
     sf::SoundBuffer m_sbPull;

@@ -4,10 +4,9 @@
 
 namespace CustomGraphics {
 
-    // Helper function to safely set a pixel without crashing
+    // Helper functions
     inline void SetPixel(sf::Image& img, int x, int y, sf::Color col) {
-        // FIX: SFML 2.x requires individual unsigned ints. 
-        // Using static_cast explicitly silences VS Code's strict type-checker.
+        
         if (x >= 0 && x < (int)img.getSize().x && y >= 0 && y < (int)img.getSize().y) {
             img.setPixel(static_cast<unsigned int>(x), static_cast<unsigned int>(y), col);
         }
@@ -61,20 +60,20 @@ namespace CustomGraphics {
     inline sf::Texture GenerateMagicRune() {
         sf::Image img;
         
-        // FIX: Reverted back to SFML 2.x create(), using an explicit color 
-        // to prevent namespace confusion.
+        
+        
         img.create(200, 200, sf::Color(0, 0, 0, 0)); 
         
         sf::Color runeColor(255, 215, 0, 220); 
         sf::Color faintColor(255, 215, 0, 80);
 
-        int c = 100; // Center of the 200x200 image
+        int c = 100; 
 
-        // Draw Thick Outer Circles
+        
         MidpointCircle(img, c, c, 90, runeColor);
         MidpointCircle(img, c, c, 89, runeColor);
         
-        // Draw Thick Inner Circles
+        
         MidpointCircle(img, c, c, 75, runeColor);
         MidpointCircle(img, c, c, 74, runeColor);
 

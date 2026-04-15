@@ -13,10 +13,9 @@ Game::Game()
 {
     window.setFramerateLimit(60);
 
-    // --- ADD THIS LINE ---
     m_cameraPos = sf::Vector2f(640.f, 360.f);
 
-    // --- FIX 1: You MUST create the render texture buffer! ---
+    // ---render texture buffer! ---
     m_renderTexture.create(1280, 720);
 
     worldView.setSize({1280.f, 720.f});
@@ -24,8 +23,7 @@ Game::Game()
     uiView = window.getDefaultView(); 
 
     LoadAssets();
-    // --- CHANGE THIS LINE ---
-    // Width changed from 1280 to 8000. Center X changed from 640 to 4000.
+    
     // Increased height from 40 to 400 so the "dirt" goes deep into the zoom void
     ground = std::make_unique<Entity>(*physics.GetWorld(), 4000, 700, 8000, 40, EntityType::GROUND, &groundTex);
 }
@@ -45,7 +43,7 @@ void Game::LoadAssets() {
     
     groundTex.setRepeated(true);
 
-    // --- NEW: Load Audio ---
+    // ---Load Audio ---
     m_sbPull.loadFromFile("assets/audio/pull.wav");
     m_sbRelease.loadFromFile("assets/audio/release.wav");
     m_sbWood.loadFromFile("assets/audio/wood_snap.wav");
@@ -68,7 +66,7 @@ void Game::LoadAssets() {
         menuBgSprite.setTexture(menuBgTex);
         menuBgSprite.setScale({1280.0f / menuBgTex.getSize().x, 720.0f / menuBgTex.getSize().y});
     }
-    // --- NEW: Generate the Rune mathematically! ---
+    // ---Generate the Rune mathematically! ---
     runeTex = CustomGraphics::GenerateMagicRune();
     runeSprite.setTexture(runeTex);
     runeSprite.setOrigin({100.f, 100.f}); // Center the 200x200 image
@@ -101,7 +99,7 @@ void Game::LoadLevel(const std::string& filepath) {
     }
     birdsRemaining = m_birdQueue.size();
 
-    // --- NEW: Read Target Scores (with fallbacks if they are missing) ---
+    // ---Read Target Scores (with fallbacks if they are missing) ---
     m_targetScore2Star = levelData.value("star2", 1500); 
     m_targetScore3Star = levelData.value("star3", 3000);
 
@@ -163,7 +161,7 @@ void Game::CheckBirdState() {
         sf::Vector2f deathPos{pos.x * SCALE, pos.y * SCALE};
         m_particles.emitFeathers(deathPos);
 
-        // --- NEW: Play the disappearing Poof! (Slightly randomized pitch) ---
+        // ---Play the disappearing Poof! (Slightly randomized pitch) ---
         PlaySFX(m_sbBirdPoof, 100.f, 0.9f + (rand() % 20) / 100.f);
 
         bird.reset(); // Safe Box2D cleanup
@@ -176,21 +174,21 @@ void Game::CheckBirdState() {
 
 void Game::Update() {
 
-    // --- NEW: Freeze time if paused! ---
+    // Freeze time if paused! ---
     if (m_currentState == GameState::Paused) return;
 
-    // --- NEW: Hit-Stop Logic (Freezes physics for a split second on heavy impact) ---
+    // ---Hit-Stop Logic (Freezes physics for a split second on heavy impact) ---
     if (m_hitStopTimer > 0.0f) {
         m_hitStopTimer -= (1.0f / 60.0f);
         return; // Skip all physics and updates this frame!
     }
 
-    // --- NEW: Camera Shake Timer ---
+    // ---Camera Shake Timer ---
     if (m_shakeTimer > 0.0f) {
         m_shakeTimer -= (1.0f / 60.0f);
     }
 
-    // --- NEW: Get bird velocity to create the interactive grass wake ---
+    // ---Get bird velocity to create the interactive grass wake ---
     sf::Vector2f pPos{-9999.f, -9999.f};
     sf::Vector2f pVel{0.f, 0.f};
     if (bird && birdIsActive) {
@@ -206,12 +204,12 @@ void Game::Update() {
     physics.Update(1.0f / 60.0f);
     CheckBirdState();
 
-    // --- UPGRADED: Cinematic Camera (Smooth Lerp & Dynamic Zoom) ---
+    // ---Cinematic Camera (Smooth Lerp & Dynamic Zoom) ---
     float targetCamX = 640.f;
     float targetZoom = 1.0f;
     
     if (bird && birdIsActive) {
-        // 1. Where should the camera look? (Don't let it go further left than the start)
+        // 1.Camera position
         targetCamX = std::max(640.0f, bird->GetBody()->GetPosition().x * SCALE);
         
         // 2. Dynamic Zoom: If bird flies fast, pull the camera out slightly to show more level!
@@ -233,7 +231,7 @@ void Game::Update() {
     m_cameraPos.x += (targetCamX - m_cameraPos.x) * 5.0f * (1.0f / 60.0f);
     m_cameraZoom += (targetZoom - m_cameraZoom) * 2.0f * (1.0f / 60.0f);
 
-    // Apply the zoom and position to the game's view
+
     worldView.setSize({1280.f * m_cameraZoom, 720.f * m_cameraZoom});
     worldView.setCenter({m_cameraPos.x, 360.f}); // Lock Y for stability
 
@@ -285,7 +283,7 @@ void Game::Update() {
                     }
                 }
             } else if (m_currentBirdType == BirdType::Water) {
-                // --- FIX: Intense Water Tidal Wave ---
+                // Intense Water Tidal Wave ---
                 m_particles.emitWater(pxPos); 
                 for (auto& block : blocks) {
                     b2Vec2 diff = block->GetBody()->GetPosition() - bPos;
@@ -301,7 +299,7 @@ void Game::Update() {
         }
     }
 
-    // Keep the rest of Update() exactly the same (Fire ticks, cleanup, win/loss logic)...
+    
     // Process Fire Damage Tick
     for (auto it = m_burningBodies.begin(); it != m_burningBodies.end(); ) {
         it->second += (1.0f / 60.0f);
@@ -321,7 +319,7 @@ void Game::Update() {
         }
     }
 
-    // Update the cleanup loop to trigger the juicy effects!
+    // effects!
     blocks.erase(
         std::remove_if(blocks.begin(), blocks.end(),
             [this](const std::unique_ptr<Entity>& e) { 
@@ -332,7 +330,6 @@ void Game::Update() {
                 // 2. Add the X bounds to the kill condition
                 if (e->IsDestroyed() || yPos > 800.f || xPos < -200.f || xPos > 1500.f) {
                     
-                    // Make sure deathPos uses the new xPos so particles spawn exactly where it fell off
                     sf::Vector2f deathPos{xPos, std::min(yPos, 700.f)};
                     
                     // Randomize pitch slightly so multiple blocks breaking sounds organic!
@@ -365,7 +362,7 @@ void Game::Update() {
 
                     // --- SCORING & ENEMY EFFECTS ---
                     if (e->GetType() == EntityType::ENEMY) {
-                        // --- NEW: Satisfying Enemy Defeat Sound! ---
+                        // --- Enemy Defeat Sound! ---
                         PlaySFX(m_sbEnemyKill, 100.f, randomPitch);
                         score += 500;
                         TriggerHitStop(0.1f); // Massive pause for killing an enemy
@@ -406,7 +403,7 @@ void Game::ResetLevel(int level) {
     bird.reset();
     m_burningBodies.clear();
     m_frozenBodies.clear();
-// --- ADD THIS LINE TO CLEAR SCORCH MARKS ---
+// ---CLEAR SCORCH MARKS ---
     m_scorchMarks.clear();
 
     m_currentLevel = level;
@@ -534,16 +531,31 @@ void Game::ProcessEvents() {
                 if (mousePosUI.x >= 540 && mousePosUI.x <= 740 && mousePosUI.y >= 480 && mousePosUI.y <= 540) window.close();
             } 
             else if (m_currentState == GameState::Options) {
-                // Music Toggle
-                if (mousePosUI.x >= 490 && mousePosUI.x <= 790 && mousePosUI.y >= 250 && mousePosUI.y <= 310) {
-                    m_musicEnabled = !m_musicEnabled;
-                    UpdateThemeMusic(); // Instantly apply change
+                // MUSIC MINUS (-)
+                if (mousePosUI.x >= 430 && mousePosUI.x <= 490 && mousePosUI.y >= 280 && mousePosUI.y <= 330) {
+                    m_musicVolume = std::max(0.f, m_musicVolume - 10.f);
+                    m_bgMusic.setVolume(m_musicVolume);
+                    if (m_musicVolume > 0 && m_bgMusic.getStatus() != sf::Music::Playing) UpdateThemeMusic();
                 }
-                // SFX Toggle
-                if (mousePosUI.x >= 490 && mousePosUI.x <= 790 && mousePosUI.y >= 340 && mousePosUI.y <= 400) {
-                    m_sfxEnabled = !m_sfxEnabled;
+                // MUSIC PLUS (+)
+                if (mousePosUI.x >= 790 && mousePosUI.x <= 850 && mousePosUI.y >= 280 && mousePosUI.y <= 330) {
+                    m_musicVolume = std::min(100.f, m_musicVolume + 10.f);
+                    m_bgMusic.setVolume(m_musicVolume);
+                    if (m_bgMusic.getStatus() != sf::Music::Playing) UpdateThemeMusic();
                 }
-                // Back Button (Returns to whichever screen opened it)
+                
+                // SFX MINUS (-)
+                if (mousePosUI.x >= 430 && mousePosUI.x <= 490 && mousePosUI.y >= 360 && mousePosUI.y <= 410) {
+                    m_sfxVolume = std::max(0.f, m_sfxVolume - 10.f);
+                    PlaySFX(m_sbThud, 100.f, 1.0f); // Play test sound!
+                }
+                // SFX PLUS (+)
+                if (mousePosUI.x >= 790 && mousePosUI.x <= 850 && mousePosUI.y >= 360 && mousePosUI.y <= 410) {
+                    m_sfxVolume = std::min(100.f, m_sfxVolume + 10.f);
+                    PlaySFX(m_sbThud, 100.f, 1.0f); // Play test sound!
+                }
+
+                // Back Button
                 if (mousePosUI.x >= 540 && mousePosUI.x <= 740 && mousePosUI.y >= 480 && mousePosUI.y <= 540) m_currentState = m_previousState;
             }
             else if (m_currentState == GameState::LevelSelect) {
@@ -558,23 +570,23 @@ void Game::ProcessEvents() {
                     }
                 }
             }
-            // --- NEW: PAUSED STATE CLICKS ---
+            // ---PAUSED STATE CLICKS ---
             else if (m_currentState == GameState::Paused) {
                 if (mousePosUI.x >= 540 && mousePosUI.x <= 740 && mousePosUI.y >= 250 && mousePosUI.y <= 310) m_currentState = GameState::Playing; // RESUME
                 if (mousePosUI.x >= 540 && mousePosUI.x <= 740 && mousePosUI.y >= 340 && mousePosUI.y <= 400) ResetLevel(m_currentLevel); // RETRY
                 if (mousePosUI.x >= 540 && mousePosUI.x <= 740 && mousePosUI.y >= 430 && mousePosUI.y <= 490) {
-                    m_previousState = GameState::Paused; // Remember we came from Pause!
+                    m_previousState = GameState::Paused; // Remember the previous state(pause)
                     m_currentState = GameState::Options; // OPTIONS
                 }
                 if (mousePosUI.x >= 540 && mousePosUI.x <= 740 && mousePosUI.y >= 520 && mousePosUI.y <= 580) m_currentState = GameState::Menu; // MAIN MENU
             }
             else if (m_currentState == GameState::LevelComplete) {
-                // NEXT LEVEL Button (Moved down to Y: 410 -> 470 to fit stars)
+                // NEXT LEVEL Button 
                 if (mousePosUI.x >= 540 && mousePosUI.x <= 740 && mousePosUI.y >= 410 && mousePosUI.y <= 470) {
                     if (m_currentLevel < MAX_LEVELS) ResetLevel(m_currentLevel + 1);
                     else m_currentState = GameState::Menu; 
                 }
-                // MAIN MENU Button (Moved down to Y: 500 -> 560)
+                // MAIN MENU Button 
                 if (mousePosUI.x >= 540 && mousePosUI.x <= 740 && mousePosUI.y >= 500 && mousePosUI.y <= 560) {
                     m_currentState = GameState::Menu;
                 }
@@ -584,7 +596,7 @@ void Game::ProcessEvents() {
                 if (mousePosUI.x >= 540 && mousePosUI.x <= 740 && mousePosUI.y >= 450 && mousePosUI.y <= 510) m_currentState = GameState::Menu;
             }
             else if (m_currentState == GameState::Playing) {
-                // --- NEW: Check Pause Button Click (Top Right Corner) ---
+                // ---Check Pause Button Click (Top Right Corner) ---
                 if (mousePosUI.x >= 1200 && mousePosUI.x <= 1260 && mousePosUI.y >= 10 && mousePosUI.y <= 70) {
                     m_currentState = GameState::Paused;
                 }
@@ -593,7 +605,6 @@ void Game::ProcessEvents() {
                     b2Vec2 b2Pos = bird->GetBody()->GetPosition(); 
                     sf::Vector2f birdPos{b2Pos.x * SCALE, b2Pos.y * SCALE};
 
-                    // Combined the duplicate check you had into one clean check
                     if (std::abs(mouseWorld.x - birdPos.x) < 50.f && std::abs(mouseWorld.y - birdPos.y) < 50.f) {
                         isDragging = true;
                         PlaySFX(m_sbPull, 80.f, 1.0f); // PLAY PULL SOUND
@@ -655,7 +666,7 @@ void Game::Render() {
         m_renderTexture.setView(worldView);
         
         // Draw World to the Render Texture
-        // --- UPDATED: Pass worldView.getSize() to make background responsive ---
+        // ---Pass worldView.getSize() to make background responsive ---
         m_environment.render(m_renderTexture, currentCamX, worldView.getSize());
         DrawSlingshot();
         ground->Render(m_renderTexture);
@@ -678,7 +689,7 @@ void Game::Render() {
     window.clear();
     
     m_renderSprite.setTexture(m_renderTexture.getTexture());
-    // Fix the upside-down texture issue in SFML 2
+    
     m_renderSprite.setTextureRect(sf::IntRect(0, 0, 1280, 720)); 
 
     // Only use shader if it loaded properly to prevent black screen
@@ -726,7 +737,7 @@ void Game::Render() {
         scoreText.setPosition({1000.f, 15.f});
         window.draw(scoreText);
 
-        // --- NEW: Draw Procedural Pause Button in Top Right (Only when playing or paused) ---
+        // ---Draw Procedural Pause Button in Top Right (Only when playing or paused) ---
         if (m_currentState == GameState::Playing || m_currentState == GameState::Paused) {
             sf::Vector2f mousePos = window.mapPixelToCoords(sf::Mouse::getPosition(window), uiView);
             bool hoverPause = (mousePos.x >= 1200 && mousePos.x <= 1260 && mousePos.y >= 10 && mousePos.y <= 70);
@@ -760,7 +771,7 @@ void Game::Render() {
 
     window.display();
 }
-// --- NEW AAA UI RENDERING FUNCTIONS ---
+//RENDERING FUNCTIONS ---
 
 // Helper lambda for gorgeous interactive hover buttons
 auto drawButton = [](sf::RenderWindow& win, sf::Font& font, const std::string& text, float x, float y, float w, float h) {
@@ -811,16 +822,34 @@ void Game::DrawOptions() {
     panel.setPosition({390.f, 180.f});
     window.draw(panel);
 
-    sf::Text title("", font, 40);
+    sf::Text title("OPTIONS", font, 48);
     title.setFillColor(sf::Color::White);
-    title.setPosition({540.f, 150.f});
+    sf::FloatRect b = title.getLocalBounds();
+    title.setOrigin({b.left + b.width/2.f, b.top + b.height/2.f});
+    title.setPosition({640.f, 220.f});
     window.draw(title);
 
-    std::string musStr = m_musicEnabled ? "MUSIC: ON" : "MUSIC: OFF";
-    std::string sfxStr = m_sfxEnabled ? "SFX: ON" : "SFX: OFF";
-    
-    drawButton(window, font, musStr, 490.f, 250.f, 300.f, 60.f);
-    drawButton(window, font, sfxStr, 490.f, 340.f, 300.f, 60.f);
+    // --- MUSIC VOLUME ROW ---
+    drawButton(window, font, "-", 430.f, 280.f, 60.f, 50.f);
+    sf::Text musTxt("MUSIC: " + std::to_string((int)m_musicVolume) + "%", font, 28);
+    b = musTxt.getLocalBounds();
+    musTxt.setOrigin({b.left + b.width/2.f, b.top + b.height/2.f});
+    musTxt.setPosition({640.f, 305.f});
+    musTxt.setFillColor(sf::Color::White);
+    window.draw(musTxt);
+    drawButton(window, font, "+", 790.f, 280.f, 60.f, 50.f);
+
+    // --- SFX VOLUME ROW ---
+    drawButton(window, font, "-", 430.f, 360.f, 60.f, 50.f);
+    sf::Text sfxTxt("SFX: " + std::to_string((int)m_sfxVolume) + "%", font, 28);
+    b = sfxTxt.getLocalBounds();
+    sfxTxt.setOrigin({b.left + b.width/2.f, b.top + b.height/2.f});
+    sfxTxt.setPosition({640.f, 385.f});
+    sfxTxt.setFillColor(sf::Color::White);
+    window.draw(sfxTxt);
+    drawButton(window, font, "+", 790.f, 360.f, 60.f, 50.f);
+
+    // Back Button
     drawButton(window, font, "BACK", 540.f, 480.f, 200.f, 60.f);
 }
 
@@ -875,12 +904,12 @@ void Game::DrawLevelComplete() {
     title.setPosition({640.f, 130.f});
     window.draw(title);
 
-    // --- UPDATED: Calculate Stars Based on JSON Targets ---
+    // ---Calculate Stars Based on JSON Targets ---
     int starsEarned = 1; 
     if (score >= m_targetScore2Star) starsEarned = 2; 
     if (score >= m_targetScore3Star) starsEarned = 3;
 
-    // --- NEW: Procedural Star Drawing Lambda ---
+    // ---Procedural Star Drawing Lambda ---
     auto drawStar = [](sf::RenderWindow& win, float x, float y, float radius, bool earned) {
         sf::ConvexShape star(10);
         for (int i = 0; i < 10; ++i) {
@@ -934,12 +963,16 @@ void Game::DrawGameOver() {
 }
 
 void Game::PlaySFX(const sf::SoundBuffer& buffer, float volume, float pitch) {
-    if (!m_sfxEnabled) return;
+    if (m_sfxVolume <= 0.f) return;
+    
+    // Convert 0-100 percentage to a 0.0 - 1.0 multiplier
+    float masterSfxMultiplier = m_sfxVolume / 100.f; 
     
     for (auto& sound : m_soundPool) {
         if (sound.getStatus() != sf::Sound::Playing) {
             sound.setBuffer(buffer);
-            sound.setVolume(volume);
+            // Multiply the requested volume by your master slider
+            sound.setVolume(volume * masterSfxMultiplier); 
             sound.setPitch(pitch);
             sound.play();
             return;
@@ -948,23 +981,24 @@ void Game::PlaySFX(const sf::SoundBuffer& buffer, float volume, float pitch) {
 }
 
 void Game::UpdateThemeMusic() {
-    if (!m_musicEnabled) {
+    if (m_musicVolume <= 0.f) {
         m_bgMusic.pause();
         return;
     }
     
-    // Switch music based on the level to match your beautiful environment themes!
     if (m_bgMusic.getStatus() != sf::Music::Playing) {
-        std::string musicFile = "assets/audio/bgm_day.ogg"; // Default
+        std::string musicFile = "assets/audio/bgm_day.ogg"; 
         
-        // Example: Levels 6-10 are night/storm themes
         if (m_currentLevel >= 6) musicFile = "assets/audio/bgm_night.ogg"; 
         
         if (m_bgMusic.openFromFile(musicFile)) {
             m_bgMusic.setLoop(true);
-            m_bgMusic.setVolume(40.f); // Keep music softer than SFX
+            m_bgMusic.setVolume(m_musicVolume); 
             m_bgMusic.play();
         }
+    } else {
+        // Just update the volume if it's already playing
+        m_bgMusic.setVolume(m_musicVolume);
     }
 }
 
