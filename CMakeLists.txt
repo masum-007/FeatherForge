@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.14)
 set(CMAKE_POLICY_VERSION_MINIMUM 3.5) # <--- ADD THIS LINE to fix the JSON library error
-project(FeatherForge VERSION 1.0.0 LANGUAGES CXX)
+project(FeatherForge VERSION 1.0.0 LANGUAGES CXX RC)
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
@@ -37,7 +37,7 @@ FetchContent_MakeAvailable(json)
 file(GLOB_RECURSE SOURCES "src/*.cpp")
 file(GLOB_RECURSE HEADERS "include/*.hpp")
 
-add_executable(FeatherForge ${SOURCES} ${HEADERS})
+add_executable(FeatherForge ${SOURCES} ${HEADERS} icon.rc)
 
 # --- 5. Link Libraries ---
 target_include_directories(FeatherForge PRIVATE include)

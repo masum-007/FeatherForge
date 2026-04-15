@@ -362,6 +362,14 @@ testbed/fast:
 	$(MAKE) $(MAKESILENT) -f _deps\box2d-build\testbed\CMakeFiles\testbed.dir\build.make _deps/box2d-build/testbed/CMakeFiles/testbed.dir/build
 .PHONY : testbed/fast
 
+icon.obj: icon.rc.obj
+.PHONY : icon.obj
+
+# target to build an object file
+icon.rc.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\FeatherForge.dir\build.make CMakeFiles/FeatherForge.dir/icon.rc.obj
+.PHONY : icon.rc.obj
+
 src/Entity.obj: src/Entity.cpp.obj
 .PHONY : src/Entity.obj
 
@@ -486,6 +494,7 @@ help:
 	@echo ... sfml-window
 	@echo ... testbed
 	@echo ... unit_test
+	@echo ... icon.obj
 	@echo ... src/Entity.obj
 	@echo ... src/Entity.i
 	@echo ... src/Entity.s

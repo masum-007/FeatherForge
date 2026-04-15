@@ -4,6 +4,24 @@ set(CMAKE_DEPENDS_IN_PROJECT_ONLY OFF)
 
 # The set of languages for which implicit dependencies are needed:
 set(CMAKE_DEPENDS_LANGUAGES
+  "RC"
+  )
+# The set of files for implicit dependencies of each language:
+set(CMAKE_DEPENDS_CHECK_RC
+  "C:/Users/masum/Desktop/FeatherForge/icon.rc" "C:/Users/masum/Desktop/FeatherForge/build/CMakeFiles/FeatherForge.dir/icon.rc.obj"
+  )
+
+# Preprocessor definitions for this target.
+set(CMAKE_TARGET_DEFINITIONS_RC
+  "SFML_STATIC"
+  )
+
+# The include file search paths:
+set(CMAKE_RC_TARGET_INCLUDE_PATH
+  "C:/Users/masum/Desktop/FeatherForge/include"
+  "_deps/sfml-src/include"
+  "_deps/box2d-src/src/../include"
+  "_deps/json-src/include"
   )
 
 # The set of dependency files which are needed:

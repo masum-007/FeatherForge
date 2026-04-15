@@ -466,12 +466,12 @@ CMakeFiles/FeatherForge.dir/all: _deps/sfml-build/src/SFML/Audio/CMakeFiles/sfml
 CMakeFiles/FeatherForge.dir/all: _deps/box2d-build/src/CMakeFiles/box2d.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\FeatherForge.dir\build.make CMakeFiles/FeatherForge.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\FeatherForge.dir\build.make CMakeFiles/FeatherForge.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=C:\Users\masum\Desktop\FeatherForge\build\CMakeFiles --progress-num=1 "Built target FeatherForge"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=C:\Users\masum\Desktop\FeatherForge\build\CMakeFiles --progress-num=1,2 "Built target FeatherForge"
 .PHONY : CMakeFiles/FeatherForge.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/FeatherForge.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\masum\Desktop\FeatherForge\build\CMakeFiles 57
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\masum\Desktop\FeatherForge\build\CMakeFiles 58
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 CMakeFiles/FeatherForge.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\masum\Desktop\FeatherForge\build\CMakeFiles 0
 .PHONY : CMakeFiles/FeatherForge.dir/rule
@@ -483,7 +483,7 @@ FeatherForge: CMakeFiles/FeatherForge.dir/rule
 # codegen rule for target.
 CMakeFiles/FeatherForge.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\FeatherForge.dir\build.make CMakeFiles/FeatherForge.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=C:\Users\masum\Desktop\FeatherForge\build\CMakeFiles --progress-num=1 "Finished codegen for target FeatherForge"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=C:\Users\masum\Desktop\FeatherForge\build\CMakeFiles --progress-num=1,2 "Finished codegen for target FeatherForge"
 .PHONY : CMakeFiles/FeatherForge.dir/codegen
 
 # clean rule for target.
@@ -498,12 +498,12 @@ CMakeFiles/FeatherForge.dir/clean:
 _deps/sfml-build/src/SFML/System/CMakeFiles/sfml-system.dir/all:
 	$(MAKE) $(MAKESILENT) -f _deps\sfml-build\src\SFML\System\CMakeFiles\sfml-system.dir\build.make _deps/sfml-build/src/SFML/System/CMakeFiles/sfml-system.dir/depend
 	$(MAKE) $(MAKESILENT) -f _deps\sfml-build\src\SFML\System\CMakeFiles\sfml-system.dir\build.make _deps/sfml-build/src/SFML/System/CMakeFiles/sfml-system.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=C:\Users\masum\Desktop\FeatherForge\build\CMakeFiles --progress-num=56,57,58,59,60,61 "Built target sfml-system"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=C:\Users\masum\Desktop\FeatherForge\build\CMakeFiles --progress-num=56,57,58,59,60,61,62 "Built target sfml-system"
 .PHONY : _deps/sfml-build/src/SFML/System/CMakeFiles/sfml-system.dir/all
 
 # Build rule for subdir invocation for target.
 _deps/sfml-build/src/SFML/System/CMakeFiles/sfml-system.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\masum\Desktop\FeatherForge\build\CMakeFiles 6
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\masum\Desktop\FeatherForge\build\CMakeFiles 7
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 _deps/sfml-build/src/SFML/System/CMakeFiles/sfml-system.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\masum\Desktop\FeatherForge\build\CMakeFiles 0
 .PHONY : _deps/sfml-build/src/SFML/System/CMakeFiles/sfml-system.dir/rule
@@ -515,7 +515,7 @@ sfml-system: _deps/sfml-build/src/SFML/System/CMakeFiles/sfml-system.dir/rule
 # codegen rule for target.
 _deps/sfml-build/src/SFML/System/CMakeFiles/sfml-system.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f _deps\sfml-build\src\SFML\System\CMakeFiles\sfml-system.dir\build.make _deps/sfml-build/src/SFML/System/CMakeFiles/sfml-system.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=C:\Users\masum\Desktop\FeatherForge\build\CMakeFiles --progress-num=56,57,58,59,60,61 "Finished codegen for target sfml-system"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=C:\Users\masum\Desktop\FeatherForge\build\CMakeFiles --progress-num=56,57,58,59,60,61,62 "Finished codegen for target sfml-system"
 .PHONY : _deps/sfml-build/src/SFML/System/CMakeFiles/sfml-system.dir/codegen
 
 # clean rule for target.
@@ -530,12 +530,12 @@ _deps/sfml-build/src/SFML/System/CMakeFiles/sfml-system.dir/clean:
 _deps/sfml-build/src/SFML/Main/CMakeFiles/sfml-main.dir/all:
 	$(MAKE) $(MAKESILENT) -f _deps\sfml-build\src\SFML\Main\CMakeFiles\sfml-main.dir\build.make _deps/sfml-build/src/SFML/Main/CMakeFiles/sfml-main.dir/depend
 	$(MAKE) $(MAKESILENT) -f _deps\sfml-build\src\SFML\Main\CMakeFiles\sfml-main.dir\build.make _deps/sfml-build/src/SFML/Main/CMakeFiles/sfml-main.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=C:\Users\masum\Desktop\FeatherForge\build\CMakeFiles --progress-num= "Built target sfml-main"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=C:\Users\masum\Desktop\FeatherForge\build\CMakeFiles --progress-num=51 "Built target sfml-main"
 .PHONY : _deps/sfml-build/src/SFML/Main/CMakeFiles/sfml-main.dir/all
 
 # Build rule for subdir invocation for target.
 _deps/sfml-build/src/SFML/Main/CMakeFiles/sfml-main.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\masum\Desktop\FeatherForge\build\CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\masum\Desktop\FeatherForge\build\CMakeFiles 1
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 _deps/sfml-build/src/SFML/Main/CMakeFiles/sfml-main.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\masum\Desktop\FeatherForge\build\CMakeFiles 0
 .PHONY : _deps/sfml-build/src/SFML/Main/CMakeFiles/sfml-main.dir/rule
@@ -547,7 +547,7 @@ sfml-main: _deps/sfml-build/src/SFML/Main/CMakeFiles/sfml-main.dir/rule
 # codegen rule for target.
 _deps/sfml-build/src/SFML/Main/CMakeFiles/sfml-main.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f _deps\sfml-build\src\SFML\Main\CMakeFiles\sfml-main.dir\build.make _deps/sfml-build/src/SFML/Main/CMakeFiles/sfml-main.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=C:\Users\masum\Desktop\FeatherForge\build\CMakeFiles --progress-num= "Finished codegen for target sfml-main"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=C:\Users\masum\Desktop\FeatherForge\build\CMakeFiles --progress-num=51 "Finished codegen for target sfml-main"
 .PHONY : _deps/sfml-build/src/SFML/Main/CMakeFiles/sfml-main.dir/codegen
 
 # clean rule for target.
@@ -562,7 +562,7 @@ _deps/sfml-build/src/SFML/Main/CMakeFiles/sfml-main.dir/clean:
 _deps/sfml-build/src/SFML/Window/CMakeFiles/sfml-window.dir/all: _deps/sfml-build/src/SFML/System/CMakeFiles/sfml-system.dir/all
 	$(MAKE) $(MAKESILENT) -f _deps\sfml-build\src\SFML\Window\CMakeFiles\sfml-window.dir\build.make _deps/sfml-build/src/SFML/Window/CMakeFiles/sfml-window.dir/depend
 	$(MAKE) $(MAKESILENT) -f _deps\sfml-build\src\SFML\Window\CMakeFiles\sfml-window.dir\build.make _deps/sfml-build/src/SFML/Window/CMakeFiles/sfml-window.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=C:\Users\masum\Desktop\FeatherForge\build\CMakeFiles --progress-num=62,63,64,65,66,67,68,69,70,71,72 "Built target sfml-window"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=C:\Users\masum\Desktop\FeatherForge\build\CMakeFiles --progress-num=63,64,65,66,67,68,69,70,71,72 "Built target sfml-window"
 .PHONY : _deps/sfml-build/src/SFML/Window/CMakeFiles/sfml-window.dir/all
 
 # Build rule for subdir invocation for target.
@@ -579,7 +579,7 @@ sfml-window: _deps/sfml-build/src/SFML/Window/CMakeFiles/sfml-window.dir/rule
 # codegen rule for target.
 _deps/sfml-build/src/SFML/Window/CMakeFiles/sfml-window.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f _deps\sfml-build\src\SFML\Window\CMakeFiles\sfml-window.dir\build.make _deps/sfml-build/src/SFML/Window/CMakeFiles/sfml-window.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=C:\Users\masum\Desktop\FeatherForge\build\CMakeFiles --progress-num=62,63,64,65,66,67,68,69,70,71,72 "Finished codegen for target sfml-window"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=C:\Users\masum\Desktop\FeatherForge\build\CMakeFiles --progress-num=63,64,65,66,67,68,69,70,71,72 "Finished codegen for target sfml-window"
 .PHONY : _deps/sfml-build/src/SFML/Window/CMakeFiles/sfml-window.dir/codegen
 
 # clean rule for target.
@@ -594,7 +594,7 @@ _deps/sfml-build/src/SFML/Window/CMakeFiles/sfml-window.dir/clean:
 _deps/sfml-build/src/SFML/Network/CMakeFiles/sfml-network.dir/all: _deps/sfml-build/src/SFML/System/CMakeFiles/sfml-system.dir/all
 	$(MAKE) $(MAKESILENT) -f _deps\sfml-build\src\SFML\Network\CMakeFiles\sfml-network.dir\build.make _deps/sfml-build/src/SFML/Network/CMakeFiles/sfml-network.dir/depend
 	$(MAKE) $(MAKESILENT) -f _deps\sfml-build\src\SFML\Network\CMakeFiles\sfml-network.dir\build.make _deps/sfml-build/src/SFML/Network/CMakeFiles/sfml-network.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=C:\Users\masum\Desktop\FeatherForge\build\CMakeFiles --progress-num=51,52,53,54,55 "Built target sfml-network"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=C:\Users\masum\Desktop\FeatherForge\build\CMakeFiles --progress-num=52,53,54,55 "Built target sfml-network"
 .PHONY : _deps/sfml-build/src/SFML/Network/CMakeFiles/sfml-network.dir/all
 
 # Build rule for subdir invocation for target.
@@ -611,7 +611,7 @@ sfml-network: _deps/sfml-build/src/SFML/Network/CMakeFiles/sfml-network.dir/rule
 # codegen rule for target.
 _deps/sfml-build/src/SFML/Network/CMakeFiles/sfml-network.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f _deps\sfml-build\src\SFML\Network\CMakeFiles\sfml-network.dir\build.make _deps/sfml-build/src/SFML/Network/CMakeFiles/sfml-network.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=C:\Users\masum\Desktop\FeatherForge\build\CMakeFiles --progress-num=51,52,53,54,55 "Finished codegen for target sfml-network"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=C:\Users\masum\Desktop\FeatherForge\build\CMakeFiles --progress-num=52,53,54,55 "Finished codegen for target sfml-network"
 .PHONY : _deps/sfml-build/src/SFML/Network/CMakeFiles/sfml-network.dir/codegen
 
 # clean rule for target.
@@ -664,7 +664,7 @@ _deps/sfml-build/src/SFML/Audio/CMakeFiles/sfml-audio.dir/all: _deps/sfml-build/
 
 # Build rule for subdir invocation for target.
 _deps/sfml-build/src/SFML/Audio/CMakeFiles/sfml-audio.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\masum\Desktop\FeatherForge\build\CMakeFiles 15
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\masum\Desktop\FeatherForge\build\CMakeFiles 16
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 _deps/sfml-build/src/SFML/Audio/CMakeFiles/sfml-audio.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\masum\Desktop\FeatherForge\build\CMakeFiles 0
 .PHONY : _deps/sfml-build/src/SFML/Audio/CMakeFiles/sfml-audio.dir/rule
@@ -691,7 +691,7 @@ _deps/sfml-build/src/SFML/Audio/CMakeFiles/sfml-audio.dir/clean:
 _deps/box2d-build/src/CMakeFiles/box2d.dir/all:
 	$(MAKE) $(MAKESILENT) -f _deps\box2d-build\src\CMakeFiles\box2d.dir\build.make _deps/box2d-build/src/CMakeFiles/box2d.dir/depend
 	$(MAKE) $(MAKESILENT) -f _deps\box2d-build\src\CMakeFiles\box2d.dir\build.make _deps/box2d-build/src/CMakeFiles/box2d.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=C:\Users\masum\Desktop\FeatherForge\build\CMakeFiles --progress-num=2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19 "Built target box2d"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=C:\Users\masum\Desktop\FeatherForge\build\CMakeFiles --progress-num=3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20 "Built target box2d"
 .PHONY : _deps/box2d-build/src/CMakeFiles/box2d.dir/all
 
 # Build rule for subdir invocation for target.
@@ -708,7 +708,7 @@ box2d: _deps/box2d-build/src/CMakeFiles/box2d.dir/rule
 # codegen rule for target.
 _deps/box2d-build/src/CMakeFiles/box2d.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f _deps\box2d-build\src\CMakeFiles\box2d.dir\build.make _deps/box2d-build/src/CMakeFiles/box2d.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=C:\Users\masum\Desktop\FeatherForge\build\CMakeFiles --progress-num=2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19 "Finished codegen for target box2d"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=C:\Users\masum\Desktop\FeatherForge\build\CMakeFiles --progress-num=3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20 "Finished codegen for target box2d"
 .PHONY : _deps/box2d-build/src/CMakeFiles/box2d.dir/codegen
 
 # clean rule for target.
@@ -755,12 +755,12 @@ _deps/box2d-build/unit-test/CMakeFiles/unit_test.dir/clean:
 _deps/box2d-build/extern/glad/CMakeFiles/glad.dir/all:
 	$(MAKE) $(MAKESILENT) -f _deps\box2d-build\extern\glad\CMakeFiles\glad.dir\build.make _deps/box2d-build/extern/glad/CMakeFiles/glad.dir/depend
 	$(MAKE) $(MAKESILENT) -f _deps\box2d-build\extern\glad\CMakeFiles\glad.dir\build.make _deps/box2d-build/extern/glad/CMakeFiles/glad.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=C:\Users\masum\Desktop\FeatherForge\build\CMakeFiles --progress-num=20 "Built target glad"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=C:\Users\masum\Desktop\FeatherForge\build\CMakeFiles --progress-num= "Built target glad"
 .PHONY : _deps/box2d-build/extern/glad/CMakeFiles/glad.dir/all
 
 # Build rule for subdir invocation for target.
 _deps/box2d-build/extern/glad/CMakeFiles/glad.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\masum\Desktop\FeatherForge\build\CMakeFiles 1
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\masum\Desktop\FeatherForge\build\CMakeFiles 0
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 _deps/box2d-build/extern/glad/CMakeFiles/glad.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\masum\Desktop\FeatherForge\build\CMakeFiles 0
 .PHONY : _deps/box2d-build/extern/glad/CMakeFiles/glad.dir/rule
@@ -772,7 +772,7 @@ glad: _deps/box2d-build/extern/glad/CMakeFiles/glad.dir/rule
 # codegen rule for target.
 _deps/box2d-build/extern/glad/CMakeFiles/glad.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f _deps\box2d-build\extern\glad\CMakeFiles\glad.dir\build.make _deps/box2d-build/extern/glad/CMakeFiles/glad.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=C:\Users\masum\Desktop\FeatherForge\build\CMakeFiles --progress-num=20 "Finished codegen for target glad"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=C:\Users\masum\Desktop\FeatherForge\build\CMakeFiles --progress-num= "Finished codegen for target glad"
 .PHONY : _deps/box2d-build/extern/glad/CMakeFiles/glad.dir/codegen
 
 # clean rule for target.
@@ -787,12 +787,12 @@ _deps/box2d-build/extern/glad/CMakeFiles/glad.dir/clean:
 _deps/box2d-build/extern/glfw/CMakeFiles/glfw.dir/all:
 	$(MAKE) $(MAKESILENT) -f _deps\box2d-build\extern\glfw\CMakeFiles\glfw.dir\build.make _deps/box2d-build/extern/glfw/CMakeFiles/glfw.dir/depend
 	$(MAKE) $(MAKESILENT) -f _deps\box2d-build\extern\glfw\CMakeFiles\glfw.dir\build.make _deps/box2d-build/extern/glfw/CMakeFiles/glfw.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=C:\Users\masum\Desktop\FeatherForge\build\CMakeFiles --progress-num=21,22,23,24,25,26 "Built target glfw"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=C:\Users\masum\Desktop\FeatherForge\build\CMakeFiles --progress-num=21,22,23,24,25,26,27 "Built target glfw"
 .PHONY : _deps/box2d-build/extern/glfw/CMakeFiles/glfw.dir/all
 
 # Build rule for subdir invocation for target.
 _deps/box2d-build/extern/glfw/CMakeFiles/glfw.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\masum\Desktop\FeatherForge\build\CMakeFiles 6
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\masum\Desktop\FeatherForge\build\CMakeFiles 7
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 _deps/box2d-build/extern/glfw/CMakeFiles/glfw.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\masum\Desktop\FeatherForge\build\CMakeFiles 0
 .PHONY : _deps/box2d-build/extern/glfw/CMakeFiles/glfw.dir/rule
@@ -804,7 +804,7 @@ glfw: _deps/box2d-build/extern/glfw/CMakeFiles/glfw.dir/rule
 # codegen rule for target.
 _deps/box2d-build/extern/glfw/CMakeFiles/glfw.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f _deps\box2d-build\extern\glfw\CMakeFiles\glfw.dir\build.make _deps/box2d-build/extern/glfw/CMakeFiles/glfw.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=C:\Users\masum\Desktop\FeatherForge\build\CMakeFiles --progress-num=21,22,23,24,25,26 "Finished codegen for target glfw"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=C:\Users\masum\Desktop\FeatherForge\build\CMakeFiles --progress-num=21,22,23,24,25,26,27 "Finished codegen for target glfw"
 .PHONY : _deps/box2d-build/extern/glfw/CMakeFiles/glfw.dir/codegen
 
 # clean rule for target.
@@ -819,7 +819,7 @@ _deps/box2d-build/extern/glfw/CMakeFiles/glfw.dir/clean:
 _deps/box2d-build/extern/imgui/CMakeFiles/imgui.dir/all:
 	$(MAKE) $(MAKESILENT) -f _deps\box2d-build\extern\imgui\CMakeFiles\imgui.dir\build.make _deps/box2d-build/extern/imgui/CMakeFiles/imgui.dir/depend
 	$(MAKE) $(MAKESILENT) -f _deps\box2d-build\extern\imgui\CMakeFiles\imgui.dir\build.make _deps/box2d-build/extern/imgui/CMakeFiles/imgui.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=C:\Users\masum\Desktop\FeatherForge\build\CMakeFiles --progress-num=27,28 "Built target imgui"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=C:\Users\masum\Desktop\FeatherForge\build\CMakeFiles --progress-num=28,29 "Built target imgui"
 .PHONY : _deps/box2d-build/extern/imgui/CMakeFiles/imgui.dir/all
 
 # Build rule for subdir invocation for target.
@@ -836,7 +836,7 @@ imgui: _deps/box2d-build/extern/imgui/CMakeFiles/imgui.dir/rule
 # codegen rule for target.
 _deps/box2d-build/extern/imgui/CMakeFiles/imgui.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f _deps\box2d-build\extern\imgui\CMakeFiles\imgui.dir\build.make _deps/box2d-build/extern/imgui/CMakeFiles/imgui.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=C:\Users\masum\Desktop\FeatherForge\build\CMakeFiles --progress-num=27,28 "Finished codegen for target imgui"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=C:\Users\masum\Desktop\FeatherForge\build\CMakeFiles --progress-num=28,29 "Finished codegen for target imgui"
 .PHONY : _deps/box2d-build/extern/imgui/CMakeFiles/imgui.dir/codegen
 
 # clean rule for target.
@@ -851,12 +851,12 @@ _deps/box2d-build/extern/imgui/CMakeFiles/imgui.dir/clean:
 _deps/box2d-build/extern/sajson/CMakeFiles/sajson.dir/all:
 	$(MAKE) $(MAKESILENT) -f _deps\box2d-build\extern\sajson\CMakeFiles\sajson.dir\build.make _deps/box2d-build/extern/sajson/CMakeFiles/sajson.dir/depend
 	$(MAKE) $(MAKESILENT) -f _deps\box2d-build\extern\sajson\CMakeFiles\sajson.dir\build.make _deps/box2d-build/extern/sajson/CMakeFiles/sajson.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=C:\Users\masum\Desktop\FeatherForge\build\CMakeFiles --progress-num=29 "Built target sajson"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=C:\Users\masum\Desktop\FeatherForge\build\CMakeFiles --progress-num= "Built target sajson"
 .PHONY : _deps/box2d-build/extern/sajson/CMakeFiles/sajson.dir/all
 
 # Build rule for subdir invocation for target.
 _deps/box2d-build/extern/sajson/CMakeFiles/sajson.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\masum\Desktop\FeatherForge\build\CMakeFiles 1
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\masum\Desktop\FeatherForge\build\CMakeFiles 0
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 _deps/box2d-build/extern/sajson/CMakeFiles/sajson.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\masum\Desktop\FeatherForge\build\CMakeFiles 0
 .PHONY : _deps/box2d-build/extern/sajson/CMakeFiles/sajson.dir/rule
@@ -868,7 +868,7 @@ sajson: _deps/box2d-build/extern/sajson/CMakeFiles/sajson.dir/rule
 # codegen rule for target.
 _deps/box2d-build/extern/sajson/CMakeFiles/sajson.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f _deps\box2d-build\extern\sajson\CMakeFiles\sajson.dir\build.make _deps/box2d-build/extern/sajson/CMakeFiles/sajson.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=C:\Users\masum\Desktop\FeatherForge\build\CMakeFiles --progress-num=29 "Finished codegen for target sajson"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=C:\Users\masum\Desktop\FeatherForge\build\CMakeFiles --progress-num= "Finished codegen for target sajson"
 .PHONY : _deps/box2d-build/extern/sajson/CMakeFiles/sajson.dir/codegen
 
 # clean rule for target.
@@ -892,7 +892,7 @@ _deps/box2d-build/testbed/CMakeFiles/testbed.dir/all: _deps/box2d-build/extern/s
 
 # Build rule for subdir invocation for target.
 _deps/box2d-build/testbed/CMakeFiles/testbed.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\masum\Desktop\FeatherForge\build\CMakeFiles 53
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\masum\Desktop\FeatherForge\build\CMakeFiles 52
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 _deps/box2d-build/testbed/CMakeFiles/testbed.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\masum\Desktop\FeatherForge\build\CMakeFiles 0
 .PHONY : _deps/box2d-build/testbed/CMakeFiles/testbed.dir/rule

@@ -131,12 +131,18 @@ CMakeFiles/FeatherForge.dir/src/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/FeatherForge.dir/src/main.cpp.s"
 	C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\masum\Desktop\FeatherForge\src\main.cpp -o CMakeFiles\FeatherForge.dir\src\main.cpp.s
 
+CMakeFiles/FeatherForge.dir/icon.rc.obj: CMakeFiles/FeatherForge.dir/flags.make
+CMakeFiles/FeatherForge.dir/icon.rc.obj: C:/Users/masum/Desktop/FeatherForge/icon.rc
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\masum\Desktop\FeatherForge\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building RC object CMakeFiles/FeatherForge.dir/icon.rc.obj"
+	C:\msys64\mingw64\bin\windres.exe -O coff $(RC_DEFINES) $(RC_INCLUDES) $(RC_FLAGS) C:\Users\masum\Desktop\FeatherForge\icon.rc CMakeFiles\FeatherForge.dir\icon.rc.obj
+
 # Object files for target FeatherForge
 FeatherForge_OBJECTS = \
 "CMakeFiles/FeatherForge.dir/src/Entity.cpp.obj" \
 "CMakeFiles/FeatherForge.dir/src/Game.cpp.obj" \
 "CMakeFiles/FeatherForge.dir/src/PhysicsWorld.cpp.obj" \
-"CMakeFiles/FeatherForge.dir/src/main.cpp.obj"
+"CMakeFiles/FeatherForge.dir/src/main.cpp.obj" \
+"CMakeFiles/FeatherForge.dir/icon.rc.obj"
 
 # External object files for target FeatherForge
 FeatherForge_EXTERNAL_OBJECTS =
@@ -145,6 +151,7 @@ FeatherForge.exe: CMakeFiles/FeatherForge.dir/src/Entity.cpp.obj
 FeatherForge.exe: CMakeFiles/FeatherForge.dir/src/Game.cpp.obj
 FeatherForge.exe: CMakeFiles/FeatherForge.dir/src/PhysicsWorld.cpp.obj
 FeatherForge.exe: CMakeFiles/FeatherForge.dir/src/main.cpp.obj
+FeatherForge.exe: CMakeFiles/FeatherForge.dir/icon.rc.obj
 FeatherForge.exe: CMakeFiles/FeatherForge.dir/build.make
 FeatherForge.exe: _deps/sfml-build/lib/libsfml-graphics-s-d.a
 FeatherForge.exe: _deps/sfml-build/lib/libsfml-window-s-d.a
@@ -162,7 +169,7 @@ FeatherForge.exe: _deps/sfml-src/extlibs/libs-mingw/x64/libFLAC.a
 FeatherForge.exe: CMakeFiles/FeatherForge.dir/linkLibs.rsp
 FeatherForge.exe: CMakeFiles/FeatherForge.dir/objects1.rsp
 FeatherForge.exe: CMakeFiles/FeatherForge.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=C:\Users\masum\Desktop\FeatherForge\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable FeatherForge.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=C:\Users\masum\Desktop\FeatherForge\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX executable FeatherForge.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\FeatherForge.dir\link.txt --verbose=$(VERBOSE)
 	C:\msys64\mingw64\bin\cmake.exe -E copy_directory C:/Users/masum/Desktop/FeatherForge/assets C:/Users/masum/Desktop/FeatherForge/build/assets
 

@@ -835,7 +835,7 @@ void Game::DrawLevelSelect() {
     window.draw(panel);
 
     sf::Text title("SELECT LEVEL", font, 48);
-    title.setFillColor(sf::Color::White);
+    title.setFillColor(sf::Color::Black);
     title.setPosition({460.f, 70.f});
     window.draw(title);
 
