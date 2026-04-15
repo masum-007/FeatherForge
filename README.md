@@ -53,22 +53,8 @@ Inspired by Angry Birds, this project goes beyond a simple demo and focuses on b
 6. Complete levels with star ratings
 
 ## Project Structure
+<img width="540" height="557" alt="image" src="https://github.com/user-attachments/assets/b5b17761-262a-4757-acdc-6c8b3ca6a9e7" />
 
-```text
-FeatherForge/
-├── src/
-│   ├── engine/
-│   ├── physics/
-│   ├── rendering/
-│   └── gameplay/
-├── assets/
-│   ├── textures/
-│   ├── audio/
-│   └── levels/
-├── include/
-├── main.cpp
-└── README.md
-```
 ## How to Run
 
 ### Requirements
