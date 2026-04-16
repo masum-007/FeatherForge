@@ -13,7 +13,7 @@ void GameContactListener::PostSolve(b2Contact* contact, const b2ContactImpulse* 
     Entity* entityA = reinterpret_cast<Entity*>(bodyA->GetUserData().pointer);
     Entity* entityB = reinterpret_cast<Entity*>(bodyB->GetUserData().pointer);
 
-    // --- FIX: Apply the Damage Multipliers (Sloth does 50x damage) ---
+    //Damage Multipliers (Sloth does 50x damage) ---
     float dmgA = maxImpulse * (entityB ? entityB->GetDamageMultiplier() : 1.0f);
     float dmgB = maxImpulse * (entityA ? entityA->GetDamageMultiplier() : 1.0f);
 

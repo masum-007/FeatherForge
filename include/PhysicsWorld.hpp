@@ -1,7 +1,7 @@
 #pragma once
 #include <box2d/box2d.h>
 
-// NEW CLASS: Listens for Box2D crashes
+// Listens for Box2D crashes
 class GameContactListener : public b2ContactListener {
 public:
     // PostSolve happens right after Box2D calculates how hard they hit
@@ -21,5 +21,5 @@ private:
     int32 velocityIterations;
     int32 positionIterations;
     
-    GameContactListener contactListener; // NEW
+    GameContactListener contactListener; 
 };

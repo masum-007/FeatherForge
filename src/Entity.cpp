@@ -3,7 +3,7 @@
 Entity::Entity(b2World& world, float x, float y, float w, float h, EntityType type, sf::Texture* texture) 
     : width(w), height(h), type(type), isDestroyed(false), outgoingDamageMultiplier(1.0f) { 
     
-    // --- FIX: Ice is extremely fragile now ---
+    // ---Ice is extremely fragile---
     if (type == EntityType::WOOD) health = 100.0f;
     else if (type == EntityType::ICE) health = 10.0f; // Shatters instantly!
     else if (type == EntityType::ENEMY) health = 50.0f;
@@ -28,14 +28,14 @@ Entity::Entity(b2World& world, float x, float y, float w, float h, EntityType ty
     } else {
         boxShape.SetAsBox((w / 2.0f) / SCALE, (h / 2.0f) / SCALE);
         fixtureDef.shape = &boxShape;
-        // --- FIX: Ice is lighter, Wood is heavier ---
+        // Ice is lighter, Wood is heavier ---
         if (type == EntityType::WOOD) fixtureDef.density = 0.8f;
         else if (type == EntityType::ICE) fixtureDef.density = 0.3f; 
     }
 
     body->CreateFixture(&fixtureDef);
 
-    // Inside the Entity::Entity constructor, replace your texture logic with this:
+    // texture logic :
     if (texture) {
         sprite.setTexture(*texture);
         

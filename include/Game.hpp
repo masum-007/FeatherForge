@@ -63,16 +63,16 @@ private:
     void PlaySFX(const sf::SoundBuffer& buffer, float volume = 100.f, float pitch = 1.0f);
     void UpdateThemeMusic();
 
-    // --- NEW: Post-Processing & Rendering ---
+    // --- Post-Processing & Rendering ---
     sf::RenderTexture m_renderTexture;
     sf::Sprite m_renderSprite;
     sf::Shader m_postShader;
 
-    // --- NEW: Camera Kinematics (Game Feel) ---
+    // --- Camera Kinematics (Game Feel) ---
     float m_shakeTimer = 0.0f;
     float m_shakeMagnitude = 0.0f;
     float m_hitStopTimer = 0.0f;
-    // --- NEW: Permanent Environmental Decals ---
+    // --- Permanent Environmental Decals ---
     std::vector<sf::CircleShape> m_scorchMarks;
 
     void TriggerShake(float duration, float magnitude);
@@ -92,7 +92,7 @@ private:
     bool birdIsActive;
     int score;
 
-    // --- ALL TEXTURES REQUIRED ---
+    // ---TEXTURES ---
     sf::Texture birdTex, birdFireTex, birdSlothTex, birdFreezeTex, birdWaterTex;
     sf::Texture woodTex, woodCrackedTex, iceTex, groundTex, enemyTex;
     sf::Texture menuBgTex;
@@ -100,7 +100,7 @@ private:
     sf::Font font;
     sf::Text scoreText;
 
-    // --- NEW RUNE VARIABLES ---
+    // ---RUNE VARIABLES ---
     sf::Texture runeTex;
     sf::Sprite runeSprite;
     float runeRotation = 0.0f;
@@ -110,10 +110,10 @@ private:
 
     GameState m_currentState = GameState::Menu;
     int m_currentLevel = 1;
-    // --- NEW: Dynamic Star Scores ---
+    // ---Dynamic Star Scores ---
     int m_targetScore2Star = 1500;
     int m_targetScore3Star = 3000;
-    // Change this line in your private variables:
+    
     const int MAX_LEVELS = 10;
     float m_levelTransitionTimer = 0.0f; 
     float m_birdActiveTimer = 0.0f;
@@ -127,18 +127,18 @@ private:
     std::map<b2Body*, float> m_burningBodies;
     std::set<b2Body*> m_frozenBodies;
 
-    // --- NEW: Cinematic Camera Variables ---
+    // --- Cinematic Camera Variables ---
     sf::Vector2f m_cameraPos;
     float m_cameraZoom = 1.0f;
 
     sf::SoundBuffer m_sbThud;
     sf::SoundBuffer m_sbBirdPoof;
     sf::SoundBuffer m_sbEnemyKill;
-    // --- NEW: Track where we came from when opening Options ---
+    // --- Track where we came from when opening Options ---
     GameState m_previousState = GameState::Menu;
-    // --- NEW: Pause Menu Draw Function ---
+    // --- Pause Menu Draw Function ---
     void DrawPauseMenu();
     
-    // --- NEW: Options Draw Function ---
+    // --- Options Draw Function ---
     void DrawOptions();
 };

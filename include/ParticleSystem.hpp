@@ -40,7 +40,7 @@ public:
         emitCustom(pos, 25, sf::Color(150, 255, 255, 220), 100.f, 300.f, 600.f, 0.4f, 0.8f);
     }
 
-    // --- UPDATED WATER: Massive intense flood effect ---
+    // ---Massive intense flood effect ---
     void emitWater(sf::Vector2f pos) {
         emitCustom(pos, 100, sf::Color(50, 150, 255, 220), 200.f, 800.f, 400.f, 0.8f, 1.5f);
         emitCustom(pos, 50, sf::Color(200, 230, 255, 200), 50.f, 400.f, 200.f, 0.5f, 1.0f); // Foam

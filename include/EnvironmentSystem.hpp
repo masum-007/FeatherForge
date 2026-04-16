@@ -11,7 +11,7 @@ struct Cloud { sf::Vector2f pos; float scale; float speed; };
 struct Bird { sf::Vector2f pos; float speed; float flapSpeed; float phase; };
 struct Star { sf::Vector2f pos; float size; float twinklePhase; }; 
 
-// --- NEW: Micro-Motion Structs ---
+// ---Micro-Motion Structs ---
 struct FallingLeaf {
     sf::Vector2f pos;
     float speedY;
@@ -113,7 +113,7 @@ public:
             gb.color = c; m_grass.push_back(gb);
         }
 
-        // --- NEW: Generate Falling Leaves ---
+        // --- Generate Falling Leaves ---
         int numLeaves = m_theme.isRaining ? 15 : 60; // Fewer leaves in rain so it doesn't look cluttered
         for (int i = 0; i < numLeaves; i++) {
             FallingLeaf leaf;
@@ -134,7 +134,7 @@ public:
             m_fallingLeaves.push_back(leaf);
         }
 
-        // --- NEW: Generate Distant Bird Flocks ---
+        // ---Generate Distant Bird Flocks ---
         for (int i = 0; i < 4; i++) {
             Flock f;
             f.pos = {-1000.f + (rand() % 10000), 50.f + (rand() % 250)};
