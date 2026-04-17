@@ -10,7 +10,7 @@ void main() {
     float vignette = smoothstep(1.0, 0.3, dist); 
     color.rgb *= (vignette + 0.2); // Raised from 0.1 so corners aren't pitch black
 
-    // 2. FIXED BLOOM (Only the brightest things glow now, saving the sky!)
+    // 2.BLOOM (Only the brightest things glow now, saving the sky!)
     vec4 highlight = clamp(color - 0.85, 0.0, 1.0); // Raised threshold from 0.6 to 0.85
     color += highlight * 0.6;
 
