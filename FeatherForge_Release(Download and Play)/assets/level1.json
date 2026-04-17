@@ -1,0 +1,13 @@
+{
+  "star2": 1000,
+  "star3": 1200,
+  "birds": ["normal", "fire","fire", "normal"],
+  "entities": [
+    {"type": "wood", "x": 900, "y": 660, "width": 40, "height": 80},
+    {"type": "wood", "x": 1050, "y": 660, "width": 40, "height": 80},
+    {"type": "wood", "x": 975, "y": 600, "width": 240, "height": 40},
+
+    {"type": "enemy", "x": 975, "y": 660, "width": 50, "height": 50},
+    {"type": "enemy", "x": 975, "y": 560, "width": 40, "height": 40}
+  ]
+}

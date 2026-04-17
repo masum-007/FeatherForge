@@ -1,0 +1,16 @@
+{
+  "star2": 1500,
+  "star3": 2000,
+  "birds": ["normal","fire", "normal", "normal"],
+  "entities": [
+    {"type": "ice", "x": 900, "y": 660, "width": 40, "height": 80},
+    {"type": "ice", "x": 1000, "y": 660, "width": 40, "height": 80},
+    {"type": "ice", "x": 1100, "y": 660, "width": 40, "height": 80},
+    {"type": "ice", "x": 1000, "y": 600, "width": 260, "height": 40},
+    {"type": "ice", "x": 950, "y": 540, "width": 40, "height": 80},
+    {"type": "ice", "x": 1050, "y": 540, "width": 40, "height": 80},
+    {"type": "enemy", "x": 950, "y": 660, "width": 50, "height": 50},
+    {"type": "enemy", "x": 1050, "y": 660, "width": 50, "height": 50},
+    {"type": "enemy", "x": 1000, "y": 560, "width": 40, "height": 40}
+  ]
+}
